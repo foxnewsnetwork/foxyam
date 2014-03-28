@@ -1,0 +1,14 @@
+%nav.navbar
+  .container
+    .navbar-header
+      = link_to root_path, class: 'navbar-brand' do
+        %i.fa-anchor
+        = company_legal_name
+      
+    %ul.nav.navbar-nav
+      %li
+        = link_to t(:negotiations), company_negotiations_path(1)
+      
+    %ul.nav.navbar-nav.navbar-right
+      %li.utility
+        = link_to '#login'

@@ -1,0 +1,25 @@
+.two-quarters
+  .panel.panel-default
+    .panel-heading 
+      = check_box_tag 'include'
+      = link_to communication_path(1) do
+        %span.colon.bold From
+        Conroy
+    %ul.list-group
+      %li.list-group-item
+        %dl
+          %dt FAS Long Beach
+          %dd
+            $0.015 / lb
+            %span.bold.colon On
+            = DateTime.now.to_date
+            %span.bold.colon Reference
+            = link_to 'fj28fj28fj938f'
+          %dd
+            $0.020 / lb
+            %span.bold.colon On
+            = DateTime.now.to_date
+            %span.bold.colon Reference
+            = link_to 'fj28fj28fj938fd'
+      %li.list-group-item
+        Some notes

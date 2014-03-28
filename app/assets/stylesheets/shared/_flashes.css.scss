@@ -1,0 +1,49 @@
+@mixin shared-flashes {
+  position: fixed;
+  width: 100%;
+  left: 0px;
+  bottom: 0px;
+
+  .flash {
+    @extend .visible-lg;
+    @extend .visible-md;
+    width: 50%;
+    padding: 10px 20px;
+    margin: 10px 0px 10px 0px;
+  }
+  .small-flash {
+    @extend .visible-sm;
+    @extend .visible-xs;
+    width: 100%;
+    padding: 10px 10px;
+    margin: 5px 0px 5px 0px;
+  }
+
+  .success {
+    @extend .bg-success;
+    i {
+      @extend .fa-check;
+    }
+  }
+
+  .notice {
+    @extend .bg-warning;
+    i {
+      @extend .fa-exclamation;
+    }
+  }
+
+  .error {
+    @extend .bg-danger;
+    i {
+      @extend .fa-exclamation-triangle;
+    }
+  }
+
+  .info {
+    @extend .bg-info;
+    i {
+      @extend .fa-info;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+!!!5
+/ [if lt IE 7 ]
+  %html.ie.ie6{ lang: I18n.locale }
+/ [if IE 7 ]
+  %html.ie.ie7{ lang: I18n.locale }
+/ [if IE 8 ]
+  %html.ie.ie8{ lang: I18n.locale }
+/ [if IE 9 ]
+  %html.ie.ie9{ lang: I18n.locale }
+/ [if gt IE 9]
+  %html{ lang: I18n.locale }
+
+%head
+  = render partial: 'shared/head'
+%body
+  %header
+    = render partial: 'shared/header'
+  %main
+    = content_tag :div, id: main_css_id do
+      = yield
+  %footer
+    = render partial: 'shared/footer'
+  #flashes
+    = render partial: 'shared/flashes'
+      

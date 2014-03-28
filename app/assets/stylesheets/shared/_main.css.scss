@@ -1,0 +1,78 @@
+@import 'welcome/index';
+@import 'companies/negotiations/index';
+
+@mixin shared-main {
+  @extend .container;
+
+  .bold {
+    font-weight: bold;
+  }
+  .colon:after {
+    content: ":";
+  }
+  .four-quarters {
+    @extend .col-lg-12;
+    @extend .col-md-12;
+    @extend .col-sm-12;
+    @extend .col-xs-12;
+  }
+
+  .three-quarters {
+    @extend .col-lg-9;
+    @extend .col-md-9;
+    @extend .col-sm-12;
+    @extend .col-xs-12;
+  }
+
+  .two-quarters {
+    @extend .col-lg-6;
+    @extend .col-md-6;
+    @extend .col-sm-12;
+    @extend .col-xs-12; 
+  }
+
+  .one-quarter {
+    @extend .col-lg-3;
+    @extend .col-md-3;
+    @extend .col-sm-12;
+    @extend .col-xs-12;
+  }
+
+  .page-title {
+    @extend .col-lg-12;
+    @extend .col-md-12;
+    @extend .col-sm-12;
+    @extend .col-xs-12;
+  }
+
+  .actions {
+    .action-icon {
+      @extend .col-lg-2;
+      @extend .col-md-3;
+      @extend .col-sm-4;
+      @extend .col-xs-6;
+      a {
+        @extend .thumbnail;
+      }
+
+      text-align: center;
+    }
+    i {
+      @extend .fa-2x;
+    }
+  }
+
+  #cookie-crumbs {
+    @extend .col-lg-12;
+    @extend .col-md-12;
+    @extend .col-sm-12;
+    @extend .col-xs-12;
+    ol {
+      @extend .breadcrumb;
+    }
+  }
+
+  #companies-negotiations-index {
+    @include companies-negotiations-index;
+  }
+}

@@ -1,0 +1,7 @@
+- flash.each do |name, msg|
+  .flash{ class: name }
+    %i
+    %span= msg
+  .small-flash{ class: name }
+    %i
+    %span= msg

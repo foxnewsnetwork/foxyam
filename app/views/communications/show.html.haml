@@ -1,0 +1,111 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_company)
+      %li= link_to t(:negotiations)
+      %li= link_to t(:negotiation_123)
+      %li Communication with Conroy
+
+.row
+  %h1.page-title
+    Communication Record with Conroy
+
+.row
+  .one-quarter
+    %dl
+      %dt Best Price
+      %dd $240 / MT CNF Hong Kong
+      %dt Latest Price
+      %dd $220 / MT CNF Mawei
+  .one-quarter
+    %dl
+      %dt First Contact
+      %dd= 44.days.ago
+      %dt Latest Contact
+      %dd= DateTime.now
+  .one-quarter
+    %dl
+      %dt Main Contact
+      %dd
+        = link_to '#person' do
+          Jacky Chan (chenlong@china.cn)
+      %dt Position
+      %dd President
+
+.row
+  %h2.page-title
+    Record
+
+.row.actions
+  .action-icon
+    = link_to '#communicate' do
+      %figure
+        %i.fa-edit
+      = t(:compose)
+
+.row
+  .four-quarters
+    .panel.panel-default
+      .panel-heading
+        %i.fa-envelop
+        %span.colon.bold RE
+        3 loads MRP - Long Beach
+        %span.colon.bold Via
+        = link_to '#email' do
+          test@email.com - fdaf2fj28jffasd
+        %span.pull-right
+          %i.fa-times
+      %ul.list-group
+        %li.list-group-item
+          %span.colon.bold Target
+          someemail@email.com
+          %span.colon.bold CC'd
+          dog@email.com
+          %span.colon.bold BCC'd
+          otherdog@email.com
+      .panel-body
+        %p Hi Test,
+        %p I can offer $0.12 long beach
+        %p.date= DateTime.now
+      %ul.list-group
+        %li.list-group-item
+          %span.colon.bold Tags
+          price, long beach, $0.12
+
+.row
+  %h2.page-title E-Secretary
+
+.row.actions
+  .action-icon
+    = link_to '#setup_bot' do
+      %figure
+        %i.fa-linux
+      = t(:add_instruction)
+  .action-icon
+    = link_to '#kill_bot' do
+      %figure
+        %i.fa-linux
+      = t(:fire_secretary)
+
+.row
+  .two-quarters
+    %ul.list-group
+      %li.list-group-item
+        = link_to '#edit' do
+          Reply politely to all emails
+        %span.pull-right
+          = link_to '#delete' do
+            %i.fa-times
+      %li.list-group-item
+        = link_to '#edit' do
+          Maintain minimum of $0.01 profit margin
+        %span.pull-right
+          = link_to '#delete' do
+            %i.fa-times
+      %li.list-group-item
+        = link_to '#edit' do
+          Sends emails without confirmation
+        %span.pull-right
+          = link_to '#delete' do
+            %i.fa-times
+      

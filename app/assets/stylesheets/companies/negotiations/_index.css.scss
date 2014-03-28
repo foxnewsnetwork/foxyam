@@ -1,0 +1,5 @@
+@mixin companies-negotiations-index {
+  .data:nth-of-type(1n+2) {
+    margin-left: 15px;
+  }
+}

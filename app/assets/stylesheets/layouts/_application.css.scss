@@ -1,0 +1,29 @@
+@import 'shared/variables';
+@import 'shared/important';
+@import 'shared/header';
+@import 'shared/main';
+@import 'shared/footer';
+@import 'shared/flashes';
+
+body {
+  background: #e7e7e7;
+  i {
+    @extend .fa;
+  }
+}
+
+header {
+  @include shared-header;
+}
+
+main {
+  @include shared-main;
+}
+
+footer {
+  @include shared-footer;
+}
+
+#flashes {
+  @include shared-flashes;
+}

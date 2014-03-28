@@ -1,0 +1,180 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_company)
+      %li= link_to t(:negotiations)
+      %li Negotiation 1
+
+.row
+  %h1.page-title
+    Negotiation Summary
+
+.row.actions
+  .action-icon
+    = link_to '#mark_dead' do
+      %figure
+        %i.fa-times
+      = t(:mark_dead)
+
+.row
+  .two-quarters
+    %ul.list-group
+      %li.list-group-item
+        %span.colon.bold Material
+        Dog Food
+        %span.colon.bold Quantity
+        2 loads
+        %span.colon.bold Packing Weight
+        36k in 40HC
+
+.row
+  .one-quarter
+    %dl
+      %dt Expected Profit
+      %dd 
+        %span.colon.bold Gross
+        $18,000.21
+        %span.colon.bold Net 
+        $2,241.22
+      %dt Expected Total Cost
+      %dd $16,231.11
+  .one-quarter
+    %dl
+      %dt Best Purchase Price
+      %dd $0.045 FAS Long Beach
+      %dt Best Sell Price
+      %dd $0.085 CNF Hong Kong
+  .one-quarter
+    %dl
+      %dt Created at
+      %dd= DateTime.now.to_date
+      %dt Last Activity
+      %dd= DateTime.now.to_date
+  .one-quarter
+    %dl
+      %dt Potential Buyers
+      %dd 6
+      %dt Involved Seller
+      %dd Universal
+
+
+.row
+  %h3.page-title Rate Quotes
+
+.row.actions
+  .action-icon
+    = link_to '#request_quote' do
+      %figure
+        %i.fa-truck
+      = t(:request_quote)
+
+
+.row
+  .one-quarter
+    %dl
+      %dt Long Beach to Quanzhou
+      %dd 
+        %i.fa-anchor
+        CMA CGM - $660 / Container
+      %dd 
+        %i.fa-anchor
+        Maersk - $800 / Container
+  .one-quarter
+    %dl
+      %dt Long Beach to Hong Kong
+      %dd 
+        %i.fa-anchor
+        CMA CGM - $660 / Container
+      %dd 
+        %i.fa-anchor
+        Maersk - $800 / Container
+  .one-quarter
+    %dl
+      %dt Seller Yard to Hong Kong
+      %dd 
+        %i.fa-truck
+        Perez Bros - $400 / Container
+      %dd 
+        %i.fa-truck
+        Swift - $500 / Container
+      %dd 
+        %i.fa-anchor
+        CMA CGM - $660 / Container
+      %dd 
+        %i.fa-anchor
+        Maersk- $800 / Container
+
+.row
+  %h3.page-title Buying From Offer Log
+.row
+  = render partial: 'negotiations/communication', collection: presenter.seller_communications
+
+.row
+  %h3.page-title Selling To Offer Log
+
+.row
+  .four-quarters
+    %ul.nav.nav-tabs
+      %li
+        = link_to '#add_buyer' do
+          %i.fa-plus
+          = t(:add_buyer)
+      %li
+        = link_to '#batch' do
+          %i.fa-reply-all
+          = t(:batch_reply)
+      %li
+        = link_to '#check_all' do
+          %i.fa-check
+          = t(:check_all)
+.row
+  = render partial: 'negotiations/communication', collection: presenter.buyer_communications
+
+.row
+  .one-quarter
+    = link_to '#finalize', class: 'btn btn-lg btn-block btn-primary' do
+      %i.fa-linux
+      = t(:finalize_deal)
+
+.row
+  %h2.page-title E-Manager
+
+.row.actions
+  .action-icon
+    = link_to '#add_secretary' do
+      %figure
+        %i.fa-linux
+      = t(:add_secretary)
+  .action-icon
+    = link_to '#fire_manager' do
+      %figure
+        %i.fa-linux
+      = t(:fire_manager)
+
+.row
+  .two-quarters
+    %ul.list-group
+      %li.list-group-item
+        = link_to '#edit' do
+          Reply politely to all emails
+        %span.pull-right
+          = link_to '#delete' do
+            %i.fa-times
+      %li.list-group-item
+        = link_to '#edit' do
+          Maintain minimum of $0.01 profit margin
+        %span.pull-right
+          = link_to '#delete' do
+            %i.fa-times
+      %li.list-group-item
+        = link_to '#edit' do
+          Sends emails without confirmation
+        %span.pull-right
+          = link_to '#delete' do
+            %i.fa-times
+      %li.list-group-item
+        = link_to '#edit' do
+          Sell to Highest Payer
+        %span.pull-right
+          = link_to '#delete' do
+            %i.fa-times
