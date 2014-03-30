@@ -10,4 +10,6 @@
 #
 
 class Company < ActiveRecord::Base
+  has_many :offers
+  has_many :conversations
 end

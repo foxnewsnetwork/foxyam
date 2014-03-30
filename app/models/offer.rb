@@ -11,4 +11,8 @@
 #
 
 class Offer < ActiveRecord::Base
+  belongs_to :negotiation
+  belongs_to :company
+
+  has_many :conversations
 end

@@ -11,5 +11,6 @@
 #
 
 class Conversation < ActiveRecord::Base
-
+  belongs_to :offer
+  belongs_to :company
 end

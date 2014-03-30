@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329221325) do
+ActiveRecord::Schema.define(version: 20140330185155) do
 
   create_table "companies", force: true do |t|
     t.string   "company_name"
@@ -98,7 +98,17 @@ ActiveRecord::Schema.define(version: 20140329221325) do
 
   add_index "conversations_weights", ["conversation_id"], name: "index_conversations_weights_on_conversation_id", using: :btree
 
+  create_table "merchants", force: true do |t|
+    t.string   "name"
+    t.string   "permalink"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "merchants", ["permalink"], name: "index_merchants_on_permalink", unique: true, using: :btree
+
   create_table "negotiations", force: true do |t|
+    t.integer  "merchant_id"
     t.datetime "deleted_at"
     t.datetime "dead_at"
     t.datetime "finalized_at"
@@ -106,6 +116,8 @@ ActiveRecord::Schema.define(version: 20140329221325) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "negotiations", ["merchant_id"], name: "index_negotiations_on_merchant_id", using: :btree
 
   create_table "offers", force: true do |t|
     t.string   "offer_type",     default: "sell", null: false

@@ -1,6 +1,7 @@
 class CreateNegotiations < ActiveRecord::Migration
   def change
     create_table :negotiations do |t|
+      t.references :merchant, index: true
       t.datetime :deleted_at
       t.datetime :dead_at
       t.datetime :finalized_at
