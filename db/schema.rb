@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330185155) do
+ActiveRecord::Schema.define(version: 20140401055609) do
 
   create_table "companies", force: true do |t|
     t.string   "company_name"
@@ -90,6 +90,15 @@ ActiveRecord::Schema.define(version: 20140330185155) do
   add_index "conversations_prices", ["conversation_id"], name: "index_conversations_prices_on_conversation_id", using: :btree
   add_index "conversations_prices", ["place_id"], name: "index_conversations_prices_on_place_id", using: :btree
 
+  create_table "conversations_raw_logs", force: true do |t|
+    t.integer  "conversation_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conversations_raw_logs", ["conversation_id"], name: "index_conversations_raw_logs_on_conversation_id", using: :btree
+
   create_table "conversations_weights", force: true do |t|
     t.integer "conversation_id"
     t.integer "total_weight_pounds"
@@ -97,6 +106,42 @@ ActiveRecord::Schema.define(version: 20140330185155) do
   end
 
   add_index "conversations_weights", ["conversation_id"], name: "index_conversations_weights_on_conversation_id", using: :btree
+
+  create_table "email_accounts", force: true do |t|
+    t.integer  "merchant_id"
+    t.string   "email_address"
+    t.string   "unencrypted_password"
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "email_accounts", ["email_address"], name: "index_email_accounts_on_email_address", unique: true, using: :btree
+  add_index "email_accounts", ["merchant_id"], name: "index_email_accounts_on_merchant_id", using: :btree
+
+  create_table "email_inboxes", force: true do |t|
+    t.integer  "negotiation_id"
+    t.string   "email_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "email_inboxes", ["email_address"], name: "index_email_inboxes_on_email_address", unique: true, using: :btree
+  add_index "email_inboxes", ["negotiation_id"], name: "index_email_inboxes_on_negotiation_id", using: :btree
+
+  create_table "emails", force: true do |t|
+    t.integer  "conversation_id"
+    t.integer  "email_inbox_id"
+    t.string   "external_id"
+    t.text     "raw_envelope"
+    t.text     "raw_body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "emails", ["conversation_id"], name: "index_emails_on_conversation_id", using: :btree
+  add_index "emails", ["email_inbox_id"], name: "index_emails_on_email_inbox_id", using: :btree
+  add_index "emails", ["external_id"], name: "index_emails_on_external_id", using: :btree
 
   create_table "merchants", force: true do |t|
     t.string   "name"

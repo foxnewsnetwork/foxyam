@@ -1,5 +1,6 @@
 @import 'welcome/index';
 @import 'companies/negotiations/index';
+@import 'email_accounts/show';
 
 @mixin shared-main {
   @extend .container;
@@ -9,6 +10,15 @@
   }
   .colon:after {
     content: ":";
+  }
+  .tab {
+    margin-right: 15px; 
+  }
+  .dash:after {
+    content: " - ";
+  }
+  .ellipsis {
+    text-overflow: ellipsis;
   }
   .four-quarters {
     @extend .col-lg-12;
@@ -74,5 +84,9 @@
 
   #companies-negotiations-index {
     @include companies-negotiations-index;
+  }
+
+  #email_accounts-show {
+    @include email_accounts-show;
   }
 }

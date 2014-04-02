@@ -10,6 +10,13 @@ Fuxueyan::Application.routes.draw do
 
   resources :negotiations, only: [:show]
 
+  resources :email_accounts, only: [:show], controller: 'email_accounts' do
+    resources :emails, only: [:index], controller: 'email_accounts/emails'
+    resources :inboxes, only: [:show], controller: 'email_accounts/inboxes'
+  end
+
+  resources :emails
+
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 

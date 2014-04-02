@@ -1,0 +1,43 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_company)
+      %li= link_to t(:email_accounts)
+      %li Email Inbox
+
+.row
+  %h1.page-title
+    = email_account.email
+    = t(:inbox)
+
+.row
+  .one-quarter
+    .list-group
+      = link_to '#inbox', class: 'list-group-item active' do
+        %h4.ellipsis
+          = t(:unclaimed_inbox)
+          %span.pull-right.badge= email_account.inbox.unclaimed_count
+      - email_account.inboxes.each do |inbox|
+        = link_to '#show_inbox', class: 'list-group-item' do
+          .ellipsis
+            = inbox.name
+            %span.pull-right.badge= inbox.count
+  .three-quarters
+    = form_for :batch, url: root_path, method: :get do |f|
+      .btn-group
+        = button_tag t(:sales), class: 'btn btn-default'
+        = button_tag t(:purchase), class: 'btn btn-default'
+        = button_tag t(:trash), class: 'btn btn-default'
+      %table.table.table-hover
+        %tbody
+          - email_account.inbox.emails.each do |email|
+            %tr
+              %td
+                .big-check= f.check_box email.id
+              %td.no-padding
+                = link_to email_path(email) do
+                  %h5.no-margin.all-padding
+                    %span.tab= email.from_presentation_google_style
+                    %span.bold.dash= email.subject
+                    = email.plain_content.truncate 55
+                    %span.pull-right= email.created_at.to_s :short

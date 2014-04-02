@@ -1,0 +1,22 @@
+@mixin email_accounts-show {
+  .big-check {
+    [type=checkbox] {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  table {
+    background: #fff;
+  }
+  .no-padding {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .no-margin {
+    margin: 0px;
+  }
+  .all-padding {
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+}

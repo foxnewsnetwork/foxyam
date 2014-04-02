@@ -13,4 +13,6 @@
 class Conversation < ActiveRecord::Base
   belongs_to :offer
   belongs_to :company
+  has_one :raw_log,
+    class_name: 'Conversation::RawLog'
 end
