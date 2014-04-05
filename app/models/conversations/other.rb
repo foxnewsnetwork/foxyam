@@ -7,7 +7,8 @@
 #  notes           :text
 #
 
-class Conversations::Other < ActiveRecord::Base
+class Conversations::Other < Conversations::RawLog
   self.table_name = 'conversations_others'
   belongs_to :conversation
+
 end

@@ -1,0 +1,10 @@
+- active_inbox ||= nil
+.list-group
+  - inboxes.each do |ib|
+    - c = 'list-group-item'
+    - if active_inbox == ib
+      - c += ' active'
+    = link_to email_inbox_path(ib), class: c do
+      %h4.ellipsis
+        = ib.name
+        %span.pull-right.badge= ib.count

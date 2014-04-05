@@ -5,6 +5,7 @@ class CreateConversationsPackingWeights < ActiveRecord::Migration
       t.integer :packing_weight_pounds
       t.string :container_size
       t.string :notes
+      t.timestamps
     end
   end
 end

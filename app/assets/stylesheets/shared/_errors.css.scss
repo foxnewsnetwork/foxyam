@@ -1,0 +1,21 @@
+@mixin shared-errors {
+  #shared-errors {
+    @extend .panel;
+    @extend .panel-danger;
+  }
+  #error-header-h3 {
+    @extend .panel-title;
+    text-transform: capitalize;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 0px;
+  }   
+  #error-heading-div {
+    @extend .panel-heading;
+  }
+  ul#error-body-ul {
+    @extend .panel-body;
+    list-style: none;
+  }
+}

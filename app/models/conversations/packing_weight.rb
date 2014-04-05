@@ -9,7 +9,8 @@
 #  notes                 :string(255)
 #
 
-class Conversations::PackingWeight < ActiveRecord::Base
+class Conversations::PackingWeight < Conversations::RawLog
   self.table_name = 'conversations_packing_weights'
   belongs_to :conversation
+
 end

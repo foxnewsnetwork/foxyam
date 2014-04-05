@@ -6,6 +6,7 @@ class CreateConversationsPrices < ActiveRecord::Migration
       t.decimal :usd_per_pound, scale: 5, precision: 12, null: false
       t.string :incoterm, null: false, default: 'EXW'
       t.string :notes
+      t.timestamps
     end
   end
 end

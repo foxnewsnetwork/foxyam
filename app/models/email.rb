@@ -16,7 +16,15 @@ class Email < ActiveRecord::Base
   attr_accessor :address, :email
 
   belongs_to :inbox,
+    foreign_key: 'email_inbox_id',
     class_name: 'EmailInbox'
+
+  has_one :account,
+    class_name: 'EmailAccount',
+    through: :inbox
+
+  has_one :merchant,
+    through: :account
 
   belongs_to :conversation
 
@@ -42,6 +50,10 @@ class Email < ActiveRecord::Base
 
   def envelope
     YAML.load raw_envelope
+  end
+
+  def email_addresses
+    from.map { |f| "#{f.mailbox}@#{f.host}" }
   end
 
   def from_presentation

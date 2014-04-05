@@ -1,0 +1,41 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_company)
+      %li= link_to t(:email_accounts)
+      %li= link_to t(:email_inbox)
+      %li= link_to t(:email)
+      %li to negotiation
+
+- email = interactor.email
+- inboxes = email.account.all_inboxes
+- inbox = email.inbox
+
+.row
+  .four-quarters
+    .well.plain= Kramdown::Document.new(email.plain_content).to_html.html_safe
+
+.row
+  .four-quarters
+    = render partial: 'shared/errors', locals: { errors: interactor.errors }
+.row
+  = form_for interactor, url: email_negotiations_path(email) do |f|
+    .one-quarter
+      %legend= t(:negotiation_filing)
+      %dl
+        %dt= t(:from)
+        - email.from.each do |person|
+          %dd
+            %span.dash= person.name
+            %span.italic
+              = "#{person.mailbox}@#{person.host}"
+      .form-group
+        = f.label :permalink, t(:negotiation_type)
+        .select-control= f.select :permalink, ['new']
+      = link_to email_path(email), class: 'btn btn-default btn-sm' do
+        %i.fa-chevron-left
+        = t(:back)
+      = button_tag type: 'submit', class: 'btn btn-primary btn-lg' do
+        = t(:next)
+        %i.fa-chevron-right
+          

@@ -1,0 +1,32 @@
+%li.list-group-item
+  - if 'price' == tag.tag_type
+    %span.colon.bold= t(:price)
+    = number_to_currency tag.usd_per_pound, precision: 4
+    = '/lb'
+    %span.bold.upcase= tag.incoterm
+    = tag.place.name
+  - elsif 'material' == tag.tag_type
+    %span.colon.bold= t(:material)
+    %span.dash= tag.material
+    %span.truncate= tag.notes.truncate 30
+  - elsif 'quantity' == tag.tag_type
+    %span.colon.bold= t(:quantity)
+    = number_with_delimiter tag.quantity, delimiter: ','
+    = tag.units
+    = tag.time_interval
+  - elsif 'packing_weight' == tag.tag_type
+    %span.colon.bold= t(:packing_weight)
+    = number_with_delimiter tag.packing_weight_pounds, delimiter: ','
+    = t(:pounds)
+    = '/'
+    = tag.container_size
+  - elsif 'other' == tag.tag_type
+    %span.colon.bold= t(:other_notes)
+    = tag.notes
+  - else
+    %span.colon.bold= t(:computer_is_confused)
+    = tag.to_s
+
+  %span.pull-right
+    = link_to tag_path(tag), method: :delete do
+      %i.fa-times

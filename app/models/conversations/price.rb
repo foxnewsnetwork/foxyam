@@ -10,8 +10,9 @@
 #  notes           :string(255)
 #
 
-class Conversations::Price < ActiveRecord::Base
+class Conversations::Price < Conversations::RawLog
   self.table_name = 'conversations_prices'
   belongs_to :conversation
   belongs_to :place
+  Incoterms = YAML.load(File.read(Rails.root.join 'config', 'incoterms.yml'))['Incoterms'].freeze
 end

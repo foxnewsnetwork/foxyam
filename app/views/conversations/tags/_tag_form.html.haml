@@ -1,0 +1,78 @@
+- params[:offer_type] ||= 'price'
+= form_for i, h do |f|
+  = f.hidden_field :tag_type, value: params[:offer_type]
+  .row.dropdown-row
+    .one-quarter
+      .input-group
+        .input-group-btn
+          - c = "btn btn-default btn-block btn-lg dropdown-toggle capitalize"
+          = button_tag type: 'button', class: c, data: { toggle: 'dropdown' } do
+            = params[:offer_type]
+            %i.fa-caret-down
+          %ul.dropdown-menu
+            %li= link_to t(:price),'?offer_type=price'
+            %li= link_to t(:material), '?offer_type=material'
+            %li= link_to t(:quantity), '?offer_type=quantity'
+            %li= link_to t(:packing_weight), '?offer_type=packing'
+            %li= link_to t(:other), '?offer_type=other'
+  
+  .row.fields-row
+    - if 'price' == params[:offer_type]
+      .one-third
+        .input-group
+          %span.input-group-addon $
+          = f.number_field :usd_per_pound, step: 0.0001, class: 'form-control'
+          %span.input-group-addon / lb
+      .one-third
+        .input-group
+          %span.input-group-addon= f.label :incoterm, t(:term)
+          .select-control= f.select :incoterm, Conversations::Price::Incoterms
+      .one-third
+        .input-group
+          %span.input-group-addon= f.label :place_name, t(:to)
+          = f.text_field :place_name, class: 'form-control'
+
+    - elsif 'material' == params[:offer_type]
+      .four-quarters
+        .input-group
+          %span.input-group-addon= f.label :material, t(:material)
+          = f.text_field :material, class: 'form-control'
+        .input-group
+          %span.input-group-addon= f.label :notes, t(:notes)
+          = f.text_field :notes, class: 'form-control'
+
+    - elsif 'quantity' == params[:offer_type]
+      .one-third
+        .input-group
+          = f.number_field :quantity, class: 'form-control'
+      .one-third
+        .input-group
+          .select-control= f.select :units, ['containers','pounds','short tons','metric tons']
+
+      .one-third
+        .input-group
+          %span.input-group-addon= f.label :time_interval, t(:once)
+          .select-control= f.select :time_interval, ['one-time', 'per week', 'biweek', 'per month', 'per year']
+    
+    - elsif 'packing' == params[:offer_type]
+      .two-quarters
+        .input-group
+          = f.number_field :packing_weight_pounds, class: 'form-control'
+          %span.input-group-addon= f.label :packing_weight_pounds, t(:pounds)
+      .two-quarters
+        .input-group
+          %span.input-group-addon= f.label :container_size, t(:per)
+          .select-control= f.select :container_size, ['40HC', '40ST', '45HC', '45ST']
+
+    - else
+      .four-quarters
+        .input-group
+          = f.label :notes, t(:notes)
+          = f.text_area :notes, class: 'form-control'
+  
+  .row
+    .four-quarters
+      .input-group.pull-right
+        = button_tag type: 'submit', class: 'btn btn-success' do
+          %i.fa-plus
+          = t(:add_tag)

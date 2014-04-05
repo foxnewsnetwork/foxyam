@@ -12,4 +12,12 @@
 class Conversations::RawLog < ActiveRecord::Base
   self.table_name = 'conversations_raw_logs'
   belongs_to :conversation
+  self.abstract_class = true
+
+  scope :order_latest,
+    -> { order("id desc") }
+
+  def tag_type
+    self.class.to_s.split("::").last.underscore
+  end
 end

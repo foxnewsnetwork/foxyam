@@ -5,6 +5,9 @@ This is my personal software for doing international mercantile trade in plastic
 
 Tasks
 =
+Friday April 4
+- scaffolded out email to internal representation stuff
+
 Friday March 28
 - scaffolded out views
 

@@ -1,6 +1,7 @@
 @import 'welcome/index';
 @import 'companies/negotiations/index';
 @import 'email_accounts/show';
+@import 'conversations/tags/index';
 
 @mixin shared-main {
   @extend .container;
@@ -19,6 +20,26 @@
   }
   .ellipsis {
     text-overflow: ellipsis;
+  }
+  .parantheses:after {
+    content: ")";
+  }
+  .parantheses:before {
+    content: "(";
+  }
+  .italic {
+    font-style: italic;
+  }
+  .capitalize {
+    text-transform: capitalize;
+  }
+  .upcase {
+    text-transform: uppercase;
+  }
+  .select-control {
+    select {
+      @extend .form-control;
+    }
   }
   .four-quarters {
     @extend .col-lg-12;
@@ -46,6 +67,20 @@
     @extend .col-md-3;
     @extend .col-sm-12;
     @extend .col-xs-12;
+  }
+
+  .one-third {
+    @extend .col-lg-4;
+    @extend .col-md-4;
+    @extend .col-sm-12;
+    @extend .col-xs-12;
+  }
+
+  .two-thirds {
+    @extend .col-lg-6;
+    @extend .col-md-6;
+    @extend .col-sm-12;
+    @extend .col-xs-12;  
   }
 
   .page-title {
@@ -88,5 +123,9 @@
 
   #email_accounts-show {
     @include email_accounts-show;
+  }
+
+  #conversations-tags-index {
+    @include conversations-tags-index;
   }
 }

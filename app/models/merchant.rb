@@ -10,5 +10,19 @@
 #
 
 class Merchant < ActiveRecord::Base
-  has_many :negotiations
+  has_many :negotiations,
+    -> { completed }
+
+  has_one :negotiation,
+    -> { incomplete }
+
+  class << self
+    def preload
+      create name: "FoxYam Test Merchant", permalink: 'foxyam-test-merchant'
+    end
+  end
+
+  def negotiation_draft
+    negotiation || negotiations.create
+  end
 end

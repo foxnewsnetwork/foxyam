@@ -12,16 +12,8 @@
 
 .row
   .one-quarter
-    .list-group
-      = link_to '#inbox', class: 'list-group-item active' do
-        %h4.ellipsis
-          = t(:unclaimed_inbox)
-          %span.pull-right.badge= email_account.inbox.unclaimed_count
-      - email_account.inboxes.each do |inbox|
-        = link_to '#show_inbox', class: 'list-group-item' do
-          .ellipsis
-            = inbox.name
-            %span.pull-right.badge= inbox.count
+    = render partial: 'emails/inboxes', locals: { inboxes: email_account.inboxes, active_inbox: email_account.inbox }
+  
   .three-quarters
     = form_for :batch, url: root_path, method: :get do |f|
       .btn-group

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401055609) do
+ActiveRecord::Schema.define(version: 20140404232139) do
 
   create_table "companies", force: true do |t|
     t.string   "company_name"
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 20140401055609) do
 
   add_index "conversations_loads", ["conversation_id"], name: "index_conversations_loads_on_conversation_id", using: :btree
 
+  create_table "conversations_materials", force: true do |t|
+    t.integer  "conversation_id"
+    t.string   "material"
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conversations_materials", ["conversation_id"], name: "index_conversations_materials_on_conversation_id", using: :btree
+
   create_table "conversations_others", force: true do |t|
     t.integer "conversation_id"
     t.text    "notes"
@@ -89,6 +99,18 @@ ActiveRecord::Schema.define(version: 20140401055609) do
 
   add_index "conversations_prices", ["conversation_id"], name: "index_conversations_prices_on_conversation_id", using: :btree
   add_index "conversations_prices", ["place_id"], name: "index_conversations_prices_on_place_id", using: :btree
+
+  create_table "conversations_quantities", force: true do |t|
+    t.integer  "quantity",                             null: false
+    t.string   "units",                                null: false
+    t.string   "notes"
+    t.string   "time_interval",   default: "one-time", null: false
+    t.integer  "conversation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conversations_quantities", ["conversation_id"], name: "index_conversations_quantities_on_conversation_id", using: :btree
 
   create_table "conversations_raw_logs", force: true do |t|
     t.integer  "conversation_id"

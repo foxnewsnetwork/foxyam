@@ -1,0 +1,10 @@
+- if errors.any?
+  #shared-errors
+    #error-explanation
+      #error-heading-div
+        #error-header-h3
+          = pluralize(errors.count, "error")
+          = "are in your form:"
+      %ul#error-body-ul
+        - errors.full_messages.each do |msg|
+          %li= msg

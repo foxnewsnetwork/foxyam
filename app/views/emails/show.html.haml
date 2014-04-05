@@ -1,0 +1,27 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_company)
+      %li= link_to t(:email_accounts)
+      %li= link_to t(:email_inbox)
+      %li= email.subject
+
+- inboxes = email.account.all_inboxes
+- inbox = email.inbox
+.row
+  .one-quarter
+    = render partial: 'emails/inboxes', locals: { inboxes: inboxes, active_inbox: inbox }
+    
+  .three-quarters
+    .row
+      .four-quarters
+        = link_to new_email_negotiation_path(email), class: 'btn btn-default' do
+          = t(:file_to_negotiation)
+    .row
+      .four-quarters
+        .plain.well= Kramdown::Document.new(email.plain_content).to_html.html_safe
+    .row
+      .four-quarters
+        = link_to '#rich_view', class: 'btn btn-link', role: 'button' do
+          %i.fa-eye
+          = t(:rich_view)

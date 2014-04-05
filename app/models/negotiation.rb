@@ -15,4 +15,14 @@
 class Negotiation < ActiveRecord::Base
   belongs_to :merchant
   has_many :offers
+
+  scope :completed,
+    -> { where "#{self.table_name}.completed_at < ?", DateTime.now }
+
+  scope :incomplete,
+    -> { where "#{self.table_name}.completed_at is null" }
+
+  def complete!
+    update completed_at: DateTime.now
+  end
 end

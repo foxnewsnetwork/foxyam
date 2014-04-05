@@ -1,0 +1,54 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_company)
+      %li= link_to t(:email_accounts)
+      %li= link_to t(:email_inbox)
+      %li= link_to t(:email)
+      %li= link_to t(:new_negotiation)
+      %li Negotiation from email
+
+- email = interactor.email
+- negotiation = interactor.negotiation
+- conversation = interactor.conversation
+- offer = conversation.offer
+.row
+  .four-quarters
+    .well.plain= Kramdown::Document.new(email.plain_content).to_html.html_safe
+
+.row
+  .four-quarters
+    = render partial: 'shared/errors', locals: { errors: interactor.errors }
+
+.row
+  .one-quarter
+    %legend= t(:negotiation_filing)
+    %dl
+      %dt= t :negotiation_type
+      %dd New
+  .one-quarter
+    %legend= t(:other_party)
+    %dl
+      %dt= t(:from)
+      - email.from.each do |person|
+        %dd
+          %span.dash= person.name
+          %span.italic
+            = "#{person.mailbox}@#{person.host}"
+      %dt= t(:company_name)
+      %dd= offer.company.name
+      %dt= t(:offer_type)
+      %dd= offer.offer_type
+  .two-quarters
+    %legend= t(:gist_of_this_email)
+    %ul.list-group
+      = render partial: 'conversations/tags/tag', collection: conversation.tags
+      - hash = { url: conversation_tags_path(conversation) }
+      = render partial: 'conversations/tags/tag_form', locals: { i: interactor, h: hash }
+
+    = link_to edit_conversation_company_path(conversation, offer.company), class: 'btn btn-default btn-sm' do
+      %i.fa-chevron-left
+      = t(:back)
+    = link_to '#actions', class: 'btn btn-primary btn-lg' do
+      = t(:next)
+      %i.fa-chevron-right

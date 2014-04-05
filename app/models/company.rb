@@ -12,4 +12,25 @@
 class Company < ActiveRecord::Base
   has_many :offers
   has_many :conversations
+  has_many :contacts
+  class << self 
+    def find_by_company_name(thing)
+      find_by_permalink to_permalink thing
+    end
+
+    def to_permalink(thing)
+      thing.to_s.downcase.to_url
+    end
+  end
+
+  before_create :_create_permalink
+
+  def name
+    company_name
+  end
+  
+  private
+  def _create_permalink
+    self.permalink = self.class.to_permalink company_name
+  end
 end

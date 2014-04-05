@@ -17,6 +17,10 @@ class EmailAccount < ActiveRecord::Base
       find_or_create_by email_address: 'cheapcthulhu4u@gmail.com', unencrypted_password: 'attentionjewswwiiiscoming'
     end
   end
+  has_many :all_inboxes,
+    class_name: 'EmailInbox',
+    foreign_key: 'email_address',
+    primary_key: 'email_address'
   # has_many inboxes
   has_many :inboxes,
     -> { claimed },
@@ -30,6 +34,7 @@ class EmailAccount < ActiveRecord::Base
     foreign_key: 'email_address',
     primary_key: 'email_address'
 
+  belongs_to :merchant
   def email
     email_address
   end
