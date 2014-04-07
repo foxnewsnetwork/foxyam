@@ -20,12 +20,14 @@
   .two-quarters
     %ul.list-group
       %li.list-group-item
-        %span.colon.bold Material
-        Dog Food
-        %span.colon.bold Quantity
-        2 loads
-        %span.colon.bold Packing Weight
-        36k in 40HC
+        %span.colon.bold= t(:material)
+        = presenter.material
+        %span.colon.bold= t(:quantity)
+        = number_with_delimiter presenter.quantity, delimiter: ','
+        = presenter.units
+        %span.colon.bold= t(:packing)
+        = number_with_delimiter presenter.packing, delimiter: ','
+        = presenter.packing_units
 
 .row
   .one-quarter
@@ -107,7 +109,7 @@
 .row
   %h3.page-title Buying From Offer Log
 .row
-  = render partial: 'negotiations/communication', collection: presenter.seller_communications
+  = render partial: 'negotiations/communication', collection: presenter.sell_offers
 
 .row
   %h3.page-title Selling To Offer Log
@@ -128,7 +130,7 @@
           %i.fa-check
           = t(:check_all)
 .row
-  = render partial: 'negotiations/communication', collection: presenter.buyer_communications
+  = render partial: 'negotiations/communication', collection: presenter.buy_offers
 
 .row
   .one-quarter

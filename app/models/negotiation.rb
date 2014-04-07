@@ -16,6 +16,26 @@ class Negotiation < ActiveRecord::Base
   belongs_to :merchant
   has_many :offers
 
+  has_many :sell_offers,
+    -> { sells },
+    class_name: 'Offer'
+
+  has_many :buy_offers,
+    -> { buys },
+    class_name: 'Offer'
+
+  has_many :materials,
+    through: :sell_offers,
+    class_name: 'Conversations::Material'
+
+  has_many :quantities,
+    through: :sell_offers,
+    class_name: 'Conversations::Quantity'
+
+  has_many :packing_weights,
+    through: :sell_offers,
+    class_name: 'Conversations::PackingWeight'
+
   scope :completed,
     -> { where "#{self.table_name}.completed_at < ?", DateTime.now }
 
@@ -25,4 +45,6 @@ class Negotiation < ActiveRecord::Base
   def complete!
     update completed_at: DateTime.now
   end
+
+  
 end

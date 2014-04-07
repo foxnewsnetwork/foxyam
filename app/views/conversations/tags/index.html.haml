@@ -49,6 +49,6 @@
     = link_to edit_conversation_company_path(conversation, offer.company), class: 'btn btn-default btn-sm' do
       %i.fa-chevron-left
       = t(:back)
-    = link_to '#actions', class: 'btn btn-primary btn-lg' do
+    = link_to negotiation_path(negotiation), class: 'btn btn-primary btn-lg' do
       = t(:next)
       %i.fa-chevron-right
