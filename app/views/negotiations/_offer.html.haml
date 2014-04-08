@@ -1,0 +1,26 @@
+.two-quarters
+  .panel.panel-default
+    .panel-heading 
+      = check_box_tag 'include'
+      = link_to offer_path(offer.id) do
+        %span.colon.bold= t(:from)
+        = offer.company_name
+      .pull-right
+        = link_to offer_path(offer.id), method: :delete do
+          %i.fa-times
+    %ul.list-group
+      %li.list-group-item
+        %dl
+          %dt= offer.price_term
+          - offer.prices.each do |price|
+            %dd
+              $
+              = number_with_delimiter price.usd_per_pound, delimiter: ','
+              = '/lb'
+              %span.bold.colon= t(:received)
+              = link_to conversation_path price.conversation do
+                %i.fa-archive
+                = time_ago_in_words price.conversation.created_at
+                = t(:ago)
+      %li.list-group-item
+        = offer.others.map(&:notes).join(' -- ')

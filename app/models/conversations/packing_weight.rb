@@ -7,6 +7,8 @@
 #  packing_weight_pounds :integer
 #  container_size        :string(255)
 #  notes                 :string(255)
+#  created_at            :datetime
+#  updated_at            :datetime
 #
 
 class Conversations::PackingWeight < Conversations::RawLog

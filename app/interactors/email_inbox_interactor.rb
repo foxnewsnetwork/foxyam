@@ -16,7 +16,7 @@ class EmailInboxInteractor
   end
 
   def inbox
-    @inbox ||= account.inboxes.find_or_create_by negotiation_id: nil
+    @inbox ||= account.inbox
   end
 
   def unread

@@ -4,6 +4,7 @@ class CreateOffers < ActiveRecord::Migration
       t.string :offer_type, null: false, default: 'sell'
       t.references :company, index: true
       t.references :negotiation, index: true
+      t.datetime :deleted_at
       t.timestamps
     end
   end

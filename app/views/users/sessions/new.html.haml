@@ -1,0 +1,26 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:home), root_path
+      %li Login User
+
+.row
+  .two-quarters
+    = form_for :user, url: user_session_path do |f|
+      = f.hidden_field :back, value: params[:back]
+      %legend= t(:login_existing_user)
+      .form-group
+        = f.label :email
+        = f.email_field :email, class: 'form-control'
+      .form-group
+        = f.label :password
+        = f.password_field :password, class: 'form-control'
+      = button_tag type: :reset, class: 'btn btn-default' do
+        = t(:reset)
+      = button_tag type: :submit, class: 'btn btn-primary btn-lg' do
+        = t(:submit)
+  .two-quarters
+    %legend= t(:no_account?)
+    = link_to new_user_registration_path(back: params[:back]), class: 'btn btn-lg btn-info' do
+      %i.fa-edit
+      = t(:register_account)

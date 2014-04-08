@@ -6,11 +6,20 @@
         = company_legal_name
       
     %ul.nav.navbar-nav
+      
       %li
         = link_to t(:negotiations), company_negotiations_path(1)
       %li
         = link_to t(:emails), email_account_path(1)
       
     %ul.nav.navbar-nav.navbar-right
-      %li.utility
-        = link_to '#login'
+      - if user_signed_in?
+        %li
+          = link_to user_path(current_user) do
+            %i.fa-user
+            = t(:my_account)
+      - else
+        %li
+          = link_to new_user_session_path do
+            %i.fa-user
+            = t(:sign_in)

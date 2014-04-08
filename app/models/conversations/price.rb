@@ -8,6 +8,8 @@
 #  usd_per_pound   :decimal(12, 5)   not null
 #  incoterm        :string(255)      default("EXW"), not null
 #  notes           :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
 #
 
 class Conversations::Price < Conversations::RawLog

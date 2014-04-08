@@ -1,13 +1,21 @@
 Fuxueyan::Application.routes.draw do
-  devise_for :users
+  devise_for :users,
+    class_name: 'User',
+    controllers: {
+      sessions: 'users/sessions',
+      registrations: 'users/registrations'
+    }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :companies do
     resources :negotiations, only: [:index], controller: 'companies/negotiations'
   end
 
-  resources :communications, only: [:show]
+  resources :users, only: [:show]
+  resources :merchants, only: [:show]
 
+  resources :communications, only: [:show]
+  resources :offers, only: [:show, :destroy]
   resources :negotiations, only: [:show]
 
   resources :email_accounts, only: [:show]
@@ -19,7 +27,7 @@ Fuxueyan::Application.routes.draw do
     end
   end
 
-  resources :conversations, only: [] do
+  resources :conversations, only: [:show] do
     resources :companies, only: [:edit, :update], controller: 'conversations/edit_companies'
     resources :companies, only: [:new, :create], controller: 'conversations/companies'
     resources :tags, only: [:index, :create], controller: 'conversations/tags'

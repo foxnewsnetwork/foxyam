@@ -6,6 +6,7 @@
 #  offer_type     :string(255)      default("sell"), not null
 #  company_id     :integer
 #  negotiation_id :integer
+#  deleted_at     :datetime
 #  created_at     :datetime
 #  updated_at     :datetime
 #

@@ -72,6 +72,7 @@ class Email < ActiveRecord::Base
   end
 
   def rich_content
+    return "" if plain?
     rich_section.strip.split("\r\n\r\n").tail.join("\r\n\r\n")
   end
 
@@ -80,7 +81,8 @@ class Email < ActiveRecord::Base
   end
 
   def plain_content
-    plain_section.strip.split("\r\n\r\n").tail.join("\r\n\r\n")
+    return plain_section.strip.split("\r\n\r\n").tail.join("\r\n\r\n") if rich?
+    return body_chunks.join('\r\n')
   end
 
   def plain_section
@@ -89,6 +91,14 @@ class Email < ActiveRecord::Base
 
   def body_chunks
     body.raw_source.split(/\-\-\w+\-*/).reject(&:blank?)
+  end
+
+  def rich?
+    body_chunks.any? { |chunk| _rich_content? chunk }
+  end
+
+  def plain?
+    !rich?
   end
 
   private

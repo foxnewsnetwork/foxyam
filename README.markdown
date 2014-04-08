@@ -5,6 +5,9 @@ This is my personal software for doing international mercantile trade in plastic
 
 Tasks
 =
+Monday April 7
+- negotiation show now correctly shows material information
+
 Friday April 4
 - scaffolded out email to internal representation stuff
 

@@ -5,6 +5,18 @@ class Negotiations::ShowPresenter
     @negotiation = negotiation
   end
 
+  def buyers
+    negotiation.buyers
+  end
+
+  def seller
+    negotiation.sellers.first
+  end
+
+  def seller_name
+    seller.try(:company_name)
+  end
+
   def query(params)
     self
   end
@@ -23,6 +35,10 @@ class Negotiations::ShowPresenter
 
   def packing
     _packing_presentation _packing_tags.last
+  end
+
+  def sell_presenters
+    sell_offers.map { |offer| Negotiations::Offers::Presenter.new offer }
   end
 
   def sell_offers

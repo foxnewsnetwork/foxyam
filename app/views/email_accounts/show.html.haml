@@ -12,7 +12,7 @@
 
 .row
   .one-quarter
-    = render partial: 'emails/inboxes', locals: { inboxes: email_account.inboxes, active_inbox: email_account.inbox }
+    = render partial: 'emails/inboxes', locals: { inboxes: email_account.all_inboxes, active_inbox: email_account.inbox }
   
   .three-quarters
     = form_for :batch, url: root_path, method: :get do |f|

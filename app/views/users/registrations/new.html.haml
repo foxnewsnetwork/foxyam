@@ -1,0 +1,34 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:home), root_path
+      %li Registeration
+
+- back = params[:back] || interactor.back_path
+.row
+  .two-quarters
+    = form_for interactor, url: user_registration_path do |f|
+      = f.hidden_field :back, value: back
+      %legend= t(:register_new_account)
+      .form-group
+        = f.label :email
+        = f.email_field :email, class: 'form-control'
+      .form-group
+        = f.label :company_name
+        = f.text_field :company_name, class: 'form-control'
+      .form-group
+        = f.label :password
+        = f.password_field :password, class: 'form-control'
+      .form-group
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, class: 'form-control'
+      = button_tag type: :reset, class: 'btn btn-default' do
+        = t(:reset)
+      = button_tag type: :submit, class: 'btn btn-primary btn-lg' do
+        = t(:submit)
+  .two-quarters
+    %legend= t(:already_have_account?)
+    = render partial: 'shared/errors', locals: { errors: interactor.errors }
+    = link_to new_user_session_path(back: back), class: 'btn btn-lg btn-info' do
+      %i.fa-user
+      = t(:login_account)

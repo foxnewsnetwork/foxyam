@@ -39,6 +39,12 @@ class EmailAccount < ActiveRecord::Base
     email_address
   end
 
+  def inbox_with_default
+    return inbox_without_default if inbox_without_default.present?
+    inboxes.find_or_create_by negotiation_id: nil
+  end
+  alias_method_chain :inbox, :default
+
   def password
     unencrypted_password
   end

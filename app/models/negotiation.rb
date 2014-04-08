@@ -24,6 +24,18 @@ class Negotiation < ActiveRecord::Base
     -> { buys },
     class_name: 'Offer'
 
+  has_many :buyers,
+    -> { select(:company_name).distinct },
+    through: :buy_offers,
+    source: :company,
+    class_name: 'Company'
+
+  has_many :sellers,
+    -> { select('companies.id', :company_name).distinct },
+    through: :sell_offers,
+    source: :company,
+    class_name: 'Company'
+
   has_many :materials,
     through: :sell_offers,
     class_name: 'Conversations::Material'

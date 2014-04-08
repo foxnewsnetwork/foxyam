@@ -5,6 +5,8 @@
 #  id                   :integer          not null, primary key
 #  conversation_id      :integer
 #  notes                :string(255)
+#  created_at           :datetime
+#  updated_at           :datetime
 #  picture_file_name    :string(255)
 #  picture_content_type :string(255)
 #  picture_file_size    :integer

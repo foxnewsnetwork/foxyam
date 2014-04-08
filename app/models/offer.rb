@@ -6,11 +6,13 @@
 #  offer_type     :string(255)      default("sell"), not null
 #  company_id     :integer
 #  negotiation_id :integer
+#  deleted_at     :datetime
 #  created_at     :datetime
 #  updated_at     :datetime
 #
 
 class Offer < ActiveRecord::Base
+  acts_as_paranoid
   OfferTypes = [:buy, :sell].freeze
   belongs_to :negotiation
   belongs_to :company
@@ -42,9 +44,9 @@ class Offer < ActiveRecord::Base
     through: :conversations,
     class_name: 'Conversations::Quantity'
 
-    scope :sells,
-      -> { where "#{self.table_name}.offer_type = ?", :sell }
+  scope :sells,
+    -> { where "#{self.table_name}.offer_type = ?", :sell }
 
-    scope :buys,
-      -> { where "#{self.table_name}.offer_type = ?", :buy }
+  scope :buys,
+    -> { where "#{self.table_name}.offer_type = ?", :buy }
 end

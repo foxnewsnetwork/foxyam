@@ -5,6 +5,7 @@
 #  id         :integer          not null, primary key
 #  name       :string(255)
 #  permalink  :string(255)
+#  deleted_at :datetime
 #  created_at :datetime
 #  updated_at :datetime
 #

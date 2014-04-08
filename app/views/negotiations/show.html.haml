@@ -32,7 +32,7 @@
 .row
   .one-quarter
     %dl
-      %dt Expected Profit
+      %dt= t(:expected_profit)
       %dd 
         %span.colon.bold Gross
         $18,000.21
@@ -54,10 +54,11 @@
       %dd= DateTime.now.to_date
   .one-quarter
     %dl
-      %dt Potential Buyers
-      %dd 6
-      %dt Involved Seller
-      %dd Universal
+      %dt= t(:potential_buyers)
+      %dd= presenter.buyers.count
+      %dt= t(:involved_seller)
+      %dd
+        = link_to presenter.seller_name, company_path(presenter.seller.id)
 
 
 .row
@@ -109,7 +110,7 @@
 .row
   %h3.page-title Buying From Offer Log
 .row
-  = render partial: 'negotiations/communication', collection: presenter.sell_offers
+  = render partial: 'negotiations/offer', collection: presenter.sell_presenters
 
 .row
   %h3.page-title Selling To Offer Log
@@ -130,7 +131,7 @@
           %i.fa-check
           = t(:check_all)
 .row
-  = render partial: 'negotiations/communication', collection: presenter.buy_offers
+  = render partial: 'negotiations/offer', collection: presenter.buy_presenters
 
 .row
   .one-quarter

@@ -5,6 +5,8 @@
 #  id              :integer          not null, primary key
 #  conversation_id :integer
 #  notes           :text
+#  created_at      :datetime
+#  updated_at      :datetime
 #
 
 class Conversations::Other < Conversations::RawLog

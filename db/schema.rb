@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404232139) do
+ActiveRecord::Schema.define(version: 20140407215901) do
 
   create_table "companies", force: true do |t|
     t.string   "company_name"
@@ -43,15 +43,6 @@ ActiveRecord::Schema.define(version: 20140404232139) do
 
   add_index "conversations", ["offer_id"], name: "index_conversations_on_offer_id", using: :btree
 
-  create_table "conversations_loads", force: true do |t|
-    t.integer "conversation_id"
-    t.integer "loads"
-    t.string  "container_size"
-    t.string  "notes"
-  end
-
-  add_index "conversations_loads", ["conversation_id"], name: "index_conversations_loads_on_conversation_id", using: :btree
-
   create_table "conversations_materials", force: true do |t|
     t.integer  "conversation_id"
     t.string   "material"
@@ -63,17 +54,21 @@ ActiveRecord::Schema.define(version: 20140404232139) do
   add_index "conversations_materials", ["conversation_id"], name: "index_conversations_materials_on_conversation_id", using: :btree
 
   create_table "conversations_others", force: true do |t|
-    t.integer "conversation_id"
-    t.text    "notes"
+    t.integer  "conversation_id"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "conversations_others", ["conversation_id"], name: "index_conversations_others_on_conversation_id", using: :btree
 
   create_table "conversations_packing_weights", force: true do |t|
-    t.integer "conversation_id"
-    t.integer "packing_weight_pounds"
-    t.string  "container_size"
-    t.string  "notes"
+    t.integer  "conversation_id"
+    t.integer  "packing_weight_pounds"
+    t.string   "container_size"
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "conversations_packing_weights", ["conversation_id"], name: "index_conversations_packing_weights_on_conversation_id", using: :btree
@@ -81,6 +76,8 @@ ActiveRecord::Schema.define(version: 20140404232139) do
   create_table "conversations_pictures", force: true do |t|
     t.integer  "conversation_id"
     t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
@@ -90,11 +87,13 @@ ActiveRecord::Schema.define(version: 20140404232139) do
   add_index "conversations_pictures", ["conversation_id"], name: "index_conversations_pictures_on_conversation_id", using: :btree
 
   create_table "conversations_prices", force: true do |t|
-    t.integer "conversation_id"
-    t.integer "place_id"
-    t.decimal "usd_per_pound",   precision: 12, scale: 5,                 null: false
-    t.string  "incoterm",                                 default: "EXW", null: false
-    t.string  "notes"
+    t.integer  "conversation_id"
+    t.integer  "place_id"
+    t.decimal  "usd_per_pound",   precision: 12, scale: 5,                 null: false
+    t.string   "incoterm",                                 default: "EXW", null: false
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "conversations_prices", ["conversation_id"], name: "index_conversations_prices_on_conversation_id", using: :btree
@@ -120,14 +119,6 @@ ActiveRecord::Schema.define(version: 20140404232139) do
   end
 
   add_index "conversations_raw_logs", ["conversation_id"], name: "index_conversations_raw_logs_on_conversation_id", using: :btree
-
-  create_table "conversations_weights", force: true do |t|
-    t.integer "conversation_id"
-    t.integer "total_weight_pounds"
-    t.string  "notes"
-  end
-
-  add_index "conversations_weights", ["conversation_id"], name: "index_conversations_weights_on_conversation_id", using: :btree
 
   create_table "email_accounts", force: true do |t|
     t.integer  "merchant_id"
@@ -168,6 +159,7 @@ ActiveRecord::Schema.define(version: 20140404232139) do
   create_table "merchants", force: true do |t|
     t.string   "name"
     t.string   "permalink"
+    t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -190,6 +182,7 @@ ActiveRecord::Schema.define(version: 20140404232139) do
     t.string   "offer_type",     default: "sell", null: false
     t.integer  "company_id"
     t.integer  "negotiation_id"
+    t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -223,5 +216,16 @@ ActiveRecord::Schema.define(version: 20140404232139) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_merchants", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "merchant_id"
+    t.string   "clearance",   default: "employee", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users_merchants", ["merchant_id"], name: "index_users_merchants_on_merchant_id", using: :btree
+  add_index "users_merchants", ["user_id"], name: "index_users_merchants_on_user_id", using: :btree
 
 end
