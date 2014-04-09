@@ -1,26 +1,48 @@
 .four-quarters
   .panel.panel-default
     .panel-heading
-      = link_to negotiation_path(1) do
-        ID#12345 - Buying Dog Food FAS Long Beach from Riverstar
-    .panel-body
-      
+      = link_to negotiation_path(negotiation) do
+        %span.colon.bold= t(:merchant)
+        %span.dash= negotiation.merchant.name
+        = '#'
+        = negotiation.id
     %ul.list-group
       %li.list-group-item
-        %span.data.bold.colon Material
-        Dog Food
-        %span.data.bold.colon Buy Price
-        $0.055 / lb
-        %span.data.bold.colon Sell Price
-        $0.075 / lb
-        %span.data.bold.colon Quantity
-        10 loads
+        %span.colon.bold= t(:sellers)
+        = t(:no_sellers) if negotiation.sellers.blank?
+        - negotiation.sellers.each do |seller|
+          %span.comma= link_to seller.company_name, company_path(seller)
       %li.list-group-item
-        %span.data.bold.colon Material
-        Cat Food
-        %span.data.bold.colon Buy Price
-        $0.055 / lb
-        %span.data.bold.colon Sell Price
-        $0.075 / lb
-        %span.data.bold.colon Quantity
-        10 loads
+        %span.colon.bold= t(:buyers)
+        = t(:no_buyers) if negotiation.buyers.blank?
+        - negotiation.buyers.each do |buyer|
+          %span.comma= link_to buyer.company_name, company_path(buyer)
+    %ul.list-group
+      %li.list-group-item
+        %span.data.bold.colon= t :material
+        = negotiation.materials.first.try :material
+        %span.data.bold.colon= t :quantity
+        - q = negotiation.quantities.first
+        = q.try :quantity
+        = q.try :units
+        = q.try :time_interval
+      %li.list-group-item
+        %span.data.bold.colon= t :latest_buy_price
+        - sp = negotiation.sell_prices.first
+        - if sp.blank?
+          = t(:no_sellers)
+        - else
+          = number_to_currency sp.try(:usd_per_pound), precision: 4
+          = '/ lb'
+          %span.upcase= sp.try(:incoterm)
+          = sp.try(:place).try(:name)
+
+        %span.data.bold.colon= t :latest_sell_price
+        - sp = negotiation.buy_prices.first
+        - if sp.blank?
+          = t(:no_buyers)
+        - else
+          = number_to_currency sp.try(:usd_per_pound), precision: 4
+          = '/ lb'
+          %span.upcase= sp.try(:incoterm)
+          = sp.try(:place).try(:name)

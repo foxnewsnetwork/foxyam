@@ -13,6 +13,14 @@ class Negotiations::ShowPresenter
     negotiation.sellers.first
   end
 
+  def best_purchase_price
+    purchase_prices.sort { |a,b| b.usd_per_pound <=> a.usd_per_pound }.first
+  end
+
+  def purchase_prices
+    negotiation.sell_prices
+  end
+
   def seller_name
     seller.try(:company_name)
   end
@@ -39,6 +47,10 @@ class Negotiations::ShowPresenter
 
   def sell_presenters
     sell_offers.map { |offer| Negotiations::Offers::Presenter.new offer }
+  end
+
+  def buy_presenters
+    buy_offers.map { |offer| Negotiations::Offers::Presenter.new offer }
   end
 
   def sell_offers

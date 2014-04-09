@@ -2,15 +2,16 @@ class Emails::Negotiations::Interactor < InteractorBase
   Fields = [
     :permalink
   ]
-  attr_accessor :email, :attributes, :negotiation, :conversation
+  attr_accessor :email, :attributes, :negotiation, :conversation, :merchant
   attr_hash_accessor *Fields
 
   validates :permalink,
     :negotiation,
     presence: true
 
-  def initialize(email)
+  def initialize(email, merchant=nil)
     @email = email
+    @merchant = merchant
   end
 
   def negotiation!
@@ -47,7 +48,7 @@ class Emails::Negotiations::Interactor < InteractorBase
     !_existing_negotiation?
   end
   def _merchant
-    email.merchant
+    merchant || email.merchant
   end
   def _new_result(thing=nil)
     Emails::Negotiations::Result.new(valid? && thing)

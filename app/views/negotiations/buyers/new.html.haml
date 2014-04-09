@@ -1,0 +1,67 @@
+- presenter = interactor.presenter
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_account), user_path(current_user)
+      %li= link_to t(:negotiations), merchant_negotiations_path(presenter.merchant)
+      %li
+        = link_to negotiation_path(presenter.negotiation) do
+          = t(:negotiation)
+          = "##{presenter.id}"
+      %li= t(:new_buyer)
+
+.row
+  .one-quarter
+    .list-group
+      .list-group-item
+        %span.bold= t(:negotiation_summary)
+      .list-group-item
+        %span.colon.bold= t(:quantity)
+        = number_with_delimiter presenter.quantity, delimiter: ','
+        = presenter.quantity_units
+      .list-group-item
+        %span.colon.bold= t(:material)
+        = presenter.material
+      .list-group-item
+        %span.colon.bold= t(:price)
+        = number_to_currency presenter.price, precision: 4
+        %span.upcase= presenter.incoterm
+        = presenter.place
+
+  .one-quarter
+    .list-group
+      .list-group-item
+        %span.bold= t(:potential_companies)
+      - presenter.potential_companies.each do |company|
+        = link_to "?c=#{company.permalink}", class: 'list-group-item' do
+          %i.fa-building-o
+          = company.name
+
+  .two-quarters
+    = form_for interactor, url: negotiation_buyers_path(interactor.negotiation) do |f|
+      %legend= t(:new_buyer_for_negotiation)
+      .form-group
+        = f.label :company_name
+        = f.text_field :company_name, class: 'form-control'
+      .form-group
+        = f.label :from
+        .select-control= f.select :from, interactor.from_choices
+      .form-group
+        = f.label :to
+        = f.email_field :to, class: 'form-control'
+      .form-group
+        = f.label :cc
+        = f.email_field :cc, class: 'form-control'
+      .form-group
+        = f.label :bcc
+        = f.email_field :bcc, class: 'form-control'
+      .form-group
+        = f.label :subject
+        = f.text_field :subject, class: 'form-control'
+      .form-group
+        = f.label :content
+        = f.text_area :content, class: 'form-control'
+      = link_to negotiation_path(interactor.negotiation), class: 'btn btn-default' do
+        = t(:back)
+      = button_tag type: :submit, class: 'btn btn-lg btn-primary' do
+        = t(:next)

@@ -19,6 +19,12 @@ class Offer < ActiveRecord::Base
 
   has_many :conversations
 
+  has_one :latest_price,
+    -> { order_latest },
+    through: :conversations,
+    source: :prices,
+    class_name: 'Conversations::Price'
+
   has_many :materials,
     -> { order_latest },
     through: :conversations,

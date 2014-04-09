@@ -35,23 +35,27 @@
       %dt= t(:expected_profit)
       %dd 
         %span.colon.bold Gross
-        $18,000.21
+        = t(:no_buyer_yet!)
         %span.colon.bold Net 
-        $2,241.22
+        = t(:no_buyer_yet!)
       %dt Expected Total Cost
-      %dd $16,231.11
+      %dd= t(:no_buyer_yet!)
   .one-quarter
     %dl
-      %dt Best Purchase Price
-      %dd $0.045 FAS Long Beach
-      %dt Best Sell Price
-      %dd $0.085 CNF Hong Kong
+      %dt= t(:best_purchase_price)
+      %dd
+        $
+        = presenter.best_purchase_price.usd_per_pound
+        %span.upcase= presenter.best_purchase_price.incoterm
+        = presenter.best_purchase_price.place.name
+      %dt= t(:best_sell_price)
+      %dd= t(:no_buyer_yet!)
   .one-quarter
     %dl
-      %dt Created at
-      %dd= DateTime.now.to_date
-      %dt Last Activity
-      %dd= DateTime.now.to_date
+      %dt= t(:time_since_creation)
+      %dd= time_ago_in_words presenter.negotiation.created_at
+      %dt= t(:time_since_latest_activity)
+      %dd= time_ago_in_words presenter.negotiation.updated_at
   .one-quarter
     %dl
       %dt= t(:potential_buyers)
@@ -74,38 +78,7 @@
 
 .row
   .one-quarter
-    %dl
-      %dt Long Beach to Quanzhou
-      %dd 
-        %i.fa-anchor
-        CMA CGM - $660 / Container
-      %dd 
-        %i.fa-anchor
-        Maersk - $800 / Container
-  .one-quarter
-    %dl
-      %dt Long Beach to Hong Kong
-      %dd 
-        %i.fa-anchor
-        CMA CGM - $660 / Container
-      %dd 
-        %i.fa-anchor
-        Maersk - $800 / Container
-  .one-quarter
-    %dl
-      %dt Seller Yard to Hong Kong
-      %dd 
-        %i.fa-truck
-        Perez Bros - $400 / Container
-      %dd 
-        %i.fa-truck
-        Swift - $500 / Container
-      %dd 
-        %i.fa-anchor
-        CMA CGM - $660 / Container
-      %dd 
-        %i.fa-anchor
-        Maersk- $800 / Container
+    = t(:no_quotes_yet!)
 
 .row
   %h3.page-title Buying From Offer Log
@@ -115,21 +88,22 @@
 .row
   %h3.page-title Selling To Offer Log
 
-.row
-  .four-quarters
-    %ul.nav.nav-tabs
-      %li
-        = link_to '#add_buyer' do
-          %i.fa-plus
-          = t(:add_buyer)
-      %li
-        = link_to '#batch' do
-          %i.fa-reply-all
-          = t(:batch_reply)
-      %li
-        = link_to '#check_all' do
-          %i.fa-check
-          = t(:check_all)
+.row.actions
+  .action-icon
+    = link_to new_negotiation_buyer_path(presenter.negotiation) do
+      %figure
+        %i.fa-plus
+      = t(:add_buyer)
+  .action-icon
+    = link_to '#batch' do
+      %figure
+        %i.fa-reply-all
+      = t(:batch_reply)
+  .action-icon
+    = link_to '#check_all' do
+      %figure
+        %i.fa-check
+      = t(:check_all)
 .row
   = render partial: 'negotiations/offer', collection: presenter.buy_presenters
 

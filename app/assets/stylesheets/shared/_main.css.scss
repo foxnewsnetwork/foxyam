@@ -12,6 +12,11 @@
   .colon:after {
     content: ":";
   }
+  .comma:not(:last-child) {
+    &:after {
+      content: ",";
+    }
+  }
   .tab {
     margin-right: 15px; 
   }

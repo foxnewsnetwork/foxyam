@@ -27,7 +27,7 @@ class Emails::NegotiationsController < ApplicationController
   end
 
   def _interactor
-    @interactor ||= Emails::Negotiations::Interactor.new _email
+    @interactor ||= Emails::Negotiations::Interactor.new _email, current_merchant
   end
 
   def _email

@@ -13,6 +13,9 @@ class Company < ActiveRecord::Base
   has_many :offers
   has_many :conversations
   has_many :contacts
+  has_many :negotiations,
+    through: :offers
+
   class << self 
     def find_by_company_name(thing)
       find_by_permalink to_permalink thing
@@ -27,6 +30,10 @@ class Company < ActiveRecord::Base
 
   def name
     company_name
+  end
+
+  def primary_contact
+    contacts.merchantable.first
   end
   
   private

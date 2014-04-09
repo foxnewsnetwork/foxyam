@@ -1,0 +1,21 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:home), root_path
+      %li= t(:my_company)
+
+.row
+  .one-quarter
+    .list-group
+      .list-group-item
+        %span.bold= t(:merchant_accounts)
+      - user.merchants.each do |merchant|
+        = link_to merchant_path(merchant), class: 'list-group-item' do
+          %i.fa-building-o
+          = merchant.name
+      .list-group-item
+        %span.bold= t(:user_account)
+      .list-group-item
+        %span.bold= t(:site_preferences)
+      .list-group-item
+        %span.bold= t(:email_preferences)

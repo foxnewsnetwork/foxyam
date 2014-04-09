@@ -11,6 +11,7 @@
 #
 
 class Merchant < ActiveRecord::Base
+  has_many :email_accounts
   has_many :negotiations,
     -> { completed }
 

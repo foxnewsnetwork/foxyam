@@ -1,0 +1,31 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_merchant_account), merchant_path(presenter.merchant)
+      %li= t(:negotiations)
+.row
+  .three-quarters
+    .row
+      %h1.page-title
+        = t(:negotiations)
+    .row.actions
+      .action-icon
+        = link_to '#nowhere' do
+          %figure
+            %i.fa-edit
+          = t(:new_negotiation)
+      .action-icon
+        = link_to '#nowhere' do
+          %figure
+            %i.fa-pencil
+          = t(:add_email)
+
+    .row
+      = render partial: 'companies/negotiations/negotiation', collection: presenter.negotiations
+  .one-quarter
+    .list-group
+      = link_to t(:all), '#nowhere', class: 'list-group-item'
+      = link_to t(:one_sided), '#nowhere', class: 'list-group-item'
+      = link_to t(:active), '#nowhere', class: 'list-group-item'
+      = link_to t(:finished), '#nowhere', class: 'list-group-item'
+      = link_to t(:dead), '#nowhere', class: 'list-group-item'

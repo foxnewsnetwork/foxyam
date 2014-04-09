@@ -12,11 +12,15 @@ Fuxueyan::Application.routes.draw do
   end
 
   resources :users, only: [:show]
-  resources :merchants, only: [:show]
+  resources :merchants, only: [:show] do
+    resources :negotiations, only: [:index], controller: 'merchants/negotiations'
+  end
 
   resources :communications, only: [:show]
   resources :offers, only: [:show, :destroy]
-  resources :negotiations, only: [:show]
+  resources :negotiations, only: [:show] do
+    resources :buyers, only: [:new, :create], controller: 'negotiations/buyers'
+  end
 
   resources :email_accounts, only: [:show]
   resources :email_inboxes, only: [:show]

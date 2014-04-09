@@ -14,7 +14,9 @@
 class EmailAccount < ActiveRecord::Base
   class << self
     def preload
-      find_or_create_by email_address: 'cheapcthulhu4u@gmail.com', unencrypted_password: 'attentionjewswwiiiscoming'
+      find_or_create_by email_address: 'cheapcthulhu4u@gmail.com', 
+        unencrypted_password: 'attentionjewswwiiiscoming',
+        merchant: Merchant.preload
     end
   end
   has_many :all_inboxes,

@@ -13,8 +13,19 @@
 #
 
 class Negotiation < ActiveRecord::Base
+  acts_as_paranoid
   belongs_to :merchant
   has_many :offers
+
+  has_many :sell_prices,
+    through: :sell_offers,
+    source: :latest_price,
+    class_name: 'Conversations::Price'
+
+  has_many :buy_prices,
+    through: :buy_offers,
+    source: :latest_price,
+    class_name: 'Conversations::Price'
 
   has_many :sell_offers,
     -> { sells },

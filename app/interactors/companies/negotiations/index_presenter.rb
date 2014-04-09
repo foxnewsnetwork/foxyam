@@ -9,7 +9,7 @@ class Companies::Negotiations::IndexPresenter
   attr_accessor :company
 
   def negotiations
-    [Negotiation.new, Negotiation.new]
+    company.negotiations
   end
 
   def paginate(per: per, page: page)

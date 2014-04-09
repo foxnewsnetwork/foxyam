@@ -3,6 +3,13 @@ README
 
 This is my personal software for doing international mercantile trade in plastics. Named after Fu Xue Yan, the great Chinese merchant and philantrophist of the late Qing dynasty.
 
+ToDos
+=
+1. implement basic secretary class to help write emails
+2. implement companies index and tie companies to merchants
+3. refine filing system for income emails
+4. add emails page
+
 Tasks
 =
 Monday April 7
