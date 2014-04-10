@@ -10,17 +10,26 @@
           %i.fa-times
     %ul.list-group
       %li.list-group-item
-        %dl
-          %dt= offer.price_term
-          - offer.prices.each do |price|
-            %dd
-              $
-              = number_with_delimiter price.usd_per_pound, delimiter: ','
-              = '/lb'
-              %span.bold.colon= t(:received)
-              = link_to conversation_path price.conversation do
-                %i.fa-archive
-                = time_ago_in_words price.conversation.created_at
-                = t(:ago)
-      %li.list-group-item
-        = offer.others.map(&:notes).join(' -- ')
+        %span.colon.bold= t(:conversations)
+        = offer.conversations.count
+      - if offer.prices.present?
+        %li.list-group-item
+          %dl
+            %dt= offer.price_term
+            - offer.prices.each do |price|
+              %dd
+                $
+                = number_with_delimiter price.usd_per_pound, delimiter: ','
+                = '/lb'
+                %span.bold.colon= t(:received)
+                = link_to conversation_path price.conversation do
+                  %i.fa-archive
+                  = time_ago_in_words price.conversation.created_at
+                  = t(:ago)
+      - if offer.others.present?
+        %li.list-group-item
+          - o = offer.others.first
+          %span.dash= o.try(:notes)
+          %span.italic
+            = time_ago_in_words o.created_at
+            = t(:ago)

@@ -36,4 +36,13 @@ class Contact < ActiveRecord::Base
   def google_style
     "#{name} (#{email})"
   end
+
+  def consider_promote_to_sales!
+    return self if role.present?
+    sales!
+  end
+
+  def sales!
+    self if update role: :sales
+  end
 end

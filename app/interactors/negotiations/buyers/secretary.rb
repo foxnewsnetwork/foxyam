@@ -6,7 +6,7 @@ class Negotiations::Buyers::Secretary
   end
 
   def write(language=:en)
-    [_header, _body, _footer].join('\r\n\r\n')
+    [_header, _body, _footer].join "\r\n\r\n"
   end
 
   def subject(language=:en)
@@ -24,7 +24,7 @@ class Negotiations::Buyers::Secretary
     @negotiation.quantities.first
   end
   def _material
-    _material.try :material
+    _material_object.try :material
   end
   def _material_object
     @negotiation.materials.first
@@ -38,22 +38,28 @@ class Negotiations::Buyers::Secretary
   def _price_object
     @negotiation.sell_prices.first
   end
+  def _contact
+    company.primary_contact || company.contacts.first
+  end
   def _header
-    "To #{company.primary_contact.name},"
+    "To #{_contact.try :name},"
   end
   def _body
-    [_packing_weight, _pleasantry].reject(&:blank?).join '\r\n\r\n'
+    [_packing_weight, _pleasantry].reject(&:blank?).join "\r\n\r\n"
   end
   def _packing_weight
     [:packing_weight_pounds, :container_size].map do |key|
       _packing_weight_object.try key
     end.reject(&:blank?).join( ' / ' )
   end
+  def _packing_weight_object
+    @negotiation.packing_weights.first
+  end
   def _pleasantry
     I18n.t(:please_thoroughly_review_and_give_me_a_price)
   end
   def _footer
-    [I18n.t(:sincerely), _me].join '\r\n\r\n'
+    [I18n.t(:sincerely), _me].join "\r\n\r\n"
   end
   def _me
     @negotiation.merchant.name

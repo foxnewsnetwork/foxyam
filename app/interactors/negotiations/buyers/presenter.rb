@@ -9,7 +9,7 @@ class Negotiations::Buyers::Presenter
   end
 
   def potential_companies
-    @companies ||= Company.all
+    @companies ||= merchant.companies
   end
 
   def quantity

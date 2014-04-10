@@ -64,7 +64,7 @@ class Conversations::Tags::Interactor < Conversations::Tags::TagInteractorBase
   end
 
   def _make_tag
-    _appropriate_interactor.tag!
+    negotiation.complete! && _appropriate_interactor.tag!
   end
 
   def _appropriate_interactor

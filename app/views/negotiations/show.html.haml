@@ -1,13 +1,16 @@
 .row
   #cookie-crumbs
     %ol
-      %li= link_to t(:my_company)
-      %li= link_to t(:negotiations)
-      %li Negotiation 1
+      %li= link_to t(:my_merchant_account), merchant_path(presenter.merchant)
+      %li= link_to t(:negotiations_index), merchant_negotiations_path(presenter.merchant)
+      %li
+        = t(:negotiation)
+        = '#'
+        = presenter.id
 
 .row
   %h1.page-title
-    Negotiation Summary
+    = t(:negotiation_summary)
 
 .row.actions
   .action-icon

@@ -38,6 +38,7 @@
           = company.name
 
   .two-quarters
+    = render partial: 'shared/errors', locals: { errors: interactor.errors }
     = form_for interactor, url: negotiation_buyers_path(interactor.negotiation) do |f|
       %legend= t(:new_buyer_for_negotiation)
       .form-group
@@ -48,13 +49,13 @@
         .select-control= f.select :from, interactor.from_choices
       .form-group
         = f.label :to
-        = f.email_field :to, class: 'form-control'
+        = f.text_field :to, class: 'form-control'
       .form-group
         = f.label :cc
-        = f.email_field :cc, class: 'form-control'
+        = f.text_field :cc, class: 'form-control'
       .form-group
         = f.label :bcc
-        = f.email_field :bcc, class: 'form-control'
+        = f.text_field :bcc, class: 'form-control'
       .form-group
         = f.label :subject
         = f.text_field :subject, class: 'form-control'

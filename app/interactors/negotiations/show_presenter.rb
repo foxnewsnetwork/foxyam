@@ -1,16 +1,19 @@
 class Negotiations::ShowPresenter
 
   attr_accessor :negotiation
+  delegate :id,
+    :merchant,
+    :buyers,
+    :sellers,
+    :sell_offers,
+    :buy_offers,
+    to: :negotiation
   def initialize(negotiation)
     @negotiation = negotiation
   end
 
-  def buyers
-    negotiation.buyers
-  end
-
   def seller
-    negotiation.sellers.first
+    sellers.first
   end
 
   def best_purchase_price
@@ -51,14 +54,6 @@ class Negotiations::ShowPresenter
 
   def buy_presenters
     buy_offers.map { |offer| Negotiations::Offers::Presenter.new offer }
-  end
-
-  def sell_offers
-    negotiation.sell_offers
-  end
-
-  def buy_offers
-    negotiation.buy_offers
   end
 
   def packing_units

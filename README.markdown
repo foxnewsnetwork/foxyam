@@ -12,6 +12,9 @@ ToDos
 
 Tasks
 =
+Thursday April 10
+- add new buyer path from negotiation
+
 Monday April 7
 - negotiation show now correctly shows material information
 

@@ -7,6 +7,7 @@
 #  permalink    :string(255)      not null
 #  created_at   :datetime
 #  updated_at   :datetime
+#  merchant_id  :integer
 #
 
 class Company < ActiveRecord::Base
@@ -15,14 +16,15 @@ class Company < ActiveRecord::Base
   has_many :contacts
   has_many :negotiations,
     through: :offers
+  belongs_to :merchant
 
   class << self 
     def find_by_company_name(thing)
       find_by_permalink to_permalink thing
     end
 
-    def to_permalink(thing)
-      thing.to_s.downcase.to_url
+    def to_permalink(thing, merchant=nil)
+      [thing, merchant.try(:id)].map(&:to_s).join('--').downcase.to_url
     end
   end
 
@@ -38,6 +40,6 @@ class Company < ActiveRecord::Base
   
   private
   def _create_permalink
-    self.permalink = self.class.to_permalink company_name
+    self.permalink = self.class.to_permalink company_name, merchant
   end
 end

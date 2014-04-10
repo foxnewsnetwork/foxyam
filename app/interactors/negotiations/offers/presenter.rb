@@ -3,6 +3,7 @@ class Negotiations::Offers::Presenter
   attr_accessor :offer
   delegate :company,
     :others,
+    :conversations,
     to: :offer
   def initialize(offer)
     @offer = offer

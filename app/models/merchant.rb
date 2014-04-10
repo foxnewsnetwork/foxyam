@@ -11,9 +11,13 @@
 #
 
 class Merchant < ActiveRecord::Base
+  acts_as_paranoid
   has_many :email_accounts
   has_many :negotiations,
     -> { completed }
+
+  has_many :all_negotiations,
+    class_name: 'Negotiation'
 
   has_one :negotiation,
     -> { incomplete }
@@ -22,6 +26,9 @@ class Merchant < ActiveRecord::Base
     class_name: 'UsersMerchants'
   has_many :users,
     through: :users_merchants
+
+  has_many :companies,
+    -> { extending Merchants::CompanyRelationship }
 
   before_create :_create_permalink
   

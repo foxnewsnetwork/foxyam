@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409001141) do
+ActiveRecord::Schema.define(version: 20140410185425) do
 
   create_table "companies", force: true do |t|
     t.string   "company_name"
     t.string   "permalink",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "merchant_id"
   end
 
+  add_index "companies", ["merchant_id"], name: "index_companies_on_merchant_id", using: :btree
   add_index "companies", ["permalink"], name: "index_companies_on_permalink", unique: true, using: :btree
 
   create_table "contacts", force: true do |t|
