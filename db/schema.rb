@@ -142,7 +142,7 @@ ActiveRecord::Schema.define(version: 20140410185425) do
     t.datetime "updated_at"
   end
 
-  add_index "email_inboxes", ["email_address"], name: "index_email_inboxes_on_email_address", unique: true, using: :btree
+  add_index "email_inboxes", ["email_address"], name: "index_email_inboxes_on_email_address", using: :btree
   add_index "email_inboxes", ["negotiation_id"], name: "index_email_inboxes_on_negotiation_id", using: :btree
 
   create_table "emails", force: true do |t|

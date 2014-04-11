@@ -110,11 +110,12 @@
 .row
   = render partial: 'negotiations/offer', collection: presenter.buy_presenters
 
-.row
-  .one-quarter
-    = link_to '#finalize', class: 'btn btn-lg btn-block btn-primary' do
-      %i.fa-linux
-      = t(:finalize_deal)
+- if false
+  .row
+    .one-quarter
+      = link_to '#finalize', class: 'btn btn-lg btn-block btn-primary' do
+        %i.fa-linux
+        = t(:finalize_deal)
 
 .row
   %h2.page-title E-Manager

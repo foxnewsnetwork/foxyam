@@ -9,6 +9,8 @@
       - if user_signed_in?      
         %li
           = link_to t(:negotiations), merchant_negotiations_path(current_merchant)
+        %li
+          = link_to t(:emails), merchant_email_accounts_path(current_merchant)
       
     %ul.nav.navbar-nav.navbar-right
       - if user_signed_in?

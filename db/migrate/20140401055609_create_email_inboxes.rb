@@ -5,6 +5,6 @@ class CreateEmailInboxes < ActiveRecord::Migration
       t.string :email_address
       t.timestamps
     end
-    add_index :email_inboxes, [:email_address], unique: true
+    add_index :email_inboxes, [:email_address]
   end
 end

@@ -1,0 +1,8 @@
+%tr
+  %td.no-padding
+    = link_to email_path(email) do
+      %h5.no-margin.all-padding
+        %span.tab= email.from_presentation_google_style
+        %span.bold.dash= email.subject
+        = email.plain_content.truncate 55
+        %span.pull-right= email.created_at.to_s :short

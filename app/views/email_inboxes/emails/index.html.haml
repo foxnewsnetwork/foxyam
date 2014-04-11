@@ -1,0 +1,39 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_merchant_account), merchant_path(presenter.merchant)
+      %li= link_to t(:my_email_accounts), merchant_email_accounts_path(presenter.merchant)
+      %li
+        = link_to email_account_email_inboxes_path(presenter.account) do
+          %span.dash= presenter.email_address
+          = t(:inboxes)
+      %li= presenter.inbox_name
+
+.row
+  %h1.page-title
+    = presenter.inbox_name
+
+.row
+  .one-quarter
+    .list-group
+      = link_to email_account_email_inboxes_path(presenter.account), class: 'list-group-item' do
+        %i.fa-chevron-left
+        = t(:back)
+      = render partial: 'email_inboxes/inbox', collection: presenter.inboxes, locals: { active_inbox: presenter.active_inbox }
+
+  .three-quarters
+    %table.table.table-hover
+      %thead
+        %tr
+          %td
+            %h4= t(:unclaimed_emails)
+      %tbody.unclaimed
+        = render(partial: 'email_inboxes/emails/email', collection: presenter.unclaimed_emails) || render(partial: 'email_inboxes/emails/empty')
+    %table.table.table-hover
+      %thead
+        %tr
+          %td
+            %h4= t(:claimed_emails)
+      %tbody.claimed
+        = render(partial: 'email_inboxes/emails/email', collection: presenter.claimed_emails) || render(partial: 'email_inboxes/emails/empty')
+            

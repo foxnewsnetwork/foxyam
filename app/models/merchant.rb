@@ -13,6 +13,11 @@
 class Merchant < ActiveRecord::Base
   acts_as_paranoid
   has_many :email_accounts
+
+  has_many :inboxes,
+    through: :email_accounts,
+    class_name: 'EmailInbox'
+
   has_many :negotiations,
     -> { completed }
 

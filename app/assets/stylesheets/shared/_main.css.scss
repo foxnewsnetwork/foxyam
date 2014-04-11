@@ -2,6 +2,7 @@
 @import 'companies/negotiations/index';
 @import 'email_accounts/show';
 @import 'conversations/tags/index';
+@import 'email_inboxes/emails/index';
 
 @mixin shared-main {
   @extend .container;
@@ -22,6 +23,9 @@
   }
   .dash:after {
     content: " - ";
+  }
+  .pound:after {
+    content: '#';
   }
   .ellipsis {
     text-overflow: ellipsis;
@@ -132,5 +136,9 @@
 
   #conversations-tags-index {
     @include conversations-tags-index;
+  }
+
+  #email_inboxes-emails-index {
+    @include email_inboxes-emails-index;
   }
 }

@@ -17,6 +17,8 @@ class Negotiation < ActiveRecord::Base
   belongs_to :merchant
   has_many :offers
 
+  has_one :email_inbox
+
   has_many :sell_prices,
     through: :sell_offers,
     source: :latest_price,
@@ -36,7 +38,7 @@ class Negotiation < ActiveRecord::Base
     class_name: 'Offer'
 
   has_many :buyers,
-    -> { select(:company_name).distinct },
+    -> { select('companies.id', :company_name).distinct },
     through: :buy_offers,
     source: :company,
     class_name: 'Company'

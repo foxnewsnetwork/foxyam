@@ -1,0 +1,20 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_merchant_account), merchant_path(presenter.merchant)
+      %li= link_to t(:email_accounts)
+
+.row
+  %h1.page-title
+    = presenter.merchant_name
+    = t(:email_accounts)
+
+.row
+  .one-quarter
+    .list-group
+      = link_to new_merchant_email_account_path(presenter.merchant), class: 'list-group-item' do
+        %i.fa-plus
+        %span.bold= t(:add_email_account)
+      = render partial: 'merchants/email_accounts/account', collection: presenter.accounts
+        
+          

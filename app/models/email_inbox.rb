@@ -13,6 +13,10 @@ class EmailInbox < ActiveRecord::Base
 
   has_many :emails
 
+  has_many :claimed_emails,
+    -> { claimed },
+    class_name: 'Email'
+
   has_many :unclaimed_emails,
     -> { unclaimed } ,
     class_name: 'Email'

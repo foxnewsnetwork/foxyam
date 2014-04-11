@@ -28,17 +28,28 @@ class Emails::Negotiations::Interactor < InteractorBase
     negotiation.present? && _existing_negotiation?
   end
 
+  def inbox
+    @inbox ||= _negotiation_draft.email_inbox.find_or_create_by account: account
+  end
+
+  def account
+    @account ||= email.account
+  end
+
   private
   def _look_for_negotiation
     @negotiation ||= _merchant.negotiations.find_by_id permalink
   end
   def _create_negotiation_offer
-    @offer ||= _create_negotiation.offers.create 
+    @offer ||= _create_negotiation_and_tie_with_inbox.offers.create 
   end
   def _create_offer_conversation
     @conversation ||= _create_negotiation_offer.conversations.create email: email
   end
-  def _create_negotiation
+  def _create_negotiation_and_tie_with_inbox
+    email.update(inbox: inbox) && _negotiation_draft
+  end
+  def _negotiation_draft
     @negotiation ||= _merchant.negotiation_draft
   end
   def _existing_negotiation?

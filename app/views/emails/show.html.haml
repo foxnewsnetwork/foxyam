@@ -1,25 +1,39 @@
 .row
   #cookie-crumbs
     %ol
-      %li= link_to t(:my_company)
-      %li= link_to t(:email_accounts)
-      %li= link_to t(:email_inbox)
-      %li= email.subject
+      %li= link_to t(:my_merchant_account), merchant_path(presenter.merchant)
+      %li= link_to t(:my_email_accounts), merchant_email_accounts_path(presenter.merchant)
+      %li
+        = link_to email_account_email_inboxes_path(presenter.account) do
+          %span.dash= presenter.email_address
+          = t(:inboxes)
+      %li= link_to presenter.inbox_name, email_inbox_emails_path(presenter.inbox)
+      %li= presenter.subject
 
-- inboxes = email.account.all_inboxes
-- inbox = email.inbox
+- inboxes = presenter.all_inboxes
+- inbox = presenter.inbox
 .row
   .one-quarter
+    = link_to email_inbox_emails_path(presenter.inbox), class: 'list-group-item' do
+      %i.fa-chevron-left
+      = t(:back)
     = render partial: 'emails/inboxes', locals: { inboxes: inboxes, active_inbox: inbox }
     
   .three-quarters
     .row
       .four-quarters
-        = link_to new_email_negotiation_path(email), class: 'btn btn-default' do
-          = t(:file_to_negotiation)
+        - if presenter.negotiation.present?
+          = link_to negotiation_path(presenter.negotiation), class: 'btn btn-default' do
+            %span.bold.pound= t(:negotiation)
+            = presenter.negotiation.id
+        - else
+          = link_to new_email_negotiation_path(presenter.email), class: 'btn btn-default' do
+            = t(:file_to_negotiation)
     .row
       .four-quarters
-        .plain.well= Kramdown::Document.new(email.plain_content).to_html.html_safe
+        .plain.well
+          = presenter.email_html
+        
     .row
       .four-quarters
         = link_to '#rich_view', class: 'btn btn-link', role: 'button' do

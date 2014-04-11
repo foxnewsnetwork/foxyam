@@ -30,9 +30,12 @@ class Email < ActiveRecord::Base
 
   has_one :negotiation,
     through: :inbox
-  
+
   scope :unclaimed,
     -> { where "#{self.table_name}.conversation_id is null" }
+
+  scope :claimed,
+    -> { where "#{self.table_name}.conversation_id is not null" }
 
   def from
     envelope.from
