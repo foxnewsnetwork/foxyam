@@ -7,7 +7,7 @@ class Conversations::Tags::MaterialInteractor < Conversations::Tags::TagInteract
 
   private
   def _make_tag
-    conversation.materials.create _tag_params
+    conversation.materials.create! _tag_params
   end
 
   def _tag_params

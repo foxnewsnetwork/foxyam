@@ -11,7 +11,7 @@
 
 class FoxYam::Conversations::RawLog < ActiveRecord::Base
   self.table_name = 'conversations_raw_logs'
-  belongs_to :conversations, 
+  belongs_to :conversation, 
     class_name: 'FoxYam::Conversation'
   self.abstract_class = true
 

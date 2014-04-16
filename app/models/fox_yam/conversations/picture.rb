@@ -13,9 +13,9 @@
 #  picture_updated_at   :datetime
 #
 
-class FoxYam::Conversations::Picture < Conversations::RawLog
+class FoxYam::Conversations::Picture < FoxYam::Conversations::RawLog
   self.table_name = 'conversations_pictures'
-  belongs_to :conversations, 
+  belongs_to :conversation, 
     class_name: 'FoxYam::Conversation'
 
   has_attached_file :picture,

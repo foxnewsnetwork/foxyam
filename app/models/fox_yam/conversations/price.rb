@@ -12,9 +12,9 @@
 #  updated_at      :datetime
 #
 
-class FoxYam::Conversations::Price < Conversations::RawLog
+class FoxYam::Conversations::Price < FoxYam::Conversations::RawLog
   self.table_name = 'conversations_prices'
-  belongs_to :conversations, 
+  belongs_to :conversation, 
     class_name: 'FoxYam::Conversation'
   belongs_to :place
   Incoterms = YAML.load(File.read(Rails.root.join 'config', 'incoterms.yml'))['Incoterms'].freeze

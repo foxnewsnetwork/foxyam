@@ -38,3 +38,4 @@ end
 
 module Factories::Conversations; end
 module Factories::Conversations::Companies; end
+module Factories::Conversations::Tags; end

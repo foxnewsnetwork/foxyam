@@ -11,9 +11,9 @@
 #  updated_at            :datetime
 #
 
-class FoxYam::Conversations::PackingWeight < Conversations::RawLog
+class FoxYam::Conversations::PackingWeight < FoxYam::Conversations::RawLog
   self.table_name = 'conversations_packing_weights'
-  belongs_to :conversations, 
+  belongs_to :conversation, 
     class_name: 'FoxYam::Conversation'
 
 end

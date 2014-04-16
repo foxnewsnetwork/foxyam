@@ -12,9 +12,9 @@
 #  updated_at      :datetime
 #
 
-class FoxYam::Conversations::Quantity < Conversations::RawLog
+class FoxYam::Conversations::Quantity < FoxYam::Conversations::RawLog
   self.table_name = 'conversations_quantities'
-  belongs_to :conversations, 
+  belongs_to :conversation, 
     class_name: 'FoxYam::Conversation'
 
   Units = [:pounds, :containers, :kilograms, :short_tons, :metric_tons].freeze

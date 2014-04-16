@@ -10,9 +10,9 @@
 #  updated_at      :datetime
 #
 
-class FoxYam::Conversations::Material < Conversations::RawLog
+class FoxYam::Conversations::Material < FoxYam::Conversations::RawLog
   self.table_name = 'conversations_materials'
-  belongs_to :conversations, 
+  belongs_to :conversation, 
     class_name: 'FoxYam::Conversation'
 
 end
