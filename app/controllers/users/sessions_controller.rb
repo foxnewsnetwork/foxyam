@@ -28,11 +28,11 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def _no_such_email?
-    _failed_login? && User.find_by_email(params[:user][:email]).blank?
+    _failed_login? && FoxYam::User.find_by_email(params[:user][:email]).blank?
   end
 
   def _wrong_password?
-    _failed_login? && User.find_by_email(params[:user][:email]).present?
+    _failed_login? && FoxYam::User.find_by_email(params[:user][:email]).present?
   end
 
   def _failed_login?

@@ -41,6 +41,6 @@ class Negotiations::BuyersController < ApplicationController
   end
 
   def _negotiation
-    @negotiation ||= Negotiation.find params[:negotiation_id]
+    @negotiation ||= FoxYam::Negotiation.find params[:negotiation_id]
   end
 end

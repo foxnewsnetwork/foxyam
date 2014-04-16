@@ -40,6 +40,9 @@ class FoxYam::Email < ActiveRecord::Base
   scope :claimed,
     -> { where "#{self.table_name}.conversation_id is not null" }
 
+  scope :latest_first,
+    -> { order "#{self.table_name}.created_at desc"}
+
   class << self
     def raw_hash_from_email(email)
       { raw_body: email.message.body.to_yaml, raw_envelope: email.envelope.to_yaml }

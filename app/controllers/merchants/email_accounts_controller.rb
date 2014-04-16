@@ -17,7 +17,7 @@ class Merchants::EmailAccountsController < ApplicationController
   end
 
   def _merchant
-    @merchant ||= Merchant.find params[:merchant_id]
+    @merchant ||= FoxYam::Merchant.find params[:merchant_id]
   end
 
 end

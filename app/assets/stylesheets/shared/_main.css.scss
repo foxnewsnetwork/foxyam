@@ -18,6 +18,11 @@
       content: ",";
     }
   }
+  .overflow-225 {
+    width: 225px;
+    text-overflow: ellipsis;
+    display: inline-block;
+  }
   .tab {
     margin-right: 15px; 
   }

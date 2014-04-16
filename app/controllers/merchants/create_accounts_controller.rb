@@ -19,7 +19,7 @@ class Merchants::CreateAccountsController < ApplicationController
     params.require(:email_accounts).permit *Merchants::EmailAccounts::Interactor::Fields
   end
   def _merchant
-    @merchant ||= Merchant.find params[:merchant_id]
+    @merchant ||= FoxYam::Merchant.find params[:merchant_id]
   end
   def _create_account!
     @account = _creative_interactor.account!

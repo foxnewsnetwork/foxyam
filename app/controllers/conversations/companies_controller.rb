@@ -32,7 +32,7 @@ class Conversations::CompaniesController < ApplicationController
   end
 
   def _conversation
-    @conversation ||= Conversation.find params[:conversation_id]
+    @conversation ||= FoxYam::Conversation.find params[:conversation_id]
   end
 
 end

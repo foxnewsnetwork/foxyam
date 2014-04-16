@@ -3,5 +3,5 @@
 - if account.id == active_id
   - c += ' active'
 = link_to email_account_email_inboxes_path(account), class: c do
-  = account.email_address
+  = account.email_address.truncate 30
   %span.pull-right.badge= account.inbox.count

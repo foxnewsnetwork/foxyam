@@ -4,7 +4,7 @@ class Companies::NegotiationsController < ApplicationController
 
   private
   def _company
-    Company.find_by_id params[:company_id]
+    FoxYam::Company.find_by_id params[:company_id]
   end
 
   def _index_presenter

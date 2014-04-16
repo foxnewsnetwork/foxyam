@@ -65,7 +65,7 @@ class Users::Registrations::Interactor < InteractorBase
     es
   end
   def _new_user
-    @user ||= User.new email: email, password: password, password_confirmation: password_confirmation
+    @user ||= FoxYam::User.new email: email, password: password, password_confirmation: password_confirmation
   end
   def _user
     @user
@@ -80,7 +80,7 @@ class Users::Registrations::Interactor < InteractorBase
   end
 
   def _old_merchant
-    @old_merchant ||= Merchant.find_by_permalink company_name
+    @old_merchant ||= FoxYam::Merchant.find_by_permalink company_name
   end
 
   def _old_merchant?

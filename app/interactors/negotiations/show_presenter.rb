@@ -16,8 +16,16 @@ class Negotiations::ShowPresenter
     sellers.first
   end
 
+  def seller_id
+    seller.try(:id)
+  end
+
   def best_purchase_price
     purchase_prices.sort { |a,b| b.usd_per_pound <=> a.usd_per_pound }.first
+  end
+
+  def best_purchase_price?
+    best_purchase_price.present?
   end
 
   def purchase_prices

@@ -18,4 +18,8 @@ class FoxYam::Conversations::Price < FoxYam::Conversations::RawLog
     class_name: 'FoxYam::Conversation'
   belongs_to :place
   Incoterms = YAML.load(File.read(Rails.root.join 'config', 'incoterms.yml'))['Incoterms'].freeze
+
+  def place_name
+    place.try(:name)
+  end
 end

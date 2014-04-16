@@ -6,6 +6,6 @@ class EmailAccountsController < ApplicationController
     @presenter ||= EmailAccounts::Presenter.new _email_account
   end
   def _email_account
-    @email_account ||= EmailAccount.find params[:id]
+    @email_account ||= FoxYam::EmailAccount.find params[:id]
   end
 end

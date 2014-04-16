@@ -1,4 +1,4 @@
 class UsersController < ApplicationController
-  expose(:user) { User.find params[:id] }
+  expose(:user) { FoxYam::User.find params[:id] }
   def show; end
 end

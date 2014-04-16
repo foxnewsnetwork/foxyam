@@ -8,7 +8,7 @@ class NegotiationsController < ApplicationController
   end
 
   def _negotiation
-    Negotiation.find params[:id]
+    FoxYam::Negotiation.find params[:id]
   end
 
   def _query_params

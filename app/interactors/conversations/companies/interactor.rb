@@ -2,7 +2,7 @@ class Conversations::Companies::Interactor < InteractorBase
   Fields = [
     :company_name,
     :offer_type
-  ]
+  ].freeze
   attr_accessor :conversation, :attributes, :company
   attr_hash_accessor *Fields
   delegate :negotiation,
@@ -12,6 +12,11 @@ class Conversations::Companies::Interactor < InteractorBase
   delegate :merchant,
     to: :negotiation
 
+  class << self
+    def offer_types
+      FoxYam::Offer::OfferTypes.reverse.freeze
+    end
+  end
   def initialize(conversation)
     @conversation = conversation
   end

@@ -14,11 +14,11 @@ class FoxYam::EmailInbox < ActiveRecord::Base
     class_name: 'FoxYam::Email'
 
   has_many :claimed_emails,
-    -> { claimed },
+    -> { claimed.latest_first },
     class_name: 'FoxYam::Email'
 
   has_many :unclaimed_emails,
-    -> { unclaimed } ,
+    -> { unclaimed.latest_first } ,
     class_name: 'FoxYam::Email'
 
   belongs_to :account,

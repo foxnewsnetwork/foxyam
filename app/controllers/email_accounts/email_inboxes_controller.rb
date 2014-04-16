@@ -6,7 +6,7 @@ class EmailAccounts::EmailInboxesController < Merchants::EmailAccountsController
   end
 
   def _email_account
-    @email_account ||= EmailAccount.find params[:email_account_id]
+    @email_account ||= FoxYam::EmailAccount.find params[:email_account_id]
   end
 
   def _option_params

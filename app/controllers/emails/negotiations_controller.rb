@@ -31,7 +31,7 @@ class Emails::NegotiationsController < ApplicationController
   end
 
   def _email
-    @email ||= Email.find params[:email_id]
+    @email ||= FoxYam::Email.find params[:email_id]
   end
 
   def _creative_interactor

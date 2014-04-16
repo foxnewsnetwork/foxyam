@@ -14,11 +14,20 @@
 
 class FoxYam::EmailAccount < ActiveRecord::Base
   class << self
-    def preload
-      find_or_create_by email_address: 'cheapcthulhu4u@gmail.com', 
-        unencrypted_password: 'attentionjewswwiiiscoming',
-        merchant: Merchant.preload
+    def gmails
+      @gmails ||= YAML.load File.read Rails.root.join 'config', 'gmail.yml'
     end
+
+    def preload
+      gmails.map do |gmail|
+        merchant = FoxYam::Merchant.find_or_create_by name: gmail['merchant_name']
+        gmail['merchant'] = merchant
+        gmail
+      end.map do |gmail|
+        find_or_create_by gmail.permit('merchant', 'email_address', 'unencrypted_password')
+      end
+    end
+    
   end
   has_many :all_inboxes,
     class_name: 'FoxYam::EmailInbox',

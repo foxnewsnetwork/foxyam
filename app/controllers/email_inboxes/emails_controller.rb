@@ -5,7 +5,7 @@ class EmailInboxes::EmailsController < EmailAccounts::EmailInboxesController
   end
 
   def _email_inbox
-    @email_inbox ||= EmailInbox.find params[:email_inbox_id]
+    @email_inbox ||= FoxYam::EmailInbox.find params[:email_inbox_id]
   end
 
   def _option_params

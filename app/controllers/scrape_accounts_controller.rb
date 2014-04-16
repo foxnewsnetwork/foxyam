@@ -14,7 +14,7 @@ class ScrapeAccountsController < ApplicationController
     @interactor ||= ScrapeAccounts::Interactor.new _email_account
   end
   def _email_account
-    @email_account ||= EmailAccount.find params[:id]
+    @email_account ||= FoxYam::EmailAccount.find params[:id]
   end
   def _render_flash!
     flash[:error] = t(:unable_to_fetch_emails_probably_because_it_is_not_time_yet) if @result.blank?

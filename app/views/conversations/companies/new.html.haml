@@ -40,7 +40,7 @@
         = f.text_field :company_name, class: 'form-control'
       .form-group
         = f.label :offer_type, t(:what_is_this_company_doing)
-        .select-control= f.select :offer_type, Offer::OfferTypes.reverse
+        .select-control= f.select :offer_type, interactor.class.offer_types
       = link_to edit_email_negotiation_path(email, negotiation), class: 'btn btn-default btn-sm' do
         %i.fa-chevron-left
         = t(:back)
