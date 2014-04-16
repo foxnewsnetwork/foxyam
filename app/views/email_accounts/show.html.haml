@@ -1,35 +1,39 @@
+- accs = presenter.email_accounts
+- acid = presenter.account_id
 .row
   #cookie-crumbs
     %ol
-      %li= link_to t(:my_company)
-      %li= link_to t(:email_accounts)
-      %li Email Inbox
-
-.row
-  %h1.page-title
-    = email_account.email
-    = t(:inbox)
+      %li= link_to t(:my_merchant_account), merchant_path(presenter.merchant)
+      %li= link_to t(:my_email_accounts), merchant_email_accounts_path(presenter.merchant)
+      %li
+        = link_to email_account_email_inboxes_path(presenter.account) do
+          %span.dash= presenter.email_address
+          = t(:inboxes)
+      %li
+        = presenter.email_address
+        = t(:account_preferences)
 
 .row
   .one-quarter
-    = render partial: 'emails/inboxes', locals: { inboxes: email_account.all_inboxes, active_inbox: email_account.inbox }
+    .list-group
+      = link_to email_account_email_inboxes_path(presenter.account), class: 'list-group-item' do
+        %i.fa-chevron-left
+        = t(:email_accounts_index)
+      = render partial: 'merchants/email_accounts/account', collection: accs, locals: { active_id: acid }
   
   .three-quarters
-    = form_for :batch, url: root_path, method: :get do |f|
-      .btn-group
-        = button_tag t(:sales), class: 'btn btn-default'
-        = button_tag t(:purchase), class: 'btn btn-default'
-        = button_tag t(:trash), class: 'btn btn-default'
-      %table.table.table-hover
-        %tbody
-          - email_account.inbox.emails.each do |email|
-            %tr
-              %td
-                .big-check= f.check_box email.id
-              %td.no-padding
-                = link_to email_path(email) do
-                  %h5.no-margin.all-padding
-                    %span.tab= email.from_presentation_google_style
-                    %span.bold.dash= email.subject
-                    = email.plain_content.truncate 55
-                    %span.pull-right= email.created_at.to_s :short
+    .list-group
+      .list-group-item
+        %h4= t(:preferences)
+      .list-group-item
+        %span.colon.bold= t(:time_since_last_scrap)
+        = time_ago_in_words_with_nil presenter.last_scrapped_at
+      .list-group-item
+        - if presenter.can_scrap?
+          = form_for :scrape_accounts, url: scrape_account_path(presenter.account), method: :put do |f|
+            = button_tag type: :submit, class: 'btn btn-block btn-default' do
+              %i.fa-cloud-download
+              = t(:scrap_now!)
+        - else
+          %span.colon.bold= t(:scrap_again_in)
+          = time_ago_in_words_with_nil presenter.future_scrap_at

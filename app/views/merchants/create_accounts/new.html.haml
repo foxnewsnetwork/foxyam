@@ -1,0 +1,36 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_merchant_account), merchant_path(interactor.merchant)
+      %li= link_to t(:email_accounts), merchant_email_accounts_path(interactor.merchant)
+      %li= t(:new_email_account)
+
+.row
+  .one-quarter
+    .list-group
+      = link_to merchant_email_accounts_path(interactor.merchant), class: 'list-group-item' do
+        %i.fa-chevron-left
+        = t(:back)
+      .list-group-item
+        = t(:new_email_account)
+
+  .one-quarter
+    .list-group
+      .list-group-item
+        = t(:existing_accounts)
+      - interactor.accounts.each do |account|
+        = link_to account.email_address, email_account_path(account)
+
+
+  .two-quarters
+    = form_for interactor, url: merchant_email_accounts_path(interactor.merchant) do |f|
+      .form-group
+        = f.label :email
+        = f.email_field :email, class: 'form-control'
+      .form-group
+        = f.label :password
+        = f.text_field :password, class: 'form-control'
+      = link_to merchant_email_accounts_path(interactor.merchant), class: 'btn btn-default' do
+        = t(:back)
+      = button_tag type: :submit, class: 'btn btn-lg btn-primary' do
+        = t(:submit)

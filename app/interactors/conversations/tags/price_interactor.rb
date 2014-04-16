@@ -17,7 +17,7 @@ class Conversations::Tags::PriceInteractor < Conversations::Tags::TagInteractorB
   end
 
   def _place
-    Place.find_by_permalink_or_create_by place_name
+    FoxYam::Place.find_by_permalink_or_create_by place_name
   end
     
   def _raw_params

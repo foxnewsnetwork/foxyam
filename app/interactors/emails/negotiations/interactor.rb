@@ -29,7 +29,7 @@ class Emails::Negotiations::Interactor < InteractorBase
   end
 
   def inbox
-    @inbox ||= _negotiation_draft.email_inbox.find_or_create_by account: account
+    @inbox ||= _negotiation_draft.email_inboxes.find_or_create_by account: account
   end
 
   def account

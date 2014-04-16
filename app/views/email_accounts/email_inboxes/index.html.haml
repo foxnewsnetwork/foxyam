@@ -15,10 +15,15 @@
 .row
   .one-quarter
     .list-group
-      = link_to new_merchant_email_account_path(presenter.merchant), class: 'list-group-item' do
-        %i.fa-plus
-        %span.bold= t(:add_email_account)
+      = link_to merchant_email_accounts_path(presenter.merchant), class: 'list-group-item' do
+        %i.fa-chevron-left
+        %span.bold= t(:back)
       = render partial: 'merchants/email_accounts/account', collection: presenter.accounts, locals: { active_id: presenter.active_id }
         
   .one-quarter
-    = render partial: 'emails/inboxes', locals: { inboxes: presenter.inboxes }
+    .list-group
+      = link_to email_account_path(presenter.account), class: 'list-group-item' do
+        %i.fa-dashboard
+        %span.bold= t(:preferences)
+      - inboxes = presenter.inboxes
+      = render partial: 'email_inboxes/inbox', collection: inboxes

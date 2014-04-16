@@ -15,7 +15,7 @@ class Offers::EmailInteractor
   end
 
   def _negotiation
-    Negotiation.find _negotiation_id
+    FoxYam::Negotiation.find _negotiation_id
   end
 
   def _negotiation_id

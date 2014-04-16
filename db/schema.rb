@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410185425) do
+ActiveRecord::Schema.define(version: 20140412000013) do
 
   create_table "companies", force: true do |t|
     t.string   "company_name"
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20140410185425) do
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "last_mined_at"
   end
 
   add_index "email_accounts", ["email_address"], name: "index_email_accounts_on_email_address", unique: true, using: :btree

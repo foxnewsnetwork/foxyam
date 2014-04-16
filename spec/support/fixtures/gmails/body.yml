@@ -1,0 +1,12 @@
+--- !ruby/object:Mail::Body
+boundary: 
+preamble: 
+epilogue: 
+charset: US-ASCII
+part_sort_order:
+- text/plain
+- text/enriched
+- text/html
+parts: !ruby/array:Mail::PartsList []
+raw_source: "Hi Tom,\r\n\r\nWe have milk juggs for you. Please offer price.\r\n\r\nSincerely,\r\n\r\nThomas\r\n"
+encoding: 7bit

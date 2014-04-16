@@ -1,6 +1,6 @@
 Fuxueyan::Application.routes.draw do
   devise_for :users,
-    class_name: 'User',
+    class_name: 'FoxYam::User',
     controllers: {
       sessions: 'users/sessions',
       registrations: 'users/registrations'
@@ -24,6 +24,7 @@ Fuxueyan::Application.routes.draw do
     resources :buyers, only: [:new, :create], controller: 'negotiations/buyers'
   end
 
+  resources :scrape_accounts, only: [:update]
   resources :email_accounts, only: [:show] do
     resources :email_inboxes, only: [:index], controller: 'email_accounts/email_inboxes'
   end

@@ -1,4 +1,5 @@
 - c = 'list-group-item'
+- active_inbox ||= nil
 - if active_inbox == inbox
   - c += ' active'
 = link_to email_inbox_emails_path(inbox), class: c do

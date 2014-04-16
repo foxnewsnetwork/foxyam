@@ -9,4 +9,9 @@ module ApplicationHelper
     cpath.split("/").push(action).join "-"
   end
 
+  def time_ago_in_words_with_nil(time, opts={})
+    return I18n.t(:never) if time.blank?
+    time_ago_in_words time, opts
+  end
+
 end

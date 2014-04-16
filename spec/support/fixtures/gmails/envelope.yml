@@ -1,0 +1,31 @@
+--- !ruby/struct:Net::IMAP::Envelope
+date: Mon, 14 Apr 2014 11:04:16 -0700
+subject: 10 loads of hdpe n milk juggs - long beach ca
+from:
+- !ruby/struct:Net::IMAP::Address
+  name: Thomas Chen
+  route: 
+  mailbox: foxnewsnetwork
+  host: gmail.com
+sender:
+- !ruby/struct:Net::IMAP::Address
+  name: Thomas Chen
+  route: 
+  mailbox: foxnewsnetwork
+  host: gmail.com
+reply_to:
+- !ruby/struct:Net::IMAP::Address
+  name: Thomas Chen
+  route: 
+  mailbox: foxnewsnetwork
+  host: gmail.com
+to:
+- !ruby/struct:Net::IMAP::Address
+  name: Thomas Chen
+  route: 
+  mailbox: cheapcthulhu4u
+  host: gmail.com
+cc: 
+bcc: 
+in_reply_to: 
+message_id: "<CAKFL5padROKwKa6zjM4+ES7PbkoV97rW9gtqX0T2dgpKbQzgUw@mail.gmail.com>"

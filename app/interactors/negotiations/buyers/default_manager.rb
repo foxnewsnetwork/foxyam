@@ -19,7 +19,7 @@ class Negotiations::Buyers::DefaultManager
   end
 
   def company
-    @company ||= Company.find_by_company_name _company_name
+    @company ||= FoxYam::Company.find_by_company_name _company_name
   end
 
   private

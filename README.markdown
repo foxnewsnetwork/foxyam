@@ -10,8 +10,22 @@ ToDos
 3. refine filing system for income emails
 4. add emails page
 
+Design Specifications
+=
+What should this site do?
+- Main usage
+1. Pull emails from any email account provided by the user and classify into negotiations
+2. Allow users to reply to emails using various canned responses in batches
+3. Maintain a collection of companies for each merchant that makes suggestions for offers
+
 Tasks
 =
+Monday April 14
+
+
+Friday April 11
+- emails and whatnot tied correctly, then remigrated database to get rid of unique index on inbox email address
+
 Thursday April 10
 - add new buyer path from negotiation
 

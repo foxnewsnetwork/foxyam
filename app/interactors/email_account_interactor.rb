@@ -6,6 +6,6 @@ class EmailAccountInteractor
   end
 
   def accounts
-    EmailAccount.all
+    FoxYam::EmailAccount.all
   end
 end
