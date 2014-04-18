@@ -20,8 +20,18 @@ What should this site do?
 
 Tasks
 =
-Monday April 14
+Thursday April 17
++ Do a write up for all the things that still need to be done
+- Finish the existing negotiation edit + update philantrophist
 
+Wednesday April 16
+- Got the interactors for new email to negotiation path working
+
+Tuesday April 15
+- wasted tons of time in LA
+
+Monday April 14
+- got tests and junk working
 
 Friday April 11
 - emails and whatnot tied correctly, then remigrated database to get rid of unique index on inbox email address

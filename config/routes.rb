@@ -11,6 +11,7 @@ Fuxueyan::Application.routes.draw do
     resources :negotiations, only: [:index], controller: 'companies/negotiations'
   end
 
+
   resources :users, only: [:show]
   resources :merchants, only: [:show] do
     resources :negotiations, only: [:index], controller: 'merchants/negotiations'
@@ -22,6 +23,7 @@ Fuxueyan::Application.routes.draw do
   resources :offers, only: [:show, :destroy]
   resources :negotiations, only: [:show] do
     resources :buyers, only: [:new, :create], controller: 'negotiations/buyers'
+    resources :email_companies, only: [:edit, :update], controller: 'negotiations/email_companies'
   end
 
   resources :scrape_accounts, only: [:update]
@@ -33,9 +35,7 @@ Fuxueyan::Application.routes.draw do
   end
   resources :emails, only: [:show] do
     resources :negotiations, only: [:edit, :update], controller: 'emails/edit_negotiations'
-    resources :negotiations, only: [:new, :create], controller: 'emails/negotiations' do
-      resources :exists, only: [:new, :create], controller: 'emails/negotiations/exists'
-    end
+    resources :negotiations, only: [:new, :create], controller: 'emails/negotiations'
   end
 
   resources :conversations, only: [:show] do

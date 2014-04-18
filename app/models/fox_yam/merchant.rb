@@ -37,8 +37,13 @@ class FoxYam::Merchant < ActiveRecord::Base
     class_name: 'FoxYam::User'
 
   has_many :companies,
-    -> { extending FoxYam::Merchants::CompanyRelationship }
+    -> { extending FoxYam::Merchants::CompanyRelationship },
+    class_name: 'FoxYam::Company'
 
+  has_many :contacts,
+    through: :companies,
+    class_name: 'FoxYam::Contact'
+    
   before_create :_create_permalink
   
   class << self

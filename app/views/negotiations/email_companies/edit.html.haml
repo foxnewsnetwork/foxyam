@@ -1,0 +1,64 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_company), company_path(interactor.merchant)
+      %li= link_to t(:email_accounts), email_account_email_inboxes_path(interactor.account)
+      %li= link_to t(:email_inbox), email_inbox_emails_path(interactor.inbox)
+      %li= link_to t(:email), email_path(interactor.email)
+      %li= link_to t(:new_negotiation), new_email_negotiation_path(interactor.email)
+      %li Negotiation from email
+
+- email = interactor.email
+- negotiation = interactor.negotiation
+- conversation = interactor.conversation
+.row
+  .four-quarters
+    .well.plain= Kramdown::Document.new(email.plain_content).to_html.html_safe
+
+.row
+  .four-quarters
+    = render partial: 'shared/errors', locals: { errors: interactor.errors }
+
+- presenter = interactor.presenter
+.row
+  .one-quarter
+    %legend= t(:negotiation_filing)
+    %dl
+      %dt= t :negotiation_type
+      %dd Existing
+      %dt= t(:referenced_negotiation)
+      %dd
+        = link_to "negotiation##{negotiation.id}", negotiation_path(negotiation), target: :blank
+  .one-quarter
+    = form_for interactor, url: negotiation_email_company_path(negotiation, email), method: :put do |f|
+      %legend Other Party
+      %dl
+        %dt= t(:from)
+        - email.from.each do |person|
+          %dd
+            %span.dash= person.name
+            %span.italic
+              = "#{person.mailbox}@#{person.host}"
+        - if presenter.company?
+          %dt= presenter.company_name 
+          %dd= link_to presenter.company_description, company_path(presenter.company)
+      .form-group
+        = f.label :company_name, t(:company_name)
+      .input-group
+        .input-group-btn
+          = button_tag type: 'button', class: 'btn btn-default dropdown-toggle', data: { toggle: 'dropdown' } do
+            = t(:company)
+            %i.fa-angle-down
+          %ul.dropdown-menu
+            - presenter.companies.each do |company|
+              %li= link_to company.company_name, "?c=#{company.company_name}"
+        = f.text_field :company_name, class: 'form-control'
+      .form-group
+        = f.label :offer_type, t(:what_is_this_company_doing)
+        .select-control= f.select :offer_type, interactor.class.offer_types
+      = link_to edit_email_negotiation_path(email, negotiation), class: 'btn btn-default btn-sm' do
+        %i.fa-chevron-left
+        = t(:back)
+      = button_tag type: 'submit', class: 'btn btn-primary btn-lg' do
+        = t(:next)
+        %i.fa-chevron-right

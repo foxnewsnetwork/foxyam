@@ -1,4 +1,4 @@
-class Emails::NegotiationsController < ApplicationController
+class Emails::NegotiationsController < FoxYam::BaseController
   expose(:interactor) { _interactor }
   def new; end
 
@@ -49,7 +49,7 @@ class Emails::NegotiationsController < ApplicationController
   end
 
   def _existing_path
-    new_email_negotiation_exist_path _email, _negotiation
+    edit_negotiation_email_company_path _negotiation, _email
   end
 
 end

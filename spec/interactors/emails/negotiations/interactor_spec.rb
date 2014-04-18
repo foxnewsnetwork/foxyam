@@ -6,9 +6,13 @@ describe Emails::Negotiations::Interactor do
   let(:inbox) { @email.inbox }
   let(:account) { inbox.account }
   let(:merchant) { account.merchant }
+  let(:result) { interactor.negotiation! }
+  let(:conversation) { @email.conversation }
+  let(:offer) { conversation.offer }
+  let(:negotiation) { offer.negotiation }
   before do
     @email = Factories::Email.mock
-    @params = { permalink: :new }
+    @negotiation = Factories::Negotiation.belongs_to(merchant).mock
   end
   context 'factories' do
     it 'should create an email' do
@@ -30,13 +34,40 @@ describe Emails::Negotiations::Interactor do
       merchant.should be_a FoxYam::Merchant
       merchant.should be_persisted
     end
+    it 'should be a persisted negotiation' do
+      @negotiation.should be_a FoxYam::Negotiation
+      @negotiation.should be_persisted
+      @negotiation.merchant.should eq merchant
+      merchant.all_negotiations.should include @negotiation
+    end
   end
-  describe '#negotiation!' do
-    let(:result) { interactor.negotiation! }
-    let(:conversation) { FoxYam::Email.find(@email.id).conversation }
-    let(:offer) { conversation.offer }
-    let(:negotiation) { offer.negotiation }
-    before { result }
+  context 'permalink existing #negotiation!' do
+
+    before do
+      @params = { permalink: @negotiation.id }
+      result
+    end
+    it 'should generate a successful result' do
+      result.should be_success
+    end
+    it 'should be new' do
+      interactor.should_not be_new
+    end
+    it 'should not be existing' do
+      interactor.should be_existing
+    end
+    it 'should have generated correct negotiation' do
+      interactor.negotiation.should be_a FoxYam::Negotiation
+      interactor.negotiation.should be_persisted
+      
+    end
+  end
+  context 'permalink new #negotiation!' do
+    
+    before do 
+      @params = { permalink: :new }
+      result
+    end
     it 'should generate a successful result' do
       result.should be_success
     end

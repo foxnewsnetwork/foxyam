@@ -14,6 +14,10 @@ class Emails::Negotiations::Interactor < InteractorBase
     @merchant = merchant
   end
 
+  def permalink_types
+    ['new'] + merchant.negotiations.map(&:id)
+  end
+
   def negotiation!
     return _new_result _look_for_negotiation if _existing_negotiation?
     return _new_result _create_offer_conversation if _new_negotiation?
@@ -38,7 +42,7 @@ class Emails::Negotiations::Interactor < InteractorBase
 
   private
   def _look_for_negotiation
-    @negotiation ||= _merchant.negotiations.find_by_id permalink
+    @negotiation ||= _merchant.all_negotiations.find_by_id! permalink
   end
   def _create_negotiation_offer
     @offer ||= _create_negotiation_and_tie_with_inbox.offers.create 

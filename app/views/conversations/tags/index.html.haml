@@ -24,8 +24,8 @@
   .one-quarter
     %legend= t(:negotiation_filing)
     %dl
-      %dt= t :negotiation_type
-      %dd New
+      %dt= t :negotiation_reference
+      %dd= link_to "negotiation##{negotiation.id}", negotiation_path(negotiation)
   .one-quarter
     %legend= t(:other_party)
     %dl
@@ -36,7 +36,7 @@
           %span.italic
             = "#{person.mailbox}@#{person.host}"
       %dt= t(:company_name)
-      %dd= offer.company.name
+      %dd= link_to offer.company.name, company_path(offer.company)
       %dt= t(:offer_type)
       %dd= offer.offer_type
   .two-quarters

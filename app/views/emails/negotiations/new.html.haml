@@ -31,7 +31,7 @@
               = "#{person.mailbox}@#{person.host}"
       .form-group
         = f.label :permalink, t(:negotiation_type)
-        .select-control= f.select :permalink, ['new']
+        .select-control= f.select :permalink, interactor.permalink_types
       = link_to email_path(email), class: 'btn btn-default btn-sm' do
         %i.fa-chevron-left
         = t(:back)

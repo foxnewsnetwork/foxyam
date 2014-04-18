@@ -3,7 +3,7 @@ class Factories::Email < Factories::Base
 
   def belongs_to(thing)
     tap do |f|
-      f.email_inbox = thing if thing.is_a? EmailInbox
+      f.email_inbox = thing if thing.is_a? FoxYam::EmailInbox
     end
   end
 
