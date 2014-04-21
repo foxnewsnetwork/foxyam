@@ -3,12 +3,6 @@ README
 
 This is my personal software for doing international mercantile trade in plastics. Named after Fu Xue Yan, the great Chinese merchant and philantrophist of the late Qing dynasty.
 
-ToDos
-=
-1. implement basic secretary class to help write emails
-2. implement companies index and tie companies to merchants
-3. refine filing system for income emails
-4. add emails page
 
 Design Specifications
 =
@@ -18,10 +12,26 @@ What should this site do?
 2. Allow users to reply to emails using various canned responses in batches
 3. Maintain a collection of companies for each merchant that makes suggestions for offers
 
+ToDos
+=
+1. conversation pictures need to be implemented
+2. merchant show page
+3. refine filing system for income emails, still need automation
+4. more interactor tests
+5. negotiation show page, fix the t(:need_buyer) junk
+6. merchant companies index
+7. finalize negotiation button and page
+
 Tasks
 =
+Monday April 21
++ conversation pictures
+
+Friday April 18
++ waste time w/json and alex
+
 Thursday April 17
-+ Do a write up for all the things that still need to be done
+- Do a write up for all the things that still need to be done
 - Finish the existing negotiation edit + update philantrophist
 
 Wednesday April 16
