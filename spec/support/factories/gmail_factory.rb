@@ -1,4 +1,16 @@
 class Factories::Gmail
+  class Attachment
+    def filename
+      Faker::Company.bs.to_url
+    end
+    def read
+      binary = nil
+      File.open(Rails.root.join('public', 'gotes.jpg'), 'rb') do |f|
+        binary = f.read
+      end
+      binary
+    end
+  end
   class << self
     def envelope_path
       gmail_path 'envelope.yml'
@@ -29,7 +41,9 @@ class Factories::Gmail
   def initialize
     @struct = OpenStruct.new
     struct.message = OpenStruct.new
+    struct.message.message_id = Faker::Lorem.sentence.to_url
     struct.message.body = self.class.attributes[:body]
+    struct.message.attachments = [Factories::Gmail::Attachment.new]
     struct.envelope = self.class.attributes[:envelope]
   end
   attr_accessor :struct

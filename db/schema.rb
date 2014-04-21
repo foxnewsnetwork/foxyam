@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412000013) do
+ActiveRecord::Schema.define(version: 20140421172732) do
+
+  create_table "attached_files_emails", force: true do |t|
+    t.integer  "attached_file_id"
+    t.integer  "email_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "attached_files_emails", ["attached_file_id"], name: "index_attached_files_emails_on_attached_file_id", using: :btree
+  add_index "attached_files_emails", ["email_id"], name: "index_attached_files_emails_on_email_id", using: :btree
 
   create_table "companies", force: true do |t|
     t.string   "company_name"
@@ -159,6 +169,24 @@ ActiveRecord::Schema.define(version: 20140412000013) do
   add_index "emails", ["conversation_id"], name: "index_emails_on_conversation_id", using: :btree
   add_index "emails", ["email_inbox_id"], name: "index_emails_on_email_inbox_id", using: :btree
   add_index "emails", ["external_id"], name: "index_emails_on_external_id", using: :btree
+
+  create_table "fox_yam_attached_files", force: true do |t|
+    t.string   "description"
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "the_file_file_name"
+    t.string   "the_file_content_type"
+    t.integer  "the_file_file_size"
+    t.datetime "the_file_updated_at"
+  end
+
+  create_table "fox_yam_attached_files_attached_files_emails", force: true do |t|
+    t.integer  "attached_file_id"
+    t.integer  "email_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "merchants", force: true do |t|
     t.string   "name"

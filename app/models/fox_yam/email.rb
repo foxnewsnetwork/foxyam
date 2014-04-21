@@ -15,6 +15,15 @@
 class FoxYam::Email < ActiveRecord::Base
   attr_accessor :address, :email
 
+  has_many :attached_file_relationships,
+    class_name: 'FoxYam::AttachedFiles::AttachedFilesEmails',
+    foreign_key: 'email_id'
+
+  has_many :attached_files,
+    through: :attached_file_relationships,
+    class_name: 'FoxYam::AttachedFile'
+  alias_method :attachments, :attached_files
+  
   belongs_to :inbox,
     foreign_key: 'email_inbox_id',
     class_name: 'FoxYam::EmailInbox'
