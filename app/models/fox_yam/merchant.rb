@@ -51,8 +51,8 @@ class FoxYam::Merchant < ActiveRecord::Base
       where(permalink: to_permalink(str)).first
     end
 
-    def preload
-      find_or_create_by name: "FoxYam Test Merchant", permalink: 'foxyam-test-merchant'
+    def preload_by(name)
+      find_or_create_by name: name
     end
 
     def to_permalink(name)
@@ -62,6 +62,10 @@ class FoxYam::Merchant < ActiveRecord::Base
 
   def negotiation_draft
     negotiation || negotiations.create
+  end
+
+  def hires(user)
+    users_merchants.create(user: user) && self
   end
 
   def consider_hiring(user)

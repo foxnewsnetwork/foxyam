@@ -14,6 +14,10 @@ class Emails::Negotiations::Interactor < InteractorBase
     @merchant = merchant
   end
 
+  def email_text
+    Kramdown::Document.new(email.plain_object.raw_source).to_html.html_safe
+  end
+
   def permalink_types
     ['new'] + merchant.negotiations.map(&:id)
   end

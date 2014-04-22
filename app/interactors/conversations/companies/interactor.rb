@@ -21,6 +21,10 @@ class Conversations::Companies::Interactor < InteractorBase
     @conversation = conversation
   end
 
+  def email_text
+    Kramdown::Document.new(email.plain_object.raw_source).to_html.html_safe
+  end
+
   def conversation!
     _my_result _contacts && _update_offer
   end

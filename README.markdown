@@ -24,11 +24,16 @@ ToDos
 
 Tasks
 =
+Tuesday April 22
++ conversation pictures index page
++ pay chase bills
++ merchant show page
+
 Monday April 21
-+ conversation pictures
+- conversation pictures done, but the index page still needs owkr
 
 Friday April 18
-+ waste time w/json and alex
+- waste time w/json and alex
 
 Thursday April 17
 - Do a write up for all the things that still need to be done

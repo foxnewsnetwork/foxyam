@@ -1,0 +1,13 @@
+.one-sixth
+  - if attachment.claimed_by_picture?
+    = link_to '#delete_pic', class: 'btn btn-sm btn-danger' do
+      %i.fa-times
+      = t(:delete_pic)
+  - else
+    = form_for i, url: conversation_pictures_path(i.conversation) do |f|
+      = f.hidden_field :attached_file_id, value: attachment.id
+      = button_tag type: :submit, class: 'btn btn-sm btn-info' do
+        %i.fa-plus
+        = t(:add_pic)
+  = link_to attachment.the_file.url, target: :blank, class: 'thumbnail' do
+    = image_tag attachment.the_file.url(:thumb)

@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+FoxYam::EmailAccount.preload
+u = FoxYam::User.create! email: 'gumi@vocalo.id', password: 'asdf123', password_confirmation: 'asdf123'
+FoxYam::Merchant.all.map do |merchant|
+  merchant.hires u
+end

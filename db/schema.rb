@@ -171,7 +171,8 @@ ActiveRecord::Schema.define(version: 20140421230738) do
     t.integer  "email_inbox_id"
     t.string   "external_id"
     t.text     "raw_envelope"
-    t.text     "raw_body"
+    t.text     "plain_content"
+    t.text     "html_content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -189,13 +190,6 @@ ActiveRecord::Schema.define(version: 20140421230738) do
     t.string   "the_file_content_type"
     t.integer  "the_file_file_size"
     t.datetime "the_file_updated_at"
-  end
-
-  create_table "fox_yam_attached_files_attached_files_emails", force: true do |t|
-    t.integer  "attached_file_id"
-    t.integer  "email_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "merchants", force: true do |t|

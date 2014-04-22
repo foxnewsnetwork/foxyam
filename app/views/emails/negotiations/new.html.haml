@@ -13,7 +13,7 @@
 
 .row
   .four-quarters
-    .well.plain= Kramdown::Document.new(email.plain_content).to_html.html_safe
+    .well.plain= interactor.email_text
 
 .row
   .four-quarters

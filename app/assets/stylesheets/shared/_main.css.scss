@@ -55,6 +55,12 @@
       @extend .form-control;
     }
   }
+  .one-sixth {
+    @extend .col-lg-2;
+    @extend .col-md-3;
+    @extend .col-sm-4;
+    @extend .col-xs-6;
+  }
   .four-quarters {
     @extend .col-lg-12;
     @extend .col-md-12;

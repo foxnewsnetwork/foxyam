@@ -18,6 +18,8 @@ Fuxueyan::Application.routes.draw do
     resources :email_accounts, only: [:new, :create], controller: 'merchants/create_accounts'
   end
 
+  resources :picture_attachment_relationships, only: [:delete]
+
   resources :communications, only: [:show]
   resources :offers, only: [:show, :destroy]
   resources :negotiations, only: [:show] do
@@ -41,7 +43,7 @@ Fuxueyan::Application.routes.draw do
     resources :companies, only: [:edit, :update], controller: 'conversations/edit_companies'
     resources :companies, only: [:new, :create], controller: 'conversations/companies'
     resources :tags, only: [:index, :create], controller: 'conversations/tags'
-    resources :pictures, only: [:new, :create], controller: 'conversations/pictures'
+    resources :pictures, only: [:index, :create], controller: 'conversations/pictures'
   end
 
   resources :tags, only: [:destroy]

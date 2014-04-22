@@ -8,6 +8,7 @@ class Conversations::Pictures::Interactor < InteractorBase
   attr_hash_accessor *Fields
 
   delegate :negotiation,
+    :email,
     to: :conversation
 
   validates_with Conversations::Pictures::Validator
@@ -16,12 +17,20 @@ class Conversations::Pictures::Interactor < InteractorBase
     @conversation = conversation
   end
 
+  def attachments
+    email.attachments
+  end
+
+  def email_text
+    Kramdown::Document.new(email.plain_object.raw_source).to_html.html_safe
+  end
+
   def picture_tag!
     Conversations::Pictures::Result.new _tag && _relationship
   end
 
   def attached_file
-    @attached_file ||= FoxYam::AttachedFile.find_by_id attached_file_id
+    @attached_file ||= attachments.find_by_id attached_file_id
   end
   private
   def _tag

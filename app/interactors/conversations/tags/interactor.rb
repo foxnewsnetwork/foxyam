@@ -31,6 +31,10 @@ class Conversations::Tags::Interactor < Conversations::Tags::TagInteractorBase
     presence: true,
     inclusion: { in: InteractorNames }
 
+  def email_text
+    Kramdown::Document.new(email.plain_object.raw_source).to_html.html_safe
+  end
+
   def valid_with_remaining_interactors?
     interactors.reduce(valid_without_remaining_interactors?) { |a,b| a && b }
   end
@@ -45,6 +49,10 @@ class Conversations::Tags::Interactor < Conversations::Tags::TagInteractorBase
     ChildInteractors.map do |ic|
       ic.new(conversation).tap { |i| i.attributes = attributes }
     end
+  end
+
+  def email_has_pictures?
+    email.attached_files.present?
   end
 
   def email

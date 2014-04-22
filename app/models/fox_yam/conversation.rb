@@ -41,6 +41,7 @@ class FoxYam::Conversation < ActiveRecord::Base
     class_name: 'FoxYam::Conversations::Quantity'
 
   def tags
-    materials + prices + packing_weights + pictures + others + quantities
+    materials + prices + packing_weights + others + quantities
   end
+
 end

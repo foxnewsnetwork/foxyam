@@ -20,7 +20,7 @@ class FoxYam::EmailAccount < ActiveRecord::Base
 
     def preload
       gmails.map do |gmail|
-        merchant = FoxYam::Merchant.find_or_create_by name: gmail['merchant_name']
+        merchant = FoxYam::Merchant.preload_by gmail['merchant_name']
         gmail['merchant'] = merchant
         gmail
       end.map do |gmail|

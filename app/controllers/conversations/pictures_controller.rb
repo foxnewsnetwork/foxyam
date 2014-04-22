@@ -1,6 +1,6 @@
 class Conversations::PicturesController < ApplicationController
   expose(:interactor) { _interactor }
-  def new; end
+  def index; end
 
   def create
     _create_picture_tag!
@@ -8,7 +8,11 @@ class Conversations::PicturesController < ApplicationController
   end
   private
   def _interactor
-    @interactor ||= Coversations::Pictures::Interactor.new _conversation
+    @interactor ||= Conversations::Pictures::Interactor.new _conversation
+  end
+
+  def _conversation
+    @conversation ||= FoxYam::Conversation.find params[:conversation_id]
   end
 
   def _creative_interactor
@@ -22,8 +26,8 @@ class Conversations::PicturesController < ApplicationController
   end
 
   def _get_out_of_here!
-    return redirect_to negotiation_path(interactor.negotiation) if @result.success?
-    render :new
+    return redirect_to conversation_pictures_path(_conversation) if @result.success?
+    render :index
   end
 
   def _pictures_params

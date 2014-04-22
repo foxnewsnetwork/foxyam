@@ -7,7 +7,8 @@
 #  email_inbox_id  :integer
 #  external_id     :string(255)
 #  raw_envelope    :text
-#  raw_body        :text
+#  plain_content   :text
+#  html_content    :text
 #  created_at      :datetime
 #  updated_at      :datetime
 #
@@ -54,7 +55,11 @@ class FoxYam::Email < ActiveRecord::Base
 
   class << self
     def raw_hash_from_email(email)
-      { raw_body: email.message.body.to_yaml, raw_envelope: email.envelope.to_yaml }
+      { 
+        plain_content: email.message.text_part,
+        html_content: email.message.html_part, 
+        raw_envelope: email.envelope.to_yaml 
+      }
     end
   end
 
@@ -65,10 +70,6 @@ class FoxYam::Email < ActiveRecord::Base
   def update_from_gmail(email)
     update self.class.raw_hash_from_email email
     self
-  end
-
-  def body
-    YAML.load raw_body
   end
 
   def envelope
@@ -94,43 +95,24 @@ class FoxYam::Email < ActiveRecord::Base
     envelope.subject
   end
 
+  def plain_object
+    YAML.load plain_content
+  end
+
+  def rich_object
+    YAML.load rich_content
+  end
+
   def rich_content
-    return "" if plain?
-    rich_section.strip.split("\r\n\r\n").tail.join("\r\n\r\n")
-  end
-
-  def rich_section
-    body_chunks.select { |chunk| _rich_content? chunk }.first.to_s
-  end
-
-  def plain_content
-    return plain_section.strip.split("\r\n\r\n").tail.join("\r\n\r\n") if rich?
-    return body_chunks.join('\r\n')
-  end
-
-  def plain_section
-    body_chunks.select { |chunk| _plain_content? chunk }.first.to_s
-  end
-
-  def body_chunks
-    body.raw_source.split(/\-\-\w+\-*/).reject(&:blank?)
+    html_content
   end
 
   def rich?
-    body_chunks.any? { |chunk| _rich_content? chunk }
+    html_content.present?
   end
 
   def plain?
-    !rich?
-  end
-
-  private
-  def _rich_content?(str)
-    str.split("\r\n").any? { |s| s =~ /Content-Type: text\/html/ }
-  end
-
-  def _plain_content?(str)
-    str.split("\r\n").any? { |s| s =~ /Content-Type: text\/plain/ }
+    plain_content.present?
   end
 
 end
