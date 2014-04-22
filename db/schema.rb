@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421172732) do
+ActiveRecord::Schema.define(version: 20140421230738) do
 
   create_table "attached_files_emails", force: true do |t|
     t.integer  "attached_file_id"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20140421172732) do
 
   add_index "attached_files_emails", ["attached_file_id"], name: "index_attached_files_emails_on_attached_file_id", using: :btree
   add_index "attached_files_emails", ["email_id"], name: "index_attached_files_emails_on_email_id", using: :btree
+
+  create_table "attached_files_pictures", force: true do |t|
+    t.integer  "attached_file_id"
+    t.integer  "picture_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "attached_files_pictures", ["attached_file_id"], name: "index_attached_files_pictures_on_attached_file_id", using: :btree
+  add_index "attached_files_pictures", ["picture_id"], name: "index_attached_files_pictures_on_picture_id", using: :btree
 
   create_table "companies", force: true do |t|
     t.string   "company_name"

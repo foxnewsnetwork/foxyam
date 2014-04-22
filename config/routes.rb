@@ -11,7 +11,6 @@ Fuxueyan::Application.routes.draw do
     resources :negotiations, only: [:index], controller: 'companies/negotiations'
   end
 
-
   resources :users, only: [:show]
   resources :merchants, only: [:show] do
     resources :negotiations, only: [:index], controller: 'merchants/negotiations'
@@ -42,6 +41,7 @@ Fuxueyan::Application.routes.draw do
     resources :companies, only: [:edit, :update], controller: 'conversations/edit_companies'
     resources :companies, only: [:new, :create], controller: 'conversations/companies'
     resources :tags, only: [:index, :create], controller: 'conversations/tags'
+    resources :pictures, only: [:new, :create], controller: 'conversations/pictures'
   end
 
   resources :tags, only: [:destroy]

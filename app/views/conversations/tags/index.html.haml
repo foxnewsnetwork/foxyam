@@ -49,6 +49,10 @@
     = link_to edit_conversation_company_path(conversation, offer.company), class: 'btn btn-default btn-sm' do
       %i.fa-chevron-left
       = t(:back)
-    = link_to negotiation_path(negotiation), class: 'btn btn-primary btn-lg' do
+    - if interactor.email_has_pictures?
+      - out_path = new_conversation_picture_path(conversation)
+    - else
+      - out_path = negotiation_path(negotiation)
+    = link_to out_path, class: 'btn btn-primary btn-lg' do
       = t(:next)
-      %i.fa-chevron-right
+        %i.fa-chevron-right

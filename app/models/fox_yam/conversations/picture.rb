@@ -18,9 +18,14 @@ class FoxYam::Conversations::Picture < FoxYam::Conversations::RawLog
   belongs_to :conversation, 
     class_name: 'FoxYam::Conversation'
 
-  has_attached_file :picture,
-    url: '/storage/files/:id/:basename.:extension',
-    path: ':rails_root/public/storage/files/:id/:basename.:extension'
+  has_many :attached_file_relationships,
+    class_name: 'FoxYam::AttachedFiles::AttachedFilesConversationsPictures',
+    foreign_key: :picture_id
+
+  has_many :attached_files,
+    class_name: 'FoxYam::AttachedFile',
+    through: :attached_file_relationships
+  alias_method :pictures, :attached_files
 
 
 end
