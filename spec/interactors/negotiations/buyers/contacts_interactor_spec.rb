@@ -7,7 +7,7 @@ describe Negotiations::Buyers::ContactsInteractor do
     let(:contacts) { interactor.contacts! }
     class FauxContactProxy
       def find_or_create_by(*whatever)
-        Contact.new
+        FoxYam::Contact.new
       end
     end
     before do
@@ -20,7 +20,7 @@ describe Negotiations::Buyers::ContactsInteractor do
     it 'should give me an array of contacts' do
       contacts.count.should eq 3
       contacts.each do |contact|
-        contact.should be_a Contact
+        contact.should be_a FoxYam::Contact
       end
     end
 

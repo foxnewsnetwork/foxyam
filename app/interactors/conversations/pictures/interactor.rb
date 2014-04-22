@@ -29,8 +29,9 @@ class Conversations::Pictures::Interactor < InteractorBase
     Conversations::Pictures::Result.new _tag && _relationship
   end
 
+  # Well, future security problem here, but we'll deal with it when it becomes a problem
   def attached_file
-    @attached_file ||= attachments.find_by_id attached_file_id
+    @attached_file ||= FoxYam::AttachedFile.find_by_id attached_file_id
   end
   private
   def _tag

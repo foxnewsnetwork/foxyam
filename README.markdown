@@ -25,9 +25,9 @@ ToDos
 Tasks
 =
 Tuesday April 22
-+ conversation pictures index page
 + pay chase bills
 + merchant show page
+- conversation pictures index page
 
 Monday April 21
 - conversation pictures done, but the index page still needs owkr
