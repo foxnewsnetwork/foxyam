@@ -12,6 +12,6 @@ class NegotiationsController < ApplicationController
   end
 
   def _query_params
-    params.permit(:per, :page)
+    params.permit(*Negotiations::ShowPresenter::Fields)
   end
 end

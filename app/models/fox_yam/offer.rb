@@ -21,6 +21,9 @@ class FoxYam::Offer < ActiveRecord::Base
 
   has_many :conversations,
     class_name: 'FoxYam::Conversation'
+  has_many :attachments,
+    through: :conversations,
+    class_name: 'FoxYam::AttachedFile'
 
   has_one :latest_price,
     -> { order_latest },
@@ -41,7 +44,6 @@ class FoxYam::Offer < ActiveRecord::Base
     through: :conversations,
     class_name: 'FoxYam::Conversations::PackingWeight'
   has_many :pictures,
-    -> { order_latest },
     through: :conversations,
     class_name: 'FoxYam::Conversations::Picture'
   has_many :others,

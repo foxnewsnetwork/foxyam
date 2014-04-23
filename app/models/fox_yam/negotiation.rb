@@ -19,6 +19,10 @@ class FoxYam::Negotiation < ActiveRecord::Base
   has_many :offers,
     class_name: 'FoxYam::Offer'
 
+  has_many :attachments,
+    through: :offers,
+    class_name: 'FoxYam::AttachedFile'
+
   has_one :email_inbox, 
     class_name: 'FoxYam::EmailInbox'
   has_many :email_inboxes,  

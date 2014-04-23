@@ -3,7 +3,7 @@
 @import 'email_accounts/show';
 @import 'conversations/tags/index';
 @import 'email_inboxes/emails/index';
-
+@import 'negotiations/show';
 @mixin shared-main {
   @extend .container;
 
@@ -151,5 +151,9 @@
 
   #email_inboxes-emails-index {
     @include email_inboxes-emails-index;
+  }
+
+  #negotiations-show {
+    @include negotiations-show;
   }
 }

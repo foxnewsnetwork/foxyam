@@ -21,6 +21,14 @@ class FoxYam::Conversation < ActiveRecord::Base
   has_one :email,
     class_name: 'FoxYam::Email'
 
+  has_many :attached_files,
+    through: :pictures,
+    class_name: 'FoxYam::AttachedFile'
+  has_many :attachments,
+    through: :pictures,
+    source: :attached_files,
+    class_name: 'FoxYam::AttachedFile'
+
   has_many :materials,
     -> { order_latest },
     class_name: 'FoxYam::Conversations::Material'
@@ -31,7 +39,6 @@ class FoxYam::Conversation < ActiveRecord::Base
     -> { order_latest },
     class_name: 'FoxYam::Conversations::PackingWeight'
   has_many :pictures,
-    -> { order_latest },
     class_name: 'FoxYam::Conversations::Picture'
   has_many :others,
     -> { order_latest },

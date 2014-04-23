@@ -9,159 +9,20 @@
         = presenter.id
 
 .row
-  %h1.page-title
-    = t(:negotiation_summary)
-
-.row.actions
-  .action-icon
-    = link_to '#mark_dead' do
-      %figure
-        %i.fa-times
-      = t(:mark_dead)
-
-.row
-  .two-quarters
-    %ul.list-group
-      %li.list-group-item
-        %span.colon.bold= t(:material)
-        = presenter.material
-        %span.colon.bold= t(:quantity)
-        = number_with_delimiter presenter.quantity, delimiter: ','
-        = presenter.units
-        %span.colon.bold= t(:packing)
-        = number_with_delimiter presenter.packing, delimiter: ','
-        = presenter.packing_units
-
-.row
+  .three-quarters
+    - if params[:s].blank? || 'summary' == params[:s]
+      = render partial: 'negotiations/summary'
+    - elsif 'transportation' == params[:s]
+      = render partial: 'negotiations/transportation'
+    - elsif 'offers' == params[:s]
+      = render partial: 'negotiations/offers'
+    - elsif 'sellers' == params[:s]
+      = render partial: 'negotiations/sellers'
+    - elsif 'buyers' == params[:s]
+      = render partial: 'negotiations/buyers'
+    - elsif 'automate' == params[:s]
+      = render partial: 'negotiations/automate'
+    - else
+      = render partial: 'negotiations/error_logo'
   .one-quarter
-    %dl
-      %dt= t(:expected_profit)
-      %dd 
-        %span.colon.bold Gross
-        = t(:no_buyer_yet!)
-        %span.colon.bold Net 
-        = t(:no_buyer_yet!)
-      %dt Expected Total Cost
-      %dd= t(:no_buyer_yet!)
-  .one-quarter
-    %dl
-      %dt= t(:best_purchase_price)
-      %dd
-        - if presenter.best_purchase_price?
-          $
-          = presenter.best_purchase_price.usd_per_pound
-          %span.upcase= presenter.best_purchase_price.incoterm
-          = presenter.best_purchase_price.place_name
-        - else
-          = t(:no_price_yet)
-      %dt= t(:best_sell_price)
-      %dd= t(:no_buyer_yet!)
-  .one-quarter
-    %dl
-      %dt= t(:time_since_creation)
-      %dd= time_ago_in_words presenter.negotiation.created_at
-      %dt= t(:time_since_latest_activity)
-      %dd= time_ago_in_words presenter.negotiation.updated_at
-  .one-quarter
-    %dl
-      %dt= t(:potential_buyers)
-      %dd= presenter.buyers.count
-      %dt= t(:involved_seller)
-      %dd
-        - if presenter.seller.present?
-          = link_to presenter.seller_name, company_path(presenter.seller_id)
-        - else
-          = t :unknown_seller
-
-
-.row
-  %h3.page-title Rate Quotes
-
-.row.actions
-  .action-icon
-    = link_to '#request_quote' do
-      %figure
-        %i.fa-truck
-      = t(:request_quote)
-
-
-.row
-  .one-quarter
-    = t(:no_quotes_yet!)
-
-.row
-  %h3.page-title Buying From Offer Log
-.row
-  = render partial: 'negotiations/offer', collection: presenter.sell_presenters
-
-.row
-  %h3.page-title Selling To Offer Log
-
-.row.actions
-  .action-icon
-    = link_to new_negotiation_buyer_path(presenter.negotiation) do
-      %figure
-        %i.fa-plus
-      = t(:add_buyer)
-  .action-icon
-    = link_to '#batch' do
-      %figure
-        %i.fa-reply-all
-      = t(:batch_reply)
-  .action-icon
-    = link_to '#check_all' do
-      %figure
-        %i.fa-check
-      = t(:check_all)
-.row
-  = render partial: 'negotiations/offer', collection: presenter.buy_presenters
-
-- if false
-  .row
-    .one-quarter
-      = link_to '#finalize', class: 'btn btn-lg btn-block btn-primary' do
-        %i.fa-linux
-        = t(:finalize_deal)
-
-.row
-  %h2.page-title E-Manager
-
-.row.actions
-  .action-icon
-    = link_to '#add_secretary' do
-      %figure
-        %i.fa-linux
-      = t(:add_secretary)
-  .action-icon
-    = link_to '#fire_manager' do
-      %figure
-        %i.fa-linux
-      = t(:fire_manager)
-
-.row
-  .two-quarters
-    %ul.list-group
-      %li.list-group-item
-        = link_to '#edit' do
-          Reply politely to all emails
-        %span.pull-right
-          = link_to '#delete' do
-            %i.fa-times
-      %li.list-group-item
-        = link_to '#edit' do
-          Maintain minimum of $0.01 profit margin
-        %span.pull-right
-          = link_to '#delete' do
-            %i.fa-times
-      %li.list-group-item
-        = link_to '#edit' do
-          Sends emails without confirmation
-        %span.pull-right
-          = link_to '#delete' do
-            %i.fa-times
-      %li.list-group-item
-        = link_to '#edit' do
-          Sell to Highest Payer
-        %span.pull-right
-          = link_to '#delete' do
-            %i.fa-times
+    = render partial: 'negotiations/navbar'

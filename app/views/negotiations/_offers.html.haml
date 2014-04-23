@@ -1,0 +1,10 @@
+= render partial: 'negotiations/sellers'
+
+= render partial: 'negotiations/buyers'
+
+- if false
+  .row
+    .one-quarter
+      = link_to '#finalize', class: 'btn btn-lg btn-block btn-primary' do
+        %i.fa-linux
+        = t(:finalize_deal)

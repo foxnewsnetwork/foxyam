@@ -1,0 +1,15 @@
+.list-group
+  = link_to '?s=summary', class: presenter.navclass('summary') do
+    = t(:summary)
+  = link_to '?s=transportation', class: presenter.navclass('transportation') do
+    = t(:transportation)
+  = link_to '?s=offers', class: presenter.navclass('offers') do
+    = t(:offers)
+  %span.smaller-tab
+    = link_to '?s=sellers', class: presenter.navclass('sellers') do
+      = t(:sellers)
+  %span.smaller-tab
+    = link_to '?s=buyers', class: presenter.navclass('buyers') do
+      = t(:buyers)
+  = link_to '?s=automate', class: presenter.navclass('automate') do
+    = t(:automate)

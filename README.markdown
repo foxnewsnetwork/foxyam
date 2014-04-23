@@ -24,9 +24,12 @@ ToDos
 
 Tasks
 =
+Wednesday April 23
++ merchant show page
+
 Tuesday April 22
 + pay chase bills
-+ merchant show page
++ negotiations show
 - conversation pictures index page
 
 Monday April 21

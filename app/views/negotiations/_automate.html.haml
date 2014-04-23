@@ -1,0 +1,42 @@
+.row
+  %h2.page-title E-Manager
+
+.row.actions
+  .action-icon
+    = link_to '#add_secretary' do
+      %figure
+        %i.fa-linux
+      = t(:add_secretary)
+  .action-icon
+    = link_to '#fire_manager' do
+      %figure
+        %i.fa-linux
+      = t(:fire_manager)
+
+.row
+  .two-quarters
+    %ul.list-group
+      %li.list-group-item
+        = link_to '#edit' do
+          Reply politely to all emails
+        %span.pull-right
+          = link_to '#delete' do
+            %i.fa-times
+      %li.list-group-item
+        = link_to '#edit' do
+          Maintain minimum of $0.01 profit margin
+        %span.pull-right
+          = link_to '#delete' do
+            %i.fa-times
+      %li.list-group-item
+        = link_to '#edit' do
+          Sends emails without confirmation
+        %span.pull-right
+          = link_to '#delete' do
+            %i.fa-times
+      %li.list-group-item
+        = link_to '#edit' do
+          Sell to Highest Payer
+        %span.pull-right
+          = link_to '#delete' do
+            %i.fa-times

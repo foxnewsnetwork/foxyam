@@ -1,15 +1,27 @@
 class Negotiations::ShowPresenter
-
-  attr_accessor :negotiation
+  Fields = [
+    :per,
+    :page,
+    :s
+  ]
+  attr_accessor :negotiation, :attributes
+  attr_hash_accessor *Fields
   delegate :id,
     :merchant,
     :buyers,
     :sellers,
     :sell_offers,
     :buy_offers,
+    :attachments,
     to: :negotiation
   def initialize(negotiation)
     @negotiation = negotiation
+  end
+
+  def navclass(thing)
+    c = 'list-group-item'
+    c += ' active' if thing.blank? || thing == s
+    c
   end
 
   def seller
@@ -37,6 +49,8 @@ class Negotiations::ShowPresenter
   end
 
   def query(params)
+    @attributes = (@attributes || {}).merge params
+    @attributes.symbolize_keys!
     self
   end
 

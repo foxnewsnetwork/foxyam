@@ -1,0 +1,22 @@
+.row
+  %h3.page-title Selling To Offer Log
+
+.row.actions
+  .action-icon
+    = link_to new_negotiation_buyer_path(presenter.negotiation) do
+      %figure
+        %i.fa-plus
+      = t(:add_buyer)
+  .action-icon
+    = link_to '#batch' do
+      %figure
+        %i.fa-reply-all
+      = t(:batch_reply)
+  .action-icon
+    = link_to '#check_all' do
+      %figure
+        %i.fa-check
+      = t(:check_all)
+
+.row
+  = render partial: 'negotiations/offer', collection: presenter.buy_presenters
