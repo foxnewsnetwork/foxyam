@@ -2,18 +2,18 @@
   #cookie-crumbs
     %ol
       %li= link_to t(:home), root_path
-      %li= t(:my_company)
+      %li= t(:my_account)
 
 .row
   .one-quarter
     .list-group
-      .list-group-item
+      = link_to user_merchants_path(user), class: 'list-group-item' do
         %span.bold= t(:merchant_accounts)
       - user.merchants.each do |merchant|
         = link_to merchant_path(merchant), class: 'list-group-item' do
           %i.fa-building-o
           = merchant.name
-      .list-group-item
+      = link_to user_path(current_user), class: 'list-group-item active' do
         %span.bold= t(:user_account)
       .list-group-item
         %span.bold= t(:site_preferences)

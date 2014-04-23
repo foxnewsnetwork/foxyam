@@ -1,0 +1,44 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:home), root_path
+      %li
+        = link_to user_path(current_user) do
+          = t(:user)
+          = '#'
+          = current_user.id
+      %li
+        = t(:merchant)
+        = '#'
+        = presenter.merchant_id
+
+.row
+  .one-quarter
+    .list-group
+      = link_to user_merchants_path(presenter.user), class: 'list-group-item' do
+        %span.bold= t(:merchant_accounts)
+      - presenter.merchants.each do |merchant|
+        - c = merchant == presenter.merchant ? 'active' : ''
+        = link_to merchant_path(merchant), class: 'list-group-item ' + c do
+          %i.fa-building-o
+          = merchant.name
+      = link_to user_path(current_user), class: 'list-group-item' do
+        %span.bold= t(:user_account)
+      .list-group-item
+        %span.bold= t(:site_preferences)
+      .list-group-item
+        %span.bold= t(:email_preferences)
+  .three-quarters
+    = render partial: 'fox_yam/merchants/email_account', collection: presenter.email_accounts
+    %table.table
+      %thead
+        %tr
+          %td= t(:company)
+          %td= t(:negotiations_count)
+      %tbody
+        - presenter.companies.each do |company|
+          %tr
+            %td
+              = link_to company.company_name, company_path(company)
+            %td= company.negotiations.count
+            

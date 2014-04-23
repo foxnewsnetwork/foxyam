@@ -21,15 +21,24 @@ ToDos
 5. negotiation show page, fix the t(:need_buyer) junk
 6. merchant companies index
 7. finalize negotiation button and page
+8. permission system
+9. negotiation #mark dead
+10. negotiation finalize deal
+11. request quote implementation
+12. rework negotiations?buyer seller and offers
+13. build a better usability test system that spams out emails to mine and whatnot
+14. user account show page
+15. site preferences show page
+16. email preferences show page
 
 Tasks
 =
 Wednesday April 23
-+ merchant show page
+- merchant show page
 
 Tuesday April 22
-+ pay chase bills
-+ negotiations show
+- pay chase bills
+- negotiations show
 - conversation pictures index page
 
 Monday April 21

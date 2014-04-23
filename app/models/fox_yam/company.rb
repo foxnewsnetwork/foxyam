@@ -39,6 +39,10 @@ class FoxYam::Company < ActiveRecord::Base
     company_name
   end
 
+  def negotiations_count
+    negotiations.count
+  end
+
   def primary_contact
     contacts.merchantable.first
   end

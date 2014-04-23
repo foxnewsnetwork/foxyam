@@ -11,8 +11,10 @@ Fuxueyan::Application.routes.draw do
     resources :negotiations, only: [:index], controller: 'companies/negotiations'
   end
 
-  resources :users, only: [:show]
-  resources :merchants, only: [:show] do
+  resources :users, only: [:show] do
+    resources :merchants, only: [:index], controller: 'fox_yam/users/merchants'
+  end
+  resources :merchants, only: [:show], controller: 'fox_yam/merchants' do
     resources :negotiations, only: [:index], controller: 'merchants/negotiations'
     resources :email_accounts, only: [:index], controller: 'merchants/email_accounts'
     resources :email_accounts, only: [:new, :create], controller: 'merchants/create_accounts'
