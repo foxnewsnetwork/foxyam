@@ -19,5 +19,8 @@
 config/database.yml
 config/gmail.yml
 
+# SSL secrets
+config/ssl
+
 # Image storage local
 public/storage

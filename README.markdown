@@ -26,7 +26,6 @@ ToDos
 10. negotiation finalize deal
 11. request quote implementation
 12. rework negotiations?buyer seller and offers
-13. build a better usability test system that spams out emails to mine and whatnot
 14. user account show page
 15. site preferences show page
 16. email preferences show page
@@ -34,6 +33,7 @@ ToDos
 Tasks
 =
 Wednesday April 23
+- build a better usability test system that spams out emails to mine and whatnot... but it doesn't work locally
 - merchant show page
 
 Tuesday April 22
