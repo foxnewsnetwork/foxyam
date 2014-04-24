@@ -5,6 +5,13 @@ class FoxYam::Usability::CompanyPresenter
     @merchant = merchant
   end
 
+  def smtp_user
+    merchant_email
+  end
+  def smtp_password
+    _email_account.unencrypted_password
+  end
+
   def merchant_email
     _email_account.email_address
   end

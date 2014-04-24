@@ -14,8 +14,6 @@ What should this site do?
 
 ToDos
 =
-1. conversation pictures need to be implemented
-2. merchant show page
 3. refine filing system for income emails, still need automation
 4. more interactor tests
 5. negotiation show page, fix the t(:need_buyer) junk
@@ -32,8 +30,12 @@ ToDos
 
 Tasks
 =
+Thursday April 24
++ Run through integration test and figure out what needs work
+
 Wednesday April 23
-- build a better usability test system that spams out emails to mine and whatnot... but it doesn't work locally
+- build a better usability test system that spams out emails to mine and whatnot...
+- works locally now!
 - merchant show page
 
 Tuesday April 22
