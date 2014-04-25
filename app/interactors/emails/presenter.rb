@@ -25,6 +25,6 @@ class Emails::Presenter
   end
 
   def email_html
-    Kramdown::Document.new(email.plain_object.raw_source).to_html.html_safe
+    Kramdown::Document.new(email.plain_content).to_html.html_safe
   end
 end

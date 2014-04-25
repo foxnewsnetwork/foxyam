@@ -22,7 +22,7 @@ class Conversations::Companies::Interactor < InteractorBase
   end
 
   def email_text
-    Kramdown::Document.new(email.plain_object.raw_source).to_html.html_safe
+    Kramdown::Document.new(email.plain_content).to_html.html_safe
   end
 
   def conversation!

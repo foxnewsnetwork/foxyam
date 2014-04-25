@@ -8,7 +8,7 @@ describe FoxYam::Usability::SetupInteractor do
       email.should be_a Mail::Message
     end
     it 'should be from buyercompany' do
-      email.from.should include 'buyercompany@mailinator.com'
+      email.from.should include 'cheapcthulhu4u@gmail.com'
     end
     it 'should html part' do
       email.html_part.should be_present

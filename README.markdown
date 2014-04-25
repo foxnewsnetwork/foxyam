@@ -14,6 +14,8 @@ What should this site do?
 
 ToDos
 =
+1. Scrap needs to be not as heavy as it currently is as even retrieving some 50 emails from gmail crashes my system
+2. Setup resque to handle scrap requests (as in rework scrap so that it happens as a background process automatically)
 3. refine filing system for income emails, still need automation
 4. more interactor tests
 5. negotiation show page, fix the t(:need_buyer) junk
@@ -27,11 +29,18 @@ ToDos
 14. user account show page
 15. site preferences show page
 16. email preferences show page
+17. Move all the controllers and interactors into the fox_yam namespace
 
 Tasks
 =
+Friday April 25
++ Implement a gmail scrapping off of resque requests
+- Split up envelope serialization; occasionally, this would be too big and too problematic to just store as a blob
+
 Thursday April 24
-+ Run through integration test and figure out what needs work
+- Run through integration test and figure out what needs work
+- First stopping block is the lack of resque to incrementally scrap data from google which provides for godawful UX
+- Also problem with envelop serialization
 
 Wednesday April 23
 - build a better usability test system that spams out emails to mine and whatnot...

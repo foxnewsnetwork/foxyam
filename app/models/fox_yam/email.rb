@@ -29,6 +29,29 @@ class FoxYam::Email < ActiveRecord::Base
     foreign_key: 'email_inbox_id',
     class_name: 'FoxYam::EmailInbox'
 
+  has_one :envelope,
+    class_name: 'FoxYam::Envelope'
+  def envelope_with_defaults
+    return envelope_without_defaults if envelope_without_defaults.present?
+    @envelope ||= FoxYam::Envelope.create! email: self
+  end
+  alias_method_chain :envelope, :defaults
+
+  has_one :from,
+    through: :envelope,
+    source: :from_address,
+    class_name: 'FoxYam::Envelopes::Origin'
+
+  has_many :cc,
+    through: :envelope,
+    source: :cc_addresses,
+    class_name: 'FoxYam::Envelopes::Origin'    
+
+  has_many :bcc,
+    through: :envelope,
+    source: :bcc_addresses,
+    class_name: 'FoxYam::Envelopes::Origin'    
+
   has_one :account,
     class_name: 'FoxYam::EmailAccount',
     through: :inbox
@@ -44,6 +67,12 @@ class FoxYam::Email < ActiveRecord::Base
     through: :inbox,
     class_name: 'FoxYam::Negotiation'
 
+  scope :no_html,
+    -> { where "#{self.table_name}.html_content is null" }
+  scope :no_text,
+    -> { where "#{self.table_name}.plain_content is null" }
+  scope :no_content,
+    -> { no_text.no_text }
   scope :unclaimed,
     -> { where "#{self.table_name}.conversation_id is null" }
 
@@ -54,53 +83,36 @@ class FoxYam::Email < ActiveRecord::Base
     -> { order "#{self.table_name}.created_at desc"}
 
   class << self
-    def raw_hash_from_email(email)
+    def content_hash_from_email(email)
       { 
-        plain_content: email.message.text_part,
-        html_content: email.message.html_part, 
-        raw_envelope: email.envelope.to_yaml 
+        plain_content: email.text_part.try(:raw_source),
+        html_content: email.html_part.try(:raw_source),
       }
     end
   end
 
-  def from
-    envelope.from
-  end
-
   def update_from_gmail(email)
-    update self.class.raw_hash_from_email email
+    update self.class.content_hash_from_email email
     self
   end
 
-  def envelope
-    YAML.load raw_envelope
-  end
-
   def email_addresses
-    from.map { |f| "#{f.mailbox}@#{f.host}" }
+    [from_address.email_address]
   end
 
   def from_presentation
-    f = from.first
-    "#{f.name} (#{f.mailbox}@#{f.host})"
+    f = from_address
+    "#{f.email_presentation} (#{f.email_address})"
   end
 
   def from_presentation_google_style
-    f = from.first
-    return f.name unless f.name.blank?
-    return "#{f.mailbox}@#{f.host}"
+    f = from_address
+    return f.email_presentation unless f.email_presentation.blank?
+    return f.email_address
   end
 
   def subject
     envelope.subject
-  end
-
-  def plain_object
-    YAML.load plain_content
-  end
-
-  def rich_object
-    YAML.load rich_content
   end
 
   def rich_content

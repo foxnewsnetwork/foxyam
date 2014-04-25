@@ -28,10 +28,20 @@ class FoxYam::AttachedFile < ActiveRecord::Base
   has_many :pictures,
     through: :picture_relationships,
     class_name: 'FoxYam::Conversations::Picture'
-  has_attached_file :the_file,
-    url: '/storage/files/:id/:basename.:extension',
-    path: ':rails_root/public/storage/files/:id/:basename.:extension'
 
+  if Rails.env.test?
+    has_attached_file :the_file,
+      url: '/storage/test_files/:id/:basename.:extension',
+      path: ':rails_root/public/storage/test_files/:id/:basename.:extension'
+  elsif Rails.env.development?
+    has_attached_file :the_file,
+      url: '/storage/dev_files/:id/:basename.:extension',
+      path: ':rails_root/public/storage/dev_files/:id/:basename.:extension'
+  else
+    has_attached_file :the_file,
+      url: '/storage/files/:id/:basename.:extension',
+      path: ':rails_root/public/storage/files/:id/:basename.:extension'
+  end
 
   def claimed_by_picture?
     pictures.present?

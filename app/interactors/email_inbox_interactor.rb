@@ -19,9 +19,9 @@ class EmailInboxInteractor
     @inbox ||= account.inbox
   end
 
-  def unread
+  def unread(k=15)
     begin
-      gmail.inbox.unread
+      gmail.inbox.unread(after: 1.month.ago).take(k)
     rescue Net::IMAP::BadResponseError => e
       gmail.signed_in?
       gmail.inbox.unread

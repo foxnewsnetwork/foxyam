@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421230738) do
+ActiveRecord::Schema.define(version: 20140425010228) do
 
   create_table "attached_files_emails", force: true do |t|
     t.integer  "attached_file_id"
@@ -170,7 +170,6 @@ ActiveRecord::Schema.define(version: 20140421230738) do
     t.integer  "conversation_id"
     t.integer  "email_inbox_id"
     t.string   "external_id"
-    t.text     "raw_envelope"
     t.text     "plain_content"
     t.text     "html_content"
     t.datetime "created_at"
@@ -180,6 +179,26 @@ ActiveRecord::Schema.define(version: 20140421230738) do
   add_index "emails", ["conversation_id"], name: "index_emails_on_conversation_id", using: :btree
   add_index "emails", ["email_inbox_id"], name: "index_emails_on_email_inbox_id", using: :btree
   add_index "emails", ["external_id"], name: "index_emails_on_external_id", using: :btree
+
+  create_table "envelopes", force: true do |t|
+    t.integer  "email_id"
+    t.string   "subject"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "envelopes", ["email_id"], name: "index_envelopes_on_email_id", using: :btree
+
+  create_table "envelopes_origins", force: true do |t|
+    t.integer  "envelope_id"
+    t.string   "origin_type",        default: "from", null: false
+    t.string   "email_address",                       null: false
+    t.string   "email_presentation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "envelopes_origins", ["envelope_id"], name: "index_envelopes_origins_on_envelope_id", using: :btree
 
   create_table "fox_yam_attached_files", force: true do |t|
     t.string   "description"

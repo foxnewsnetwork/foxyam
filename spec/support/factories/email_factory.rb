@@ -18,7 +18,10 @@ class Factories::Email < Factories::Base
   end
 
   def email_attributes
-    FoxYam::Email.raw_hash_from_email gmail
+    {
+      plain_content: Faker::Lorem.paragraph,
+      html_content: Faker::Lorem.paragraph
+    }
   end
 
 end

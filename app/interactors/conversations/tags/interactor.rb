@@ -32,7 +32,7 @@ class Conversations::Tags::Interactor < Conversations::Tags::TagInteractorBase
     inclusion: { in: InteractorNames }
 
   def email_text
-    Kramdown::Document.new(email.plain_object.raw_source).to_html.html_safe
+    Kramdown::Document.new(email.plain_content).to_html.html_safe
   end
 
   def valid_with_remaining_interactors?

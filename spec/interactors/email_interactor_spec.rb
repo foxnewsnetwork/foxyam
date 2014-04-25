@@ -41,6 +41,7 @@ describe EmailInteractor do
   end
   context 'relationships' do
     let(:email_record) { inbox.emails.first }
+    let(:from_address) { email_record.envelope.from_address }
     before do
       store_email
     end  
@@ -53,6 +54,18 @@ describe EmailInteractor do
     end
     it 'should be correctly related' do
       email_record.attachments.first.emails.first.should eq email_record
+    end
+    it 'should properly create the envelope object' do
+      email_record.envelope.should be_a FoxYam::Envelope
+      email_record.envelope.email.should eq email_record
+    end
+    it 'should be a proper envelope origin' do
+      from_address.should be_a FoxYam::Envelopes::Origin
+      from_address.should be_persisted
+      from_address.email_address.should eq "foxnewsnetwork@gmail.com"
+    end
+    it 'should be properly related' do
+      from_address.envelope.should eq email_record.envelope
     end
   end
 end

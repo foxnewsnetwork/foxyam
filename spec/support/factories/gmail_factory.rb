@@ -42,13 +42,15 @@ class Factories::Gmail
     @struct = OpenStruct.new
     struct.message = OpenStruct.new
     struct.message.message_id = Faker::Lorem.sentence.to_url
-    struct.message.text_part = Faker::Lorem.sentence
-    struct.message.html_part = Faker::Lorem.sentence
+    struct.text_part = Faker::Lorem.sentence
+    struct.html_part = Faker::Lorem.sentence
     struct.message.attachments = [Factories::Gmail::Attachment.new]
     struct.envelope = self.class.attributes[:envelope]
   end
   attr_accessor :struct
   delegate :envelope,
     :message,
+    :text_part,
+    :html_part,
     to: :struct
 end
