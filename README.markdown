@@ -30,11 +30,11 @@ ToDos
 15. site preferences show page
 16. email preferences show page
 17. Move all the controllers and interactors into the fox_yam namespace
+18. Implement a gmail scrapping off of resque requests
 
 Tasks
 =
 Friday April 25
-+ Implement a gmail scrapping off of resque requests
 - Split up envelope serialization; occasionally, this would be too big and too problematic to just store as a blob
 
 Thursday April 24

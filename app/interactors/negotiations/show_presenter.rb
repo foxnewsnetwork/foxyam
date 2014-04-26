@@ -20,7 +20,8 @@ class Negotiations::ShowPresenter
 
   def navclass(thing)
     c = 'list-group-item'
-    c += ' active' if thing.blank? || thing == s
+    c += ' active' if thing == s
+    c += ' active' if thing =='summary' && s.blank?
     c
   end
 

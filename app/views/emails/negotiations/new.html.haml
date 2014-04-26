@@ -24,11 +24,9 @@
       %legend= t(:negotiation_filing)
       %dl
         %dt= t(:from)
-        - email.from.each do |person|
-          %dd
-            %span.dash= person.name
-            %span.italic
-              = "#{person.mailbox}@#{person.host}"
+        %dd
+          %span.dash= interactor.email_presentation
+          %span.italic= interactor.email_address
       .form-group
         = f.label :permalink, t(:negotiation_type)
         .select-control= f.select :permalink, interactor.permalink_types

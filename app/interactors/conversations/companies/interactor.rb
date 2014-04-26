@@ -12,6 +12,13 @@ class Conversations::Companies::Interactor < InteractorBase
   delegate :merchant,
     to: :negotiation
 
+  delegate :from_address,
+    to: :email
+
+  delegate :email_address,
+    :email_presentation,
+    to: :from_address
+
   class << self
     def offer_types
       FoxYam::Offer::OfferTypes.reverse.freeze

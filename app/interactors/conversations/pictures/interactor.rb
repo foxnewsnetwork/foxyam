@@ -11,6 +11,13 @@ class Conversations::Pictures::Interactor < InteractorBase
     :email,
     to: :conversation
 
+  delegate :from_address,
+    to: :email
+
+  delegate :email_address,
+    :email_presentation,
+    to: :from_address
+
   validates_with Conversations::Pictures::Validator
 
   def initialize(conversation)

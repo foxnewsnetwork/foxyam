@@ -9,6 +9,13 @@ class Emails::Negotiations::Interactor < InteractorBase
     :negotiation,
     presence: true
 
+  delegate :from_address,
+    to: :email
+
+  delegate :email_presentation,
+    :email_address,
+    to: :from_address
+    
   def initialize(email, merchant=nil)
     @email = email
     @merchant = merchant

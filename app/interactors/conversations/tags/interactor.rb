@@ -31,6 +31,13 @@ class Conversations::Tags::Interactor < Conversations::Tags::TagInteractorBase
     presence: true,
     inclusion: { in: InteractorNames }
 
+  delegate :from_address,
+    to: :email
+
+  delegate :email_address,
+    :email_presentation,
+    to: :from_address
+
   def email_text
     Kramdown::Document.new(email.plain_content).to_html.html_safe
   end

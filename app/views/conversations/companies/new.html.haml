@@ -30,11 +30,9 @@
       %legend Other Party
       %dl
         %dt= t(:from)
-        - email.from.each do |person|
-          %dd
-            %span.dash= person.name
-            %span.italic
-              = "#{person.mailbox}@#{person.host}"
+        %dd
+          %span.dash= interactor.email_presentation
+          %span.italic= interactor.email_address
       .form-group
         = f.label :company_name, t(:company_name)
         = f.text_field :company_name, class: 'form-control'

@@ -30,11 +30,9 @@
     %legend= t(:other_party)
     %dl
       %dt= t(:from)
-      - email.from.each do |person|
-        %dd
-          %span.dash= person.name
-          %span.italic
-            = "#{person.mailbox}@#{person.host}"
+      %dd
+        %span.dash= interactor.email_presentation
+        %span.italic= interactor.email_address
       %dt= t(:company_name)
       %dd= link_to offer.company.name, company_path(offer.company)
       %dt= t(:offer_type)
