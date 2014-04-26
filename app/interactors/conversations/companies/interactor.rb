@@ -26,7 +26,7 @@ class Conversations::Companies::Interactor < InteractorBase
   end
 
   def conversation!
-    _my_result _contacts && _update_offer
+    _my_result _contact && _update_offer
   end
 
   private
@@ -58,22 +58,18 @@ class Conversations::Companies::Interactor < InteractorBase
     merchant.companies.create! company_name: company_name
   end
 
-  def _contacts
-    @contacts ||= _contact_params.map do |p|
-      _company.contacts.find_or_create_by! p
-    end
+  def _contact
+    @contact ||= _company.contacts.find_or_create_by! _contact_params
   end
 
   def _contact_params
-    _from.map do |f|
-      {
-        name: f.name,
-        email: "#{f.mailbox}@#{f.host}"
-      }
-    end
+    {
+      name: _from.email_presentation,
+      email: _from.email_address
+    }
   end
 
   def _from
-    email.from
+    email.from_address
   end
 end

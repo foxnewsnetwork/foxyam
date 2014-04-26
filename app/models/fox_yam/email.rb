@@ -37,10 +37,14 @@ class FoxYam::Email < ActiveRecord::Base
   end
   alias_method_chain :envelope, :defaults
 
-  has_one :from,
+  has_one :from_address,
     through: :envelope,
-    source: :from_address,
     class_name: 'FoxYam::Envelopes::Origin'
+  def from_address_with_defaults
+    return envelope.from_address if envelope.from_address.blank?
+    from_address_without_defaults
+  end
+  alias_method_chain :from_address, :defaults
 
   has_many :cc,
     through: :envelope,

@@ -3,6 +3,12 @@ require 'spec_helper'
 describe FoxYam::Email do
   let(:email) { Factories::Email.mock }
   let(:envelope) { email.envelope }
+  let(:origin_from) { email.from_address }
+  describe '#from' do
+    it 'should create an envelope' do
+      expect { origin_from }.to change(FoxYam::Envelope, :count).by 1
+    end
+  end
   describe '#envelope' do
     it 'should be a persisted envelope' do
       envelope.should be_persisted

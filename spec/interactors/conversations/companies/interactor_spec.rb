@@ -32,7 +32,7 @@ describe Conversations::Companies::Interactor do
     let(:merchant) { interactor.merchant }
     let(:negotiation) { interactor.negotiation }
     let(:conversations) { company.conversations }
-    let(:contacts) { interactor.instance_variable_get :@contacts }
+    let(:contact) { interactor.instance_variable_get :@contact }
     before { result }
     it 'should be a proper company' do
       company.should be_a FoxYam::Company
@@ -52,9 +52,7 @@ describe Conversations::Companies::Interactor do
       c.conversations.should include conversation
     end
     it 'should have contacts that are properly tied' do
-      contacts.each do |contact|
-        contact.company.should eq company
-      end
+      contact.company.should eq company  
     end
   end
 end

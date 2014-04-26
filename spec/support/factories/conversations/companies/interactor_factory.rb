@@ -13,7 +13,15 @@ class Factories::Conversations::Companies::Interactor
   end
 
   def email
-    @email ||= Factories::Email.mock
+    envelope.email
+  end
+
+  def envelope
+    origin.envelope
+  end
+
+  def origin
+    @origin ||= Factories::Envelopes::Origin.mock
   end
 
   def merchant
