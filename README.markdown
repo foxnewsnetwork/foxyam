@@ -34,6 +34,9 @@ ToDos
 
 Tasks
 =
+Monday April 28
++ Company show page
+
 Friday April 25
 - Split up envelope serialization; occasionally, this would be too big and too problematic to just store as a blob
 

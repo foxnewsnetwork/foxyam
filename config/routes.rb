@@ -7,9 +7,12 @@ Fuxueyan::Application.routes.draw do
     }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  resources :companies do
+  resources :companies, only: [:show], controller: 'fox_yam/companies' do
     resources :negotiations, only: [:index], controller: 'companies/negotiations'
   end
+
+  resources :contact, only: [:show], controller: 'fox_yam/contact'
+  resources :contacts, only: [:edit, :update], controller: 'fox_yam/contacts'
 
   resources :users, only: [:show] do
     resources :merchants, only: [:index], controller: 'fox_yam/users/merchants'

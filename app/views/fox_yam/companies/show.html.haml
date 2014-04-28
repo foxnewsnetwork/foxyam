@@ -1,0 +1,55 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:home), root_path
+      %li
+        = link_to user_path(current_user) do
+          = t(:user)
+          = '#'
+          = current_user.id
+      %li
+        = link_to merchant_path(presenter.merchant) do
+          = t(:merchant)
+          = '#'
+          = presenter.merchant_id
+      %li
+        = t(:company)
+        = '#'
+        = presenter.company_id
+
+.row
+  .one-quarter
+    .list-group
+      = link_to merchant_path(presenter.merchant), class: 'list-group-item' do
+        %i.fa-chevron-left
+        = t(:merchant)
+        = '#'
+        = presenter.merchant_id
+      - presenter.companies.each do |company|
+        - c = company == presenter.company ? 'active' : ''
+        = link_to company_path(presenter.company), class: 'list-group-item ' + c do
+          %i.fa-building-o
+          = company.company_name
+
+  .three-quarters
+    .row
+      .four-quarters
+        %h2= t(:contacts)
+        .list-group
+          - presenter.contacts.each do |contact|
+            = link_to contact_path(contact), class: 'list-group-item' do
+              - if contact.name.present?
+                %span.bold.colon= t(:name)
+                %span.dash= contact.name
+              - if contact.email.present?
+                %span.bold.colon= t(:email)
+                %span.dash= contact.email
+              - if contact.role.present?
+                %span.bold.colon= t(:role)
+                %span.dash= contact.role
+
+    .row
+      .four-quarters
+        %h2= t(:negotiations)
+    .row
+      = render partial: 'companies/negotiations/negotiation', collection: presenter.negotiations
