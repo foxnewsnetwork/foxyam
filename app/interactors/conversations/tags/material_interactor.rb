@@ -1,5 +1,6 @@
 class Conversations::Tags::MaterialInteractor < Conversations::Tags::TagInteractorBase
   Fields = [
+    :place
     :material,
     :notes
   ].freeze

@@ -10,6 +10,7 @@
 #  completed_at :datetime
 #  created_at   :datetime
 #  updated_at   :datetime
+#  public_at    :datetime
 #
 
 class FoxYam::Negotiation < ActiveRecord::Base
@@ -70,11 +71,29 @@ class FoxYam::Negotiation < ActiveRecord::Base
     through: :sell_offers,
     class_name: 'FoxYam::Conversations::PackingWeight'
 
+  scope :dead,
+    -> { where "#{self.table_name}.dead_at < ?", DateTime.now }
+
+  scope :alive,
+    -> { where "#{self.table_name}.dead_at is null" }
+    
   scope :completed,
     -> { where "#{self.table_name}.completed_at < ?", DateTime.now }
 
   scope :incomplete,
     -> { where "#{self.table_name}.completed_at is null" }
+
+  scope :finalized,
+    -> { where "#{self.table_name}.finalized_at < ?", DateTime.now }
+
+  scope :unfinalized,
+    -> { where "#{self.table_name}.finalized_at is null" }
+
+  scope :publicly_available,
+    -> { where "#{self.table_name}.public_at < ?", DateTime.now }
+
+  scope :exclusively_private,
+    -> { where "#{self.table_name}.public_at is null" }
 
   def complete!
     update completed_at: DateTime.now

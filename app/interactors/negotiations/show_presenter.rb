@@ -25,6 +25,10 @@ class Negotiations::ShowPresenter
     c
   end
 
+  def first_attachment_url
+    attachments.first.try(:the_file).try(:url)
+  end
+
   def seller
     sellers.first
   end

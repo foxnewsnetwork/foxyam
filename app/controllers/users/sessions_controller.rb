@@ -13,6 +13,10 @@ class Users::SessionsController < Devise::SessionsController
     params[:user].present? && params[:user][:back].present?
   end
 
+  def _back_path
+    params[:back] || params[:user].try(:[], :back)
+  end
+
   def _return_path
     return login_path(back: _back_path) if _failed_login?
     return _back_path if _go_back?

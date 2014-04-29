@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: emails
+#
+#  id              :integer          not null, primary key
+#  conversation_id :integer
+#  email_inbox_id  :integer
+#  external_id     :string(255)
+#  plain_content   :text
+#  html_content    :text
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 require 'spec_helper'
 
 describe FoxYam::Email do

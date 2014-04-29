@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140425010228) do
+ActiveRecord::Schema.define(version: 20140429224839) do
 
   create_table "attached_files_emails", force: true do |t|
     t.integer  "attached_file_id"
@@ -72,9 +72,11 @@ ActiveRecord::Schema.define(version: 20140425010228) do
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "place_permalink"
   end
 
   add_index "conversations_materials", ["conversation_id"], name: "index_conversations_materials_on_conversation_id", using: :btree
+  add_index "conversations_materials", ["place_permalink"], name: "index_conversations_materials_on_place_permalink", using: :btree
 
   create_table "conversations_others", force: true do |t|
     t.integer  "conversation_id"
@@ -229,6 +231,7 @@ ActiveRecord::Schema.define(version: 20140425010228) do
     t.datetime "completed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "public_at"
   end
 
   add_index "negotiations", ["merchant_id"], name: "index_negotiations_on_merchant_id", using: :btree

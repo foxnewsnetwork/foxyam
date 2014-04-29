@@ -1,0 +1,8 @@
+%span.colon.bold= t(:material)
+= presenter.material
+%span.colon.bold= t(:quantity)
+= number_with_delimiter presenter.quantity, delimiter: ','
+= presenter.units
+%span.colon.bold= t(:packing)
+= number_with_delimiter presenter.packing, delimiter: ','
+= presenter.packing_units

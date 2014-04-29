@@ -6,7 +6,11 @@
 @import 'negotiations/show';
 @mixin shared-main {
   @extend .container;
-
+  .list-group-item {
+    &.inactive {
+      background-color: #eee;
+    }
+  }
   .bold {
     font-weight: bold;
   }

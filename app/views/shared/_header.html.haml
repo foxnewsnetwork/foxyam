@@ -14,23 +14,30 @@
     
     %ul.nav.navbar-nav.navbar-right
       %li.btn-group
-        = content_tag :button, class: 'btn btn-link btn-lg' do 
-          - if user_signed_in?
-            = link_to user_path(current_user) do
-              %i.fa-user
-              = t(:my_account)
-          - else
-            = link_to new_user_session_path do
-              %i.fa-user
-              = t(:sign_in)
-
         = content_tag :button, class: 'btn btn-link btn-lg dropdown-toggle', data: { toggle: 'dropdown' } do
+          - if user_signed_in?
+            = current_merchant.name
+          - else
+            = t(:login_or_signup)
           %i.fa-chevron-down
           %span.sr-only= t(:toggle_dropdown)
 
         %ul.dropdown-menu{ role: 'menu' }
           - if user_signed_in?
             %li
+              = link_to user_path(current_user) do
+                %i.fa-user
+                = t(:my_account)
+            %li
               = link_to t(:my_negotiations), merchant_negotiations_path(current_merchant)
             %li
               = link_to t(:my_emails), merchant_email_accounts_path(current_merchant)
+          - else
+            %li
+              = link_to new_user_session_path(back: current_path) do
+                %i.fa-user
+                = t(:log_in)
+            %li
+              = link_to new_user_registration_path(back: current_path) do
+                %i.fa-edit
+                = t(:sign_up)

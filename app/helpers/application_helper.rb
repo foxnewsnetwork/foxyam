@@ -14,4 +14,8 @@ module ApplicationHelper
     time_ago_in_words time, opts
   end
 
+  def current_path
+    request.path
+  end
+
 end

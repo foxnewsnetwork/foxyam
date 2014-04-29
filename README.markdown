@@ -34,12 +34,14 @@ ToDos
 20. sell index
 21. home page
 22. favicon.ico
+23. conversations tags material tags need to have place worked in the view and interactor
 
 Tasks
 =
 Tuesday April 29
-+ home page
-+ buy index
+- home page
+- buy index
++ negotiations new
 + sell index
 + finalize negotiation into contract
 

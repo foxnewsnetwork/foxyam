@@ -6,7 +6,6 @@
 #  conversation_id :integer
 #  email_inbox_id  :integer
 #  external_id     :string(255)
-#  raw_envelope    :text
 #  plain_content   :text
 #  html_content    :text
 #  created_at      :datetime

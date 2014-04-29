@@ -6,14 +6,7 @@
   .four-quarters
     %ul.list-group
       %li.list-group-item
-        %span.colon.bold= t(:material)
-        = presenter.material
-        %span.colon.bold= t(:quantity)
-        = number_with_delimiter presenter.quantity, delimiter: ','
-        = presenter.units
-        %span.colon.bold= t(:packing)
-        = number_with_delimiter presenter.packing, delimiter: ','
-        = presenter.packing_units
+        = render partial: 'fox_yam/negotiations/summaries/title', locals: { presenter: presenter }
 
 .row
   .one-quarter

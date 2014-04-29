@@ -1,0 +1,19 @@
+- np = negotiation
+= link_to negotiation_path(np.negotiation), class: 'list-group-item' do
+  .row
+    .one-quarter
+      %figure.thumbnail
+        = image_tag np.first_attachment_url
+    .three-quarters
+      .row
+        .four-quarters
+          .title
+            = render partial: 'fox_yam/negotiations/summaries/title', locals: { presenter: np }
+      .row
+        .four-quarters
+          .price-terms
+            %span.colon.bold= t(:location)
+            Not Implemeneted Yet!
+          .seller
+            %span.colon.bold= t(:by)
+            = np.seller_name
