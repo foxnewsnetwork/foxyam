@@ -6,20 +6,31 @@
         = company_legal_name
       
     %ul.nav.navbar-nav
-      - if user_signed_in?      
-        %li
-          = link_to t(:negotiations), merchant_negotiations_path(current_merchant)
-        %li
-          = link_to t(:emails), merchant_email_accounts_path(current_merchant)
-      
+      %li
+        = link_to t(:buy), buys_path
+      %li
+        = link_to t(:sell), sells_path
+        
+    
     %ul.nav.navbar-nav.navbar-right
-      - if user_signed_in?
-        %li
-          = link_to user_path(current_user) do
-            %i.fa-user
-            = t(:my_account)
-      - else
-        %li
-          = link_to new_user_session_path do
-            %i.fa-user
-            = t(:sign_in)
+      %li.btn-group
+        = content_tag :button, class: 'btn btn-link btn-lg' do 
+          - if user_signed_in?
+            = link_to user_path(current_user) do
+              %i.fa-user
+              = t(:my_account)
+          - else
+            = link_to new_user_session_path do
+              %i.fa-user
+              = t(:sign_in)
+
+        = content_tag :button, class: 'btn btn-link btn-lg dropdown-toggle', data: { toggle: 'dropdown' } do
+          %i.fa-chevron-down
+          %span.sr-only= t(:toggle_dropdown)
+
+        %ul.dropdown-menu{ role: 'menu' }
+          - if user_signed_in?
+            %li
+              = link_to t(:my_negotiations), merchant_negotiations_path(current_merchant)
+            %li
+              = link_to t(:my_emails), merchant_email_accounts_path(current_merchant)

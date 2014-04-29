@@ -19,7 +19,6 @@ ToDos
 3. refine filing system for income emails, still need automation
 4. more interactor tests
 5. negotiation show page, fix the t(:need_buyer) junk
-6. merchant companies index
 7. finalize negotiation button and page
 8. permission system
 9. negotiation #mark dead
@@ -31,11 +30,16 @@ ToDos
 16. email preferences show page
 17. Move all the controllers and interactors into the fox_yam namespace
 18. Implement a gmail scrapping off of resque requests
+19. buy index
+20. sell index
+21. home page
 
 Tasks
 =
 Monday April 28
-+ Company show page
+- navigation header alteration
+- Company show page
+
 
 Friday April 25
 - Split up envelope serialization; occasionally, this would be too big and too problematic to just store as a blob

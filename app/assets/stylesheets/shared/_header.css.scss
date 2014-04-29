@@ -1,3 +1,9 @@
 @mixin shared-header {
   background: #fff;
+
+  .nav {
+    li {
+      font-size: 16px;
+    }
+  }
 }

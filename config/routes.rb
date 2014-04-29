@@ -11,6 +11,9 @@ Fuxueyan::Application.routes.draw do
     resources :negotiations, only: [:index], controller: 'companies/negotiations'
   end
 
+  resources :buys, only: [:index], controller: 'fox_yam/buys'
+  resources :sells, only: [:index], controller: 'fox_yam/sells'
+  
   resources :contact, only: [:show], controller: 'fox_yam/contact'
   resources :contacts, only: [:edit, :update], controller: 'fox_yam/contacts'
 
