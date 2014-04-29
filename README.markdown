@@ -33,10 +33,18 @@ ToDos
 19. buy index
 20. sell index
 21. home page
+22. favicon.ico
 
 Tasks
 =
+Tuesday April 29
++ home page
++ buy index
++ sell index
++ finalize negotiation into contract
+
 Monday April 28
+- home page
 - navigation header alteration
 - Company show page
 

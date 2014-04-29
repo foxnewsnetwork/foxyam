@@ -127,6 +127,10 @@
     }
   }
 
+  #welcome-index {
+    @include welcome-index;
+  }
+
   #cookie-crumbs {
     @extend .col-lg-12;
     @extend .col-md-12;

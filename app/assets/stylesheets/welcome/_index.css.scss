@@ -1,3 +1,10 @@
 @mixin welcome-index {
-  
+  figure {
+    i {
+      @extend .fa-4x;
+    }
+  }
+  .jumbotron {
+    margin-top: 150px;
+  }
 }
