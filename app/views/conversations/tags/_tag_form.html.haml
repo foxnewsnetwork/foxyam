@@ -38,6 +38,9 @@
           %span.input-group-addon= f.label :material, t(:material)
           = f.text_field :material, class: 'form-control'
         .input-group
+          %span.input-group-addon= f.label :place_name, t(:at)
+          = f.text_field :place_name, class: 'form-control'
+        .input-group
           %span.input-group-addon= f.label :notes, t(:notes)
           = f.text_field :notes, class: 'form-control'
 

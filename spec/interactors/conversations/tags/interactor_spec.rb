@@ -17,4 +17,17 @@ describe Conversations::Tags::Interactor do
       result.should be_success
     end
   end
+  context 'relationships' do
+    before do
+      @params = {
+        tag_type: 'material',
+        material: 'Delicious Dog Food',
+        notes: Faker::Lorem.sentence,
+        place_name: 'Long Beach Port' 
+      }
+    end
+    it 'should create a place' do
+      expect { result }.to change(FoxYam::Place, :count).by 1
+    end
+  end
 end

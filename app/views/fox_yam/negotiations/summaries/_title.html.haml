@@ -1,8 +1,16 @@
 %span.colon.bold= t(:material)
 = presenter.material
-%span.colon.bold= t(:quantity)
-= number_with_delimiter presenter.quantity, delimiter: ','
-= presenter.units
-%span.colon.bold= t(:packing)
-= number_with_delimiter presenter.packing, delimiter: ','
-= presenter.packing_units
+
+- if presenter.place.present?
+  %span.colon.bold= t(:at)
+  = presenter.place.name
+
+- if presenter.quantity.present?
+  %span.colon.bold= t(:quantity)
+  = number_with_delimiter presenter.quantity, delimiter: ','
+  = presenter.units
+
+- if presenter.packing.present?
+  %span.colon.bold= t(:packing)
+  = number_with_delimiter presenter.packing, delimiter: ','
+  = presenter.packing_units

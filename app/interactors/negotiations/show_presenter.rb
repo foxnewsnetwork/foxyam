@@ -63,6 +63,10 @@ class Negotiations::ShowPresenter
     _material_tags.last.try(:material) || I18n.t(:unknown)
   end
 
+  def place
+    material_tags.last.try(:place)
+  end
+
   def quantity
     _quantity_number _quantity_tags.last
   end
