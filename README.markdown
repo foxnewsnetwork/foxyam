@@ -22,7 +22,6 @@ ToDos
 7. finalize negotiation button and page
 8. permission system
 9. negotiation #mark dead
-10. negotiation finalize deal
 11. request quote implementation
 12. rework negotiations?buyer seller and offers
 14. user account show page
@@ -30,22 +29,23 @@ ToDos
 16. email preferences show page
 17. Move all the controllers and interactors into the fox_yam namespace
 18. Implement a gmail scrapping off of resque requests
-19. buy index
-20. sell index
-21. home page
 22. favicon.ico
-24. negotiation_type should be implemented on the negotiation interactors
 25. footer
+26. cookiecrumbs links need to be properly linked up
 
 Tasks
 =
+Wednesday April 30
++ negotiations new
++ finalize negotiation into contract
++ negotiation_type should be implemented on the negotiation interactors
++ negotiation finalize deal
+
 Tuesday April 29
 - home page
 - buy index
 - sell index
-+ conversations tags material tags need to have place worked in the view and interactor
-+ negotiations new
-+ finalize negotiation into contract
+- conversations tags material tags need to have place worked in the view and interactor
 
 Monday April 28
 - home page

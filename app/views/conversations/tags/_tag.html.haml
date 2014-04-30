@@ -8,7 +8,8 @@
   - elsif 'material' == tag.tag_type
     %span.colon.bold= t(:material)
     %span.dash= tag.material
-    %span.truncate= tag.notes.truncate 30
+    %span.colon= tag.place.try(:name)
+    %span.truncate= tag.notes.to_s.truncate 30
   - elsif 'quantity' == tag.tag_type
     %span.colon.bold= t(:quantity)
     = number_with_delimiter tag.quantity, delimiter: ','
@@ -22,7 +23,7 @@
     = tag.container_size
   - elsif 'other' == tag.tag_type
     %span.colon.bold= t(:other_notes)
-    = tag.notes
+    = tag.notes.to_s
   - else
     %span.colon.bold= t(:computer_is_confused)
     = tag.to_s

@@ -15,7 +15,7 @@
 #
 
 class FoxYam::Negotiation < ActiveRecord::Base
-  NegotiationType = FoxYam::Offer::OfferTypes
+  NegotiationTypes = FoxYam::Offer::OfferTypes
   acts_as_paranoid
   belongs_to :merchant,
     class_name: 'FoxYam::Merchant'

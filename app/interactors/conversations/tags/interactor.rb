@@ -70,6 +70,10 @@ class Conversations::Tags::Interactor < Conversations::Tags::TagInteractorBase
     conversation.negotiation
   end
 
+  def merchant
+    negotiation.merchant
+  end
+
   private
   def _merge(e1, e2)
     e2.each do |attribute, error|

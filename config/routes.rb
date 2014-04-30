@@ -11,6 +11,7 @@ Fuxueyan::Application.routes.draw do
     resources :negotiations, only: [:index], controller: 'companies/negotiations'
   end
 
+
   resources :buys, only: [:index], controller: 'fox_yam/buys'
   resources :sells, only: [:index], controller: 'fox_yam/sells'
   
@@ -20,7 +21,14 @@ Fuxueyan::Application.routes.draw do
   resources :users, only: [:show] do
     resources :merchants, only: [:index], controller: 'fox_yam/users/merchants'
   end
+
+  resources :listings, only: [:edit, :update], controller: 'fox_yam/listings' do
+    resources :tags, only: [:index, :create], controller: 'fox_yam/listings/tags'
+    resources :pictures, only: [:new, :create], controller: 'fox_yam/listings/pictures'
+  end
+
   resources :merchants, only: [:show], controller: 'fox_yam/merchants' do
+    resources :listings, only: [:new, :create], controller: 'fox_yam/merchants/listings'
     resources :negotiations, only: [:index], controller: 'merchants/negotiations'
     resources :email_accounts, only: [:index], controller: 'merchants/email_accounts'
     resources :email_accounts, only: [:new, :create], controller: 'merchants/create_accounts'

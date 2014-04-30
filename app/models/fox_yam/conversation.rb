@@ -11,6 +11,7 @@
 #
 
 class FoxYam::Conversation < ActiveRecord::Base
+  ViaTypes = [:gmail, :fox_yam, :phone]
   belongs_to :offer,
     class_name: 'FoxYam::Offer'
   has_one :negotiation,

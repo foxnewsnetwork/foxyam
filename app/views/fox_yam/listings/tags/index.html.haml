@@ -1,0 +1,43 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:home), root_path
+      %li= link_to t(:my_company), merchant_path(current_merchant)
+      %li= link_to t(:material_listings), buys_path
+      %li= link_to t(:new_material_listing), edit_listing_path(interactor.negotiation)
+      %li= t(:listing_tags)
+
+.row
+  .four-quarters
+    = render partial: 'shared/errors', locals: { errors: interactor.errors }
+
+.row
+  .two-quarters
+    %legend= t(:new_material_listing)
+    %dl
+      %dt= t(:listing_type)
+      %dd= interactor.negotiation.negotiation_type
+      %dt= t(:merchant_name)
+      %dd= interactor.merchant.try(:name)
+
+  .two-quarters
+    %legend= t(:other_tags)
+    - conversation = interactor.conversation
+    %ul.list-group
+      = render partial: 'conversations/tags/tag', collection: conversation.tags
+      - hash = { url: listing_tags_path(conversation) }
+      = render partial: 'conversations/tags/tag_form', locals: { i: interactor, h: hash }
+
+    = link_to edit_listing_path(interactor.negotiation), class: 'btn btn-default btn-sm' do
+      %i.fa-chevron-left
+      = t(:back)
+    - out_path = listing_pictures_path(conversation)
+    = link_to out_path, class: 'btn btn-primary btn-lg' do
+      = t(:next)
+      %i.fa-chevron-right
+
+.row
+  .four-quarters
+    %legend= t(:pictures)
+    %dl
+      %dt= t(:upload_pictures)
