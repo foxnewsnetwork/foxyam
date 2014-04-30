@@ -2,18 +2,20 @@
 #
 # Table name: negotiations
 #
-#  id           :integer          not null, primary key
-#  merchant_id  :integer
-#  deleted_at   :datetime
-#  dead_at      :datetime
-#  finalized_at :datetime
-#  completed_at :datetime
-#  created_at   :datetime
-#  updated_at   :datetime
-#  public_at    :datetime
+#  id               :integer          not null, primary key
+#  merchant_id      :integer
+#  deleted_at       :datetime
+#  dead_at          :datetime
+#  finalized_at     :datetime
+#  completed_at     :datetime
+#  created_at       :datetime
+#  updated_at       :datetime
+#  public_at        :datetime
+#  negotiation_type :string(255)
 #
 
 class FoxYam::Negotiation < ActiveRecord::Base
+  NegotiationType = FoxYam::Offer::OfferTypes
   acts_as_paranoid
   belongs_to :merchant,
     class_name: 'FoxYam::Merchant'
@@ -95,9 +97,17 @@ class FoxYam::Negotiation < ActiveRecord::Base
   scope :exclusively_private,
     -> { where "#{self.table_name}.public_at is null" }
 
+  scope :sale_type,
+    -> { where "#{self.table_name}.negotiation_type = ?", :sell }
+
+  scope :buy_type,
+    -> { where "#{self.table_name}.negotiation_type = ?", :buy }
+
+  scope :yet_untyped,
+    -> { where "#{self.table_name}.negotiation_type is null" }
+    
   def complete!
     update completed_at: DateTime.now
   end
 
-  
 end

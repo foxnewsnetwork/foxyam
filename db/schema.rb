@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429224839) do
+ActiveRecord::Schema.define(version: 20140430000026) do
 
   create_table "attached_files_emails", force: true do |t|
     t.integer  "attached_file_id"
@@ -232,6 +232,7 @@ ActiveRecord::Schema.define(version: 20140429224839) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "public_at"
+    t.string   "negotiation_type"
   end
 
   add_index "negotiations", ["merchant_id"], name: "index_negotiations_on_merchant_id", using: :btree

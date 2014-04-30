@@ -20,6 +20,6 @@ class FoxYam::Buys::Presenter
   end
 
   def _unfinalized_public_negotiations
-    @unfinalized_public_negotiations ||= FoxYam::Negotiation.publicly_available.unfinalized.alive.completed
+    @unfinalized_public_negotiations ||= FoxYam::Negotiation.publicly_available.unfinalized.alive.completed.buy_type
   end
 end

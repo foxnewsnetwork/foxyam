@@ -35,14 +35,16 @@ ToDos
 21. home page
 22. favicon.ico
 23. conversations tags material tags need to have place worked in the view and interactor
+24. negotiation_type should be implemented on the negotiation interactors
+25. footer
 
 Tasks
 =
 Tuesday April 29
 - home page
 - buy index
+- sell index
 + negotiations new
-+ sell index
 + finalize negotiation into contract
 
 Monday April 28

@@ -2,21 +2,21 @@
   #cookie-crumbs
     %ol
       %li= link_to t(:home), root_path
-      %li= t(:materials_for_sale)
+      %li= t(:purchase_wishlists)
 
 .row
   .one-quarter
     .list-group
       .list-group-item.inactive
-        %i.fa-chevron-down
+        %i.fa-chevron-right
         %span.bold= t(:materials_for_sale)
+      .list-group-item.inactive
+        %i.fa-chevron-down
+        %span.bold= t(:purchase_wishlists)
       - presenter.materials.each do |material|
         = link_to "?m=#{material.id}", class: 'list-group-item' do
           %i.fa-tag
           = material.material
-      .list-group-item.inactive
-        %i.fa-chevron-right
-        %span.bold= t(:purchase_wishlists)
   .three-quarters
     .well.well-sm
       %span.bold.dash= t(:results)
