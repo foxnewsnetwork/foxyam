@@ -13,6 +13,9 @@ class Negotiations::ShowPresenter
     :sell_offers,
     :buy_offers,
     :attachments,
+    :public?,
+    :sale_type?,
+    :buy_type?,
     to: :negotiation
   def initialize(negotiation)
     @negotiation = negotiation

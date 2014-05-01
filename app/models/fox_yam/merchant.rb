@@ -36,6 +36,10 @@ class FoxYam::Merchant < ActiveRecord::Base
     through: :users_merchants,
     class_name: 'FoxYam::User'
 
+  has_one :company,
+    -> { joins(:merchant).where "#{FoxYam::Merchant.table_name}.name = #{FoxYam::Company.table_name}.company_name" },
+    class_name: 'FoxYam::Company'
+
   has_many :companies,
     -> { extending FoxYam::Merchants::CompanyRelationship },
     class_name: 'FoxYam::Company'

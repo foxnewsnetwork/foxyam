@@ -1,0 +1,64 @@
+.row
+  .four-quarters
+    %h2= t(:admin_info)
+
+.row
+  .one-quarter
+    %dl
+      %dt= t(:expected_profit)
+      %dd 
+        %span.colon.bold Gross
+        = t(:no_buyer_yet!)
+        %span.colon.bold Net 
+        = t(:no_buyer_yet!)
+      %dt Expected Total Cost
+      %dd= t(:no_buyer_yet!)
+  .one-quarter
+    %dl
+      %dt= t(:best_purchase_price)
+      %dd
+        - if presenter.best_purchase_price?
+          $
+          = presenter.best_purchase_price.usd_per_pound
+          %span.upcase= presenter.best_purchase_price.incoterm
+          = presenter.best_purchase_price.place_name
+        - else
+          = t(:no_price_yet)
+      %dt= t(:best_sell_price)
+      %dd= t(:no_buyer_yet!)
+  .one-quarter
+    %dl
+      %dt= t(:time_since_creation)
+      %dd= time_ago_in_words presenter.negotiation.created_at
+      %dt= t(:time_since_latest_activity)
+      %dd= time_ago_in_words presenter.negotiation.updated_at
+  .one-quarter
+    %dl
+      %dt= t(:potential_buyers)
+      %dd= presenter.buyers.count
+      %dt= t(:involved_seller)
+      %dd
+        - if presenter.seller.present?
+          = link_to presenter.seller_name, company_path(presenter.seller_id)
+        - else
+          = t :unknown_seller
+
+
+.row.actions
+  .action-icon
+    = link_to '#mark_dead' do
+      %figure
+        %i.fa-times
+      = t(:mark_dead)
+
+  .action-icon
+    - if presenter.negotiation.public?
+      = link_to negotiation_privatizes_path(presenter.id), method: :post do
+        %figure
+          %i.fa-eye-slash
+        = t(:make_private)
+    - else
+      = link_to negotiation_publicizes_path(presenter.id), method: :post do
+        %figure
+          %i.fa-eye
+        = t(:make_public)

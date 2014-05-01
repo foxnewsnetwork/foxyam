@@ -34,14 +34,18 @@ ToDos
 26. cookiecrumbs links need to be properly linked up
 27. rework negotiation page so that when the merchant's own company offers a price it is displayed as asking price
 28. fix bug where buys and sells index have their entires flipped
+29. public / private selection in negotiations
 
 Tasks
 =
-Wednesday April 30
-- negotiations new
+Thursday May 1
++ negotiation mark public
 + finalize negotiation into contract
 + negotiation_type should be implemented on the negotiation interactors
 + negotiation finalize deal
+
+Wednesday April 30
+- negotiations new
 
 Tuesday April 29
 - home page

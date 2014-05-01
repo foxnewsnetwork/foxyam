@@ -110,4 +110,15 @@ class FoxYam::Negotiation < ActiveRecord::Base
     update completed_at: DateTime.now
   end
 
+  def public?
+    public_at.present? && public_at < DateTime.now
+  end
+
+  def sale_type?
+    'sell' == negotiation_type
+  end
+
+  def buy_type?
+    'buy' == negotiation_type
+  end
 end

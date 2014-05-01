@@ -22,6 +22,8 @@
       = render partial: 'negotiations/buyers'
     - elsif 'automate' == params[:s]
       = render partial: 'negotiations/automate'
+    - elsif 'admin' == params[:s]
+      = render partial: 'negotiations/admin'
     - else
       = render partial: 'negotiations/error_logo'
   .one-quarter

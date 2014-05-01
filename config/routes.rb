@@ -11,7 +11,6 @@ Fuxueyan::Application.routes.draw do
     resources :negotiations, only: [:index], controller: 'companies/negotiations'
   end
 
-
   resources :buys, only: [:index], controller: 'fox_yam/buys'
   resources :sells, only: [:index], controller: 'fox_yam/sells'
   
@@ -39,6 +38,8 @@ Fuxueyan::Application.routes.draw do
   resources :communications, only: [:show]
   resources :offers, only: [:show, :destroy]
   resources :negotiations, only: [:show] do
+    resources :publicizes, only: [:create], controller: 'fox_yam/negotiations/publicizes'
+    resources :privatizes, only: [:create], controller: 'fox_yam/negotiations/privatizes'
     resources :buyers, only: [:new, :create], controller: 'negotiations/buyers'
     resources :email_companies, only: [:edit, :update], controller: 'negotiations/email_companies'
   end

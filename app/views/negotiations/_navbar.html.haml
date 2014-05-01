@@ -3,13 +3,13 @@
     = t(:summary)
   = link_to '?s=transportation', class: presenter.navclass('transportation') do
     = t(:transportation)
-  = link_to '?s=offers', class: presenter.navclass('offers') do
-    = t(:offers)
-  %span.smaller-tab
-    = link_to '?s=sellers', class: presenter.navclass('sellers') do
-      = t(:sellers)
-  %span.smaller-tab
+  - if presenter.sale_type?
     = link_to '?s=buyers', class: presenter.navclass('buyers') do
       = t(:buyers)
+  - else
+    = link_to '?s=sellers', class: presenter.navclass('sellers') do
+      = t(:sellers)
+  = link_to '?s=admin', class: presenter.navclass('admin') do
+    = t(:admin)
   = link_to '?s=automate', class: presenter.navclass('automate') do
     = t(:automate)
