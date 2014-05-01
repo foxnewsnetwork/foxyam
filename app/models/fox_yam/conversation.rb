@@ -52,4 +52,7 @@ class FoxYam::Conversation < ActiveRecord::Base
     materials + prices + packing_weights + others + quantities
   end
 
+  def picture
+    pictures.first
+  end
 end

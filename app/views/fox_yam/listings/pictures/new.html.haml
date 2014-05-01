@@ -5,7 +5,8 @@
       %li= link_to t(:my_company), merchant_path(current_merchant)
       %li= link_to t(:material_listings), buys_path
       %li= link_to t(:new_material_listing), edit_listing_path(interactor.negotiation)
-      %li= t(:listing_tags)
+      %li= link_to t(:listing_tags), listing_tags_path(interactor.conversation)
+      %li= t(:new_pictures)
 
 .row
   .four-quarters
@@ -25,19 +26,18 @@
     - conversation = interactor.conversation
     %ul.list-group
       = render partial: 'conversations/tags/tag', collection: conversation.tags
-      - hash = { url: listing_tags_path(conversation) }
-      = render partial: 'conversations/tags/tag_form', locals: { i: interactor, h: hash }
 
-    = link_to edit_listing_path(interactor.negotiation), class: 'btn btn-default btn-sm' do
-      %i.fa-chevron-left
-      = t(:back)
-    - out_path = new_listing_picture_path(conversation)
-    = link_to out_path, class: 'btn btn-primary btn-lg' do
-      = t(:next)
-      %i.fa-chevron-right
 
 .row
   .four-quarters
     %legend= t(:pictures)
-    %dl
-      %dt= t(:upload_pictures)
+    = form_for interactor, url: listing_pictures_path(interactor.conversation), multipart: true do |f|
+      .form-group
+        = f.label :pictures
+        = f.file_field :pictures, class: 'form-control', multiple: true
+      = link_to listing_tags_path(interactor.conversation), class: 'btn btn-default btn-sm' do
+        %i.fa-chevron-left
+        = t(:back)
+      = button_tag class: 'btn btn-primary btn-lg' do
+        = t(:submit)
+        %i.fa-chevron-right

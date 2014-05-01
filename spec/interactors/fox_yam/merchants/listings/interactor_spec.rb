@@ -9,7 +9,7 @@ describe FoxYam::Merchants::Listings::Interactor do
     @params = {
       material: 'High Quality Dog Food',
       place_name: 'Oakland Port, CA',
-      negotiation_type: :sell
+      negotiation_type: 'sell'
     }
   end
   describe '#listing' do
@@ -31,6 +31,9 @@ describe FoxYam::Merchants::Listings::Interactor do
   end
   context 'relationships' do
     before { result }
+    specify { interactor.should be_valid }
+    specify { interactor.should be_present }
+    specify { interactor.offer.should be_present }
     specify { interactor.offer.negotiation.should eq interactor.negotiation }
     specify { interactor.offer.conversations.should include interactor.conversation }
     specify { interactor.company.company_name.should eq interactor.merchant.name }

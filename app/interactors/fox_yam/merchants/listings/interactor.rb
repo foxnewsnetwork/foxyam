@@ -23,13 +23,13 @@ class FoxYam::Merchants::Listings::Interactor < InteractorBase
 
   private
   def _listing_parts
-    _negotiation && _offer && _tags && _conversation
+    _tags
   end
   def _negotiation
     @negotiation ||= _untyped_negotiation.tap { |n| n.update! negotiation_type: negotiation_type }
   end
   def _untyped_negotiation
-    merchant.negotiation || merchant.negotiations.create!
+    merchant.negotiations.create!(public_at: DateTime.now)
   end
   def _offer
     @offer ||= _negotiation.offers.create! _offer_params

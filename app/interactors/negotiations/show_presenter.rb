@@ -64,7 +64,7 @@ class Negotiations::ShowPresenter
   end
 
   def place
-    material_tags.last.try(:place)
+    _material_tags.last.try(:place)
   end
 
   def quantity
