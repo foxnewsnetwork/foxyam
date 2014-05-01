@@ -39,9 +39,10 @@ ToDos
 Tasks
 =
 Thursday May 1
-+ negotiation mark public
-+ finalize negotiation into contract
+- negotiation mark public
 + negotiation_type should be implemented on the negotiation interactors
++ negotiation make offer
++ finalize negotiation into contract
 + negotiation finalize deal
 
 Wednesday April 30
