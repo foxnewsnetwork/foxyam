@@ -1,6 +1,7 @@
 class Emails::Negotiations::Interactor < InteractorBase
   Fields = [
-    :permalink
+    :permalink,
+    :publicize
   ]
   attr_accessor :email, :attributes, :negotiation, :conversation, :merchant
   attr_hash_accessor *Fields
@@ -32,7 +33,12 @@ class Emails::Negotiations::Interactor < InteractorBase
   def negotiation!
     return _new_result _look_for_negotiation if _existing_negotiation?
     return _new_result _create_offer_conversation if _new_negotiation?
+    _publicize_negotiation if publicize?
     _new_result
+  end
+
+  def publicize?
+    publicize.present?
   end
 
   def new?
@@ -52,6 +58,9 @@ class Emails::Negotiations::Interactor < InteractorBase
   end
 
   private
+  def _publicize_negotiation
+    negotiation.try(:update, public_at: DateTime.now) && negotiation
+  end
   def _look_for_negotiation
     @negotiation ||= _merchant.all_negotiations.find_by_id! permalink
   end

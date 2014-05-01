@@ -30,6 +30,10 @@
       .form-group
         = f.label :permalink, t(:negotiation_type)
         .select-control= f.select :permalink, interactor.permalink_types
+      .checkbox
+        = f.label :publicize do
+          = t(:make_this_public?)
+          = f.check_box :publicize
       = link_to email_path(email), class: 'btn btn-default btn-sm' do
         %i.fa-chevron-left
         = t(:back)

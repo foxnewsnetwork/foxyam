@@ -22,11 +22,9 @@
       %span.bold.dash= t(:results)
       = presenter.negotiations.count
     .list-group
-      = link_to '#new_listing', class: 'list-group-item bold' do
+      = link_to new_merchant_listing_path(current_merchant), class: 'list-group-item bold' do
         %h4
           %i.fa-plus
           = t(:new_listing)
     .list-group
-      = render(partial: 'fox_yam/buys/negotiation', collection: presenter.negotiation_presenters) || t(:no_results!)
-
-        
+      = render(partial: 'fox_yam/buys/negotiation', collection: presenter.negotiation_presenters) || t(:no_public_results!)        

@@ -2,7 +2,8 @@ class FoxYam::Merchants::Listings::Interactor < InteractorBase
   Fields = [
     :material,
     :place_name,
-    :negotiation_type
+    :negotiation_type,
+    :privatize
   ]
   attr_accessor :merchant, :attributes, :negotiation, :company, :conversation, :offer
   attr_hash_accessor *Fields
@@ -22,11 +23,18 @@ class FoxYam::Merchants::Listings::Interactor < InteractorBase
   end
 
   private
+  def _raw_negotiation
+    @negotiation ||= _untyped_negotiation.tap { |n| n.update! negotiation_type: negotiation_type }
+  end
   def _listing_parts
     _tags
   end
+  def _publicize?
+    privatize.blank?
+  end
   def _negotiation
-    @negotiation ||= _untyped_negotiation.tap { |n| n.update! negotiation_type: negotiation_type }
+    _raw_negotiation.update public_at: DateTime.now if _publicize?
+    _raw_negotiation
   end
   def _untyped_negotiation
     merchant.negotiations.create!(public_at: DateTime.now)

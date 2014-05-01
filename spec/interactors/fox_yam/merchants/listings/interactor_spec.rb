@@ -9,7 +9,8 @@ describe FoxYam::Merchants::Listings::Interactor do
     @params = {
       material: 'High Quality Dog Food',
       place_name: 'Oakland Port, CA',
-      negotiation_type: 'sell'
+      negotiation_type: 'sell',
+      privatize: true
     }
   end
   describe '#listing' do

@@ -12,6 +12,8 @@
       %li.list-group-item.inactive
         %span.bold
           = link_to presenter.merchant.name, merchant_path(presenter.merchant)
+          - if presenter.merchant == current_merchant
+            %span.parantheses= t(:you)
         %span.colon
           - if presenter.negotiation.sale_type?
             = t(:wishes_to_sell)
