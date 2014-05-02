@@ -1,0 +1,48 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:home), root_path
+      %li= link_to t(:my_company), merchant_path(current_merchant)
+      %li= link_to t(:material_purchase_wishlists), sells_path
+      %li= t(:new_material_purchase_wishlist)
+
+.row
+  .four-quarters
+    = render partial: 'shared/errors', locals: { errors: interactor.errors }
+
+.row
+  .two-quarters
+    %legend= t(:new_material_listing)
+    = form_for interactor, url: merchant_listings_path(interactor.merchant) do |f|
+      = f.hidden_field :negotiation_type, value: 'merchant_is_buying'
+      .form-group
+        = f.label :material, t(:material)
+        = f.text_field :material, class: 'form-control'
+      .form-group
+        = f.label :place_name, t(:at_around)
+        = f.text_field :place_name, class: 'form-control'
+      .checkbox
+        = f.label :privatize do
+          = t(:make_this_private)
+          = f.check_box :privatize
+      
+      = link_to buys_path, class: 'btn btn-default btn-sm' do
+        %i.fa-chevron-left
+        = t(:cancel)
+      = button_tag class: 'btn btn-primary btn-lg' do
+        = t(:submit)
+        %i.fa-chevron-right
+
+
+  .two-quarters
+    %legend= t(:other_tags)
+    %dl
+      %dt= t(:asking_price)
+      %dt= t(:packing_weight)
+      %dt= t(:quantity)
+
+.row
+  .four-quarters
+    %legend= t(:pictures)
+    %dl
+      %dt= t(:upload_pictures)

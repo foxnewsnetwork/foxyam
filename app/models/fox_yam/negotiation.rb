@@ -76,15 +76,15 @@ class FoxYam::Negotiation < ActiveRecord::Base
     class_name: 'FoxYam::Company'
 
   has_many :materials,
-    through: :sell_offers,
+    through: :offers,
     class_name: 'FoxYam::Conversations::Material'
 
   has_many :quantities,
-    through: :sell_offers,
+    through: :offers,
     class_name: 'FoxYam::Conversations::Quantity'
 
   has_many :packing_weights,
-    through: :sell_offers,
+    through: :offers,
     class_name: 'FoxYam::Conversations::PackingWeight'
 
   scope :dead,

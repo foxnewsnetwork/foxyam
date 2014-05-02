@@ -34,11 +34,13 @@ ToDos
 26. cookiecrumbs links need to be properly linked up
 27. anon_listings and anon_wishlists
 28. fork listing
+29. connect in email and notify people after making new listing
 
 Tasks
 =
 Friday May 2
-+ rework negotiation page so that when the merchant's own company offers a price it is displayed as asking price
+- rework negotiation page so that when the merchant's own company offers a price it is displayed as asking price
++ purchase wishlist
 + negotiation make offer
 + finalize negotiation into contract
 + negotiation finalize deal

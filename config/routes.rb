@@ -31,6 +31,7 @@ Fuxueyan::Application.routes.draw do
 
   resources :merchants, only: [:show], controller: 'fox_yam/merchants' do
     resources :listings, only: [:new, :create], controller: 'fox_yam/merchants/listings'
+    resources :wishlists, only: [:new, :create], controller: 'fox_yam/merchants/wishlists'
     resources :negotiations, only: [:index], controller: 'merchants/negotiations'
     resources :email_accounts, only: [:index], controller: 'merchants/email_accounts'
     resources :email_accounts, only: [:new, :create], controller: 'merchants/create_accounts'

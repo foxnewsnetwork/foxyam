@@ -125,15 +125,15 @@ class Negotiations::ShowPresenter
   end
 
   def _packing_tags
-    negotiation.packing_weights.order('id desc')
+    negotiation.packing_weights.order('id asc')
   end
 
   def _material_tags
-    negotiation.materials.order('id desc')
+    negotiation.materials.order('id asc')
   end
 
   def _quantity_tags
-    negotiation.quantities.order('id desc')
+    negotiation.quantities.order('id asc')
   end
 
   def _quantity_number(quantity)

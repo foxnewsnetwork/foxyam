@@ -12,7 +12,10 @@ class FoxYam::Merchants::Listings::Interactor < InteractorBase
     with: :presence
 
   validates :negotiation_type,
-    inclusion: { in: FoxYam::Negotiation::NegotiationTypes.map(&:to_s) }    
+    inclusion: { in: FoxYam::Negotiation::NegotiationTypes.map(&:to_s) } 
+
+  validates :_offer_type,
+    inclusion: { in: FoxYam::Offer::OfferTypes.map(&:to_s) }
 
   def initialize(merchant)
     @merchant = merchant
@@ -44,9 +47,13 @@ class FoxYam::Merchants::Listings::Interactor < InteractorBase
   end
   def _offer_params
     {
-      offer_type: negotiation_type,
+      offer_type: _offer_type,
       company: _company
     }
+  end
+  def _offer_type
+    return 'buy' if 'merchant_is_buying' == negotiation_type
+    return 'sell' if 'merchant_is_selling' == negotiation_type
   end
   def _company
     @company ||= merchant.companies.find_by_permalink_but_create_by_company_name! merchant.name

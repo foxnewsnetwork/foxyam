@@ -26,26 +26,26 @@ class FoxYam::Offer < ActiveRecord::Base
     class_name: 'FoxYam::AttachedFile'
 
   has_many :materials,
-    -> { order_latest },
+    -> { order("#{FoxYam::Conversations::Material.table_name}.created_at desc") },
     through: :conversations,
     class_name: 'FoxYam::Conversations::Material'
   has_many :prices,
-    -> { order_latest },
+    -> { order("#{FoxYam::Conversations::Price.table_name}.created_at desc") },
     through: :conversations,
     class_name: 'FoxYam::Conversations::Price'
   has_many :packing_weights,
-    -> { order_latest },
+    -> { order("#{FoxYam::Conversations::PackingWeight.table_name}.created_at desc") },
     through: :conversations,
     class_name: 'FoxYam::Conversations::PackingWeight'
   has_many :pictures,
     through: :conversations,
     class_name: 'FoxYam::Conversations::Picture'
   has_many :others,
-    -> { order_latest },
+    -> { order("#{FoxYam::Conversations::Other.table_name}.created_at desc") },
     through: :conversations,
     class_name: 'FoxYam::Conversations::Other'
   has_many :quantities,
-    -> { order_latest },
+    -> { order("#{FoxYam::Conversations::Quantity.table_name}.created_at desc") },
     through: :conversations,
     class_name: 'FoxYam::Conversations::Quantity'
 
@@ -56,7 +56,7 @@ class FoxYam::Offer < ActiveRecord::Base
     -> { where "#{self.table_name}.offer_type = ?", :buy }
 
   def latest_price
-    prices.order_latest.first
+    prices.order("#{FoxYam::Conversations::Price.table_name}.created_at desc").first
   end
 
   def offer_to_buy?
