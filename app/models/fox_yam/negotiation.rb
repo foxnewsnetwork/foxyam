@@ -22,6 +22,12 @@ class FoxYam::Negotiation < ActiveRecord::Base
   acts_as_paranoid
   belongs_to :merchant,
     class_name: 'FoxYam::Merchant'
+
+  has_one :merchant_company,
+    through: :merchant,
+    source: :company,
+    class_name: 'FoxYam::Company'
+
   has_many :offers,
     class_name: 'FoxYam::Offer'
 
@@ -43,6 +49,11 @@ class FoxYam::Negotiation < ActiveRecord::Base
     through: :buy_offers,
     source: :latest_price,
     class_name: 'FoxYam::Conversations::Price'
+
+  has_many :merchant_default_offers,
+    through: :merchant_company,
+    source: :offers,
+    class_name: 'FoxYam::Offer'
 
   has_many :sell_offers,
     -> { sells },
@@ -126,5 +137,9 @@ class FoxYam::Negotiation < ActiveRecord::Base
 
   def buy_type?
     'merchant_is_buying' == negotiation_type
+  end
+
+  def merchant_default_offer
+    merchant_default_offers.find_by_negotiation_id id
   end
 end

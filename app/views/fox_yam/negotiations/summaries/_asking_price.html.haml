@@ -1,0 +1,7 @@
+%span.colon.bold= t(:asking_price)
+- if presenter.asking_price.blank?
+  = t(:none_given)
+- else
+  = number_with_delimiter presenter.asking_price, delimiter: ","
+  %span.bold= presenter.asking_price_term
+  = presenter.asking_price_place

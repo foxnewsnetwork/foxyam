@@ -10,17 +10,11 @@
   .four-quarters
     %ul.list-group
       %li.list-group-item.inactive
-        %span.bold
-          = link_to presenter.merchant.name, merchant_path(presenter.merchant)
-          - if presenter.merchant == current_merchant
-            %span.parantheses= t(:you)
-        %span.colon
-          - if presenter.negotiation.sale_type?
-            = t(:wishes_to_sell)
-          - else
-            = t(:wishes_to_purchase)
+        = render partial: 'fox_yam/negotiations/summaries/owner', locals: { presenter: presenter }
       %li.list-group-item.inactive
         = render partial: 'fox_yam/negotiations/summaries/title', locals: { presenter: presenter }
+      %li.list-group-item.inactive
+        = render partial: 'fox_yam/negotiations/summaries/asking_price', locals: { presenter: presenter }
 
 .row
   .two-quarters

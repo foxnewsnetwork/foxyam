@@ -25,7 +25,11 @@ class FoxYam::Buys::Presenter
   end
 
   def _unfinalized_public_negotiations
-    @unfinalized_public_negotiations ||= _negotiation_scope_core.available_for(merchant)
+    if merchant.present?
+      @unfinalized_public_negotiations ||= _negotiation_scope_core.available_for(merchant)
+    else
+      @unfinalized_public_negotiations ||= _negotiation_scope_core.publicly_available
+    end
   end
 
   def _negotiation_scope_core

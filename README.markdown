@@ -32,19 +32,22 @@ ToDos
 22. favicon.ico
 25. footer
 26. cookiecrumbs links need to be properly linked up
-27. rework negotiation page so that when the merchant's own company offers a price it is displayed as asking price
-
+27. anon_listings and anon_wishlists
+28. fork listing
 
 Tasks
 =
+Friday May 2
++ rework negotiation page so that when the merchant's own company offers a price it is displayed as asking price
++ negotiation make offer
++ finalize negotiation into contract
++ negotiation finalize deal
+
 Thursday May 1
 - negotiation mark public
 - negotiation_type should be implemented on the negotiation interactors
 - public / private selection in negotiations
-+ fix bug where buys and sells index have their entires flipped
-+ negotiation make offer
-+ finalize negotiation into contract
-+ negotiation finalize deal
+- fix bug where buys and sells index have their entires flipped
 
 Wednesday April 30
 - negotiations new

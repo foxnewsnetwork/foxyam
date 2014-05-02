@@ -16,7 +16,11 @@ class Negotiations::ShowPresenter
     :public?,
     :sale_type?,
     :buy_type?,
+    :merchant_default_offer,
     to: :negotiation
+
+  delegate :latest_price,
+    to: :merchant_default_offer
   def initialize(negotiation)
     @negotiation = negotiation
   end
@@ -26,6 +30,21 @@ class Negotiations::ShowPresenter
     c += ' active' if thing == s
     c += ' active' if thing =='summary' && s.blank?
     c
+  end
+
+  def asking_price
+    return if merchant_default_offer.blank?
+    latest_price.try(:usd_per_pound)
+  end
+
+  def asking_price_term
+    return if merchant_default_offer.blank?
+    latest_price.try(:incoterm)
+  end
+
+  def asking_price_place
+    return if merchant_default_offer.blank?
+    latest_price.try(:place_name)
   end
 
   def merchant_name

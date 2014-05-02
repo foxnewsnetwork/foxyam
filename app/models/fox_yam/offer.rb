@@ -25,12 +25,6 @@ class FoxYam::Offer < ActiveRecord::Base
     through: :conversations,
     class_name: 'FoxYam::AttachedFile'
 
-  has_one :latest_price,
-    -> { order_latest },
-    through: :conversations,
-    source: :prices,
-    class_name: 'FoxYam::Conversations::Price'
-
   has_many :materials,
     -> { order_latest },
     through: :conversations,
@@ -60,6 +54,10 @@ class FoxYam::Offer < ActiveRecord::Base
 
   scope :buys,
     -> { where "#{self.table_name}.offer_type = ?", :buy }
+
+  def latest_price
+    prices.order_latest.first
+  end
 
   def offer_to_buy?
     'buy' == offer_type

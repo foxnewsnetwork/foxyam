@@ -22,7 +22,11 @@
       %span.bold.dash= t(:results)
       = presenter.negotiations.count
     .list-group
-      = link_to new_merchant_listing_path(current_merchant), class: 'list-group-item bold' do
+      - if current_merchant.present?
+        - out_path = new_merchant_listing_path(current_merchant)
+      - else
+        - out_path = new_anon_listing_path
+      = link_to out_path, class: 'list-group-item bold' do
         %h4
           %i.fa-plus
           = t(:new_listing)
