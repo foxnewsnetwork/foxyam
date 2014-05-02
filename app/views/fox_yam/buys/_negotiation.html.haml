@@ -16,4 +16,7 @@
             Not Implemeneted Yet!
           .seller
             %span.colon.bold= t(:by)
-            = np.seller_name
+            = np.merchant_name
+            %span.colon.bold= t(:created_at)
+            = time_ago_in_words np.negotiation.created_at
+            = t(:ago)

@@ -34,6 +34,9 @@ describe Conversations::Companies::Interactor do
     let(:conversations) { company.conversations }
     let(:contact) { interactor.instance_variable_get :@contact }
     before { result }
+    it 'should be the correct negotiation type' do
+      negotiation.should be_sale_type
+    end
     it 'should be a proper company' do
       company.should be_a FoxYam::Company
       company.should be_persisted

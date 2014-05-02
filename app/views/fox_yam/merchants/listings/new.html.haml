@@ -14,7 +14,7 @@
   .two-quarters
     %legend= t(:new_material_listing)
     = form_for interactor, url: merchant_listings_path(interactor.merchant) do |f|
-      = f.hidden_field :negotiation_type, value: 'sell'
+      = f.hidden_field :negotiation_type, value: 'merchant_is_selling'
       .form-group
         = f.label :material, t(:material)
         = f.text_field :material, class: 'form-control'

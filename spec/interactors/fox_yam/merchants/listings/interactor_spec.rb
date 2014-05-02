@@ -9,7 +9,7 @@ describe FoxYam::Merchants::Listings::Interactor do
     @params = {
       material: 'High Quality Dog Food',
       place_name: 'Oakland Port, CA',
-      negotiation_type: 'sell',
+      negotiation_type: 'merchant_is_selling',
       privatize: true
     }
   end
@@ -40,5 +40,7 @@ describe FoxYam::Merchants::Listings::Interactor do
     specify { interactor.company.company_name.should eq interactor.merchant.name }
     specify { interactor.conversation.materials.should be_present }
     specify { interactor.conversation.materials.first.material.should eq @params[:material] }
+    specify { interactor.negotiation.should be_sale_type }
+    specify { interactor.negotiation.merchant.should eq merchant }
   end
 end

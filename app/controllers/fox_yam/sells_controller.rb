@@ -4,6 +4,6 @@ class FoxYam::SellsController < FoxYam::BaseController
 
   private
   def _presenter
-    @presenter ||= FoxYam::Sells::Presenter.new
+    @presenter ||= FoxYam::Sells::Presenter.new current_merchant
   end
 end

@@ -1,5 +1,10 @@
 class FoxYam::Buys::Presenter
 
+  attr_accessor :merchant
+  def initialize(merchant)
+    @merchant = merchant
+  end
+
   def materials
     @materials ||= _unique_materials.order('material desc')
   end
@@ -10,7 +15,7 @@ class FoxYam::Buys::Presenter
 
   def negotiation_presenters
     @negotiation_presenters ||= negotiations.map do |negotiation|
-      Negotiations::ShowPresenter.new negotiation
+      ::Negotiations::ShowPresenter.new negotiation
     end
   end
 
@@ -20,6 +25,10 @@ class FoxYam::Buys::Presenter
   end
 
   def _unfinalized_public_negotiations
-    @unfinalized_public_negotiations ||= FoxYam::Negotiation.publicly_available.unfinalized.alive.completed.buy_type
+    @unfinalized_public_negotiations ||= _negotiation_scope_core.available_for(merchant)
+  end
+
+  def _negotiation_scope_core
+    FoxYam::Negotiation.unfinalized.alive.completed.sale_type
   end
 end

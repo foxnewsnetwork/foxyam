@@ -60,4 +60,12 @@ class FoxYam::Offer < ActiveRecord::Base
 
   scope :buys,
     -> { where "#{self.table_name}.offer_type = ?", :buy }
+
+  def offer_to_buy?
+    'buy' == offer_type
+  end
+
+  def offer_to_sell?
+    'sell' == offer_type
+  end
 end

@@ -37,12 +37,17 @@ class Conversations::Companies::Interactor < InteractorBase
   end
 
   private
+  def _update_negotiation
+    return negotiation if negotiation.negotiation_type.present?
+    FoxYam::Negotiations::NegotiationTypesInteractor.new(negotiation).negotiate_type!
+  end
 
   def _my_result(thing)
     Conversations::Companies::Result.new thing
   end
 
   def _update_offer
+    _update_negotiation &&
     conversation.offer.update(_offer_params) && 
     conversation.update(company: _company)
   end

@@ -15,7 +15,10 @@
 #
 
 class FoxYam::Negotiation < ActiveRecord::Base
-  NegotiationTypes = FoxYam::Offer::OfferTypes
+  NegotiationTypes = [
+    'merchant_is_selling',
+    'merchant_is_buying'
+  ].freeze
   acts_as_paranoid
   belongs_to :merchant,
     class_name: 'FoxYam::Merchant'
@@ -91,6 +94,9 @@ class FoxYam::Negotiation < ActiveRecord::Base
   scope :unfinalized,
     -> { where "#{self.table_name}.finalized_at is null" }
 
+  scope :available_for,
+    -> (merchant) { where("#{self.table_name}.merchant_id = ? or #{self.table_name}.public_at is not null", merchant.id) }
+
   scope :publicly_available,
     -> { where "#{self.table_name}.public_at < ?", DateTime.now }
 
@@ -98,14 +104,14 @@ class FoxYam::Negotiation < ActiveRecord::Base
     -> { where "#{self.table_name}.public_at is null" }
 
   scope :sale_type,
-    -> { where "#{self.table_name}.negotiation_type = ?", :sell }
+    -> { where "#{self.table_name}.negotiation_type = ?", 'merchant_is_selling' }
 
   scope :buy_type,
-    -> { where "#{self.table_name}.negotiation_type = ?", :buy }
+    -> { where "#{self.table_name}.negotiation_type = ?", 'merchant_is_buying' }
 
   scope :yet_untyped,
     -> { where "#{self.table_name}.negotiation_type is null" }
-    
+
   def complete!
     update completed_at: DateTime.now
   end
@@ -115,10 +121,10 @@ class FoxYam::Negotiation < ActiveRecord::Base
   end
 
   def sale_type?
-    'sell' == negotiation_type
+    'merchant_is_selling' == negotiation_type
   end
 
   def buy_type?
-    'buy' == negotiation_type
+    'merchant_is_buying' == negotiation_type
   end
 end
