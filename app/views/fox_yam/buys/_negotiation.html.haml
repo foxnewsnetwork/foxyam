@@ -8,6 +8,8 @@
       .row
         .four-quarters
           .title
+            - unless negotiation.public?
+              %span.parantheses= t(:private)
             = render partial: 'fox_yam/negotiations/summaries/title', locals: { presenter: np }
       .row
         .four-quarters
