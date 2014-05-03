@@ -35,12 +35,13 @@ ToDos
 27. anon_listings and anon_wishlists
 28. fork listing
 29. connect in email and notify people after making new listing
+30. bug reports model, controllers, and whatnot
 
 Tasks
 =
 Friday May 2
 - rework negotiation page so that when the merchant's own company offers a price it is displayed as asking price
-+ purchase wishlist
+- purchase wishlist
 + negotiation make offer
 + finalize negotiation into contract
 + negotiation finalize deal

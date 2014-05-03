@@ -134,10 +134,12 @@ class FoxYam::Negotiation < ActiveRecord::Base
   def sale_type?
     'merchant_is_selling' == negotiation_type
   end
+  alias_method :merchant_is_selling?, :sale_type?
 
   def buy_type?
     'merchant_is_buying' == negotiation_type
   end
+  alias_method :merchant_is_buying?, :buy_type?
 
   def merchant_default_offer
     merchant_default_offers.find_by_negotiation_id id

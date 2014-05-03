@@ -64,6 +64,10 @@ class FoxYam::Merchant < ActiveRecord::Base
     end
   end
 
+  def company_with_default
+    company || companies.find_by_permalink_but_create_by_company_name!(name)
+  end
+
   def negotiation_draft
     negotiation || negotiations.create
   end

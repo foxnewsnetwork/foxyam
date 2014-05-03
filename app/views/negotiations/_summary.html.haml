@@ -19,9 +19,18 @@
 .row
   .two-quarters
     .list-group
-      = link_to '#make_offer', class: 'list-group-item' do
-        %i.fa-plus
-        = t(:make_offer)
+      - if presenter.merchant_is_buying?
+        = link_to new_negotiation_sell_offer_path(presenter.negotiation), class: 'list-group-item' do
+          %i.fa-plus
+          = t(:make_offer_to_sell)
+      - elsif presenter.merchant_is_selling?
+        = link_to new_negotiation_buy_offer_path(presenter.negotiation), class: 'list-group-item' do
+          %i.fa-plus
+          = t(:make_offer_to_buy)
+      - else
+        = link_to new_negotiation_bug_report_path(presenter.negotiation), class: 'list-group-item' do
+          %i.fa-bug
+          = t(:if_you_see_this_you_have_discovered_a_bug)
 
   .two-quarters
     .list-group

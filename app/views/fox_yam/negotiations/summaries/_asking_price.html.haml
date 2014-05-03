@@ -2,7 +2,7 @@
 - if presenter.asking_price.blank?
   = t(:none_given)
 - else
-  $
   = number_to_currency presenter.asking_price, precision: 4
+  = '/ lb'
   %span.bold= presenter.asking_price_term
   = presenter.asking_price_place

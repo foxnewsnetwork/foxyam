@@ -16,6 +16,8 @@ class Negotiations::ShowPresenter
     :public?,
     :sale_type?,
     :buy_type?,
+    :merchant_is_selling?,
+    :merchant_is_buying?,
     :merchant_default_offer,
     to: :negotiation
 

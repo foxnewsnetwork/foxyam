@@ -1,5 +1,5 @@
 class Conversations::Tags::TagInteractorBase < InteractorBase
-  attr_accessor :attributes, :conversation
+  attr_accessor :attributes, :conversation, :tag
 
   def initialize(conversation)
     @conversation = conversation

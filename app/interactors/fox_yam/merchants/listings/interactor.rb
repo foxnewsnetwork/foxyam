@@ -60,7 +60,7 @@ class FoxYam::Merchants::Listings::Interactor < InteractorBase
   end
 
   def _conversation
-    @conversation ||= _offer.conversations.create! via: :fox_yam
+    @conversation ||= _offer.conversations.create! via: :fox_yam, company: _company
   end
   def _tags
     @tags ||= _tag_interactor.tag!
