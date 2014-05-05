@@ -25,7 +25,7 @@ class FoxYam::Negotiations::SellOffersController < FoxYam::BaseController
     @negotiation ||= FoxYam::Negotiation.find params[:negotiation_id]
   end
   def _get_out_of_here!
-    return redirect_to sell_offer_pictures_path(interactor.offer) if @result.success?
+    return redirect_to sell_conversation_tags_path(_interactor.conversation) if @result.success?
     render :new
   end
 end

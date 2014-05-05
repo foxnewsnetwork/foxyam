@@ -21,6 +21,11 @@ Fuxueyan::Application.routes.draw do
     resources :merchants, only: [:index], controller: 'fox_yam/users/merchants'
   end
 
+  resources :sell_conversations, only: [] do
+    resources :tags, only: [:index, :create], controller: 'fox_yam/sell_conversations/tags'
+    resources :pictures, only: [:index, :create], controller: 'fox_yam/sell_conversations/pictures'
+  end
+
   resources :anon_listings, only: [:new, :create], controller: 'fox_yam/anon_listings'
   resources :anon_wishlists, only: [:new, :create], controller: 'fox_yam/anon_wishlists'
 

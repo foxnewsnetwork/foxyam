@@ -1,4 +1,4 @@
-class Conversations::TagsController < ApplicationController
+class Conversations::TagsController < FoxYam::BaseController
   expose(:interactor) { _interactor }
   def index; end
 

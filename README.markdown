@@ -39,12 +39,15 @@ ToDos
 
 Tasks
 =
+Monday May 5
+- negotiation make offer (split up FoxYam::Negotiations::SellOffers::Interactor and make it also generate an email)
++ finalize negotiation into contract
++ negotiation finalize deal
+
+
 Friday May 2
 - rework negotiation page so that when the merchant's own company offers a price it is displayed as asking price
 - purchase wishlist
-+ negotiation make offer
-+ finalize negotiation into contract
-+ negotiation finalize deal
 
 Thursday May 1
 - negotiation mark public

@@ -1,0 +1,73 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:home), root_path
+      %li= link_to t(:my_company), merchant_path(current_merchant)
+      %li= link_to t(:material_purchase_wishlists), sells_path
+      %li
+        = link_to negotiation_path(interactor.negotiation) do
+          = t(:material_purchase_wishlist)
+          = "##{interactor.id}"
+      %li
+        = link_to sell_conversation_tags_path(interactor.conversation) do
+          = t(:tags)
+      %li= t(:pictures)
+
+.row
+  .four-quarters
+    %ul.list-group
+      - np = interactor.negotiation_presenter
+      %li.list-group-item.inactive
+        = render partial: 'fox_yam/negotiations/summaries/owner', locals: { presenter: np }
+      %li.list-group-item.inactive
+        = render partial: 'fox_yam/negotiations/summaries/title', locals: { presenter: np }
+      %li.list-group-item.inactive
+        = render partial: 'fox_yam/negotiations/summaries/asking_price', locals: { presenter: np }
+
+.row
+  .four-quarters
+    = render partial: 'shared/errors', locals: { errors: interactor.errors }
+
+.row
+  .two-quarters
+    %legend= t(:new_material_listing)
+    %dl
+      %dt= t(:listing_type)
+      %dd= interactor.negotiation.negotiation_type
+      %dt= t(:merchant_name)
+      %dd= interactor.merchant.try(:name)
+
+  .two-quarters
+    %legend= t(:other_tags)
+    - conversation = interactor.conversation
+    %ul.list-group
+      = render partial: 'conversations/tags/tag', collection: conversation.tags
+
+
+.row
+  .four-quarters
+    %legend= t(:pictures)
+  - interactor.the_files.each do |f|
+    .one-quarter
+      .thumbnail
+        = image_tag f.url
+.row
+  .two-quarters
+    = form_for interactor, url: sell_conversation_pictures_path(interactor.conversation), multipart: true do |f|
+      .form-group
+        .input-group
+          .input-group-btn
+            = button_tag type: :submit, class: 'btn btn-info' do
+              %i.fa-plus
+              = t(:add_pictures)
+          = f.file_field :pictures, class: 'form-control', multiple: true
+
+
+.row
+  .four-quarters
+    = link_to sell_conversation_tags_path(interactor.conversation), class: 'btn btn-default btn-sm' do
+      %i.fa-chevron-left
+      = t(:back)
+    = link_to offer_path(interactor.offer), class: 'btn btn-primary btn-lg' do
+      = t(:done)
+      %i.fa-chevron-right

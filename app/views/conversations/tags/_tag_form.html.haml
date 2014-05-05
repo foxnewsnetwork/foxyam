@@ -1,4 +1,5 @@
 - params[:offer_type] ||= 'price'
+- dropdowns ||= [:price, :material, :quantity, :packing, :other]
 = form_for i, h do |f|
   = f.hidden_field :tag_type, value: params[:offer_type]
   .row.dropdown-row
@@ -10,11 +11,9 @@
             = params[:offer_type]
             %i.fa-caret-down
           %ul.dropdown-menu
-            %li= link_to t(:price),'?offer_type=price'
-            %li= link_to t(:material), '?offer_type=material'
-            %li= link_to t(:quantity), '?offer_type=quantity'
-            %li= link_to t(:packing_weight), '?offer_type=packing'
-            %li= link_to t(:other), '?offer_type=other'
+            - dropdowns.each do |dropdown|
+              %li= link_to t(dropdown), "?offer_type=#{dropdown}"
+
   
   .row.fields-row
     - if 'price' == params[:offer_type]

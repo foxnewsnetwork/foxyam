@@ -1,37 +1,28 @@
 class FoxYam::Negotiations::SellOffers::Interactor < InteractorBase
-  Fields = ::Conversations::Tags::Interactor::Fields.freeze
-  attr_accessor :attributes, :negotiation, :merchant, :tag, :company, :offer, :conversation
-  attr_hash_accessor *Fields
+  Fields = [:agreed].freeze
+  attr_accessor :attributes, :negotiation, :merchant, :company, :offer, :conversation
+  delegate :id,
+    to: :negotiation
 
   def initialize(negotiation: negotiation, merchant: merchant)
     @negotiation, @merchant = negotiation, merchant
   end
 
+  def negotiation_presenter
+    @negotiation_presenter ||= ::Negotiations::ShowPresenter.new negotiation
+  end
+
   def offer!
-    FoxYam::ResultBase.new valid? && _tag
+    FoxYam::ResultBase.new valid? && _conversation
   end
 
-  def valid_with_interactor?
-    valid_without_interactor? && _tag_interactor.valid?
+  def tags
+    @conversation.try :tags
   end
-  alias_method_chain :valid?, :interactor
-
-  def errors_with_interactor
-    ActiveModel::ErrorsHelper.add(errors_without_interactor, _tag_interactor.errors)
-  end
-  alias_method_chain :errors, :interactor
 
   private
-  def _tag
-    @tag ||= _tag_interactor.tag!.tag.tag
-  end
-  def _tag_interactor
-    @tag_interactor ||= ::Conversations::Tags::Interactor.new(_conversation).tap do |i|
-      i.attributes = attributes
-    end
-  end
   def _conversation
-    @conversation ||= _offer.conversations.create! _conversation_params
+    @conversation ||= _offer.conversations.find_or_create_by! _conversation_params
   end
   def _conversation_params
     {
