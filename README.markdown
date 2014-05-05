@@ -41,6 +41,7 @@ Tasks
 =
 Monday May 5
 - negotiation make offer (split up FoxYam::Negotiations::SellOffers::Interactor and make it also generate an email)
++ negotiation show issue and offer consistency
 + finalize negotiation into contract
 + negotiation finalize deal
 
