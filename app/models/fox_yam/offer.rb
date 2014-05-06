@@ -49,15 +49,18 @@ class FoxYam::Offer < ActiveRecord::Base
     through: :conversations,
     class_name: 'FoxYam::Conversations::Quantity'
 
+  has_one :latest_price,
+    -> { order "#{FoxYam::Conversations::Price.table_name}.created_at desc" },
+    through: :conversations,
+    source: :prices,
+    class_name: 'FoxYam::Conversations::Price'
+
   scope :sells,
     -> { where "#{self.table_name}.offer_type = ?", :sell }
 
   scope :buys,
     -> { where "#{self.table_name}.offer_type = ?", :buy }
 
-  def latest_price
-    prices.order("#{FoxYam::Conversations::Price.table_name}.created_at desc").first
-  end
 
   def offer_to_buy?
     'buy' == offer_type

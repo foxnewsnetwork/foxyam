@@ -39,7 +39,7 @@
         = t(:fork_listing)
 
 .row
-  - presenter.attachments.each do |attachment|
+  - presenter.merchant_default_attachments.each do |attachment|
     .one-quarter
       = link_to attachment.the_file.url, target: :blank, class: 'thumbnail' do
         = image_tag attachment.the_file.url(:thumb)

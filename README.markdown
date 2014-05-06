@@ -36,6 +36,7 @@ ToDos
 28. fork listing
 29. connect in email and notify people after making new listing
 30. bug reports model, controllers, and whatnot
+31. offer show
 
 Tasks
 =

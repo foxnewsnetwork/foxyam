@@ -1,4 +1,4 @@
 .row
-  %h3.page-title Buying From Offer Log
+  %h3.page-title= t(:companies_considering_selling_material_to_you)
 .row
-  = render partial: 'negotiations/offer', collection: presenter.sell_presenters
+  = render(partial: 'negotiations/offer', collection: presenter.sell_presenters) || t(:nobody)

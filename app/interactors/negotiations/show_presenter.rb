@@ -13,6 +13,7 @@ class Negotiations::ShowPresenter
     :sell_offers,
     :buy_offers,
     :attachments,
+    :merchant_default_attachments,
     :public?,
     :sale_type?,
     :buy_type?,
@@ -21,8 +22,7 @@ class Negotiations::ShowPresenter
     :merchant_default_offer,
     to: :negotiation
 
-  delegate :latest_price,
-    to: :merchant_default_offer
+  
   def initialize(negotiation)
     @negotiation = negotiation
   end
@@ -34,19 +34,23 @@ class Negotiations::ShowPresenter
     c
   end
 
+  def latest_price_from_merchant
+    merchant_default_offer.prices.order("created_at asc").first
+  end
+
   def asking_price
     return if merchant_default_offer.blank?
-    latest_price.try(:usd_per_pound)
+    latest_price_from_merchant.try(:usd_per_pound)
   end
 
   def asking_price_term
     return if merchant_default_offer.blank?
-    latest_price.try(:incoterm)
+    latest_price_from_merchant.try(:incoterm)
   end
 
   def asking_price_place
     return if merchant_default_offer.blank?
-    latest_price.try(:place_name)
+    latest_price_from_merchant.try(:place_name)
   end
 
   def merchant_name
@@ -66,15 +70,19 @@ class Negotiations::ShowPresenter
   end
 
   def best_purchase_price
-    purchase_prices.sort { |a,b| b.usd_per_pound <=> a.usd_per_pound }.first
+    negotiation.sell_prices.sort { |a,b| b.usd_per_pound <=> a.usd_per_pound }.first
   end
 
   def best_purchase_price?
     best_purchase_price.present?
   end
 
-  def purchase_prices
-    negotiation.sell_prices
+  def best_sales_price
+    negotiation.buy_prices.sort { |a,b| b.usd_per_pound <=> a.usd_per_pound }.first
+  end
+
+  def best_sales_price?
+    best_purchase_price.present?
   end
 
   def seller_name
@@ -107,12 +115,24 @@ class Negotiations::ShowPresenter
     _packing_presentation _packing_tags.last
   end
 
+  def sell_offers_excluding_merchant
+    sell_offers.reject do |offer|
+      offer.company == merchant.company
+    end
+  end
+
+  def buy_offers_excluding_merchant
+    buy_offers.reject do |offer|
+      offer.company == merchant.company
+    end
+  end
+
   def sell_presenters
-    sell_offers.map { |offer| Negotiations::Offers::Presenter.new offer }
+    sell_offers_excluding_merchant.map { |offer| Negotiations::Offers::Presenter.new offer }
   end
 
   def buy_presenters
-    buy_offers.map { |offer| Negotiations::Offers::Presenter.new offer }
+    buy_offers_excluding_merchant.map { |offer| Negotiations::Offers::Presenter.new offer }
   end
 
   def packing_units

@@ -50,6 +50,11 @@ class FoxYam::Negotiation < ActiveRecord::Base
     source: :latest_price,
     class_name: 'FoxYam::Conversations::Price'
 
+  has_many :merchant_default_attachments,
+    through: :merchant_default_offers,
+    source: :attachments,
+    class_name: 'FoxYam::AttachedFile'
+
   has_many :merchant_default_offers,
     through: :merchant_company,
     source: :offers,
