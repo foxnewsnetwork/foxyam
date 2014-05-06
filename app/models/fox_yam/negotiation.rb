@@ -136,6 +136,10 @@ class FoxYam::Negotiation < ActiveRecord::Base
     public_at.present? && public_at < DateTime.now
   end
 
+  def dead?
+    dead_at.present? && dead_at < DateTime.now
+  end
+
   def sale_type?
     'merchant_is_selling' == negotiation_type
   end

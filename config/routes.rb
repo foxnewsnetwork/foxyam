@@ -47,6 +47,8 @@ Fuxueyan::Application.routes.draw do
   resources :communications, only: [:show]
   resources :offers, only: [:show, :destroy], controller: 'fox_yam/offers'
   resources :negotiations, only: [:show] do
+    resources :deaths, only: [:create], controller: 'fox_yam/negotiations/deaths'
+    resources :revives, only: [:create], controller: 'fox_yam/negotiations/revives'
     resources :bug_reports, only: [:new, :create], controller: 'fox_yam/negotiations/bug_reports'
     resources :sell_offers, only: [:new, :create], controller: 'fox_yam/negotiations/sell_offers'
     resources :buy_offers, only: [:new, :create], controller: 'fox_yam/negotiations/buy_offers'

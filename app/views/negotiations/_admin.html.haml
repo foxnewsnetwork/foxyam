@@ -56,10 +56,16 @@
 
 .row.actions
   .action-icon
-    = link_to '#mark_dead' do
-      %figure
-        %i.fa-times
-      = t(:mark_dead)
+    - if presenter.negotiation.dead?
+      = link_to negotiation_revives_path(presenter.negotiation), method: :post do
+        %figure
+          %i.fa-flash
+        = t(:revive)
+    - else
+      = link_to negotiation_deaths_path(presenter.negotiation), method: :post do
+        %figure
+          %i.fa-times
+        = t(:mark_dead)
 
   .action-icon
     - if presenter.negotiation.public?

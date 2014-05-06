@@ -40,7 +40,6 @@ ToDos
 5. negotiation show page, fix the t(:need_buyer) junk
 6. finalize negotiation button and page
 7. permission system
-8. negotiation #mark dead
 9. request quote implementation
 11. user account show page
 12. site preferences show page
@@ -59,7 +58,8 @@ ToDos
 Tasks
 =
 Tuesday May 6
-+ offer show
+- offer show
+- negotiation #mark dead
 + finalize negotiation into contract
 + negotiation finalize deal
 
