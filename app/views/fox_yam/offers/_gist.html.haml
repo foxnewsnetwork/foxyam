@@ -1,0 +1,15 @@
+.list-group
+  .list-group-item.inactive
+    = link_to company_path(presenter.company) do
+      = presenter.offering_company_name
+    - if presenter.offering_company_matches? current_merchant
+      %span.parantheses= t(:you)
+    %span.bold
+      - if presenter.offer_to_buy?
+        = t(:offering_to_buy)
+      - if presenter.offer_to_sell?
+        = t(:offering_to_sell)
+    = link_to merchant_path(presenter.merchant) do
+      = presenter.merchant_name
+    - if presenter.merchant_matches? current_merchant
+      %span.parantheses= t(:you)

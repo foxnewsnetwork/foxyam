@@ -1,0 +1,26 @@
+- n = presenter.negotiation
+.list-group
+  = link_to negotiation_path(n), class: 'list-group-item bold' do
+    %i.fa-angle-right
+    = t(:summary)
+  = link_to negotiation_path(n, s: 'transportation'), class: 'list-group-item bold' do
+    %i.fa-angle-right
+    = t(:transportation)
+  - if presenter.offer_to_buy?
+    = link_to negotiation_path(n, s: 'buyers'), class: 'list-group-item bold' do
+      %i.fa-angle-down
+      = t(:offers_to_buy)
+  - else
+    = link_to negotiation_path(n, s: 'buyers'), class: 'list-group-item bold' do
+      %i.fa-angle-down
+      = t(:offers_to_sell)
+  = link_to offer_path(presenter.offer), class: 'list-group-item active' do
+    = t(:offer)
+    = '#'
+    = presenter.offer_id
+  = link_to negotiation_path(n, s: 'admin'), class: 'list-group-item bold' do
+    %i.fa-angle-right
+    = t(:admin)
+  = link_to negotiation_path(n, s: 'automate'), class: 'list-group-item bold' do
+    %i.fa-angle-right
+    = t(:automate)

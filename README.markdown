@@ -3,6 +3,26 @@ README
 
 This is my personal software for doing international mercantile trade in plastics. Named after Fu Xue Yan, the great Chinese merchant and philantrophist of the late Qing dynasty.
 
+Workout Routine
+=
+(Do it everyday!)
+- 3x8 pushups
+- 3x8 pullups
+- 3x30sec handstands
+- 3x8 dips
+- 1x120s C sits
+- 1x64 flutter kicks
+- 1x64 scissors kicks
+- 1x120s low planck
+- 2x120s side plancks
+- 3x30s L sits
+3x12 V crunches
+3x8 upside down leg raises
+- 1x8 swiss ball rolls
+- 1x8 ab wheel rolls
+- 3x8 squats
+- 3x8 pistol squats
+
 
 Design Specifications
 =
@@ -17,34 +37,35 @@ ToDos
 1. Scrap needs to be not as heavy as it currently is as even retrieving some 50 emails from gmail crashes my system
 2. Setup resque to handle scrap requests (as in rework scrap so that it happens as a background process automatically)
 3. refine filing system for income emails, still need automation
-4. more interactor tests
 5. negotiation show page, fix the t(:need_buyer) junk
-7. finalize negotiation button and page
-8. permission system
-9. negotiation #mark dead
-11. request quote implementation
-12. rework negotiations?buyer seller and offers
-14. user account show page
-15. site preferences show page
-16. email preferences show page
-17. Move all the controllers and interactors into the fox_yam namespace
-18. Implement a gmail scrapping off of resque requests
-22. favicon.ico
-25. footer
-26. cookiecrumbs links need to be properly linked up
-27. anon_listings and anon_wishlists
-28. fork listing
-29. connect in email and notify people after making new listing
-30. bug reports model, controllers, and whatnot
-31. offer show
+6. finalize negotiation button and page
+7. permission system
+8. negotiation #mark dead
+9. request quote implementation
+11. user account show page
+12. site preferences show page
+13. email preferences show page
+15. Implement a gmail scrapping off of resque requests
+16. favicon.ico
+17. footer
+18. cookiecrumbs links need to be properly linked up
+19. anon_listings and anon_wishlists
+20. fork listing
+21. connect in email and notify people after making new listing
+22. bug reports model, controllers, and whatnot
+23. upgrade to 4.1
+24. work in pagination
 
 Tasks
 =
-Monday May 5
-- negotiation make offer (split up FoxYam::Negotiations::SellOffers::Interactor and make it also generate an email)
-+ negotiation show issue and offer consistency
+Tuesday May 6
++ offer show
 + finalize negotiation into contract
 + negotiation finalize deal
+
+Monday May 5
+- negotiation make offer (split up FoxYam::Negotiations::SellOffers::Interactor and make it also generate an email)
+- negotiation show issue and offer consistency
 
 
 Friday May 2

@@ -1,0 +1,27 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_merchant_account), merchant_path(presenter.merchant)
+      %li= link_to t(:negotiations_index), merchant_negotiations_path(presenter.merchant)
+      %li
+        = link_to negotiation_path(presenter.negotiation) do
+          = t(:negotiation)
+          = '#'
+          = presenter.negotiation_id
+      %li
+        = t(:offer)
+        = '#'
+        = presenter.offer_id
+
+.row
+  .three-quarters
+    .row
+      .four-quarters
+        = render partial: 'fox_yam/offers/gist', locals: { presenter: presenter }
+
+    .row
+      .four-quarters
+        = render partial: 'fox_yam/offers/conversation', collection: presenter.conversation_presenters, as: :presenter
+
+  .one-quarter
+    = render partial: 'fox_yam/offers/navbar', locals: { presenter: presenter }

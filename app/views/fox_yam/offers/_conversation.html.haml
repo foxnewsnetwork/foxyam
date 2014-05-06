@@ -1,0 +1,33 @@
+.panel.panel-default
+  .panel-heading
+    = presenter.company_name
+    %i.fa-comments
+    = presenter.merchant_name
+    %span.bold.colon= t(:via)
+    %span.dash= t presenter.via
+    = time_ago_in_words presenter.conversation_date
+  - if presenter.via_gmail?
+    .list-group
+      = link_to email_path(presenter.email), class: 'list-group-item' do
+        = t(:references)
+        = '#'
+        = presenter.email_external_id
+  %ul.list-group
+    = render partial: 'conversations/tags/tag', collection: presenter.tags, locals: { interactable: false }
+  
+  - if presenter.attachments?
+    .list-group
+      = link_to '#pictures', class: 'list-group-item' do
+        %i.fa-picture-o
+        %span.bold
+          = presenter.attachments.count
+          = t(:attachments)
+      - presenter.attachments.each do |attachment|
+        = link_to attachment.the_file.url, target: 'blank', class: 'list-group-item' do
+          %i.fa-picture-o
+          = attachment.the_file.url
+
+
+
+
+

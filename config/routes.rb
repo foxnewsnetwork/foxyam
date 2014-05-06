@@ -45,7 +45,7 @@ Fuxueyan::Application.routes.draw do
   resources :picture_attachment_relationships, only: [:delete]
 
   resources :communications, only: [:show]
-  resources :offers, only: [:show, :destroy]
+  resources :offers, only: [:show, :destroy], controller: 'fox_yam/offers'
   resources :negotiations, only: [:show] do
     resources :bug_reports, only: [:new, :create], controller: 'fox_yam/negotiations/bug_reports'
     resources :sell_offers, only: [:new, :create], controller: 'fox_yam/negotiations/sell_offers'

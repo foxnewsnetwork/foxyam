@@ -1,3 +1,4 @@
+- interactable = true unless defined?(interactable)
 %li.list-group-item
   - if 'price' == tag.tag_type
     %span.colon.bold= t(:price)
@@ -28,6 +29,7 @@
     %span.colon.bold= t(:computer_is_confused)
     = tag.to_s
 
-  %span.pull-right
-    = link_to tag_path(tag), method: :delete do
-      %i.fa-times
+  - if interactable
+    %span.pull-right
+      = link_to tag_path(tag), method: :delete do
+        %i.fa-times
