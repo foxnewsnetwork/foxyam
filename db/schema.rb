@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430000026) do
+ActiveRecord::Schema.define(version: 20140507180323) do
 
   create_table "attached_files_emails", force: true do |t|
     t.integer  "attached_file_id"
@@ -271,6 +271,7 @@ ActiveRecord::Schema.define(version: 20140430000026) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "permission_levels"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

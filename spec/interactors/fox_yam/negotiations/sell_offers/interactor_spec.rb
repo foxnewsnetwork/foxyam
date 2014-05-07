@@ -19,4 +19,10 @@ describe FoxYam::Negotiations::SellOffers::Interactor do
     specify { expect { result }.to change(FoxYam::Conversation, :count).by 1 }
     specify { expect { result }.to change(FoxYam::Company, :count).by 1 }
   end
+  context 'relationships' do
+    before { result }
+    it 'company should be different' do
+      negotiation.merchant.companies.should_not include interactor.offer.company
+    end
+  end
 end

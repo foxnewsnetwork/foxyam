@@ -46,7 +46,7 @@ Fuxueyan::Application.routes.draw do
 
   resources :communications, only: [:show]
   resources :offers, only: [:show, :destroy], controller: 'fox_yam/offers'
-  resources :negotiations, only: [:show] do
+  resources :negotiations, only: [:show], controller: 'fox_yam/negotiations' do
     resources :deaths, only: [:create], controller: 'fox_yam/negotiations/deaths'
     resources :revives, only: [:create], controller: 'fox_yam/negotiations/revives'
     resources :bug_reports, only: [:new, :create], controller: 'fox_yam/negotiations/bug_reports'
@@ -81,6 +81,7 @@ Fuxueyan::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  get 'welcome/unauthorized', controller: 'welcome#unauthorized'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -14,6 +14,13 @@ class FoxYam::Offers::ShowPresenter
     @offer = offer
   end
 
+  def merchant_who_made_offer
+    company.try :merchant
+  end
+
+  def merchant_being_offered
+    negotiation.try :merchant
+  end
 
   def negotiation_id
     negotiation.id

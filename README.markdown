@@ -39,7 +39,6 @@ ToDos
 3. refine filing system for income emails, still need automation
 5. negotiation show page, fix the t(:need_buyer) junk
 6. finalize negotiation button and page
-7. permission system
 9. request quote implementation
 11. user account show page
 12. site preferences show page
@@ -56,12 +55,17 @@ ToDos
 
 Tasks
 =
+Wednesday May 7
++ permission system
++ clean out the db and rework a proper fixture system for testing
++ finalize negotiation into contract
++ negotiation finalize deal
+
+
 Tuesday May 6
 - offer show
 - negotiation #mark dead
-+ footer
-+ finalize negotiation into contract
-+ negotiation finalize deal
+- footer
 
 Monday May 5
 - negotiation make offer (split up FoxYam::Negotiations::SellOffers::Interactor and make it also generate an email)

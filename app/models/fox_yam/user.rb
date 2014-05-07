@@ -15,9 +15,14 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  permission_levels      :string(255)
 #
 
 class FoxYam::User < ActiveRecord::Base
+  PermissionLevels = [
+    '1moderator',
+    '2admin'
+  ].map(&:freeze).freeze
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -29,4 +34,7 @@ class FoxYam::User < ActiveRecord::Base
   has_many :merchants,
     through: :users_merchants,
     class_name: 'FoxYam::Merchant'
+
+  scope :admins,
+    -> { where("#{FoxYam::User.table_name}.permission_levels = ?", '2admin') }
 end

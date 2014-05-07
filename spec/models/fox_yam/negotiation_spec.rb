@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: negotiations
+#
+#  id               :integer          not null, primary key
+#  merchant_id      :integer
+#  deleted_at       :datetime
+#  dead_at          :datetime
+#  finalized_at     :datetime
+#  completed_at     :datetime
+#  created_at       :datetime
+#  updated_at       :datetime
+#  public_at        :datetime
+#  negotiation_type :string(255)
+#
+
 require 'spec_helper'
 
 describe FoxYam::Negotiation do
