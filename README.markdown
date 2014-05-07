@@ -46,7 +46,6 @@ ToDos
 13. email preferences show page
 15. Implement a gmail scrapping off of resque requests
 16. favicon.ico
-17. footer
 18. cookiecrumbs links need to be properly linked up
 19. anon_listings and anon_wishlists
 20. fork listing
@@ -60,6 +59,7 @@ Tasks
 Tuesday May 6
 - offer show
 - negotiation #mark dead
++ footer
 + finalize negotiation into contract
 + negotiation finalize deal
 
