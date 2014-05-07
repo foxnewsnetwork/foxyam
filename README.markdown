@@ -52,11 +52,12 @@ ToDos
 22. bug reports model, controllers, and whatnot
 23. upgrade to 4.1
 24. work in pagination
+25. permission system stills to be implemeneted across all the other controllers
 
 Tasks
 =
 Wednesday May 7
-+ permission system
+- permission system (started out)
 + clean out the db and rework a proper fixture system for testing
 + finalize negotiation into contract
 + negotiation finalize deal
