@@ -16,8 +16,8 @@ Workout Routine
 - 1x120s low planck
 - 2x120s side plancks
 - 3x30s L sits
-3x12 V crunches
-3x8 upside down leg raises
+- 3x12 V crunches
+- 3x8 upside down leg raises
 - 1x8 swiss ball rolls
 - 1x8 ab wheel rolls
 - 3x8 squats
@@ -53,14 +53,17 @@ ToDos
 23. upgrade to 4.1
 24. work in pagination
 25. permission system stills to be implemeneted across all the other controllers
+26. unauthorized.html.haml page
 
 Tasks
 =
-Wednesday May 7
-- permission system (started out)
+Thursday May 8
 + clean out the db and rework a proper fixture system for testing
 + finalize negotiation into contract
 + negotiation finalize deal
+
+Wednesday May 7
+- permission system (started out)
 
 
 Tuesday May 6
