@@ -25,7 +25,7 @@ class FoxYam::Listings::PicturesController < FoxYam::BaseController
     @conversation ||= FoxYam::Conversation.find params[:listing_id]
   end
   def _get_out_of_here!
-    return redirect_to negotiation_path(interactor.negotiation) if @result.success?
+    return redirect_to new_listing_picture_path(_conversation) if @result.success?
     render :new
   end
 end

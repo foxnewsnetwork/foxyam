@@ -50,11 +50,6 @@ class FoxYam::Negotiation < ActiveRecord::Base
     source: :latest_price,
     class_name: 'FoxYam::Conversations::Price'
 
-  has_many :merchant_default_attachments,
-    through: :merchant_default_offers,
-    source: :attachments,
-    class_name: 'FoxYam::AttachedFile'
-
   has_many :merchant_default_offers,
     through: :merchant_company,
     source: :offers,
@@ -152,5 +147,9 @@ class FoxYam::Negotiation < ActiveRecord::Base
 
   def merchant_default_offer
     merchant_default_offers.find_by_negotiation_id id
+  end
+
+  def merchant_default_attachments
+    merchant_default_offer.try :attachments
   end
 end

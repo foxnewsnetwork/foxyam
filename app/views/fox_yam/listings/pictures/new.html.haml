@@ -27,17 +27,30 @@
     %ul.list-group
       = render partial: 'conversations/tags/tag', collection: conversation.tags
 
-
 .row
   .four-quarters
     %legend= t(:pictures)
+  - interactor.the_files.each do |f|
+    .one-quarter
+      .thumbnail
+        = image_tag f.url
+.row
+  .two-quarters
     = form_for interactor, url: listing_pictures_path(interactor.conversation), multipart: true do |f|
       .form-group
-        = f.label :pictures
-        = f.file_field :pictures, class: 'form-control', multiple: true
-      = link_to listing_tags_path(interactor.conversation), class: 'btn btn-default btn-sm' do
-        %i.fa-chevron-left
-        = t(:back)
-      = button_tag class: 'btn btn-primary btn-lg' do
-        = t(:submit)
-        %i.fa-chevron-right
+        .input-group
+          .input-group-btn
+            = button_tag type: :submit, class: 'btn btn-info' do
+              %i.fa-plus
+              = t(:add_pictures)
+          = f.file_field :pictures, class: 'form-control', multiple: true
+
+
+.row
+  .four-quarters
+    = link_to listing_tags_path(interactor.conversation), class: 'btn btn-default btn-sm' do
+      %i.fa-chevron-left
+      = t(:back)
+    = link_to negotiation_path(interactor.negotiation), class: 'btn btn-primary btn-lg' do
+      = t(:done)
+      %i.fa-chevron-right

@@ -10,6 +10,9 @@ class FoxYam::Listings::Pictures::Interactor < InteractorBase
     :picture,
     to: :conversation
 
+  delegate :attached_files,
+    to: :picture
+
   delegate :merchant,
     to: :negotiation
 
@@ -17,6 +20,11 @@ class FoxYam::Listings::Pictures::Interactor < InteractorBase
     to: :offer
   def initialize(conversation)
     @conversation = conversation
+  end
+
+  def the_files
+    return [] if picture.blank? || attached_files.blank?
+    attached_files.map(&:the_file)
   end
 
   def pictures!
