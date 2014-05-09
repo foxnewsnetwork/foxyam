@@ -1,5 +1,5 @@
-require 'active_support'
-require 'active_model'
+ENV["RAILS_ENV"] ||= 'test'
+require File.expand_path("../../config/environment", __FILE__)
 require 'capybara'
 require 'rspec'
 require 'rspec/autorun'
