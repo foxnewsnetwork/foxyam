@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507180323) do
+ActiveRecord::Schema.define(version: 20140508233523) do
 
   create_table "attached_files_emails", force: true do |t|
     t.integer  "attached_file_id"
@@ -212,6 +212,12 @@ ActiveRecord::Schema.define(version: 20140507180323) do
     t.integer  "the_file_file_size"
     t.datetime "the_file_updated_at"
   end
+
+  create_table "integrations_user_sessions", force: true do |t|
+    t.integer "user_id"
+  end
+
+  add_index "integrations_user_sessions", ["user_id"], name: "index_integrations_user_sessions_on_user_id", using: :btree
 
   create_table "merchants", force: true do |t|
     t.string   "name"
