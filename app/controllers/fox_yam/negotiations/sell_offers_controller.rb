@@ -11,10 +11,10 @@ class FoxYam::Negotiations::SellOffersController < FoxYam::BaseController
   end
   def _creative_interactor
     _interactor.tap do |i|
-      i.attributes = _sell_offer_params
+      i.attributes = _offer_params
     end
   end
-  def _sell_offer_params
+  def _offer_params
     params.require(:sell_offers).permit(*FoxYam::Negotiations::SellOffers::Interactor::Fields)
   end
   def _interactor

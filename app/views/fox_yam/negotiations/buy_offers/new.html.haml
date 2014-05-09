@@ -1,0 +1,46 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:home), root_path
+      %li= link_to t(:my_company), merchant_path(current_merchant)
+      %li= link_to t(:material_purchase_wishlists), sells_path
+      %li
+        = link_to negotiation_path(interactor.negotiation) do
+          = t(:material_purchase_wishlist)
+          = "##{interactor.id}"
+      %li= t(:new_buy_offer)
+
+.row
+  .four-quarters
+    %ul.list-group
+      - np = interactor.negotiation_presenter
+      %li.list-group-item.inactive
+        = render partial: 'fox_yam/negotiations/summaries/owner', locals: { presenter: np }
+      %li.list-group-item.inactive
+        = render partial: 'fox_yam/negotiations/summaries/title', locals: { presenter: np }
+      %li.list-group-item.inactive
+        = render partial: 'fox_yam/negotiations/summaries/asking_price', locals: { presenter: np }
+
+.row
+  .four-quarters
+    = render partial: 'shared/errors', locals: { errors: interactor.errors }
+
+.row
+  .two-quarters
+    %legend= t(:if_you_can_satisfy_this_order_make_an_offer)
+    %p Some sort of ToS agreement here
+
+    = form_for interactor, url: negotiation_buy_offers_path(interactor.negotiation) do |f|
+      = f.hidden_field :agreed, value: true  
+      = link_to negotiation_path(interactor.negotiation), class: 'btn btn-default btn-sm' do
+        %i.fa-chevron-left
+        = t(:back)
+      = button_tag type: :submit, class: 'btn btn-primary btn-lg' do
+        = t(:next)
+        %i.fa-chevron-right
+
+.row
+  .four-quarters
+    %legend= t(:pictures)
+    %dl
+      %dt= t(:upload_pictures)

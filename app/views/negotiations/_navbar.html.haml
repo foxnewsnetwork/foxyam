@@ -9,7 +9,8 @@
   - else
     = link_to '?s=sellers', class: presenter.navclass('sellers') do
       = t(:sellers)
-  = link_to '?s=admin', class: presenter.navclass('admin') do
-    = t(:admin)
-  = link_to '?s=automate', class: presenter.navclass('automate') do
-    = t(:automate)
+  - if presenter.owner_merchant?(current_merchant)
+    = link_to '?s=admin', class: presenter.navclass('admin') do
+      = t(:admin)
+    = link_to '?s=automate', class: presenter.navclass('automate') do
+      = t(:automate)

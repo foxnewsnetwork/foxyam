@@ -27,6 +27,11 @@ class Negotiations::ShowPresenter
     @negotiation = negotiation
   end
 
+  def owner_merchant?(m)
+    return if m.blank?
+    merchant == m
+  end
+
   def navclass(thing)
     c = 'list-group-item bold'
     c += ' active' if thing == s
@@ -70,7 +75,7 @@ class Negotiations::ShowPresenter
   end
 
   def best_purchase_price
-    negotiation.sell_prices.sort { |a,b| b.usd_per_pound <=> a.usd_per_pound }.first
+    negotiation.buy_prices.sort { |a,b| b.usd_per_pound <=> a.usd_per_pound }.first
   end
 
   def best_purchase_price?
@@ -78,7 +83,7 @@ class Negotiations::ShowPresenter
   end
 
   def best_sales_price
-    negotiation.buy_prices.sort { |a,b| b.usd_per_pound <=> a.usd_per_pound }.first
+    negotiation.sell_prices.sort { |a,b| b.usd_per_pound <=> a.usd_per_pound }.first
   end
 
   def best_sales_price?

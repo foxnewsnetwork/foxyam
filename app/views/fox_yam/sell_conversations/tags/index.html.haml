@@ -31,9 +31,11 @@
     %legend= t(:new_material_listing)
     %dl
       %dt= t(:listing_type)
-      %dd= interactor.negotiation.negotiation_type
+      %dd= t interactor.negotiation.negotiation_type
       %dt= t(:merchant_name)
       %dd= interactor.merchant.try(:name)
+      %dt= t(:you_are_trying_to)
+      %dd= t interactor.offer.offer_type
 
   .two-quarters
     %legend= t(:your_offer_details)

@@ -14,14 +14,14 @@ class FoxYam::NegotiationsController < FoxYam::BaseController
     _reject_anonymous_users || _select_correct_users
   end
   def _show_presenter
-    Negotiations::ShowPresenter.new _negotiation
+    ::Negotiations::ShowPresenter.new _negotiation
   end
 
   def _negotiation
-    @negotiation ||= FoxYam::Negotiation.find params[:id]
+    @negotiation ||= ::FoxYam::Negotiation.find params[:id]
   end
 
   def _query_params
-    params.permit(*Negotiations::ShowPresenter::Fields)
+    params.permit(*::Negotiations::ShowPresenter::Fields)
   end
 end

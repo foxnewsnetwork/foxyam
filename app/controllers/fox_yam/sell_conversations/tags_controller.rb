@@ -10,7 +10,7 @@ class FoxYam::SellConversations::TagsController < Conversations::TagsController
   end
 
   def _get_out_of_here!
-    return redirect_to sell_conversation_pictures_path _conversation if @result.success?
+    return redirect_to sell_conversation_tags_path _conversation if @result.success?
     render :index
   end
 end

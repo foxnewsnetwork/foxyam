@@ -20,9 +20,9 @@
       = render partial: 'negotiations/sellers'
     - elsif 'buyers' == params[:s]
       = render partial: 'negotiations/buyers'
-    - elsif 'automate' == params[:s]
+    - elsif 'automate' == params[:s] && presenter.owner_merchant?(current_merchant)
       = render partial: 'negotiations/automate'
-    - elsif 'admin' == params[:s]
+    - elsif 'admin' == params[:s] && presenter.owner_merchant?(current_merchant)
       = render partial: 'negotiations/admin'
     - else
       = render partial: 'negotiations/error_logo'

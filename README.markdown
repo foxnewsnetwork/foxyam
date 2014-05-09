@@ -54,11 +54,15 @@ ToDos
 24. work in pagination
 25. permission system stills to be implemeneted across all the other controllers
 26. unauthorized.html.haml page
+27. uniformize picture size to get proper alignment
+28. deaths, revives, publicize, and privateize should all have permission implemented
 
 Tasks
 =
 Thursday May 8
-+ clean out the db and rework a proper fixture system for testing
+- clean out the db and rework a proper fixture system for testing (incoporated integration testing)
+- workflow for existing users to create listings and make offers done
++ workflow as anonymous user coming to site for first time to buy something
 + finalize negotiation into contract
 + negotiation finalize deal
 

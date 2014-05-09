@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe FoxYam::Negotiations::SellOffers::Interactor do
+describe FoxYam::Negotiations::BuyOffers::Interactor do
   let(:raw_interactor) { described_class.new negotiation: negotiation, merchant: merchant }
   let(:negotiation) { Factories::Negotiation.mock }
   let(:merchant) { Factories::Merchant.mock }
@@ -25,8 +25,8 @@ describe FoxYam::Negotiations::SellOffers::Interactor do
     it 'company should be different' do
       negotiation.merchant.companies.should_not include interactor.offer.company
     end
-    it 'the created offer should be one of sell type' do
-      offer.offer_type.should eq 'sell'
+    it 'the created offer should be one of buy type' do
+      offer.offer_type.should eq 'buy'
     end
   end
 end
