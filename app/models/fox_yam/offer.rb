@@ -2,13 +2,15 @@
 #
 # Table name: offers
 #
-#  id             :integer          not null, primary key
-#  offer_type     :string(255)      default("sell"), not null
-#  company_id     :integer
-#  negotiation_id :integer
-#  deleted_at     :datetime
-#  created_at     :datetime
-#  updated_at     :datetime
+#  id                    :integer          not null, primary key
+#  offer_type            :string(255)      default("sell"), not null
+#  company_id            :integer
+#  negotiation_id        :integer
+#  deleted_at            :datetime
+#  created_at            :datetime
+#  updated_at            :datetime
+#  merchant_finalized_at :datetime
+#  company_finalized_at  :datetime
 #
 
 class FoxYam::Offer < ActiveRecord::Base
@@ -24,6 +26,9 @@ class FoxYam::Offer < ActiveRecord::Base
   has_many :attachments,
     through: :conversations,
     class_name: 'FoxYam::AttachedFile'
+
+  has_many :line_items,
+    class_name: 'FoxYam::LineItem'
 
   has_many :materials,
     -> { order("#{FoxYam::Conversations::Material.table_name}.created_at desc") },
@@ -61,7 +66,15 @@ class FoxYam::Offer < ActiveRecord::Base
   scope :buys,
     -> { where "#{self.table_name}.offer_type = ?", :buy }
 
+  scope :company_finalized,
+    -> { where "#{self.table_name}.company_finalized_at < ?", DateTime.now }
 
+  scope :merchant_finalized,
+    -> { where "#{self.table_name}.merchant_finalized_at < ?", DateTime.now }
+
+  scope :finalized,
+    -> { company_finalized.merchant_finalized }
+    
   def offer_to_buy?
     'buy' == offer_type
   end

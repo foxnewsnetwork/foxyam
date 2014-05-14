@@ -39,8 +39,8 @@ class FoxYam::Offers::ShowPresenter
   end
 
   def offering_company_matches?(m)
-    return false if merchant_company.blank? || m.blank?
-    merchant_company == m.company
+    return false if company.blank? || m.blank?
+    company == m.company
   end
 
   def merchant_matches?(m)

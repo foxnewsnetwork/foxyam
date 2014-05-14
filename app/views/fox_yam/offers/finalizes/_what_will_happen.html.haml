@@ -1,0 +1,25 @@
+.list-group
+  .list-group-item.inactive
+    %h4.ellipsis= t(:what_will_happen)
+  .list-group-item.inactive
+    %i.fa-check
+    %span.colon= t(:we_will_send_via_email_this_order_to)
+    %span.bold
+      = presenter.company_name
+      - if presenter.company_contact.present?
+        %span.parantheses
+          = presenter.company_contact_name
+          = presenter.company_contact_email
+  .list-group-item.inactive
+    %i.fa-check
+    %span.colon= t(:this_order_will_be_copied_to)
+    %span.bold
+      = presenter.merchant_name
+      - if presenter.merchant_contact.present?
+        %span.parantheses
+          = presenter.merchant_contact_email
+  .list-group-item.inactive
+    %i.fa-check
+    %span.colon= t(:upon_confirmation_from)
+    %span.bold= presenter.company_name
+    = t(:you_will_no_longer_be_able_to_change_your_mind)

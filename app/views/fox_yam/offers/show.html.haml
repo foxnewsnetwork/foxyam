@@ -20,6 +20,12 @@
         = render partial: 'fox_yam/offers/gist', locals: { presenter: presenter }
 
     .row
+      .one-quarter
+        %p
+          = link_to new_offer_finalize_path(presenter.offer), class: 'btn btn-block btn-info btn-lg' do
+            %i.fa-exclamation-circle
+            = t(:finalize_offer)
+    .row
       .four-quarters
         = render partial: 'fox_yam/offers/conversation', collection: presenter.conversation_presenters, as: :presenter
 

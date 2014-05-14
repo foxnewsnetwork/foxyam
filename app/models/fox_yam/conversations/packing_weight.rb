@@ -13,7 +13,7 @@
 
 class FoxYam::Conversations::PackingWeight < FoxYam::Conversations::RawLog
   self.table_name = 'conversations_packing_weights'
+  DefaultPounds = 40000
   belongs_to :conversation, 
     class_name: 'FoxYam::Conversation'
-
 end

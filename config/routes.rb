@@ -45,7 +45,14 @@ Fuxueyan::Application.routes.draw do
   resources :picture_attachment_relationships, only: [:delete]
 
   resources :communications, only: [:show]
-  resources :offers, only: [:show, :destroy], controller: 'fox_yam/offers'
+  resources :line_items, only: [:destroy], controller: 'fox_yam/line_items'
+  resources :offers, only: [:show, :destroy], controller: 'fox_yam/offers' do
+    resources :contracts, only: [:new, :create], controller: 'fox_yam/offers/contracts'
+    resources :line_items, only: [:index, :create], controller: 'fox_yam/offers/line_items'
+    resources :finalizes, only: [:new, :create], controller: 'fox_yam/offers/finalizes'
+    resources :neverminds, only: [:new, :create], controller: 'fox_yam/offers/neverminds'
+    resources :contracts, only: [:new, :create], controller: 'fox_yam/offers/contracts'
+  end
   resources :negotiations, only: [:show], controller: 'fox_yam/negotiations' do
     resources :deaths, only: [:create], controller: 'fox_yam/negotiations/deaths'
     resources :revives, only: [:create], controller: 'fox_yam/negotiations/revives'

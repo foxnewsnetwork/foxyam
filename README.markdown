@@ -59,12 +59,29 @@ ToDos
 
 Tasks
 =
+Tuesday May 13
+- finalize negotiation into purchase order
++ after finalization of offer need contract and outgoing email thing
++ When new users make an account, automatically make a company contact info thing
++ merchant user registration path
++ purchase order line items
++ sales order mirror
++ purchase order and sales order into contract
++ workflow as anonymous user coming to site for first time to buy something
++ negotiation finalize deal
+
+Monday May 12
+## TODO
+
+## Thoughts
+
+
+Friday May 9
+- Nothing, just went to town
+
 Thursday May 8
 - clean out the db and rework a proper fixture system for testing (incoporated integration testing)
 - workflow for existing users to create listings and make offers done
-+ workflow as anonymous user coming to site for first time to buy something
-+ finalize negotiation into contract
-+ negotiation finalize deal
 
 Wednesday May 7
 - permission system (started out)

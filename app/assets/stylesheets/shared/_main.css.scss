@@ -4,6 +4,7 @@
 @import 'conversations/tags/index';
 @import 'email_inboxes/emails/index';
 @import 'negotiations/show';
+@import 'fox_yam/offers/finalizes/new';
 @mixin shared-main {
   @extend .container;
   .list-group-item {
@@ -11,11 +12,17 @@
       background-color: #eee;
     }
   }
+  .align-right {
+    text-align: right;
+  }
   .bold {
     font-weight: bold;
   }
   .colon:after {
     content: ":";
+  }
+  .ellipsis:after {
+    content: "...";
   }
   .comma:not(:last-child) {
     &:after {
@@ -163,5 +170,10 @@
 
   #negotiations-show {
     @include negotiations-show;
+  }
+
+  #fox_yam-offers-finalizes-new,
+  #fox_yam-offers-line_items-index {
+    @include fox_yam-offers-finalizes-new;
   }
 }

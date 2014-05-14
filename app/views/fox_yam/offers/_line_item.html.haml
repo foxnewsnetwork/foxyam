@@ -1,0 +1,16 @@
+%tr
+  %td
+    = hidden_field_tag :line_item_id, line_item.id
+    = line_item.description
+  %td
+    = number_with_delimiter line_item.weight_amount, delimiter: ','
+    = line_item.weight_unit
+  %td
+    = number_to_currency line_item.price_amount
+    = '/'
+    = line_item.price_unit
+  %td
+    = number_to_currency line_item.item_total
+  %td
+    = link_to line_item_path(line_item.line_item), method: :delete, class: 'btn btn-xs btn-danger' do
+      %i.fa-times

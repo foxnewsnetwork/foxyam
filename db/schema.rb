@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508233523) do
+ActiveRecord::Schema.define(version: 20140513210031) do
 
   create_table "attached_files_emails", force: true do |t|
     t.integer  "attached_file_id"
@@ -219,6 +219,17 @@ ActiveRecord::Schema.define(version: 20140508233523) do
 
   add_index "integrations_user_sessions", ["user_id"], name: "index_integrations_user_sessions_on_user_id", using: :btree
 
+  create_table "line_items", force: true do |t|
+    t.integer  "offer_id"
+    t.string   "item_description"
+    t.integer  "weight"
+    t.decimal  "unit_price",       precision: 12, scale: 5
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "line_items", ["offer_id"], name: "index_line_items_on_offer_id", using: :btree
+
   create_table "merchants", force: true do |t|
     t.string   "name"
     t.string   "permalink"
@@ -244,12 +255,14 @@ ActiveRecord::Schema.define(version: 20140508233523) do
   add_index "negotiations", ["merchant_id"], name: "index_negotiations_on_merchant_id", using: :btree
 
   create_table "offers", force: true do |t|
-    t.string   "offer_type",     default: "sell", null: false
+    t.string   "offer_type",            default: "sell", null: false
     t.integer  "company_id"
     t.integer  "negotiation_id"
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "merchant_finalized_at"
+    t.datetime "company_finalized_at"
   end
 
   add_index "offers", ["company_id"], name: "index_offers_on_company_id", using: :btree

@@ -1,0 +1,49 @@
+- presenter = interactor.presenter
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_merchant_account), merchant_path(presenter.merchant)
+      %li= link_to t(:negotiations_index), merchant_negotiations_path(presenter.merchant)
+      %li
+        = link_to negotiation_path(presenter.negotiation) do
+          = t(:negotiation)
+          = '#'
+          = presenter.negotiation_id
+      %li
+        = link_to offer_path(presenter.offer) do
+          = t(:offer)
+          = '#'
+          = presenter.offer_id
+      %li
+        = t(:finalize_offer)
+
+.row
+  .three-quarters
+    .row
+      .four-quarters
+        %h3= t(:you_are_about_to_accept_this_offer)
+        = render partial: 'fox_yam/offers/gist', locals: { presenter: presenter.gist_presenter }
+
+    .row
+      .four-quarters
+        = render partial: 'what_will_happen', locals: { presenter: presenter }
+
+    .row
+      .four-quarters
+        = render partial: 'terms_of_service'
+
+    .row
+      .four-quarters
+        = form_for interactor, url: offer_finalizes_path(presenter.offer) do |f|
+          = f.hidden_field :agreed, value: true
+
+          = link_to offer_path(presenter.offer), class: 'btn btn-default' do
+            %i.fa-chevron-left
+            = t(:cancel)
+
+          = button_tag type: :submit, class: 'btn btn-primary btn-lg' do
+            = t(:next_step)
+            %i.fa-chevron-right
+
+  .one-quarter
+    = render partial: 'fox_yam/offers/finalizes/navbar', locals: { presenter: presenter.gist_presenter }

@@ -1,0 +1,43 @@
+- presenter = interactor.presenter
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_merchant_account), merchant_path(presenter.merchant)
+      %li= link_to t(:negotiations_index), merchant_negotiations_path(presenter.merchant)
+      %li
+        = link_to negotiation_path(presenter.negotiation) do
+          = t(:negotiation)
+          = '#'
+          = presenter.negotiation_id
+      %li
+        = link_to offer_path(presenter.offer) do
+          = t(:offer)
+          = '#'
+          = presenter.offer_id
+      %li
+        = t(:finalize_offer)
+
+.row
+  .three-quarters
+    .row
+      .four-quarters
+        = render partial: 'fox_yam/offers/gist', locals: { presenter: presenter.gist_presenter }
+
+    .row
+      .four-quarters
+        - if presenter.merchant_is_selling?(current_merchant)
+          = render partial: 'fox_yam/offers/purchase_order', locals: { presenter: presenter }
+        - if presenter.merchant_is_buying?(current_merchant)
+          = render partial: 'fox_yam/offers/sales_order', locals: { presenter: presenter }    
+
+    .row
+      .four-quarters
+        = link_to new_offer_finalize_path(presenter.offer), class: 'btn btn-default' do
+          %i.fa-chevron-left
+          = t(:cancel)
+        = link_to new_offer_contract_path(presenter.offer), method: :post, class: 'btn btn-primary btn-lg' do
+          = t(:review_outgoing_email)
+          %i.fa-chevron-right
+
+  .one-quarter
+    = render partial: 'fox_yam/offers/finalizes/navbar', locals: { presenter: presenter.gist_presenter }

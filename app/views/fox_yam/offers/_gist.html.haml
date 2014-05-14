@@ -6,9 +6,9 @@
       %span.parantheses= t(:you)
     %span.bold
       - if presenter.offer_to_buy?
-        = t(:offering_to_buy)
+        = t(:offering_to_buy_from)
       - if presenter.offer_to_sell?
-        = t(:offering_to_sell)
+        = t(:offering_to_sell_from)
     = link_to merchant_path(presenter.merchant) do
       = presenter.merchant_name
     - if presenter.merchant_matches? current_merchant

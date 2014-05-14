@@ -18,7 +18,7 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def _return_path
-    return login_path(back: _back_path) if _failed_login?
+    return new_user_session_path(back: _back_path) if _failed_login?
     return _back_path if _go_back?
     return request.referer if request.referer.present?
     return merchant_path current_merchant if current_merchant.present?
