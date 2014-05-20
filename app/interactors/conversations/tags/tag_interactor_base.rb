@@ -11,7 +11,8 @@ class Conversations::Tags::TagInteractorBase < InteractorBase
 
   private
   def _my_result(tag)
-    Conversations::Tags::Result.new(valid? && tag)
+    @tag = tag
+    Conversations::Tags::Result.new(valid? && @tag)
   end
 
   def _make_tag

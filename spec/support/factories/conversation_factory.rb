@@ -1,10 +1,24 @@
 class Factories::Conversation < Factories::Base
+  class << self
+    def full_mock
+      mock_tags mock
+    end
+    def mock_tags(c)
+      ::Factories::Conversations::Material.belongs_to(c).mock
+      ::Factories::Conversations::Packing.belongs_to(c).mock
+      ::Factories::Conversations::Picture.belongs_to(c).mock
+      ::Factories::Conversations::Quantity.belongs_to(c).mock
+      ::Factories::Conversations::Price.belongs_to(c).mock
+      c
+    end
+  end
+
   attr_accessor :attributes
   attr_hash_accessor :offer, :company
 
   def initialize
-    @offer = Factories::Offer.mock
-    @company = Factories::Company.mock
+    self.offer = Factories::Offer.mock
+    self.company = offer.company
   end
 
   def belongs_to(whatever)
@@ -14,3 +28,5 @@ class Factories::Conversation < Factories::Base
     end
   end
 end
+
+

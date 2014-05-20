@@ -56,11 +56,12 @@ ToDos
 26. unauthorized.html.haml page
 27. uniformize picture size to get proper alignment
 28. deaths, revives, publicize, and privateize should all have permission implemented
+29. Get rid of Devise in favor of sorcery
 
 Tasks
 =
-Tuesday May 13
-- finalize negotiation into purchase order
+Thursday May 15
++ contracts documents, items, party, punishments, transportation_reqs
 + after finalization of offer need contract and outgoing email thing
 + When new users make an account, automatically make a company contact info thing
 + merchant user registration path
@@ -69,6 +70,10 @@ Tuesday May 13
 + purchase order and sales order into contract
 + workflow as anonymous user coming to site for first time to buy something
 + negotiation finalize deal
+
+
+Tuesday May 13
+- finalize negotiation into purchase order
 
 Monday May 12
 ## TODO

@@ -30,7 +30,12 @@ class FoxYam::Listings::Pictures::Interactor < InteractorBase
   def pictures!
     FoxYam::Merchants::Listings::Result.new valid? && _attached_files
   end
+  alias_method :tag!, :pictures!
 
+  def tag
+    @picture_tag
+  end
+  
   def errors_with_attached_files
     return errors_without_attached_files if @attached_files.blank?
     @attached_files.map(&:errors).reduce(errors_without_attached_files) do |accum, error|

@@ -10,4 +10,10 @@ describe FoxYam::Offers::Finalizes::Interactor do
       expect { result }.to change(FoxYam::LineItem, :count).by 1
     end
   end
+  context 'relationships' do
+    before { result }
+    let(:modded_offer) { interactor.offer }
+    specify { offer.should eq modded_offer }
+    specify { modded_offer.line_items.should be_present }
+  end
 end

@@ -1,4 +1,5 @@
 class FoxYam::ResultBase
+  attr_accessor :thing
   def initialize(thing)
     @thing = thing
   end

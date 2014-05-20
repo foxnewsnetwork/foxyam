@@ -30,6 +30,13 @@ class FoxYam::Offer < ActiveRecord::Base
   has_many :line_items,
     class_name: 'FoxYam::LineItem'
 
+  has_many :contract_relationships,
+    class_name: 'FoxYam::Offers::ContractRelationship'
+
+  has_many :contracts,
+    through: :contract_relationships,
+    class_name: 'Gtps::Contract'
+
   has_many :materials,
     -> { order("#{FoxYam::Conversations::Material.table_name}.created_at desc") },
     through: :conversations,
@@ -74,7 +81,7 @@ class FoxYam::Offer < ActiveRecord::Base
 
   scope :finalized,
     -> { company_finalized.merchant_finalized }
-    
+  
   def offer_to_buy?
     'buy' == offer_type
   end

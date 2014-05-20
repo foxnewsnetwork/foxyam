@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140513210031) do
+ActiveRecord::Schema.define(version: 20140520205529) do
 
   create_table "attached_files_emails", force: true do |t|
     t.integer  "attached_file_id"
@@ -35,10 +35,11 @@ ActiveRecord::Schema.define(version: 20140513210031) do
 
   create_table "companies", force: true do |t|
     t.string   "company_name"
-    t.string   "permalink",    null: false
+    t.string   "permalink",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "merchant_id"
+    t.string   "company_email"
   end
 
   add_index "companies", ["merchant_id"], name: "index_companies_on_merchant_id", using: :btree
@@ -213,6 +214,96 @@ ActiveRecord::Schema.define(version: 20140513210031) do
     t.datetime "the_file_updated_at"
   end
 
+  create_table "fox_yam_offers_contracts", force: true do |t|
+    t.integer  "offer_id"
+    t.integer  "contract_id"
+    t.string   "status",      default: "normal", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "fox_yam_offers_contracts", ["contract_id"], name: "index_fox_yam_offers_contracts_on_contract_id", unique: true, using: :btree
+  add_index "fox_yam_offers_contracts", ["offer_id"], name: "index_fox_yam_offers_contracts_on_offer_id", using: :btree
+
+  create_table "gtps_contracts", force: true do |t|
+    t.datetime "draft_completed_at"
+    t.datetime "contract_live_at"
+    t.datetime "everyone_agreed_at"
+    t.datetime "contract_disputed_at"
+    t.datetime "contract_completed_at"
+    t.datetime "contract_canceled_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gtps_documents", force: true do |t|
+    t.integer  "contract_id"
+    t.string   "document_type",         null: false
+    t.datetime "approved_at"
+    t.datetime "rejected_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "the_file_file_name"
+    t.string   "the_file_content_type"
+    t.integer  "the_file_file_size"
+    t.datetime "the_file_updated_at"
+  end
+
+  add_index "gtps_documents", ["contract_id"], name: "index_gtps_documents_on_contract_id", using: :btree
+
+  create_table "gtps_items", force: true do |t|
+    t.integer  "contract_id"
+    t.string   "item_description"
+    t.decimal  "quantity",         precision: 12, scale: 5
+    t.string   "quantity_unit"
+    t.decimal  "unit_price",       precision: 12, scale: 5
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "gtps_items", ["contract_id"], name: "index_gtps_items_on_contract_id", using: :btree
+
+  create_table "gtps_parties", force: true do |t|
+    t.integer  "contract_id"
+    t.string   "email"
+    t.string   "company_name"
+    t.string   "phone_number"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "province"
+    t.string   "country"
+    t.string   "party_type",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "gtps_parties", ["contract_id"], name: "index_gtps_parties_on_contract_id", using: :btree
+
+  create_table "gtps_punishments", force: true do |t|
+    t.integer  "contract_id"
+    t.string   "name"
+    t.integer  "upper_limit"
+    t.integer  "lower_limit"
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "gtps_punishments", ["contract_id"], name: "index_gtps_punishments_on_contract_id", using: :btree
+
+  create_table "gtps_transportation_requirements", force: true do |t|
+    t.integer  "contract_id"
+    t.string   "name",        null: false
+    t.string   "condition"
+    t.datetime "violated_at"
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "gtps_transportation_requirements", ["contract_id"], name: "index_gtps_transportation_requirements_on_contract_id", using: :btree
+
   create_table "integrations_user_sessions", force: true do |t|
     t.integer "user_id"
   end
@@ -236,6 +327,7 @@ ActiveRecord::Schema.define(version: 20140513210031) do
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "merchant_email"
   end
 
   add_index "merchants", ["permalink"], name: "index_merchants_on_permalink", unique: true, using: :btree

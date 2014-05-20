@@ -14,7 +14,8 @@ class Factories::Company < Factories::Base
   def attributes
     { 
       merchant: merchant,
-      company_name: Faker::Company.name
+      company_name: Faker::Company.name,
+      company_email: Faker::Internet.email
     }
   end
 end

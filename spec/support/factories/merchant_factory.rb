@@ -6,6 +6,9 @@ class Factories::Merchant < Factories::Base
     end
   end
   def attributes
-    { name: [Faker::Company.name, self.class.count].join('-') }
+    { 
+      name: [Faker::Company.name, self.class.count].join('-'),
+      merchant_email: Faker::Internet.email
+    }
   end
 end

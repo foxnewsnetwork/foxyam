@@ -35,8 +35,8 @@
         = link_to new_offer_finalize_path(presenter.offer), class: 'btn btn-default' do
           %i.fa-chevron-left
           = t(:cancel)
-        = link_to new_offer_contract_path(presenter.offer), method: :post, class: 'btn btn-primary btn-lg' do
-          = t(:review_outgoing_email)
+        = link_to new_offer_contract_path(presenter.offer), class: 'btn btn-primary btn-lg' do
+          = t(:review_terms_of_sales_contract)
           %i.fa-chevron-right
 
   .one-quarter

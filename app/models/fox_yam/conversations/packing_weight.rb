@@ -13,6 +13,7 @@
 
 class FoxYam::Conversations::PackingWeight < FoxYam::Conversations::RawLog
   self.table_name = 'conversations_packing_weights'
+  ContainerSizeTypes = ['40HC', '40ST', '45HC', '45ST'].map(&:freeze).freeze
   DefaultPounds = 40000
   belongs_to :conversation, 
     class_name: 'FoxYam::Conversation'

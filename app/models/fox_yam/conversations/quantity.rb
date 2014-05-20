@@ -16,6 +16,7 @@ class FoxYam::Conversations::Quantity < FoxYam::Conversations::RawLog
   self.table_name = 'conversations_quantities'
   belongs_to :conversation, 
     class_name: 'FoxYam::Conversation'
-
+  TimeIntervalTypes = ['one-time', 'per week', 'biweek', 'per month', 'per year'].map(&:freeze).freeze
   Units = [:pounds, :containers, :kilograms, :short_tons, :metric_tons].freeze
+  
 end

@@ -39,3 +39,5 @@ end
 module Factories::Conversations; end
 module Factories::Conversations::Companies; end
 module Factories::Conversations::Tags; end
+require File.join __dir__, 'conversations', 'material_factory.rb'
+Dir[File.join(__dir__, 'conversations', '*.rb')].each { |f| require f }

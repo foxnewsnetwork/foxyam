@@ -49,12 +49,12 @@
           = f.number_field :quantity, class: 'form-control'
       .one-third
         .input-group
-          .select-control= f.select :units, ['containers','pounds','short tons','metric tons']
+          .select-control= f.select :units, FoxYam::Conversations::Quantity::Units
 
       .one-third
         .input-group
           %span.input-group-addon= f.label :time_interval, t(:once)
-          .select-control= f.select :time_interval, ['one-time', 'per week', 'biweek', 'per month', 'per year']
+          .select-control= f.select :time_interval, FoxYam::Conversations::Quantity::TimeIntervalTypes
     
     - elsif 'packing' == params[:offer_type]
       .two-quarters
@@ -64,7 +64,7 @@
       .two-quarters
         .input-group
           %span.input-group-addon= f.label :container_size, t(:per)
-          .select-control= f.select :container_size, ['40HC', '40ST', '45HC', '45ST']
+          .select-control= f.select :container_size, FoxYam::Conversations::PackingWeight::ContainerSizeTypes
 
     - else
       .four-quarters

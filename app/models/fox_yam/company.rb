@@ -2,12 +2,13 @@
 #
 # Table name: companies
 #
-#  id           :integer          not null, primary key
-#  company_name :string(255)
-#  permalink    :string(255)      not null
-#  created_at   :datetime
-#  updated_at   :datetime
-#  merchant_id  :integer
+#  id            :integer          not null, primary key
+#  company_name  :string(255)
+#  permalink     :string(255)      not null
+#  created_at    :datetime
+#  updated_at    :datetime
+#  merchant_id   :integer
+#  company_email :string(255)
 #
 
 class FoxYam::Company < ActiveRecord::Base
@@ -45,6 +46,10 @@ class FoxYam::Company < ActiveRecord::Base
 
   def primary_contact
     contacts.merchantable.first
+  end
+
+  def primary_email
+    primary_contact.try(:email) || company_email
   end
   
   private
