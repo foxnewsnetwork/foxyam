@@ -57,11 +57,13 @@ ToDos
 27. uniformize picture size to get proper alignment
 28. deaths, revives, publicize, and privateize should all have permission implemented
 29. Get rid of Devise in favor of sorcery
+30. document and write out workflow based integration testing
 
 Tasks
 =
 Tuesday May 20
-+ contracts documents, items, party, punishments, transportation_reqs
+- basic validations on making contracts. Need to customize it later for better messages though
+- contracts documents, items, party, punishments, transportation_reqs
 + after finalization of offer need contract and outgoing email thing
 + When new users make an account, automatically make a company contact info thing
 + merchant user registration path
