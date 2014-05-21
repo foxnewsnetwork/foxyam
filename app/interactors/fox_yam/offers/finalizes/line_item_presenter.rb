@@ -13,10 +13,11 @@ class FoxYam::Offers::Finalizes::LineItemPresenter
   end
 
   def price_term
-    price.incoterm
+    price.try :incoterm
   end
   
   def price_place
+    return if price.blank?
     price.place.try(:name)
   end
 

@@ -28,4 +28,5 @@ class InteractorBase
   def to_key
     nil
   end
+
 end

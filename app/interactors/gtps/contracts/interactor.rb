@@ -1,6 +1,25 @@
 class Gtps::Contracts::Interactor < Gtps::Contracts::BaseInteractor
   MetaFields = [:interactor_type].freeze
   attr_accessor :contract, :results
+
+  validates :_item_interactors,
+    presence: true,
+    length: { minimum: 1 }
+  validates :_party_interactors,
+    :_requirement_interactors,
+    presence: true,
+    length: { is: 2 }
+
+  def valid_with_everybody?
+    valid_without_everybody? && _interactor_array.map(&:valid?).all?
+  end
+  alias_method_chain :valid?, :everybody
+
+  def errors_collection
+    _interactor_array.map(&:errors).inject(errors) do |e1, e2|
+      FoxYam::Errors.merge e1, e2
+    end
+  end
   def contract!
     _contract && _full_contract
   end
@@ -23,8 +42,23 @@ class Gtps::Contracts::Interactor < Gtps::Contracts::BaseInteractor
     interactors[:requirements] = _setup_interactor Gtps::Contracts::TransportationRequirementInteractor, arr
   end
   private
+  def _requirement_interactors
+    interactors[:requirements]
+  end
+  def _party_interactors
+    interactors[:parties]
+  end
+  def _item_interactors
+    interactors[:items]
+  end
+  def _interactor_array
+    _interactors_array.flatten
+  end
+  def _interactors_array
+    interactors.to_a.map(&:second)
+  end
   def _full_contract
-    self.results ||= interactors.to_a.map(&:second).map do |interactor_set|
+    self.results ||= _interactors_array.map do |interactor_set|
       interactor_set.map(&:make!)
     end.flatten
   end

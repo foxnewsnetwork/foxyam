@@ -72,11 +72,9 @@ class FoxYam::Offers::Contracts::Presenter
     merchant.primary_email || throw(merchant)
   end
   def _complete_line_items
-    asdf = offer.line_items.select do |item|
+    offer.line_items.select do |item|
       item.weight.present? && item.item_description.present? && item.unit_price.present?
     end
-    throw offer.line_items if asdf.blank?
-    asdf
   end
   def _line_item_presenter
     @li_presenter ||= FoxYam::Offers::Finalizes::LineItemPresenter.new offer
@@ -102,7 +100,9 @@ class FoxYam::Offers::Contracts::Presenter
     }
   end
   def _price_term_condition
-    [_line_item_presenter.price_term, _line_item_presenter.price_place].select(&:present?).join(' ')
+    [:price_term, :price_place].map do |key|
+      _line_item_presenter.try key 
+    end.select(&:present?).join(' ')
   end
   def _load_time_params
     {

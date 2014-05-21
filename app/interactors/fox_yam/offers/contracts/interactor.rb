@@ -1,8 +1,10 @@
-class FoxYam::Offers::Contracts::Interactor < InteractorBase
-  
+class FoxYam::Offers::Contracts::Interactor < FoxYam::InteractorFoundation  
   attr_accessor :offer, :contract
   delegate :results,
+    :valid?,
+    :errors_collection,
     to: :_interactor
+
   def initialize(offer)
     @offer = offer
   end
@@ -12,7 +14,7 @@ class FoxYam::Offers::Contracts::Interactor < InteractorBase
   end
 
   def make_contract!
-    FoxYam::ResultBase.new _tie_offer_with_contract && _contract
+    _bind_result valid? && _tie_offer_with_contract && _contract
   end
 
   private

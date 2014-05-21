@@ -98,6 +98,11 @@ describe FoxYam::Offers::Contracts::Interactor do
     specify { expect { make_contract! }.to change(Gtps::TransportationRequirement, :count).by 2 }
   end
   context 'validation' do
-    it 'should only work if the conversation has already discuss price, quantity, and have pictures'
+    it 'should be valid when mocked' do
+      Factories::Conversation.mock_tags other_convo
+      FoxYam::Offers::Finalizes::Interactor.new(other_offer).tap { |i| i.agreed = true }.finalize!
+      interactor.should be_valid, interactor.errors_collection.messages_to_string
+    end
+    specify { interactor.should_not be_valid, interactor.errors_collection.messages_to_string }
   end
 end
