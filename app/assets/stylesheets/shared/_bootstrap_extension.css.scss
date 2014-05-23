@@ -10,6 +10,11 @@
       @extend .form-control;
     }
   }
+  textarea.form-control {
+    &.big {
+      height: 12em;
+    }
+  }
   .one-sixth {
     @extend .col-lg-2;
     @extend .col-md-3;

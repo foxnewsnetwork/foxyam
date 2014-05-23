@@ -1,6 +1,11 @@
 module ApplicationHelper
+  class << self
+    def company_legal_name
+      I18n.t(:fuxueyan_imerchant)
+    end
+  end
   def company_legal_name
-    I18n.t(:fuxueyan_imerchant)
+    ApplicationHelper.company_legal_name
   end
 
   def main_css_id

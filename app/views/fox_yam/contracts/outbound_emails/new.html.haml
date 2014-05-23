@@ -44,21 +44,35 @@
         = f.text_field :subject, class: 'form-control'
       .form-group
         = f.label :content
-        = f.text_area :content, class: 'form-control'
+        = f.text_area :content, class: 'form-control big'
 
   .row
     .one-third
       .list-group
         .list-group-item.inactive
           = t(:picture_attachments)
+      - interactor.pictures_presenter.pictures.each do |picture|
+        .pic-frame.thumbnail
+          = link_to picture.url do
+            = image_tag picture.url, class: 'img-responsive'
+
     .one-third
       .list-group
         .list-group-item.inactive
-          = t(:terms_of_sales_contract)
-    .one-third
-      .list-group
-        .list-group-item.inactive
-          = t(:sales_order)
+          = t(:document_attachments)
+        = link_to preview_contract_path(presenter.contract), class: 'list-group-item' do
+          %i.fa-file-text.fa-lg
+          %span.bold
+            = t(:sales_and_shipping_contract)
+            = '#'
+            = presenter.contract.id
+        = link_to offer_line_items_path(presenter.offer), class: 'list-group-item' do
+          %i.fa-file.fa-lg
+          %span.bold
+            = t(:sales_order)
+            = '# offer'
+            = presenter.offer.id
+    
 
   .row
     .one-whole

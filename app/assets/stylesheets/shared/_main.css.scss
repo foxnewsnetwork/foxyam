@@ -6,6 +6,7 @@
 @import 'negotiations/show';
 @import 'fox_yam/offers/finalizes/new';
 @import 'gtps/preview_contracts/show';
+@import 'fox_yam/contracts/outbound_emails/new';
 @mixin shared-main {
   #welcome-index {
     @include welcome-index;
@@ -48,5 +49,8 @@
 
   #gtps-preview_contracts-show {
     @include gtps-preview_contracts-show;
+  }
+  #fox_yam-contracts-outbound_emails-new {
+    @include fox_yam-contracts-outbound_emails-new;
   }
 }
