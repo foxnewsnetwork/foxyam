@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520205529) do
+ActiveRecord::Schema.define(version: 20140522182340) do
 
   create_table "attached_files_emails", force: true do |t|
     t.integer  "attached_file_id"
@@ -288,6 +288,7 @@ ActiveRecord::Schema.define(version: 20140520205529) do
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "punishment_type"
   end
 
   add_index "gtps_punishments", ["contract_id"], name: "index_gtps_punishments_on_contract_id", using: :btree

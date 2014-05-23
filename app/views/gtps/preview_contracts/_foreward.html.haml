@@ -1,0 +1,119 @@
+- v = presenter
+%h2
+  Section I. 
+  = t(:contract_sales_agreement)
+%p 
+  To establish an escrow fund to facilitate the exchange of good (GOODS) from
+  %strong= v.seller_company_name
+  (SELLER) 
+  = link_to '(Section II. Article A. - Seller)', '#seller-party'
+  to
+  %strong= v.buyer_company_name
+  (BUYER)
+  = link_to '(Section II. Article B. - Buyer)', '#buyer-party'
+  based upon the conditions set aside in
+  = link_to 'Section III. Terms of Sales', '#terms-of-sales'
+  and
+  = link_to 'Section IV. Terms of Payment', '#terms-of-payment'
+
+.articles
+  %article#overview
+    %h3
+      Article A.
+      = t(:overview)
+    %p
+      The BUYER agrees to purchase the following materials (GOODS) from the SELLER
+
+  .black-box
+    %dl
+      %dt= t(:price_terms)
+      %dd
+        = v.price_terms
+        = v.destination
+      %dt= t(:days_seller_has_to_load_container_after_buyer_funding_escrow)
+      %dd
+        = v.days_seller_has_to_load || t(:infinite)
+        = t(:days)
+
+    %table.table.table-striped
+      %thead
+        %tr  
+          %th= t(:item_name)
+          %th= t(:quantity)
+          %th= t(:unit_price)
+          %th= t(:item_cost)
+      %tbody
+        - v.items.each do |i|
+          %tr
+            %td.name= i.name
+            %td.quantity
+              = number_with_delimiter i.quantity, delimiter: ','
+              = i.unit
+            %td.price
+              %i.fa-dollar
+              = number_with_delimiter i.price, delimiter: ','
+              = '/'
+              = i.unit
+            %td.total-cost
+              %i.fa-dollar
+              = number_with_delimiter i.total_cost, delimiter: ','
+
+  
+    %dl
+      %dt= t(:approximate_cumulative_total)
+      %dd 
+        *
+        %i.fa-dollar
+        = number_with_delimiter v.total_items_cost, delimiter: ','
+
+  
+    %p 
+      *The SELLER shall receive a total of approximately
+      $
+      = number_with_delimiter v.total_items_cost, delimiter: ','
+      upon completion of the sale and delivery of the above goods as according to the agreed terms of sales. See
+      = link_to 'Section IV. A. Required Documents', '#required-documents'
+      for the document requirements and instructions.
+    %p 
+      The SELLER and BUYER both agree that the exact amount paid to him will depend upon the condition of transport as subject to varying conditions such as differing packing weight. See
+      = link_to 'Section IV. B. Deductions', '#deductions'
+      and
+      = link_to 'Section IV. C. Additions.', '#additions'
+      And that it is possible the SELLER may receive less than 
+      $
+      = number_with_delimiter v.total_items_cost, delimiter: ','
+      , or the BUYER may be required to supplement in more funds in addition to
+      $
+      = number_with_delimiter v.total_items_cost, delimiter: ','
+
+  %article#appointment-of-escrow-agent
+    %h3
+      Article B.
+      Appointment of Escrow Agent
+    %p 
+      The Global Trade Payment Service (GTPC) is hereby appointed as the Escrow Agent to hold and dispose of the ESCROW CREDIT, to be delivered to the Escrow Agent within 48 hours of mutual agreement and signature of this contract.
+    %p
+      The transfer of ESCROW CREDIT to the Escrow Agent signals the beginning of the contract and the SELLER should proceed to fulfil the sales and delivery of the GOODS as per the terms of sale. Any fulfillment prior to this funding is strictly at the SELLER's discretion, and any damages caused by such action is strictly the fault of the SELLER.
+
+  %article#objection
+    %h3
+      Article C.
+      Objection
+    %p
+      The SELLER or BUYER may cancel this CONTRACT at any moment before the distribution of ESCROW CREDIT by GTPC, the Escrow Agent, subject to the conditions, fees, and possible damages set aside in
+      = link_to 'Section V - Terms of Cancellation.', '#terms-of-cancellation'
+
+  %article#final-distribution
+    %h3
+      Article D.
+      Final Distribution
+    %p
+      Upon fulfillment of the requirements set aside in
+      = link_to 'Section IV Article A - Required Documents', '#required-documents'
+      GTPC, as the Escrow Agent, will be obligated to release the ESCROW CREDIT to the SELLER subject to the service fees
+      = link_to '(Section VII - Fees)', '#fees'
+      and details of payment agreement
+      = link_to '(Section IV - Terms of Payment).', '#terms-of-payment'
+      GTPC, as the Escrow Agent, will provide via its web interface, a status report of the status of the ESCROW CREDIT and make available to both BUYER and SELLER digital copies of documents listed in
+      = link_to 'Section IV Article A - Required Documents.', '#required-documents'
+      If no objections arise, GTPC will release funds within 24 hours of the closing of escrow as defined in this contract.

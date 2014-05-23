@@ -1,3 +1,4 @@
+- presenter = interactor.presenter
 .row
   #cookie-crumbs
     %ol
@@ -14,15 +15,14 @@
           = '#'
           = presenter.offer_id
       %li
-        = t(:review_contract)
+        = t(:finalize_offer_uh_oh_error)
 
 .row
-  .three-quarters
-    = render partial: 'fox_yam/offers/contracts/actions', locals: { presenter: presenter }
+  .four-quarters  
+    = render partial: 'fox_yam/shared/errors_collection', locals: { collection: interactor.errors_collection }
 
-    = render partial: 'fox_yam/offers/contracts/contract_core', locals: { presenter: contract_presenter }
-    
-    .sorta-fixed
-      = render partial: 'fox_yam/offers/contracts/actions', locals: { presenter: presenter }
+.row
   .one-quarter
-    = render partial: 'fox_yam/offers/contracts/navbar', locals: { presenter: presenter }
+    = link_to offer_line_items_path(interactor.offer), class: 'btn btn-default btn-lg btn-block' do
+      %i.fa-chevron-left
+      = t(:go_back)

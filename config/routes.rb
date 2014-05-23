@@ -47,20 +47,22 @@ Fuxueyan::Application.routes.draw do
   resources :communications, only: [:show]
 
   resources :line_items, only: [:destroy], controller: 'fox_yam/line_items'
+  resources :preview_contracts, only: [:show], controller: 'gtps/preview_contracts'
   resources :parties, only: [:update], controller: 'gtps/parties'
   resources :delete_party, only: [:destroy], controller: 'gtps/delete_party'
   resources :delete_document, only: [:destroy], controller: 'gtps/delete_document'
   resources :delete_punishment, only: [:destroy], controller: 'gtps/delete_punishment'
   resources :delete_requirement, only: [:destroy], controller: 'gtps/delete_requirement'
   
-  resources :contracts, only: [:show], controller: 'gtps/contracts' do
+  resources :contracts, only: [] do
+    resources :outbound_emails, only: [:new, :create], controller: 'fox_yam/contracts/outbound_emails'
     resources :documents, only: [:create], controller: 'gtps/contracts/documents'
     resources :parties, only: [:create], controller: 'gtps/contracts/parties'
     resources :punishments, only: [:create], controller: 'gtps/contracts/punishments'
     resources :requirements, only: [:create], controller: 'gtps/contracts/requirements'
   end
   resources :offers, only: [:show, :destroy], controller: 'fox_yam/offers' do
-    resources :contracts, only: [:new, :create], controller: 'fox_yam/offers/contracts'
+    resources :contracts, only: [:create], controller: 'fox_yam/offers/contracts'
     resources :line_items, only: [:index, :create], controller: 'fox_yam/offers/line_items'
     resources :finalizes, only: [:new, :create], controller: 'fox_yam/offers/finalizes'
     resources :neverminds, only: [:new, :create], controller: 'fox_yam/offers/neverminds'

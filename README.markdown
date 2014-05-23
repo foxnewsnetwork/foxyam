@@ -61,9 +61,8 @@ ToDos
 
 Tasks
 =
-Tuesday May 20
-- basic validations on making contracts. Need to customize it later for better messages though
-- contracts documents, items, party, punishments, transportation_reqs
+Thursday May 22
+- Gtps::PreviewContracts::Presenter unfilled methods need to get filled
 + after finalization of offer need contract and outgoing email thing
 + When new users make an account, automatically make a company contact info thing
 + merchant user registration path
@@ -72,6 +71,13 @@ Tuesday May 20
 + purchase order and sales order into contract
 + workflow as anonymous user coming to site for first time to buy something
 + negotiation finalize deal
+
+Wednesday May 21
+- still working on contract preview
+
+Tuesday May 20
+- basic validations on making contracts. Need to customize it later for better messages though
+- contracts documents, items, party, punishments, transportation_reqs
 
 Thursday May 15
 

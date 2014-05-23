@@ -23,6 +23,7 @@ class FoxYam::Offer < ActiveRecord::Base
 
   has_many :conversations,
     class_name: 'FoxYam::Conversation'
+
   has_many :attachments,
     through: :conversations,
     class_name: 'FoxYam::AttachedFile'
@@ -82,6 +83,10 @@ class FoxYam::Offer < ActiveRecord::Base
   scope :finalized,
     -> { company_finalized.merchant_finalized }
   
+  def nonscope_latest_price
+    prices.order("#{FoxYam::Conversations::Price.table_name}.created_at desc").limit(1).first
+  end
+
   def offer_to_buy?
     'buy' == offer_type
   end

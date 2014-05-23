@@ -1,0 +1,30 @@
+- v = presenter
+.terms
+  %h2
+    Section III.
+    Terms of Sales
+  %p
+    The terms of funding of the escrow account and the conditions under which GTPC, the Escrow Agent, will release the ESCROW CREDIT.
+
+#price-terms
+  %h3
+    Article A.
+    Price Terms
+
+  %p
+    The BUYER and SELLER agree to conduct this transaction under 
+    %strong 
+      = v.price_terms
+      = '-'
+      = v.destination
+
+#risk-and-responisbilities
+  %h3
+    Article B.
+    Risk and Responsibility
+  %p The division of cost, responsibility, and risk is divided as follows as in accordance with the Incoterm Rules published by the International Chamber of Commerce (ICC):
+
+  %dl
+    - v.incoterm_responsibilities.each do |pair|
+      %dt= pair.first
+      %dd= pair.second

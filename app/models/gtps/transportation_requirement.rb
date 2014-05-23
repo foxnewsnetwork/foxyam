@@ -18,6 +18,12 @@ class Gtps::TransportationRequirement < ActiveRecord::Base
   belongs_to :contract,
     class_name: 'Gtps::Contract'
 
+  scope :price_terms,
+    -> { where "#{self.table_name}.name = ?", :price_terms }
+
+  scope :load_terms,
+    -> { where "#{self.table_name}.name = ?", :days_seller_has_to_load }
+    
   def violated?
     violated_at.present?
   end

@@ -5,6 +5,8 @@
 @import 'shared/footer';
 @import 'shared/flashes';
 @import 'shared/errors';
+@import 'shared/common';
+@import 'shared/bootstrap_extension';
 
 body {
   background: #e7e7e7;
@@ -19,6 +21,8 @@ header {
 }
 
 main {
+  @include shared-common;
+  @include shared-bootstrap_extension;
   @include shared-main;
 }
 

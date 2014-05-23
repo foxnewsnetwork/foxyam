@@ -1,0 +1,5 @@
+@import 'gtps/preview_contracts/foreword';
+
+@mixin gtps-preview_contracts-contract_core {
+  @include gtps-preview_contracts-foreword;
+}

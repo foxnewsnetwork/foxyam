@@ -1,18 +1,15 @@
 class FoxYam::Offers::ContractsController < FoxYam::BaseController
-
-  def new; end
+  expose(:interactor) { _interactor }
   def create
     _create_contract!
     _get_out_of_here!
   end
   private
   def _create_contract!
-    @result = _creative_interactor.contract!
+    @result = _interactor.make_contract!
   end
-  def _creative_interactor
-    _interactor.tap do |i|
-      i.attributes = _contract_params
-    end
+  def _contract
+    _interactor.contract
   end
   def _interactor
     @interactor ||= FoxYam::Offers::Contracts::Interactor.new _offer
@@ -20,11 +17,8 @@ class FoxYam::Offers::ContractsController < FoxYam::BaseController
   def _offer
     @offer ||= FoxYam::Offer.find params[:offer_id]
   end
-  def _contract_params
-    params.require(:contracts)
-  end
   def _get_out_of_here!
-    return redirect_to new_offer_email_path(_offer) if @result.success?
-    render :new
+    return redirect_to preview_contract_path _contract if @result.success?
+    render 'error'
   end
 end

@@ -1,0 +1,47 @@
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_merchant_account), merchant_path(presenter.merchant)
+      %li= link_to t(:negotiations_index), merchant_negotiations_path(presenter.merchant)
+      %li
+        = link_to negotiation_path(presenter.negotiation) do
+          = t(:negotiation)
+          = '#'
+          = presenter.negotiation_id
+      %li
+        = link_to offer_path(presenter.offer) do
+          = t(:offer)
+          = '#'
+          = presenter.offer_id
+      %li
+        = link_to offer_line_items_path(presenter.offer) do
+          = t(:reivew_line_items)
+      %li
+        = t(:review_contract)
+
+.row.sorta-fixed-top{ data: { spy: 'affix', offset: { top: 55 } } }
+  .one-quarter
+    = link_to '#actions', class: 'btn btn-lg btn-block btn-link' do
+      %i.fa-chevron-up
+
+.row.sorta-fixed-bottom{ data: { spy: 'affix', offset: { top: 55, bottom: 355 } } }
+  .one-quarter
+    = link_to '#actions', class: 'btn btn-lg btn-block btn-link' do
+      %i.fa-chevron-down
+.row
+  .three-quarters
+    #contract-core
+      = render partial: 'contract_core', locals: { presenter: presenter }
+    #actions.row
+      .one-quarter
+        = link_to offer_line_items_path(presenter.offer), class: 'btn btn-sm btn-default btn-block' do
+          %i.fa-chevron-left
+          = t(:back)
+      .two-quarters
+        = link_to new_contract_outbound_email_path(presenter.contract), class: 'btn btn-lg btn-primary btn-block' do
+          = t(:review_outbound_email)
+          %i.fa-chevron-right
+
+  .one-quarter
+    .nav-fixed{ data: { spy: 'affix', offset: { top: 55, bottom: 355 } } }
+      = render partial: 'table_of_contents'

@@ -1,0 +1,63 @@
+@import 'gtps/preview_contracts/contract_core';
+
+@mixin gtps-preview_contracts-show {
+  @include gtps-preview_contracts-contract_core;
+  #table-of-contents {
+    @extend .visible-lg;
+    @extend .visible-md;
+  }
+  ol {
+    a {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+    ol {
+      padding-left: 15px;
+      font-size: 12px;
+    }
+  }
+  ol.upper-alpha {
+    list-style-type: upper-alpha;  
+  }
+  ol.upper-roman {
+    list-style-type: upper-roman;
+  }
+  .sorta-fixed-top {
+    i { 
+      @extend .fa-3x;
+    }
+    &.affix-top {
+      visibility: hidden;
+    }
+    &.affix {
+      visibility: visible;
+    }
+    position: fixed;
+    top: 0px;
+    margin-left: -75px;
+  }
+  .sorta-fixed-bottom {
+    i { 
+      @extend .fa-3x;
+    }
+    &.affix-bottom {
+      visibility: hidden;
+    }
+    &.affix {
+      visibility: visible;
+    }
+    position: fixed;
+    bottom: 0px;
+    margin-left: -75px;
+  }
+  .nav-fixed {
+    &.affix {
+      position: fixed;
+      top: 5px;
+    }
+    &.affix-bottom {
+      position: fixed;
+      bottom: 355px;
+    }
+  }
+}

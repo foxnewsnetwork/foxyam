@@ -5,139 +5,8 @@
 @import 'email_inboxes/emails/index';
 @import 'negotiations/show';
 @import 'fox_yam/offers/finalizes/new';
+@import 'gtps/preview_contracts/show';
 @mixin shared-main {
-  @extend .container;
-  .list-group-item {
-    &.inactive {
-      background-color: #eee;
-    }
-  }
-  .align-right {
-    text-align: right;
-  }
-  .bold {
-    font-weight: bold;
-  }
-  .colon:after {
-    content: ":";
-  }
-  .ellipsis:after {
-    content: "...";
-  }
-  .comma:not(:last-child) {
-    &:after {
-      content: ",";
-    }
-  }
-  .overflow-225 {
-    width: 225px;
-    text-overflow: ellipsis;
-    display: inline-block;
-  }
-  .tab {
-    margin-right: 15px; 
-  }
-  .dash:after {
-    content: " - ";
-  }
-  .pound:after {
-    content: '#';
-  }
-  .ellipsis {
-    text-overflow: ellipsis;
-  }
-  .parantheses:after {
-    content: ")";
-  }
-  .parantheses:before {
-    content: "(";
-  }
-  .italic {
-    font-style: italic;
-  }
-  .capitalize {
-    text-transform: capitalize;
-  }
-  .upcase {
-    text-transform: uppercase;
-  }
-  .select-control {
-    select {
-      @extend .form-control;
-    }
-  }
-  .one-sixth {
-    @extend .col-lg-2;
-    @extend .col-md-3;
-    @extend .col-sm-4;
-    @extend .col-xs-6;
-  }
-  .four-quarters {
-    @extend .col-lg-12;
-    @extend .col-md-12;
-    @extend .col-sm-12;
-    @extend .col-xs-12;
-  }
-
-  .three-quarters {
-    @extend .col-lg-9;
-    @extend .col-md-9;
-    @extend .col-sm-12;
-    @extend .col-xs-12;
-  }
-
-  .two-quarters {
-    @extend .col-lg-6;
-    @extend .col-md-6;
-    @extend .col-sm-12;
-    @extend .col-xs-12; 
-  }
-
-  .one-quarter {
-    @extend .col-lg-3;
-    @extend .col-md-3;
-    @extend .col-sm-12;
-    @extend .col-xs-12;
-  }
-
-  .one-third {
-    @extend .col-lg-4;
-    @extend .col-md-4;
-    @extend .col-sm-12;
-    @extend .col-xs-12;
-  }
-
-  .two-thirds {
-    @extend .col-lg-6;
-    @extend .col-md-6;
-    @extend .col-sm-12;
-    @extend .col-xs-12;  
-  }
-
-  .page-title {
-    @extend .col-lg-12;
-    @extend .col-md-12;
-    @extend .col-sm-12;
-    @extend .col-xs-12;
-  }
-
-  .actions {
-    .action-icon {
-      @extend .col-lg-2;
-      @extend .col-md-3;
-      @extend .col-sm-4;
-      @extend .col-xs-6;
-      a {
-        @extend .thumbnail;
-      }
-
-      text-align: center;
-    }
-    i {
-      @extend .fa-2x;
-    }
-  }
-
   #welcome-index {
     @include welcome-index;
   }
@@ -175,5 +44,9 @@
   #fox_yam-offers-finalizes-new,
   #fox_yam-offers-line_items-index {
     @include fox_yam-offers-finalizes-new;
+  }
+
+  #gtps-preview_contracts-show {
+    @include gtps-preview_contracts-show;
   }
 }

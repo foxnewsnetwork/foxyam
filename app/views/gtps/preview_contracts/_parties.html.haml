@@ -1,0 +1,36 @@
+- v = presenter
+.parties
+  %h2
+    Section II.
+    Parties
+
+#seller
+  %h3
+    Article A.
+    Seller -
+    = v.seller_company_name
+  %dl
+    %dt= t(:company_name)
+    %dd= v.seller_company_name
+    %dt= t(:address)
+    %dd
+      = v.seller_full_address
+    %dt= t(:phone)
+    %dd= v.seller_phone_number || t(:none)
+    %dt= t(:email)
+    %dd= v.seller_email
+
+#buyer
+  %h3
+    Article B.
+    Buyer -
+    = v.buyer_company_name
+  %dl
+    %dt= t(:company_name)
+    %dd= v.buyer_company_name
+    %dt= t(:address)
+    %dd= v.buyer_full_address
+    %dt= t(:phone)
+    %dd= v.buyer_phone_number || t(:none)
+    %dt= t(:email)
+    %dd= v.buyer_email

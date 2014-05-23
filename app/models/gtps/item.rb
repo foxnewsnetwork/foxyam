@@ -16,4 +16,24 @@ class Gtps::Item < ActiveRecord::Base
   self.table_name = 'gtps_items'
   belongs_to :contract,
     class_name: 'Gtps::Contract'
+
+  def cost
+    quantity * unit_price
+  end
+
+  def name
+    item_description
+  end
+
+  def total_cost
+    cost
+  end
+
+  def unit
+    quantity_unit
+  end
+
+  def price
+    unit_price
+  end
 end

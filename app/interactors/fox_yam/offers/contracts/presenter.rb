@@ -17,6 +17,14 @@ class FoxYam::Offers::Contracts::Presenter
     [seller_party_hash, buyer_party_hash]
   end
 
+  def offer_id
+    offer.id
+  end
+
+  def negotiation_id
+    negotiation.id
+  end
+
   def seller_party_hash
     return merchant_hash.merge(party_type: :seller) if merchant_is_selling?
     return company_hash.merge(party_type: :seller)
@@ -83,14 +91,16 @@ class FoxYam::Offers::Contracts::Presenter
     {
       name: :minimum_average_weight,
       lower_limit: 35000,
-      notes: '$0.01 per pound missing'
+      notes: '$0.01 per pound missing',
+      punishment_type: :pay_money
     }
   end
   def _cancel_weight_params
     {
       name: :minimum_average_weight,
       lower_limit: 30000,
-      notes: 'Contract cancelled with seller at fault'
+      notes: 'Contract cancelled with seller at fault',
+      punishment_type: :cancel_contract
     }
   end
   def _price_term_params

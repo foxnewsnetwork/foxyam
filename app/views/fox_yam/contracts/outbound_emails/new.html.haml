@@ -1,0 +1,67 @@
+- presenter ||= interactor.presenter
+.row
+  #cookie-crumbs
+    %ol
+      %li= link_to t(:my_merchant_account), merchant_path(presenter.merchant)
+      %li= link_to t(:negotiations_index), merchant_negotiations_path(presenter.merchant)
+      %li
+        = link_to negotiation_path(presenter.negotiation) do
+          = t(:negotiation)
+          = '#'
+          = presenter.negotiation_id
+      %li
+        = link_to offer_path(presenter.offer) do
+          = t(:offer)
+          = '#'
+          = presenter.offer_id
+      %li
+        = link_to offer_line_items_path(presenter.offer) do
+          = t(:reivew_line_items)
+      %li
+        = link_to preview_contract_path(presenter.contract) do
+          = t(:review_contract)
+      %li
+        = t(:outbound_email)
+
+= form_for interactor, url: contract_outbound_emails_path(presenter.contract) do |f|
+  .row
+    .one-whole
+      .form-group
+        %dl
+          %dt= t(:from)
+          %dd= presenter.merchant.name
+      .form-group
+        = f.label :to
+        = f.text_field :to, class: 'form-control'
+      .form-group
+        = f.label :cc
+        = f.text_field :cc, class: 'form-control'
+      .form-group
+        = f.label :bcc
+        = f.text_field :bcc, class: 'form-control'
+      .form-group
+        = f.label :subject
+        = f.text_field :subject, class: 'form-control'
+      .form-group
+        = f.label :content
+        = f.text_area :content, class: 'form-control'
+
+  .row
+    .one-third
+      .list-group
+        .list-group-item.inactive
+          = t(:picture_attachments)
+    .one-third
+      .list-group
+        .list-group-item.inactive
+          = t(:terms_of_sales_contract)
+    .one-third
+      .list-group
+        .list-group-item.inactive
+          = t(:sales_order)
+
+  .row
+    .one-whole
+      = button_tag type: :submit, class: 'btn btn-lg btn-primary' do
+        %i.fa-check
+        = t(:finish_and_dispatch_email)

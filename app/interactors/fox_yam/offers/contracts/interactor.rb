@@ -19,10 +19,22 @@ class FoxYam::Offers::Contracts::Interactor < FoxYam::InteractorFoundation
 
   private
   def _contract
+    _existing_contract || _create_contract
+  end
+  def _existing_contract
+    @contract ||= offer.contracts.first
+  end
+  def _create_contract
     @contract ||= _interactor.tap(&:contract!).contract
   end
   def _tie_offer_with_contract
-    offer.contract_relationships.create! contract: _contract
+    _existing_relationship || _create_relationship
+  end
+  def _existing_relationship
+    offer.contract_relationships.find_by_contract_id _contract.id
+  end
+  def _create_relationship
+    offer.contract_relationships.create! contract: contract
   end
   def _interactor
     @interactor ||= _raw_interactor.tap do |i|

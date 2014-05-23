@@ -1,0 +1,51 @@
+@mixin shared-common {
+  .align-right {
+    text-align: right;
+  }
+  .bold {
+    font-weight: bold;
+  }
+  .colon:after {
+    content: ":";
+  }
+  .ellipsis:after {
+    content: "...";
+  }
+  .comma:not(:last-child) {
+    &:after {
+      content: ",";
+    }
+  }
+  .tab {
+    margin-right: 15px; 
+  }
+  .dash:after {
+    content: " - ";
+  }
+  .pound:after {
+    content: '#';
+  }
+  .ellipsis {
+    text-overflow: ellipsis;
+  }
+  .parantheses:after {
+    content: ")";
+  }
+  .parantheses:before {
+    content: "(";
+  }
+  .italic {
+    font-style: italic;
+  }
+  .capitalize {
+    text-transform: capitalize;
+  }
+  .upcase {
+    text-transform: uppercase;
+  }
+  .overflow-225 {
+    width: 225px;
+    text-overflow: ellipsis;
+    display: inline-block;
+  }
+}

@@ -70,7 +70,7 @@ class FoxYam::Merchant < ActiveRecord::Base
   end
 
   def primary_email
-    company_with_default.primary_contact.email
+    company_with_default.primary_email
   end
 
   def primary_user

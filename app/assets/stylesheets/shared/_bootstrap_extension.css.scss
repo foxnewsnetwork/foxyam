@@ -1,0 +1,81 @@
+@mixin shared-bootstrap_extension {
+  @extend .container;
+  .list-group-item {
+    &.inactive {
+      background-color: #eee;
+    }
+  }
+  .select-control {
+    select {
+      @extend .form-control;
+    }
+  }
+  .one-sixth {
+    @extend .col-lg-2;
+    @extend .col-md-3;
+    @extend .col-sm-4;
+    @extend .col-xs-6;
+  }
+  .four-quarters,
+  .one-whole,
+  .page-title,
+  .three-thirds {
+    @extend .col-lg-12;
+    @extend .col-md-12;
+    @extend .col-sm-12;
+    @extend .col-xs-12;
+  }
+
+  .three-quarters {
+    @extend .col-lg-9;
+    @extend .col-md-9;
+    @extend .col-sm-12;
+    @extend .col-xs-12;
+  }
+
+  .two-quarters,
+  .one-half {
+    @extend .col-lg-6;
+    @extend .col-md-6;
+    @extend .col-sm-12;
+    @extend .col-xs-12; 
+  }
+
+  .one-quarter {
+    @extend .col-lg-3;
+    @extend .col-md-3;
+    @extend .col-sm-12;
+    @extend .col-xs-12;
+  }
+
+  .one-third {
+    @extend .col-lg-4;
+    @extend .col-md-4;
+    @extend .col-sm-12;
+    @extend .col-xs-12;
+  }
+
+  .two-thirds {
+    @extend .col-lg-6;
+    @extend .col-md-6;
+    @extend .col-sm-12;
+    @extend .col-xs-12;  
+  }
+
+  .actions {
+    .action-icon {
+      @extend .col-lg-2;
+      @extend .col-md-3;
+      @extend .col-sm-4;
+      @extend .col-xs-6;
+      a {
+        @extend .thumbnail;
+      }
+
+      text-align: center;
+    }
+    i {
+      @extend .fa-2x;
+    }
+  }
+}

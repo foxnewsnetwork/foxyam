@@ -37,6 +37,14 @@ class Gtps::Contract < ActiveRecord::Base
   has_many :transportation_requirements,
     class_name: 'Gtps::TransportationRequirement'
 
+  has_one :load_term,
+    -> { load_terms },
+    class_name: 'Gtps::TransportationRequirement'
+
+  has_one :price_term,
+    -> { price_terms },
+    class_name: 'Gtps::TransportationRequirement'    
+
   has_one :offer_relationship,
     class_name: 'FoxYam::Offers::ContractRelationship'
 
