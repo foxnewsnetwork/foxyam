@@ -63,7 +63,7 @@ Tasks
 =
 Thursday May 22
 - Gtps::PreviewContracts::Presenter unfilled methods need to get filled
-+ after finalization of offer need contract and outgoing email thing
+- after finalization of offer need contract and outgoing email thing
 + When new users make an account, automatically make a company contact info thing
 + merchant user registration path
 + purchase order line items
