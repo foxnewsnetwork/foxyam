@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522182340) do
+ActiveRecord::Schema.define(version: 20140523235628) do
 
   create_table "attached_files_emails", force: true do |t|
     t.integer  "attached_file_id"
@@ -369,6 +369,57 @@ ActiveRecord::Schema.define(version: 20140522182340) do
   end
 
   add_index "places", ["permalink"], name: "index_places_on_permalink", using: :btree
+
+  create_table "queues_email_delivery_fulfilments", force: true do |t|
+    t.integer  "request_id"
+    t.datetime "succeed_at"
+    t.datetime "failed_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "queues_email_delivery_fulfilments", ["request_id"], name: "index_queues_email_delivery_fulfilments_on_request_id", using: :btree
+
+  create_table "queues_email_delivery_requests", force: true do |t|
+    t.string   "mail_to"
+    t.string   "mail_from"
+    t.string   "mail_cc_to"
+    t.string   "mail_bcc_to"
+    t.string   "mail_subject"
+    t.string   "mailer_class",  null: false
+    t.string   "mailer_method", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "queues_email_objects", force: true do |t|
+    t.integer  "request_id"
+    t.string   "external_name", null: false
+    t.string   "external_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "queues_email_objects", ["request_id"], name: "index_queues_email_objects_on_request_id", using: :btree
+
+  create_table "queues_email_scrap_fulfilments", force: true do |t|
+    t.integer  "request_id"
+    t.datetime "succeed_at"
+    t.datetime "failed_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "queues_email_scrap_fulfilments", ["request_id"], name: "index_queues_email_scrap_fulfilments_on_request_id", using: :btree
+
+  create_table "queues_email_scrap_requests", force: true do |t|
+    t.integer  "email_account_id"
+    t.integer  "priority",         default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "queues_email_scrap_requests", ["email_account_id"], name: "index_queues_email_scrap_requests_on_email_account_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

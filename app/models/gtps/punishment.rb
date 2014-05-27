@@ -2,14 +2,15 @@
 #
 # Table name: gtps_punishments
 #
-#  id          :integer          not null, primary key
-#  contract_id :integer
-#  name        :string(255)
-#  upper_limit :integer
-#  lower_limit :integer
-#  notes       :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id              :integer          not null, primary key
+#  contract_id     :integer
+#  name            :string(255)
+#  upper_limit     :integer
+#  lower_limit     :integer
+#  notes           :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  punishment_type :string(255)
 #
 
 class Gtps::Punishment < ActiveRecord::Base

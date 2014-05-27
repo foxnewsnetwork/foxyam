@@ -11,7 +11,7 @@ class ScrapeAccountsController < ApplicationController
     @result = _interactor.scrape!
   end
   def _interactor
-    @interactor ||= ScrapeAccounts::Interactor.new _email_account
+    @interactor ||= Queues::ScrapInteractor.new _email_account
   end
   def _email_account
     @email_account ||= FoxYam::EmailAccount.find params[:id]

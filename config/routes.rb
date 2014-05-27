@@ -54,6 +54,7 @@ Fuxueyan::Application.routes.draw do
   resources :delete_punishment, only: [:destroy], controller: 'gtps/delete_punishment'
   resources :delete_requirement, only: [:destroy], controller: 'gtps/delete_requirement'
   
+  resources :escrow_progressions, only: [:show], controller: 'gtps/escrow_progressions'  
   resources :contracts, only: [] do
     resources :outbound_emails, only: [:new, :create], controller: 'fox_yam/contracts/outbound_emails'
     resources :documents, only: [:create], controller: 'gtps/contracts/documents'

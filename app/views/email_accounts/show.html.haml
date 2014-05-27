@@ -33,7 +33,7 @@
           = form_for :scrape_accounts, url: scrape_account_path(presenter.account), method: :put do |f|
             = button_tag type: :submit, class: 'btn btn-block btn-default' do
               %i.fa-cloud-download
-              = t(:scrap_now!)
+              = t(:queue_scrap!)
         - else
           %span.colon.bold= t(:scrap_again_in)
           = time_ago_in_words_with_nil presenter.future_scrap_at
