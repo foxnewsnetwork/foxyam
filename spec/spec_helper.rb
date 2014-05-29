@@ -8,6 +8,7 @@ require 'rspec/autorun'
 # in spec/support/ and its subdirectories.
 module Factories; end
 require Rails.root.join('spec/support/factories/base')
+Dir[Rails.root.join('spec/support/factories/**/*.rb')].each { |f| require f }
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 # Checks for pending migrations before tests are run.

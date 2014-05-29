@@ -1,7 +1,7 @@
 class Factories::Gmail
   class Attachment
     def filename
-      Faker::Company.bs.to_url
+      'gotes.jpg'
     end
     def read
       binary = nil

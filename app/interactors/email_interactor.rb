@@ -78,6 +78,10 @@ class EmailInteractor
   end
 
   def _tempfile_for(attachment)
-    Paperclip::Tempfile.new(attachment.filename, encoding: 'ascii-8bit')
+    Paperclip::Tempfile.new([attachment.filename, _get_extension(attachment.filename)], encoding: 'ascii-8bit')
+  end
+
+  def _get_extension(str)
+    ".#{str.split('.').last}"
   end
 end

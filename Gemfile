@@ -8,9 +8,9 @@ gem 'devise', '~> 3.0.1'
 gem 'functional_support', '>=0.0.5', path: File.expand_path("../../functional_support", __FILE__)
 gem 'paranoia', '~> 2.0'
 gem "kaminari", "~> 0.14.1"
-gem "paperclip", "~> 3.5.2"
-gem "font-awesome-sass", "~> 4.0.2"
-gem "font-awesome-rails", "~> 4.0.3.1"
+gem 'paperclip', '~> 4.1.1'
+gem "font-awesome-sass", "~> 4.1.0.0"
+gem 'font-awesome-rails', '~> 4.1.0.0'
 gem "bootstrap-sass", "~> 3.1.0.2"
 gem "stringex", "~> 2.1.2"
 gem "bluecloth", "~> 2.2.0"
@@ -23,28 +23,29 @@ gem 'decent_exposure', '~> 2.3.1'
 gem 'gmail', '~> 0.4.0'
 gem "resque", "~> 2.0.0.pre.1", github: "resque/resque"
 group :development do
-  gem "rspec", '~>2.13.0'
-  gem 'rspec-rails', '~>2.13.0'
+  gem 'rspec', '~> 2.14.1'
+  gem 'rspec-rails', '~> 2.14.2'
   gem 'annotate', ">=2.5.0.pre1"
   gem 'simplecov', "~>0.7.1"
   gem 'capybara', '~>2.2.1'
   gem 'selenium-webdriver', "~> 2.41.0"
+  gem "spring"
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '~> 4.1.1'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.3'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.1'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

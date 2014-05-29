@@ -34,8 +34,6 @@ What should this site do?
 
 ToDos
 =
-1. Scrap needs to be not as heavy as it currently is as even retrieving some 50 emails from gmail crashes my system
-2. Setup resque to handle scrap requests (as in rework scrap so that it happens as a background process automatically)
 3. refine filing system for income emails, still need automation
 5. negotiation show page, fix the t(:need_buyer) junk
 6. finalize negotiation button and page
@@ -43,14 +41,11 @@ ToDos
 11. user account show page
 12. site preferences show page
 13. email preferences show page
-15. Implement a gmail scrapping off of resque requests
 16. favicon.ico
-18. cookiecrumbs links need to be properly linked up
 19. anon_listings and anon_wishlists
 20. fork listing
 21. connect in email and notify people after making new listing
 22. bug reports model, controllers, and whatnot
-23. upgrade to 4.1
 24. work in pagination
 25. permission system stills to be implemeneted across all the other controllers
 26. unauthorized.html.haml page
@@ -61,8 +56,8 @@ ToDos
 
 Tasks
 =
-Wednesday May 28
-
+Thursday May 29
+23. upgrade to 4.1
 + FoxYam::Contracts::OutboundEmails::Interactor#outbound_email!
 + When new users make an account, automatically make a company contact info thing
 + merchant user registration path
@@ -71,6 +66,9 @@ Wednesday May 28
 + purchase order and sales order into contract
 + workflow as anonymous user coming to site for first time to buy something
 + negotiation finalize deal
+
+Wednesday May 28
+- redis resque implemented for scrap and other thing
 
 Tuesday May 27
 - email queue, email archive
