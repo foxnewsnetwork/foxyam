@@ -374,6 +374,7 @@ ActiveRecord::Schema.define(version: 20140523235628) do
     t.integer  "request_id"
     t.datetime "succeed_at"
     t.datetime "failed_at"
+    t.datetime "tried_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -406,6 +407,7 @@ ActiveRecord::Schema.define(version: 20140523235628) do
     t.integer  "request_id"
     t.datetime "succeed_at"
     t.datetime "failed_at"
+    t.datetime "tried_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

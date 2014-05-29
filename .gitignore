@@ -24,3 +24,14 @@ config/ssl
 
 # Image storage local
 public/storage
+
+# Redis junk
+dump.rdb
+
+# Emoji junk I scrapped
+public/emoji
+
+# Creative Time temporary stuff
+ct_feedback.zip
+x_get_shit_done.zip
+x_navbar_ct.zip

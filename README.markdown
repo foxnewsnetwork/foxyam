@@ -61,9 +61,8 @@ ToDos
 
 Tasks
 =
-Friday May 23
-- after finalization of offer need contract and outgoing email thing
-+ email queue, email archive
+Wednesday May 28
+
 + FoxYam::Contracts::OutboundEmails::Interactor#outbound_email!
 + When new users make an account, automatically make a company contact info thing
 + merchant user registration path
@@ -72,6 +71,13 @@ Friday May 23
 + purchase order and sales order into contract
 + workflow as anonymous user coming to site for first time to buy something
 + negotiation finalize deal
+
+Tuesday May 27
+- email queue, email archive
+
+
+Friday May 23
+- after finalization of offer need contract and outgoing email thing
 
 Thursday May 22
 - Gtps::PreviewContracts::Presenter unfilled methods need to get filled

@@ -21,6 +21,7 @@ gem 'squash_ruby', '~>1.4.0', :require => 'squash/ruby'
 gem 'squash_rails', '~>1.3.2', :require => 'squash/rails'
 gem 'decent_exposure', '~> 2.3.1'
 gem 'gmail', '~> 0.4.0'
+gem "resque", "~> 2.0.0.pre.1", github: "resque/resque"
 group :development do
   gem "rspec", '~>2.13.0'
   gem 'rspec-rails', '~>2.13.0'

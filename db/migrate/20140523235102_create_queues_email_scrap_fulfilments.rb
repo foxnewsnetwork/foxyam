@@ -4,6 +4,7 @@ class CreateQueuesEmailScrapFulfilments < ActiveRecord::Migration
       t.references :request, index: true
       t.datetime :succeed_at
       t.datetime :failed_at
+      t.datetime :tried_at
       t.timestamps
     end
   end
