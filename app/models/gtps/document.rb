@@ -42,7 +42,8 @@ class Gtps::Document < ActiveRecord::Base
       path: ':rails_root/public/storage/docs/:id/:basename.:extension'
   end
 
-  do_not_validate_attachment_file_type :the_file
+  validates_attachment_content_type :the_file, 
+    :content_type => /\A(image|text)\/.*\Z/
 
   def fulfilled?
     the_file.present?

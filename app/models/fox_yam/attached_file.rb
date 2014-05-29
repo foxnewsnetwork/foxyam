@@ -43,7 +43,8 @@ class FoxYam::AttachedFile < ActiveRecord::Base
       path: ':rails_root/public/storage/files/:id/:basename.:extension'
   end
 
-  do_not_validate_attachment_file_type :the_file
+  validates_attachment_content_type :the_file, 
+    :content_type => /\A(image|text)\/.*\Z/
 
   def claimed_by_picture?
     pictures.present?
