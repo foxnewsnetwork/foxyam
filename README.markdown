@@ -57,7 +57,10 @@ ToDos
 Tasks
 =
 Friday May 30
-+ certifcate tls issue again
+- certifcate tls issue again
++ rework negotiations#new to include an ability to connect to email account and alert contacts
++ rework negotiations/offers#new should generate email
++ introduce a footer for logged in accounts
 + when folks make offers, they should send more formal docs
 + When new users make an account, automatically make a company contact info thing
 + merchant user registration path

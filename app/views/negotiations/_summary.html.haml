@@ -32,12 +32,6 @@
           %i.fa-bug
           = t(:if_you_see_this_you_have_discovered_a_bug)
 
-  .two-quarters
-    .list-group
-      = link_to '#fork_listing', class: 'list-group-item' do
-        %i.fa-code-fork
-        = t(:fork_listing)
-
 .row
   - presenter.merchant_default_attachments.each do |attachment|
     .one-quarter

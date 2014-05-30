@@ -5,10 +5,10 @@
     = t(:transportation)
   - if presenter.sale_type?
     = link_to '?s=buyers', class: presenter.navclass('buyers') do
-      = t(:buyers)
+      = t(:all_offers)
   - else
     = link_to '?s=sellers', class: presenter.navclass('sellers') do
-      = t(:sellers)
+      = t(:all_offers)
   - if presenter.owner_merchant?(current_merchant)
     = link_to '?s=admin', class: presenter.navclass('admin') do
       = t(:admin)

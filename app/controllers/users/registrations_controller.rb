@@ -10,9 +10,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
   def _setup_flash!
-    set_flash_message :success, :signed_up if _successful_signup?
-    set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if _sorta_successful_signup?
-    set_flash_message :error, :email_has_already_been_userd_or_mistyped_password if _unsuccessful_signup?
+    return set_flash_message :success, :signed_up if _successful_signup?
+    return set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if _sorta_successful_signup?
+    return set_flash_message :error, :email_has_already_been_userd_or_mistyped_password
   end
   def _successful_signup?
     _sorta_successful_signup? && user_signed_in?
