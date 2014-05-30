@@ -56,9 +56,7 @@ ToDos
 
 Tasks
 =
-Thursday May 29
-- upgrade to 4.1
-- FoxYam::Contracts::OutboundEmails::Interactor#outbound_email! now works
+Friday May 30
 + certifcate tls issue again
 + when folks make offers, they should send more formal docs
 + When new users make an account, automatically make a company contact info thing
@@ -68,6 +66,10 @@ Thursday May 29
 + purchase order and sales order into contract
 + workflow as anonymous user coming to site for first time to buy something
 + negotiation finalize deal
+
+Thursday May 29
+- upgrade to 4.1
+- FoxYam::Contracts::OutboundEmails::Interactor#outbound_email! now works
 
 Wednesday May 28
 - redis resque implemented for scrap and other thing

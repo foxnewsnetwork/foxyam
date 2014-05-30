@@ -25,7 +25,7 @@ class Queues::EmailDeliveryJob
   end
 
   def _inbox_interactor
-    @inbox_interactor ||= EmailInboxInteractor.new(self.class.email_account).gmail
+    @inbox_interactor ||= EmailInboxInteractor.new(self.class.email_account)
   end
 
   def _deliver_email(mail)

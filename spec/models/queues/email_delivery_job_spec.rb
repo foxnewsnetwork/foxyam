@@ -7,7 +7,7 @@ describe Queues::EmailDeliveryJob do
   let(:fulfilment) { request.all_fulfilments.first }
   let(:delivery_result) { job.send :_attempt_email_delivery }
   before { Queues::EmailDeliveryRequest.any_instance.stub(:_create_resque_job).and_return(true) }
-  before { EmailInboxInteractor.any_instance.stub(:deliver).and_return true }
+  before { EmailInboxInteractor.any_instance.stub(:deliver!).and_return true }
   context '#work' do
     before do
       request
