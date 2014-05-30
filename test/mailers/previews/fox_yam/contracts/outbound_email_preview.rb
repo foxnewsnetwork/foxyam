@@ -7,6 +7,6 @@ class FoxYam::Contracts::OutboundEmailPreview < ActionMailer::Preview
     _email_object.request
   end
   def _email_object
-    @email_object ||= Gtps::EmailObject.find_by_external_name 'Gtps::Contract'
+    @email_object ||= Queues::EmailObject.find_by_external_name 'Gtps::Contract'
   end
 end

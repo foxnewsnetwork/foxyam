@@ -21,7 +21,7 @@ class Queues::EmailDeliveryJob
 
   private
   def _attempt_email_delivery
-    @delivery_result ||= FunctionalSupport::Either.fmap(_either_mail_object) { |mail| _deliver_email mail }
+    @delivery_result ||= FunctionalSupport::Either.fmap(_either_gmail) { |mail| _deliver_email mail }
   end
 
   def _inbox_interactor
@@ -30,6 +30,16 @@ class Queues::EmailDeliveryJob
 
   def _deliver_email(mail)
     _inbox_interactor.deliver! mail
+  end
+
+  def _either_gmail
+    @either_gmail ||= FunctionalSupport::Either.fmap(_either_mail_object) do |mail| 
+      _gmail_transformer.convert_mail_to_gmail mail
+    end
+  end
+
+  def _gmail_transformer
+    @gmail_transformer ||= ::Mail::GmailTransformer.new(self.class.email_account)
   end
 
   def _either_mail_object
