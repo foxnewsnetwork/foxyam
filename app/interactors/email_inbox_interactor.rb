@@ -19,6 +19,10 @@ class EmailInboxInteractor
     @inbox ||= account.inbox
   end
 
+  def deliver!(mail)
+    gmail.deliver! mail
+  end
+
   def unread(k=15)
     begin
       gmail.inbox.unread(after: 1.month.ago).take(k)

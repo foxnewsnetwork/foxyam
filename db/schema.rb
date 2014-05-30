@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523235628) do
+ActiveRecord::Schema.define(version: 20140530000750) do
 
   create_table "attached_files_emails", force: true do |t|
     t.integer  "attached_file_id"
@@ -391,6 +391,7 @@ ActiveRecord::Schema.define(version: 20140523235628) do
     t.string   "mailer_method", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "notes"
   end
 
   create_table "queues_email_objects", force: true do |t|

@@ -18,7 +18,7 @@ class Queues::EmailScrapJob < Queues::EmailDeliveryJob
   def _attempt_email_scrap
     begin
       @stored_emails ||= _interactor.store_unread_emails
-    rescue e
+    rescue StandardError => e
       @error = e
     end
   end

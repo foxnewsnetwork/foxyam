@@ -53,7 +53,7 @@ class Gtps::PreviewContracts::Presenter
   end
 
   def total_items_cost
-    items.sum(&:cost)
+    items.to_a.sum(&:cost)
   end
   def seller_full_address
     AddressFields.map { |field| seller_party.send field }.join " "

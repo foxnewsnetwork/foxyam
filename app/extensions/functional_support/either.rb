@@ -3,7 +3,11 @@ class FunctionalSupport::Either
   class << self
     def left(errors)
       new.tap do |e|
-        e.errors = errors
+        if errors.is_a? Array
+          e.errors = errors 
+        else
+          e.errors = [errors]
+        end
       end
     end
     def right(payload)
@@ -11,11 +15,22 @@ class FunctionalSupport::Either
         e.payload = payload
       end
     end
-    def arrow_or(left_call, right_call)
-
+    # This might be hard to understand unless you've done Haskell
+    # but either is an applicative functor and fmap always returns
+    # another either after mapping the payload of a right either
+    # using &func... if either is left or an error occurs, it returns
+    # a left either
+    def fmap(either, &func)
+      begin
+        return right yield either.payload if either.right?
+        either
+      rescue StandardError => e
+        left e
+      end
     end
   end
   attr_accessor :payload, :errors
+
   def try(*whatevers)
     return _handle_correct(*whatevers) if right?
     return _handle_errors(*whatevers)

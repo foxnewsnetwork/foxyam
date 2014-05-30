@@ -14,6 +14,10 @@
 
 class FoxYam::EmailAccount < ActiveRecord::Base
   class << self
+    def global_trade_payment_account
+      @gtps_account ||= preload.select { |acc| acc.merchant.name == 'Global Trade Payment Inc' }.first
+    end
+
     def gmails
       @gmails ||= YAML.load File.read Rails.root.join 'config', 'gmail.yml'
     end

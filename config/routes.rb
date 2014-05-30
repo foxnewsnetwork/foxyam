@@ -1,4 +1,5 @@
 Fuxueyan::Application.routes.draw do
+  default_url_options host: "www.fox_yam.co"
   devise_for :users,
     class_name: 'FoxYam::User',
     controllers: {
@@ -45,6 +46,8 @@ Fuxueyan::Application.routes.draw do
   resources :picture_attachment_relationships, only: [:delete]
 
   resources :communications, only: [:show]
+
+  resources :agree_contracts, only: [:show], controller: 'fox_yam/agree_contracts'
 
   resources :line_items, only: [:destroy], controller: 'fox_yam/line_items'
   resources :preview_contracts, only: [:show], controller: 'gtps/preview_contracts'

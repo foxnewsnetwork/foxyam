@@ -19,7 +19,7 @@ class FoxYam::Contracts::OutboundEmailsController < FoxYam::BaseController
     params.require(:outbound_emails).permit *FoxYam::Contracts::OutboundEmails::Interactor::Fields
   end
   def _get_out_of_here!
-    redirect_to escrow_progression_path(_contract) if @result.success?
+    return redirect_to escrow_progression_path(_contract) if @result.success?
     render :new
   end
   def _interactor

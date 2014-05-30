@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: queues_email_scrap_requests
+#
+#  id               :integer          not null, primary key
+#  email_account_id :integer
+#  priority         :integer          default(0), not null
+#  created_at       :datetime
+#  updated_at       :datetime
+#
+
 require 'spec_helper'
 
 describe Queues::EmailScrapRequest do

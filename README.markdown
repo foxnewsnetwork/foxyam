@@ -57,8 +57,10 @@ ToDos
 Tasks
 =
 Thursday May 29
-23. upgrade to 4.1
-+ FoxYam::Contracts::OutboundEmails::Interactor#outbound_email!
+- upgrade to 4.1
+- FoxYam::Contracts::OutboundEmails::Interactor#outbound_email! now works
++ certifcate tls issue again
++ when folks make offers, they should send more formal docs
 + When new users make an account, automatically make a company contact info thing
 + merchant user registration path
 + purchase order line items

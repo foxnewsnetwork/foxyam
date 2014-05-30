@@ -12,6 +12,7 @@
 #  mailer_method :string(255)      not null
 #  created_at    :datetime
 #  updated_at    :datetime
+#  notes         :text
 #
 
 require 'spec_helper'

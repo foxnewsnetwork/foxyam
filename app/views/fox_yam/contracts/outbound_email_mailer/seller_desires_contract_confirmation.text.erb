@@ -1,0 +1,12 @@
+To <%= @presenter.target_name %>,
+
+<%= @presenter.content %>
+
+You can view the contract terms or make any changes here:
+
+<%= agree_contract_url(@presenter.contract) %>
+
+Sincerely,
+
+<%= @presenter.from_name %> via <%= ApplicationHelper.company_legal_name %>
+

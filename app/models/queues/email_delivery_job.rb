@@ -1,4 +1,9 @@
 class Queues::EmailDeliveryJob
+  class << self
+    def email_account
+      @email_account ||= ::FoxYam::EmailAccount.global_trade_payment_account
+    end
+  end
   @queue = :email_delivery
   
   def self.perform(req_id=nil)
@@ -10,14 +15,25 @@ class Queues::EmailDeliveryJob
   end
 
   def work
-    _attempt_email_delivery 
-    _log_delivery_status
+    _log_delivery_status && _attempt_email_delivery 
   end
   alias_method :perform, :work
 
   private
   def _attempt_email_delivery
-    @delivery_result ||= _mail_class.try _mailer_method, _request
+    @delivery_result ||= FunctionalSupport::Either.fmap(_either_mail_object) { |mail| _deliver_email mail }
+  end
+
+  def _inbox_interactor
+    @inbox_interactor ||= EmailInboxInteractor.new(self.class.email_account).gmail
+  end
+
+  def _deliver_email(mail)
+    _inbox_interactor.deliver! mail
+  end
+
+  def _either_mail_object
+    @either_mail_object ||= _mail_class.try _mailer_method, _request
   end
 
   def _log_delivery_status
@@ -33,7 +49,7 @@ class Queues::EmailDeliveryJob
   end
 
   def _inprogress_fulfilment
-    _request.inprogress_fulfilment
+    @inprogress_fulfilment ||= _request.inprogress_fulfilment || _request.all_fulfilments.create!(tried_at: DateTime.now)
   end
   
   def _mailer_method

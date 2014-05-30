@@ -1,0 +1,22 @@
+%p
+  To 
+  = @presenter.target_name
+  ,
+
+%blockquote
+  = @presenter.content
+
+%blockquote
+  You can view the contract terms or make any changes here:
+
+= link_to agree_contract_url(@presenter.contract) do
+  = t(:view_or_edit_contract)
+
+%p
+  Sincerely,
+
+%p
+  = @presenter.from_name 
+  via 
+  = ApplicationHelper.company_legal_name
+

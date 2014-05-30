@@ -12,6 +12,7 @@
 #  mailer_method :string(255)      not null
 #  created_at    :datetime
 #  updated_at    :datetime
+#  notes         :text
 #
 
 class Queues::EmailDeliveryRequest < ActiveRecord::Base
@@ -26,6 +27,7 @@ class Queues::EmailDeliveryRequest < ActiveRecord::Base
   end
   self.table_name = 'queues_email_delivery_requests'
   has_many :email_objects,
+    foreign_key: 'request_id',
     class_name: 'Queues::EmailObject'
 
   has_many :successful_fulfilments,
