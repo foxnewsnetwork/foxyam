@@ -1,0 +1,13 @@
+#= require ./store
+#= require_tree ../../../../functions
+#= require_tree ../../../../adapters
+#= require_tree ../../../../mixins
+#= require_tree ../../../../models
+#= require_tree ./emberapp/controllers
+#= require_tree ../../../../views
+#= require_tree ../../../../helpers
+#= require_tree ../../../../components
+#= require_tree ../../../../templates
+#= require_tree ./emberapp/routes
+#= require ./router
+#= require_self

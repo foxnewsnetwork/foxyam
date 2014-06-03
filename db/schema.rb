@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140530000750) do
+ActiveRecord::Schema.define(version: 20140603174257) do
 
   create_table "attached_files_emails", force: true do |t|
     t.integer  "attached_file_id"
@@ -213,6 +213,18 @@ ActiveRecord::Schema.define(version: 20140530000750) do
     t.integer  "the_file_file_size"
     t.datetime "the_file_updated_at"
   end
+
+  create_table "fox_yam_material_descriptions", force: true do |t|
+    t.string   "permalink",               null: false
+    t.string   "name",                    null: false
+    t.text     "description"
+    t.integer  "count",       default: 0, null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "fox_yam_material_descriptions", ["permalink"], name: "index_fox_yam_material_descriptions_on_permalink", unique: true, using: :btree
 
   create_table "fox_yam_offers_contracts", force: true do |t|
     t.integer  "offer_id"

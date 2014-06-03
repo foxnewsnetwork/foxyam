@@ -1,0 +1,4 @@
+@import 'components/type_ahead';
+@mixin shared-ember-main {
+  @include components-type_ahead;
+}

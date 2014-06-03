@@ -56,8 +56,8 @@ ToDos
 
 Tasks
 =
-Friday May 30
-- certifcate tls issue again
+Tueday Jun 3
++ upgrade rspec
 + rework negotiations#new to include an ability to connect to email account and alert contacts
 + rework negotiations/offers#new should generate email
 + introduce a footer for logged in accounts
@@ -69,6 +69,12 @@ Friday May 30
 + purchase order and sales order into contract
 + workflow as anonymous user coming to site for first time to buy something
 + negotiation finalize deal
+
+Monday Jun 2
+- midway through negotiations#new
+
+Friday May 30
+- certifcate tls issue again
 
 Thursday May 29
 - upgrade to 4.1

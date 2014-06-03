@@ -1,0 +1,30 @@
+@mixin components-type_ahead {
+  .twitter-typeahead {
+    width: 100%;
+    &.form-control {
+      input {
+        @extend .form-control;
+      }
+    }
+    .tt-dropdown-menu {
+      @include border-top-radius(5px);
+      @include border-bottom-radius(10px);
+      width: 100%;
+      background: darken(#fff, 5%);
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-top: 5px;
+    }
+    .tt-suggestion {
+      font-size: 16px;
+      padding: 5px 10px 5px 10px;
+      p {
+        margin-bottom: 0px;
+      }
+      &.tt-cursor {
+        background: #39b3d7;
+        color: #fff;
+      }
+    }
+  }
+}

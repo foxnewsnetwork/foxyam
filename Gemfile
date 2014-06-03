@@ -9,9 +9,6 @@ gem 'functional_support', '>=0.0.5', path: File.expand_path("../../functional_su
 gem 'paranoia', '~> 2.0'
 gem "kaminari", "~> 0.14.1"
 gem 'paperclip', '~> 4.1.1'
-gem "font-awesome-sass", "~> 4.1.0.0"
-gem 'font-awesome-rails', '~> 4.1.0.0'
-gem "bootstrap-sass", "~> 3.1.0.2"
 gem "stringex", "~> 2.1.2"
 gem "bluecloth", "~> 2.2.0"
 gem 'ffaker', ">=1.20.0"
@@ -22,6 +19,7 @@ gem 'squash_rails', '~>1.3.2', :require => 'squash/rails'
 gem 'decent_exposure', '~> 2.3.1'
 gem 'gmail', '~> 0.4.0'
 gem "resque", "~> 2.0.0.pre.1", github: "resque/resque"
+
 group :development do
   gem 'rspec', '~> 2.14.1'
   gem 'rspec-rails', '~> 2.14.2'
@@ -32,26 +30,35 @@ group :development do
   gem "spring"
 end
 
+
+gem "bootstrap-sass", "~> 3.1.0.2"
+gem "font-awesome-sass", "~> 4.1.0.0"
+gem 'font-awesome-rails', '~> 4.1.0.0'
+gem 'ember-rails'
+gem 'ember-source', '~> 1.5.1.1'
+gem 'emblem-rails', '~>0.2.1'
+gem 'ember_script-rails', :github => 'ghempton/ember-script-rails'
+gem 'compass-rails', '~> 1.1.7'
+gem 'jquery-ui-sass-rails'
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.3'
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.1'
+gem 'livescript-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.1.1'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
-
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.1'
-
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

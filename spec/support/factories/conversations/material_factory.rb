@@ -1,5 +1,8 @@
 class Factories::Conversations::Material
   class << self
+    def mock
+      belongs_to(Factories::Conversation.mock).mock.tag
+    end
     def belongs_to(c)
       new.tap { |a| a.conversation = c }
     end

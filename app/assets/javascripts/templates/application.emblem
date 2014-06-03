@@ -1,0 +1,2 @@
+main#ember-main
+  == outlet
