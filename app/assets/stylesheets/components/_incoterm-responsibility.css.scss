@@ -1,0 +1,21 @@
+@mixin components-incoterm_responsibility {
+  .incoterm-responsibility {
+    @extend .row;
+    .buyer,
+    .seller {
+      @extend .two-quarters;
+      display: inline-block;
+
+    }
+    .owner {
+      font-size: 16px;
+      color: #333; 
+      text-transform: capitalize;
+    }
+    ul.responsibilities {
+      padding-left: 5px;
+      list-style-position: inside;
+    }
+  }
+
+}

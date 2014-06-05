@@ -1,4 +1,4 @@
 json.id material.id
-json.name material.name
-json.desc material.description
+json.material_name material.name
+json.description material.description
 json.count material.count

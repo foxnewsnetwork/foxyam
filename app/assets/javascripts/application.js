@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.effect.all
+//= require underscore
 //= require bootstrap
 //= require_self

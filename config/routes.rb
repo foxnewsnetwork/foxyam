@@ -2,6 +2,7 @@ Fuxueyan::Application.routes.draw do
   default_url_options host: "www.fox_yam.co"
   namespace :apiv1 do
     resources :materials, only: [:index]
+    resources :locations, only: [:index]
   end
   devise_for :users,
     class_name: 'FoxYam::User',

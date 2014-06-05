@@ -1,0 +1,91 @@
+#fox_yam-merchants-listings-new-emberapp-index.row
+  .one-half
+    form action='submit'
+      h2 New Material Form
+      .row
+        .one-whole
+          .form-group
+            label Name
+            type-ahead name="material_name" data=materials class='form-control' value=selected_material
+            
+      .row
+        .one-whole
+          .form-group
+            label Make Private?
+            .switch.has-switch
+              input type="checkbox" name="isPrivate" checked=false class="form-control"
+      
+      .row
+        .one-whole
+          legend Price
+          .form-group
+            label Asking Price
+            .input-group
+              span.input-group-addon $
+              number-field name="asking_price" class="form-control" value=selected_price
+              span.input-group-addon per
+              Ember.Select content=priceUnits selection=selected_priceunit class="form-control" name="price_unit"
+          .form-group
+            label Incoterm
+            Ember.Select content=incoterms selection=selected_incoterm name="incoterm" class="form-control"
+          .form-group.incoterm-target
+            label Location
+            type-ahead name="location_name" data=locations class='form-control' value=selected_location
+
+          .form-group
+            incoterm-responsibility incoterm=selected_incoterm
+
+      .row
+        .one-whole
+          legend Quantity
+          .form-group
+            .input-group
+              number-field name="quantity" class="form-control" value=selected_quantity
+              span.input-group-addon
+              Ember.Select content=quantityUnits selection=selected_quantunit class="form-control" name="quantity_unit"
+      
+      .row
+        .one-whole
+          legend Packing Weight
+          .form-group
+            .input-group
+              number-field name="packing_weight" class="form-control" value=selected_packweight
+              span.input-group-addon lbs in 
+              Ember.Select content=transportors selection=selected_transportor name="transportor" class="form-control"
+      
+
+      .row
+        .one-whole
+          legend Pictures
+
+      .row
+        .one-whole
+          .form-group
+            label Pics
+            input type="file" name="files" multiple=true
+      
+      .row
+        .one-quarter
+          button type="submit" class="btn btn-lg btn-primary"
+            i.fa-check
+        .one-quarter.offset-two-quarters.align-right
+          button type="reset" class="btn btn-lg btn-danger"
+            i.fa-times
+
+  .one-half
+    .sorta-fixed data-spy="affix" data-offset-top="125"
+      .row
+        .one-whole
+          h2 Preview
+      .row
+        .one-whole
+          dl
+            dt.capitalize.colon subject
+            dd== email_subject
+
+      .row
+        .one-whole
+          dl
+            dt.capitalize.colon body
+            dd
+              textarea.email-body disabled=true value=email_body

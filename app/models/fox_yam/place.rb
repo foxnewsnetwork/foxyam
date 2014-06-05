@@ -23,9 +23,15 @@ class FoxYam::Place < ActiveRecord::Base
       name.to_s.downcase.to_url
     end
   end
-
   before_create :_create_permalink
+  scope :unique_permalinks,
+    -> { distinct(:permalink) }
+  scope :not_crap,
+    -> { where("#{self.table_name}.name is not null") }
 
+  validate :name,
+    :permalink,
+    presence: true
   private
   def _create_permalink
     self.permalink = self.class.to_permalink name

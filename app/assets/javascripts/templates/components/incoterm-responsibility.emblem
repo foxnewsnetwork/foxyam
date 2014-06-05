@@ -1,0 +1,12 @@
+.seller
+  .owner seller responsibilities (you!)
+  ul.responsibilities
+    each r in seller_responsibilities
+      li.responsibility
+        == r.task
+.buyer
+  .owner buyer responsibilities
+  ul.responsibilities
+    each r in buyer_responsibilities
+      li.responsibility 
+        == r.task

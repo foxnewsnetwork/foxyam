@@ -16,8 +16,9 @@ class Foxfire.TypeAheadComponent extends Ember.TextField
       queryTokenizer: Bloodhound.tokenizers.whitespace
       local: data.map (item) => 
         {
-          value: item.get(@get("name")),
-          name: item.get(@get("name")),
+          value: item.get(@get("name"))
+          name: item.get(@get("name"))
+          presentation: item.get('presentation') || item.get(@get("name"))
           emberObject: item
         }
     b.initialize()
@@ -42,5 +43,6 @@ class Foxfire.TypeAheadComponent extends Ember.TextField
     if Ember.isEmpty @get 'selection'
       @typeahead.val('')
     else
-      @typeahead.val @get("selection").get @get "name"
+      s = @get("selection").get @get "name"
+      @typeahead.val s
     

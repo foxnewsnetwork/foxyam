@@ -1,0 +1,30 @@
+@mixin fox_yam-merchants-listings-new-emberapp-index {
+  @media (min-width: $screen-md) {
+    .affix {
+      position: fixed;
+      top: 0px;
+    }
+  }
+
+  @media (max-width: $screen-md) {
+    .affix {
+      position: relative;
+    }
+  }
+
+  .sorta-fixed {
+    dl {
+      font-size: 16px;
+    }
+    &.affix {
+      top: 0px;
+    }
+  }
+  .email-body {
+    width: 100%;
+    min-width: 575px;
+    min-height: 200px;
+    border: 0px;
+    background: none;
+  }
+}

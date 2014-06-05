@@ -56,7 +56,7 @@ ToDos
 
 Tasks
 =
-Tueday Jun 3
+Wednesday Jun 4
 + upgrade rspec
 + rework negotiations#new to include an ability to connect to email account and alert contacts
 + rework negotiations/offers#new should generate email
@@ -69,6 +69,9 @@ Tueday Jun 3
 + purchase order and sales order into contract
 + workflow as anonymous user coming to site for first time to buy something
 + negotiation finalize deal
+
+Tueday Jun 3
+- two-thirds through negotiations#new
 
 Monday Jun 2
 - midway through negotiations#new

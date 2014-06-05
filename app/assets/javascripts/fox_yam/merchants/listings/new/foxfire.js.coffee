@@ -4,6 +4,7 @@
 #= require_tree ../../../../mixins
 #= require_tree ../../../../models
 #= require_tree ./emberapp/controllers
+#= require_tree ./emberapp/templates
 #= require_tree ../../../../views
 #= require_tree ../../../../helpers
 #= require_tree ../../../../components
