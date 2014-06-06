@@ -11,6 +11,14 @@ class Foxfire.IndexController extends Ember.ObjectController
   locations: ->
     @get('model.locations')
 
+  +computed selected_files
+  pictures: ->
+    @get('selected_files')
+
+  +computed pictures
+  has_pics: ->
+    !Ember.isEmpty @get('pictures')
+
   +computed locations
   targets: ->
     @get('locations').map (location) ->
@@ -54,3 +62,7 @@ class Foxfire.IndexController extends Ember.ObjectController
     v = @get('selected_' + key)
     return v if v?
     " __ "
+
+  actions:
+    submit: ->
+      console.log 'form submitted'

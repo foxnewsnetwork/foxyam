@@ -6,5 +6,6 @@
 #= require ./new/foxfire
 
 $('.no-script').hide()
-$('footer').hide()
 window.Foxfire = Ember.Application.create()
+$(document).ready ->
+  $('body').append $('footer').remove()
