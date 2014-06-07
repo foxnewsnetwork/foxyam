@@ -1,6 +1,25 @@
-class Foxfire.FilesFieldComponent extends Ember.TextField
+class Foxfire.FilesFieldComponent extends Ember.TextField with Foxfire.FileDragDrop
   type: "file"
   multiple: true
+  
+  didInsertElement: ->
+    @bindDragAndDrop()
+
+  willDestroyElement: ->
+    @unbindDragAndDrop()
+
+  dragEntered: ->
+    @$().css "border", "4px dashed #2b669a"
+    @$().css "height", "75px"
+
+  dragLeft: ->
+    @$().css "border", "none"
+    @$().css "height", "55px"
+
+  dragDropped: (files)->
+    @handle_files files 
+    @dragLeft()
+
   change: (evt) ->
     files = evt.target.files
     @handle_files files if files && files[0]

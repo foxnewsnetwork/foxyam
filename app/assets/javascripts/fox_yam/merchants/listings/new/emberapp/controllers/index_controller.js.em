@@ -3,6 +3,15 @@ class Foxfire.IndexController extends Ember.ObjectController
   priceUnits: ["pound", "kilogram", "container"]
   incoterms: ["EXW", "FCA", "FAS", "FOB", "CPT", "CFR", "CIF", "CIP", "DAT", "DAP", "DDP"]
   transportors: ["40ST", "40HC", "45ST", "45HC","20ST","20HC"]
+  
+  +observer listing
+  updateListing: ->
+    @get('listing_maker') @get 'listing' if @get('listing')?
+
+  +computed model.listing_maker
+  listing_maker: ->
+    @get 'model.listing_maker'
+
   +computed model.materials
   materials: ->
     @get('model.materials')
@@ -63,6 +72,4 @@ class Foxfire.IndexController extends Ember.ObjectController
     return v if v?
     " __ "
 
-  actions:
-    submit: ->
-      console.log 'form submitted'
+  

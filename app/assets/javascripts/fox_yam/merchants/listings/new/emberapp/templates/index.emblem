@@ -1,6 +1,6 @@
 #fox_yam-merchants-listings-new-emberapp-index.row
   .one-half
-    form
+    form-for model=listing action="submit"
       h2 New Material Form
       .row
         .one-whole
@@ -13,7 +13,7 @@
           .form-group
             label Make Private?
             .switch.has-switch
-              input type="checkbox" name="isPrivate" checked=false class="form-control"
+              input type="checkbox" name="is_private" checked=false class="form-control"
       
       .row
         .one-whole
@@ -62,14 +62,14 @@
         .one-whole
           .form-group
             label Pics
-            files-field name="pictures" files=selected_files
+            files-field name="pictures" files=selected_files class="form-control upload-control"
       
       .row
         .one-quarter
-          button action="submit" class="btn btn-lg btn-primary"
+          button click="submit target='view'" class="btn btn-lg btn-primary"
             i.fa-check
         .one-quarter.offset-two-quarters.align-right
-          button type="reset" class="btn btn-lg btn-danger"
+          button click="reset target='view'" type="reset" class="btn btn-lg btn-danger"
             i.fa-times
 
   .one-half

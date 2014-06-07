@@ -56,8 +56,8 @@ ToDos
 
 Tasks
 =
-Thursday Jun 5
--  still new listings
+Friday Jun 6
+- new listing submissions, wrote out apiv1/listings/interactor, but missing tests and whatnot
 + upgrade rspec
 + rework negotiations#new to include an ability to connect to email account and alert contacts
 + rework negotiations/offers#new should generate email
@@ -70,6 +70,9 @@ Thursday Jun 5
 + purchase order and sales order into contract
 + workflow as anonymous user coming to site for first time to buy something
 + negotiation finalize deal
+
+Thursday Jun 5
+-  still new listings
 Wednesday Jun 4
 - still new listings
 
