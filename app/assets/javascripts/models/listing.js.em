@@ -10,4 +10,13 @@ class Foxfire.Listing extends DS.Model
   quantity_unit: a 'string'
   packing_weight: a 'number'
   transportor: a 'string'
-  pictures: a()
+  time_interval: a 'string'
+  validate_and_save: ->
+    @validate().then (result) =>
+      if result.valid?
+        @save()
+      else
+        result.errors
+  validate: ->
+    v = Foxfire.ListingValidator.create(listing: @)
+    v.isValid()

@@ -10,9 +10,6 @@ class Foxfire.FormForComponent extends Ember.Component
   updatedModel: ->
     @processNewData()(@get('model') || {})
   actions:
-    reset: ->
-      console.log 'reset'
-      return true
     submit: ->
       @set 'model', @updatedModel()
 

@@ -35,3 +35,7 @@ public/emoji
 ct_feedback.zip
 x_get_shit_done.zip
 x_navbar_ct.zip
+
+# Test stuff
+vendor/assets/javascripts/mocha
+vendor/assets/javascripts/Faker

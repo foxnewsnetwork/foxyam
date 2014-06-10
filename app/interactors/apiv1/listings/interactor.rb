@@ -16,7 +16,7 @@ class Apiv1::Listings::Interactor < FoxYam::InteractorFoundation
   attr_accessor :merchant, :attributes
   attr_hash_accessor *Fields
   def initialize(merchant)
-    @merchant
+    @merchant = merchant
   end
 
   def make_listing!
@@ -26,11 +26,17 @@ class Apiv1::Listings::Interactor < FoxYam::InteractorFoundation
   def _setup_result
     @setup_result ||= _setup_interactor.listing!
   end
+  def _negotiation
+    @negotiation ||= _setup_result && _setup_interactor.negotiation
+  end
   def _listing
     _price if _has_price?
     _quantity if _has_quantity?
     _packing if _has_packing?
-    _setup_result
+    _negotiation if _has_material?
+  end
+  def _has_material?
+    [material_name, quantity, quantity_unit].all?(&:present?)
   end
   def _price 
     @price_result ||= _price_interactor.tag!
@@ -60,7 +66,7 @@ class Apiv1::Listings::Interactor < FoxYam::InteractorFoundation
     {
       material: material_name,
       place_name: location_name,
-      negotiation_type: :merchant_is_selling,
+      negotiation_type: 'merchant_is_selling',
       privatize: is_private
     }
   end

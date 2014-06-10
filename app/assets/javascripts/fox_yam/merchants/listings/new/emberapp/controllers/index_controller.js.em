@@ -3,7 +3,7 @@ class Foxfire.IndexController extends Ember.ObjectController
   priceUnits: ["pound", "kilogram", "container"]
   incoterms: ["EXW", "FCA", "FAS", "FOB", "CPT", "CFR", "CIF", "CIP", "DAT", "DAP", "DDP"]
   transportors: ["40ST", "40HC", "45ST", "45HC","20ST","20HC"]
-  
+  intervals: ['one-time', 'per week', 'biweek', 'per month', 'per year']
   +observer listing
   updateListing: ->
     @get('listing_maker') @get 'listing' if @get('listing')?
@@ -15,6 +15,7 @@ class Foxfire.IndexController extends Ember.ObjectController
   +computed model.materials
   materials: ->
     @get('model.materials')
+
   
   +computed model.locations
   locations: ->
@@ -46,9 +47,9 @@ class Foxfire.IndexController extends Ember.ObjectController
   price_presentation: ->
     "$" + @nay('price') + " per " + @gay('priceunit')
 
-  +computed selected_quantity, selected_quantunit
+  +computed selected_quantity, selected_quantunit, selected_interval
   quantity_presentation: ->
-    @nay('quantity') + " " + @gay('quantunit')
+    @nay('quantity') + " " + @gay('quantunit') + " " + @gay('interval')
 
   +computed email_content
   email_body: ->

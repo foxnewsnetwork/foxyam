@@ -56,8 +56,9 @@ ToDos
 
 Tasks
 =
-Friday Jun 6
-- new listing submissions, wrote out apiv1/listings/interactor, but missing tests and whatnot
+Tuesday Jun 10
+- More validators
+- work in ember test framework
 + upgrade rspec
 + rework negotiations#new to include an ability to connect to email account and alert contacts
 + rework negotiations/offers#new should generate email
@@ -70,6 +71,12 @@ Friday Jun 6
 + purchase order and sales order into contract
 + workflow as anonymous user coming to site for first time to buy something
 + negotiation finalize deal
+
+Monday Jun 9
+- ember validators and whatnot
+- Time inteval field
+Friday Jun 6
+- new listing submissions, wrote out apiv1/listings/interactor, but missing tests and whatnot
 
 Thursday Jun 5
 -  still new listings
