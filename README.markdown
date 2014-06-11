@@ -56,6 +56,11 @@ ToDos
 
 Tasks
 =
+Wedneday Jun 11
+P(V/A) = P(A/V)P(V) / P(A) where P(A) = P(A/V)P(V) + P(A/~V)p(~V)
+P(A/V) = 0.95, P(V) = 0.01, P(A/~V) = 0.1, P(~V) = 0.99
+P(V/A) = 0.087
+P(V/B) = 0.153
 Tuesday Jun 10
 - More validators
 - work in ember test framework

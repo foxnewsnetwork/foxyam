@@ -1,6 +1,6 @@
 #fox_yam-merchants-listings-new-emberapp-index.row
   .one-half
-    form-for model=listing action="submit"
+    form-for model=listing errors=validationErrors submit="formSubmitted"
       h2 New Material Form
       .row
         .one-whole

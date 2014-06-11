@@ -4,7 +4,6 @@ class Foxfire.ListingValidator extends Ember.Object
       presence: true
 
     @validate 'is_private',
-      presence: true
       inclusion: [true, false]
 
     @validate 'asking_price',

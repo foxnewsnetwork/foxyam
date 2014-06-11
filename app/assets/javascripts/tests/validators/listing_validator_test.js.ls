@@ -35,9 +35,9 @@ describe "Foxfire.ListingValidator", ->
       expect(@validator.isValid!).to.equal false
     specify "should have a bunch of validators", ->
       expect(@validator.get 'validators').to.be.ok
-      expect(@validator.get 'validators').to.have.length 16
+      expect(@validator.get 'validators').to.have.length 15
     specify 'should have registered the listing', ->
       expect(@validator.get 'listing').to.be.ok
     specify 'should have errors', ->
       @validator.isValid!
-      expect(@validator.get 'errors').to.have.length 9
+      expect(@validator.get 'errors').to.have.length 8

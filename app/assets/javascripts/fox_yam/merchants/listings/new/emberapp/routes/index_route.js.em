@@ -5,4 +5,5 @@ class Foxfire.IndexRoute extends Ember.Route
     controller.set 'model', 
       materials: @store.find 'material'
       locations: @store.find 'location'
-      listing_maker: (params) => @store.createRecord('listing', params).validate_and_save()
+      listing: @store.createRecord 'listing'
+      listing_maker: (listing) => listing.validate_and_save()

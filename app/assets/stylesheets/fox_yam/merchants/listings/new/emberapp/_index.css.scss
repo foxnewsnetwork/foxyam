@@ -38,4 +38,7 @@
     @include transition-duration(0.5s);
     height: 55px;
   }
+  .input-with-error {
+    border: 2px dashed darken(red, 15%);
+  }
 }

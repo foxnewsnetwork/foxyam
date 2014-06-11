@@ -8,8 +8,27 @@ class Foxfire.FormForComponent extends Ember.Component
       memo[next.name] = next.value
       memo
   updatedModel: ->
-    @processNewData()(@get('model') || {})
+    @processNewData()(@model || {})
+  
+  +observer errors
+  displayErrors: ->
+    @highlightErrorFields()
+    @explainErrorFields()
+
+  explainErrorFields: ->
+    _.map @errors, (error) =>
+      @$("input[name=#{error.get 'key'}]").tooltip
+        title: error.get "message"
+        trigger: 'hover focus'
+  highlightErrorFields: ->
+    _.map @nameWithErrors, (name) =>
+      @$("input[name=#{name}]").addClass "input-with-error"
+
+  +computed errors
+  nameWithErrors: ->
+    _.map @errors, (error) ->
+      error.get 'key'
+
   actions:
     submit: ->
-      @set 'model', @updatedModel()
-
+      @get('controller').sendAction "submit", @updatedModel()

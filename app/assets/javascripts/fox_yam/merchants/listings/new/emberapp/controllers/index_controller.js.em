@@ -3,22 +3,19 @@ class Foxfire.IndexController extends Ember.ObjectController
   priceUnits: ["pound", "kilogram", "container"]
   incoterms: ["EXW", "FCA", "FAS", "FOB", "CPT", "CFR", "CIF", "CIP", "DAT", "DAP", "DDP"]
   transportors: ["40ST", "40HC", "45ST", "45HC","20ST","20HC"]
-  intervals: ['one-time', 'per week', 'biweek', 'per month', 'per year']
-  +observer listing
-  updateListing: ->
-    @get('listing_maker') @get 'listing' if @get('listing')?
+  intervals: ['one-time', 'per week', 'biweek', 'per month', 'per year'] 
 
-  +computed model.listing_maker
-  listing_maker: ->
-    @get 'model.listing_maker'
+  +computed model.listing
+  listing: ->
+    @model.listing
 
-  +computed model.materials
-  materials: ->
+  listingMaker: ~>
+    @model.listing_maker || (k) -> k
+
+  materials: ~>
     @get('model.materials')
-
-  
-  +computed model.locations
-  locations: ->
+ 
+  locations: ~>
     @get('model.locations')
 
   +computed selected_files
@@ -53,11 +50,11 @@ class Foxfire.IndexController extends Ember.ObjectController
 
   +computed email_content
   email_body: ->
-    ["Dear all,", @get('email_content')].join('\r\n')
+    ["Dear all,", @get('email_content')].join('\r\n\r\n')
 
   +computed email_subject, packing_presentation
   email_content: ->
-    @get('email_subject') + " for sale. \r\n" + @get("packing_presentation") 
+    @get('email_subject') + " for sale. \r\n\r\n" + @get("packing_presentation") 
 
   +computed selected_transportor, selected_packweight
   packing_presentation: ->
@@ -65,12 +62,18 @@ class Foxfire.IndexController extends Ember.ObjectController
 
   nay: (key) ->
     v = @get('selected_' + key)
-    return v.toLocaleString("en-US") if v?
+    return v.toLocaleString("en-US") unless Ember.isBlank v
     " __ "
 
   gay: (key) ->
     v = @get('selected_' + key)
-    return v if v?
+    return v unless Ember.isBlank v
     " __ "
 
-  
+  actions:
+    formSubmitted: (params)->
+      either = @get("listingMaker")(@listing)
+      if either.isLeft()
+        @validationErrors = either.error
+      if either.isRight()
+        
