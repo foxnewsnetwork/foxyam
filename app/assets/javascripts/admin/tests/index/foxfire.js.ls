@@ -5,6 +5,8 @@
 #= require_tree ./routes
 #= require ./router
 #= require_self
-mocha.checkLeaks()
-mocha.globals(['jQuery', '_', 'Ember', 'Foxfire'])
-mocha.run()
+mocha.checkLeaks!
+mocha.globals ['jQuery', '_', 'Ember', 'Foxfire']
+Foxfire.setupForTesting!
+Foxfire.injectTestHelpers!
+mocha.run!

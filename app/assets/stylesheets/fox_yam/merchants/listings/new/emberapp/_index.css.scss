@@ -27,9 +27,31 @@
     border: 0px;
     background: none;
   }
+  .attachments-row {
+    .list-group-item {
+      padding-top: 10px;
+      padding-bottom: 5px;
+    }
+    .completion-bar {
+      @include transition-property(width, background);
+      @include transition-duration(10s);
+      &.starting {
+        width: 5%;
+        background-color: #ed9c28;
+      }
+      &.halfway {
+        width: 90%;
+        background-color: #47a447;
+      }
+      &.completed {
+        width: 100%;
+        background-color: #fff;
+      }
+    }
+  }
   .small-thumbnail {
-    max-width: 125px;
-    max-height: 125px;
+    max-width: 50px;
+    max-height: 50px;
     overflow: hidden;
     display: inline-block;
   }

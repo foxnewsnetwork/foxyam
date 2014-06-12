@@ -95,9 +95,9 @@
               textarea.email-body disabled=true value=email_body
 
       .row
-        .one-whole
+        .one-whole.attachments-row
           if has_pics
             h4.capitalize.bold.colon attachments
-            each picture in pictures
-              .small-thumbnail
-                img.img-thumbnail src=picture
+            .list-group
+              each picture in pictures
+                picture-list-item model=picture

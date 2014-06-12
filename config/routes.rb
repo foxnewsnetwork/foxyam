@@ -6,6 +6,7 @@ Fuxueyan::Application.routes.draw do
   namespace :apiv1 do
     resources :materials, only: [:index]
     resources :locations, only: [:index]
+    resources :pictures, only: [:create]
   end
   devise_for :users,
     class_name: 'FoxYam::User',

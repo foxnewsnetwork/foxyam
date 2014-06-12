@@ -7,3 +7,4 @@ class Foxfire.IndexRoute extends Ember.Route
       locations: @store.find 'location'
       listing: @store.createRecord 'listing'
       listing_maker: (listing) => listing.validate_and_save()
+      picture_maker: (file) => @store.createRecord('picture', file: file)

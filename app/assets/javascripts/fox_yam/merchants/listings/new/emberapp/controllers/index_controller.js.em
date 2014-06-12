@@ -12,6 +12,9 @@ class Foxfire.IndexController extends Ember.ObjectController
   listingMaker: ~>
     @model.listing_maker || (k) -> k
 
+  pictureMaker: ~>
+    @model.picture_maker
+
   materials: ~>
     @get('model.materials')
  
@@ -20,7 +23,7 @@ class Foxfire.IndexController extends Ember.ObjectController
 
   +computed selected_files
   pictures: ->
-    @get('selected_files')
+    _.map @get('selected_files'), _.bind(@pictureMaker, @)
 
   +computed pictures
   has_pics: ->
@@ -76,4 +79,5 @@ class Foxfire.IndexController extends Ember.ObjectController
       if either.isLeft()
         @validationErrors = either.error
       if either.isRight()
-        
+        console.log "save successful"
+

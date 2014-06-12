@@ -1,9 +1,11 @@
 @import 'components/type-ahead';
 @import 'components/incoterm-responsibility';
+@import 'components/file-field';
 @import 'fox_yam/merchants/listings/new/emberapp/index';
 @mixin shared-ember-main {
   @include components-type_ahead;
   @include components-incoterm_responsibility;
+  @include components-file-field;
   #fox_yam-merchants-listings-new-emberapp-index {
     @include fox_yam-merchants-listings-new-emberapp-index;
   }
