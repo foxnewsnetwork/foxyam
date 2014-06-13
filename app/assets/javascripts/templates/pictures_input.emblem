@@ -1,0 +1,9 @@
+.row
+  .one-whole
+    legend Pictures
+
+.row
+  .one-whole
+    .form-group
+      label Pics
+      files-field name="pictures" files=selected_files class="form-control upload-control"

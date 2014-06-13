@@ -1,4 +1,3 @@
-#= require_tree ../functions
 #= require_tree ../adapters
 #= require_tree ../mixins
 #= require_tree ../validators

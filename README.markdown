@@ -61,9 +61,6 @@ P(V/A) = P(A/V)P(V) / P(A) where P(A) = P(A/V)P(V) + P(A/~V)p(~V)
 P(A/V) = 0.95, P(V) = 0.01, P(A/~V) = 0.1, P(~V) = 0.99
 P(V/A) = 0.087
 P(V/B) = 0.153
-Tuesday Jun 10
-- More validators
-- work in ember test framework
 + upgrade rspec
 + rework negotiations#new to include an ability to connect to email account and alert contacts
 + rework negotiations/offers#new should generate email
@@ -76,6 +73,10 @@ Tuesday Jun 10
 + purchase order and sales order into contract
 + workflow as anonymous user coming to site for first time to buy something
 + negotiation finalize deal
+
+Tuesday Jun 10
+- More validators
+- work in ember test framework
 
 Monday Jun 9
 - ember validators and whatnot

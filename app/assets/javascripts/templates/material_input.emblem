@@ -1,0 +1,12 @@
+.row
+  .one-whole
+    .form-group
+      label Name
+      type-ahead name="material_name" data=materials class='form-control' value=selectedMaterial
+      
+.row
+  .one-whole
+    .form-group
+      label Make Private?
+      .switch.has-switch
+        input type="checkbox" name="is_private" checked=false class="form-control"

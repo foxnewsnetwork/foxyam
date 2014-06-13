@@ -1,0 +1,19 @@
+.row
+  .one-whole
+    legend Price
+    .form-group
+      label Asking Price
+      .input-group
+        span.input-group-addon $
+        number-field name="asking_price" class="form-control" value=selectedPrice
+        span.input-group-addon per
+        Ember.Select content=priceUnits selection=selectedPriceunit class="form-control" name="price_unit"
+    .form-group
+      label Incoterm
+      Ember.Select content=incoterms selection=selectedIncoterm name="incoterm" class="form-control"
+    .form-group.incoterm-target
+      label Location
+      type-ahead name="location_name" data=locations class='form-control' value=selectedLocation
+
+    .form-group
+      incoterm-responsibility incoterm=selectedIncoterm

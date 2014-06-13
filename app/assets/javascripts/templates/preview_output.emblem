@@ -1,0 +1,24 @@
+.sorta-fixed data-spy="affix" data-offset-top="125"
+  .row
+    .one-whole
+      h2 Preview
+  .row
+    .one-whole
+      dl
+        dt.capitalize.colon subject
+        dd= emailSubject
+
+  .row
+    .one-whole
+      dl
+        dt.capitalize.colon body
+        dd
+          textarea.email-body disabled=true value=emailBody
+
+  .row
+    .one-whole.attachments-row
+      if has_pics
+        h4.capitalize.bold.colon attachments
+        .list-group
+          each picture in pictures
+            picture-list-item model=picture

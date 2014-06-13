@@ -2,6 +2,11 @@
 #= require ./store
 
 $('.no-script').hide()
+
 window.Foxfire = Ember.Application.create()
-$(document).ready ->
-  $('body').append $('footer').remove()
+
+$("footer").hide ->
+  setTimeout ->
+    $('body').append $('footer').remove()
+    $('footer').show()
+  , 2000
