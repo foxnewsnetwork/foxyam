@@ -10,9 +10,9 @@ class Foxfire.IndexRoute extends Ember.Route
     priceCtrl: @controllerFor("price_input").set("model", @store.find 'location')
     quantityCtrl: @controllerFor("quantity_input").set("model", @store.find "location")
     packingCtrl: @controllerFor("packing_input").set("model", @store.find "location")
+    listingMaker: _.bind(@listingMaker, @)
     # picturesInteractor: Foxfire.PicturesInteractor.create(maker: _.bind(@pictureMaker, @))
-    # listingInteractor: Foxfire.ListingInteractor.create(maker: _.bind(@listingMaker, @))
   pictureMaker: (file) ->
     @store.createRecord('picture', file: file)
   listingMaker: (params) ->
-    @store.createRecord("listing", params)
+    @store.createRecord("listing", params).validate_and_save()

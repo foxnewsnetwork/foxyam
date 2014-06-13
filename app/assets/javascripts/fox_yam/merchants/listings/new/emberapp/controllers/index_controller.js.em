@@ -14,14 +14,14 @@ class Foxfire.IndexController extends Ember.ObjectController
   previewCtrl: ~>
     @model
 
-  listingInteractor: ~>
-    @model.listingInteractor
+  listingMaker: ~>
+    @model.listingMaker
 
   actions:
     formSubmitted: (params)->
-      either = @get("listingMaker")(@listing)
+      either = @get("listingMaker")(params) 
       if either.isLeft()
         @validationErrors = either.error
-      if either.isRight()
-        console.log "save successful"
+      # if either.isRight()
+      #   console.log "save successful"
 
