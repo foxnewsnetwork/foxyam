@@ -1,7 +1,7 @@
 class Apiv1::ListingsController < Apiv1::BaseController
-  expose(:result) { @result }
   def create
     _create_listing
+    render json: { listing: _interactor.to_builder.attributes! }
   end
   private
   def _interactor

@@ -56,11 +56,8 @@ ToDos
 
 Tasks
 =
-Wedneday Jun 11
-P(V/A) = P(A/V)P(V) / P(A) where P(A) = P(A/V)P(V) + P(A/~V)p(~V)
-P(A/V) = 0.95, P(V) = 0.01, P(A/~V) = 0.1, P(~V) = 0.99
-P(V/A) = 0.087
-P(V/B) = 0.153
+Friday Jun 13
+- new negotiation submission
 + upgrade rspec
 + rework negotiations#new to include an ability to connect to email account and alert contacts
 + rework negotiations/offers#new should generate email
@@ -73,6 +70,14 @@ P(V/B) = 0.153
 + purchase order and sales order into contract
 + workflow as anonymous user coming to site for first time to buy something
 + negotiation finalize deal
+
+Thursday Jun 12
+- shitty bug
+Wedneday Jun 11
+P(V/A) = P(A/V)P(V) / P(A) where P(A) = P(A/V)P(V) + P(A/~V)p(~V)
+P(A/V) = 0.95, P(V) = 0.01, P(A/~V) = 0.1, P(~V) = 0.99
+P(V/A) = 0.087
+P(V/B) = 0.153
 
 Tuesday Jun 10
 - More validators

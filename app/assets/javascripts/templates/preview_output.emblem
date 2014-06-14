@@ -17,7 +17,7 @@
 
   .row
     .one-whole.attachments-row
-      if has_pics
+      if hasPics
         h4.capitalize.bold.colon attachments
         .list-group
           each picture in pictures

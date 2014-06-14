@@ -6,4 +6,4 @@
   .one-whole
     .form-group
       label Pics
-      files-field name="pictures" files=selected_files class="form-control upload-control"
+      files-field name="pictures" files=selectedFiles class="form-control upload-control"

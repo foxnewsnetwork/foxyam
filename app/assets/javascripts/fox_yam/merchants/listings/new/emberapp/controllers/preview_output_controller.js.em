@@ -19,6 +19,16 @@ class Foxfire.PreviewOutputController extends Ember.ObjectController
   
   emailContent: ~>
     @emailSubject + " for sale. \r\n\r\n" + @packingPresentation
-  # pictures: ->
-  #   # To Be Implemented
+  
+  hasPics: ~>
+    @selectedFiles
+
+  selectedFiles: ~>
+    @model.picturesCtrl.selectedFiles
+
+  +computed selectedFiles
+  pictures: ->
+    return [] if Ember.isBlank @get('selectedFiles')
+    _.map @get('selectedFiles'), (file) =>
+      @store.createRecord 'picture', file: file
   

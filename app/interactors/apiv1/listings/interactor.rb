@@ -22,6 +22,14 @@ class Apiv1::Listings::Interactor < FoxYam::InteractorFoundation
   def make_listing!
     _bind_result merchant && _listing
   end 
+
+  def to_builder
+    Jbuilder.new do |listing|
+      listing.id _negotiation.id
+      listing.conversation_id _conversation.id
+      listing.(self, *Fields)
+    end
+  end
   private
   def _setup_result
     @setup_result ||= _setup_interactor.listing!
@@ -57,7 +65,7 @@ class Apiv1::Listings::Interactor < FoxYam::InteractorFoundation
     [packing_weight, transportor].all?(&:present?)
   end
   def _conversation
-    _setup_result && _setup_interactor.conversation
+    @conversation ||= _setup_result && _setup_interactor.conversation
   end
   def _setup_interactor
     @setup_interactor ||= FoxYam::Merchants::Listings::Interactor.new(merchant).tap { |i| i.attributes = _setup_params }

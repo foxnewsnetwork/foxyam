@@ -1,5 +1,5 @@
 #= require_self
-#= require ./store
+
 
 $('.no-script').hide()
 

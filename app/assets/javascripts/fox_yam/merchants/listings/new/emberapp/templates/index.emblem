@@ -14,6 +14,9 @@
       with packingCtrl
         == partial "packing_input"
 
+      with picturesCtrl
+        == partial "pictures_input"
+
       .row
         .one-quarter
           button click="submit target='view'" class="btn btn-lg btn-primary"

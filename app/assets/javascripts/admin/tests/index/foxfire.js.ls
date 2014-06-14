@@ -1,4 +1,5 @@
 #= require ../../../shared/bootstrapper
+#= require ../../../shared/test_store
 #= require_tree ../../../tests
 #= require_tree ./controllers
 #= require_tree ./templates

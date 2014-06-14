@@ -11,7 +11,11 @@ class Foxfire.IndexController extends Ember.ObjectController
   packingCtrl: ~>
     @model.packingCtrl
 
-  previewCtrl: ~>
+  picturesCtrl: ~>
+    @model.picturesCtrl
+
+  +computed model
+  previewCtrl: ->
     @model
 
   listingMaker: ~>
@@ -21,7 +25,9 @@ class Foxfire.IndexController extends Ember.ObjectController
     formSubmitted: (params)->
       either = @get("listingMaker")(params) 
       if either.isLeft()
-        @validationErrors = either.error
-      # if either.isRight()
-      #   console.log "save successful"
+        return @validationErrors = either.error
+      if either.isRight()
+        return either.payload.then (listing) ->
+          console.log listing
+      throw "You have a bug with #{either}"
 
