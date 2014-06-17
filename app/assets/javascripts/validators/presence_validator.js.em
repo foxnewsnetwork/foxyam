@@ -3,5 +3,5 @@ class Foxfire.PresenceValidator extends Ember.Object with Foxfire.ValidatorBase
     @msg = "should be present but was not"
 
   validityCheck: ->
-    !Ember.isBlank @value
+    !(Ember.isBlank(@value) or Ember.isEmpty(@value))
   

@@ -14,12 +14,22 @@ class Foxfire.Listing extends DS.Model
   time_interval: a 'string'
   
   validate_and_save: ->
-    v = @validate() 
+    v = @validator() 
     if v.isValid()
-      Foxfire.Either.right @save()
+      Foxfire.Either.right @saveEverything()
     else
       Foxfire.Either.left v.errors
-      
-  validate: ->
+  
+  saveEverything: ->
+    @save().then (listing) =>
+      @picturePromises listing
+
+  picturePromises: (listing) ->
+    promises = _.map @get("pictures"), (picture) ->
+      picture.conversation_id = listing.conversation_id
+      picture.save()
+    Foxfire.PromiseArray.create promises: promises
+
+  validator: ->
     Foxfire.ListingValidator.create(listing: @)
       

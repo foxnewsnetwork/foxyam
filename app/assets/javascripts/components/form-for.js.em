@@ -12,8 +12,13 @@ class Foxfire.FormForComponent extends Ember.Component
   
   +observer errors
   displayErrors: ->
+    @resetErrorFields()
     @highlightErrorFields()
     @explainErrorFields()
+
+  resetErrorFields: ->
+    @$("input").removeClass "input-with-error"
+    @$("input").tooltip "destroy"
 
   explainErrorFields: ->
     _.map @errors, (error) =>

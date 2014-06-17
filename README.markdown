@@ -23,6 +23,10 @@ Workout Routine
 - 3x8 squats
 - 3x8 pistol squats
 
+Economic Topics
+=
+1. The cost of having more choices (as in, giving people choices has a cost)
+
 
 Design Specifications
 =
@@ -54,10 +58,28 @@ ToDos
 29. Get rid of Devise in favor of sorcery
 30. document and write out workflow based integration testing
 
+Monads, Functors, and Applicatives
+=
+Consider the following:
+
+```Haskell
+instance Functor Promise where
+  fmap :: (a -> b) -> Promise a -> Promise b
+  fmap f pa = pa `then` (\a -> f a)
+
+instance (Functor Promise) => Applicative Promise where
+  pure :: a -> Promise a
+  pure a = new Promise (\resolve -> resolve a)
+
+  <*> :: Promise (a -> b) -> Promise a -> Promise b
+  pf <*> pa = pf `then` (\f -> fmap f pa)
+
+then :: Promise a -> (a -> b) -> Promise b
+
+```
 Tasks
 =
-Friday Jun 13
-- new negotiation submission
+Sunday Jun 15
 + upgrade rspec
 + rework negotiations#new to include an ability to connect to email account and alert contacts
 + rework negotiations/offers#new should generate email
@@ -70,6 +92,9 @@ Friday Jun 13
 + purchase order and sales order into contract
 + workflow as anonymous user coming to site for first time to buy something
 + negotiation finalize deal
+
+Friday Jun 13
+- new negotiation submission
 
 Thursday Jun 12
 - shitty bug

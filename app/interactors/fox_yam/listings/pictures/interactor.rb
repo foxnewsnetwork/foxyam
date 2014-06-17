@@ -28,7 +28,7 @@ class FoxYam::Listings::Pictures::Interactor < InteractorBase
   end
 
   def pictures!
-    FoxYam::Merchants::Listings::Result.new valid? && _attached_files
+    FoxYam::Merchants::Listings::Result.new valid? && presently_attached_files
   end
   alias_method :tag!, :pictures!
 
@@ -44,15 +44,15 @@ class FoxYam::Listings::Pictures::Interactor < InteractorBase
   end
   alias_method_chain :errors, :attached_files
 
-  private
-  def _picture_tag
-    @picture_tag ||= conversation.picture || conversation.pictures.create!
-  end
-  def _attached_files
+  def presently_attached_files
     @attached_files ||= pictures.map do |picture|
       p = _picture_tag.attached_files.create!
       p.the_file = picture
       p.valid? && p.save && p
     end
+  end
+  private
+  def _picture_tag
+    @picture_tag ||= conversation.picture || conversation.pictures.create!
   end
 end

@@ -37,6 +37,9 @@ class Foxfire.ListingValidator extends Ember.Object
     @validate 'time_interval',
       inclusion: ['one-time', 'per week', 'biweek', 'per month', 'per year']
 
+    @validate 'pictures',
+      presence: true
+
   validate: (field, opts) ->
     _.map opts, (value, name) =>
       @addValidator @validatorInstance field, name, value
