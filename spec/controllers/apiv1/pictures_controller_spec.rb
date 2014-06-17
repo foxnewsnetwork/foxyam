@@ -17,11 +17,12 @@ describe Apiv1::PicturesController do
   context 'response' do
     before { create }
     let(:json) { JSON.parse(response.body) }
-    subject { json["picture"] }
+    let(:picture) { json["picture"] }
+    subject { picture }
     specify { should have_key "id" }
     specify { should have_key "conversation_id" }
     specify { should have_key "source" }
-    specify { json["id"].should be_present }
-    specify { json["source"].should be_present }
+    specify { picture["id"].should be_present }
+    specify { picture["conversation_id"].should be_present }
   end
 end
