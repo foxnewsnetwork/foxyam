@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Apiv1::PicturesController do
+describe Apiv1::Pictures::CreateController do
   let(:conversation) { Factories::Conversation.mock }
   let(:create) { post :create, format: :json, picture: @params }
   before do

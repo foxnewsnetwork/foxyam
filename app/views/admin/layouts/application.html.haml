@@ -12,7 +12,7 @@
 
 %head
   = render partial: 'shared/head'
-  = javascript_include_tag "foxtest", "data-turbolinks-track" => false
-  = stylesheet_link_tag 'mocha/mocha', media: 'all'
 %body#foxfire
   = yield
+  = javascript_include_tag "foxtest", "data-turbolinks-track" => false
+  = stylesheet_link_tag 'mocha/mocha', media: 'all'

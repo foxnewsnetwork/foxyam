@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Apiv1::ListingsController do
+describe Apiv1::Listings::CreateController do
   login_merchant
   let(:create) { post :create, listing: @params, format: :json }
   before do
