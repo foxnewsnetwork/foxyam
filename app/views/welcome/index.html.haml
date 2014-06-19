@@ -1,21 +1,7 @@
-.row
-  .four-quarters
-    .jumbotron
-      .row
-        .four-quarters
-          .input-group
-            %span.input-group-btn
-              %button{ class: 'btn btn-primary btn-lg' }
-                %i.fa-search
-            = text_field_tag :search, "", class: 'form-control input-lg'
-.row
-  .two-quarters
-    = link_to buys_path, class: 'btn btn-lg btn-block btn-success' do
-      %figure
-        %i.fa-shopping-cart
-      = t(:buy_materials)
-  .two-quarters
-    = link_to sells_path, class: 'btn btn-lg btn-block btn-info' do
-      %figure
-        %i.fa-tags
-      = t(:sell_materials)
+.container.no-script
+  .jumbotron
+    .row
+      .four-quarters
+        %h1
+          = link_to fox_yam_vanillas_path do
+            = t(:plain_mode)

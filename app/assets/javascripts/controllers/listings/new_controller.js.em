@@ -1,4 +1,4 @@
-class Foxfire.IndexController extends Ember.ObjectController
+class Foxfire.ListingsNewController extends Ember.ObjectController
   materialCtrl: ~>
     @model.materialCtrl
 
@@ -34,4 +34,3 @@ class Foxfire.IndexController extends Ember.ObjectController
         return either.payload.then (listing) ->
           console.log listing
       throw "You have a bug with #{either}"
-

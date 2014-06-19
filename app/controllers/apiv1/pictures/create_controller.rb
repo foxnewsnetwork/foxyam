@@ -1,4 +1,4 @@
-class Apiv1::PicturesController < Apiv1::BaseController
+class Apiv1::Pictures::CreateController < Apiv1::BaseController
 
   def create
     _creative_interactor.pictures!

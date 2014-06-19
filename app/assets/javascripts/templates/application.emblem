@@ -1,2 +1,6 @@
+header#ember-header
+  == render 'header'
 main#ember-main
   == outlet
+footer#ember-footer
+  == render 'footer'

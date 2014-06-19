@@ -6,8 +6,10 @@ Fuxueyan::Application.routes.draw do
   namespace :apiv1 do
     resources :materials, only: [:index]
     resources :locations, only: [:index]
-    resources :listings, only: [:create]
-    resources :pictures, only: [:create]
+    resources :listings, only: [:create], controller: 'listings/create'
+    resources :listings, only: [:index], controller: 'listings/index'
+    resources :pictures, only: [:create], controller: 'pictures/create'
+    resources :pictures, only: [:index], controller: 'listings/pictures/index'
   end
   devise_for :users,
     class_name: 'FoxYam::User',
@@ -115,6 +117,9 @@ Fuxueyan::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  namespace :fox_yam do
+    resources :vanillas, only: [:index]
+  end
   get 'welcome/unauthorized', controller: 'welcome#unauthorized'
 
   # Example of regular route:

@@ -1,0 +1,33 @@
+#foxfire-templates-listings-index
+  .row
+    #cookie-crumbs
+      ol
+        li
+          link-to "home" "index"
+        li
+          link-to "listings" "listings"
+  .row
+    .three-quarters
+      .well.well-sm
+        span.bold.dash Results
+        = listingCount
+      .list-group
+        link-to 'listings.new' class="list-group-item"
+          h4
+            i.fa-plus
+            |  New Listing
+
+      .list-group
+        each listing in listings
+          == render "listings/summary" listing
+
+    .one-quarter
+      .list-group
+        .list-group-item.inactive 
+          i.fa-chevron-down
+          span.bold  Material Listings
+        each material in materials
+          link-to "material" material.id class="list-group-item"
+            i.fa-tag
+            |  
+            = material.material_name

@@ -1,6 +1,4 @@
-class Foxfire.IndexRoute extends Ember.Route
-  renderTemplate: ->
-    @render 'fox_yam/merchants/listings/new/emberapp/index'
+class Foxfire.ListingsNewRoute extends Ember.Route
   setupController: (controller) ->
     controller.set 'model', @previewCtrl()
   previewCtrl: ->

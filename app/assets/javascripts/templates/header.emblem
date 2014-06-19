@@ -1,0 +1,12 @@
+nav.navbar
+  .container
+    .navbar-header
+      link-to 'index' class="navbar-brand"
+        i.fa-anchor
+        | Company Full Name
+      
+    ul.nav.navbar-nav
+      li
+        link-to 'listings'
+          | Buy
+    

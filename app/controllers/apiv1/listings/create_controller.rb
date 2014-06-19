@@ -1,4 +1,4 @@
-class Apiv1::ListingsController < Apiv1::BaseController
+class Apiv1::Listings::CreateController < Apiv1::BaseController
   def create
     _create_listing
     render json: { listing: _interactor.to_builder.attributes! }

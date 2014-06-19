@@ -1,0 +1,14 @@
+.container
+  .row
+    .four-quarters
+      p 
+        span.dash Fox Yam eMerchant 1.0.0.alpha
+        | Created by Thomas Chen
+      p
+        | Fox Yam eMerchant, a web service software, is licensed under the terms here
+      p
+        | Special thanks to certain individuals and corporations go here
+  .row
+    .four-quarters
+      ol.breadcrumb.inactive
+        

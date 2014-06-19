@@ -12,7 +12,7 @@ class Foxfire.Listing extends DS.Model
   packing_weight: a 'number'
   transportor: a 'string'
   time_interval: a 'string'
-  
+  created_at: a 'date'
   validate_and_save: ->
     v = @validator() 
     if v.isValid()

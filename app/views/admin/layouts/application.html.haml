@@ -1,0 +1,18 @@
+!!!5
+/ [if lt IE 7 ]
+  %html.ie.ie6{ lang: I18n.locale }
+/ [if IE 7 ]
+  %html.ie.ie7{ lang: I18n.locale }
+/ [if IE 8 ]
+  %html.ie.ie8{ lang: I18n.locale }
+/ [if IE 9 ]
+  %html.ie.ie9{ lang: I18n.locale }
+/ [if gt IE 9]
+  %html{ lang: I18n.locale }
+
+%head
+  = render partial: 'shared/head'
+  = javascript_include_tag "foxtest", "data-turbolinks-track" => false
+  = stylesheet_link_tag 'mocha/mocha', media: 'all'
+%body#foxfire
+  = yield

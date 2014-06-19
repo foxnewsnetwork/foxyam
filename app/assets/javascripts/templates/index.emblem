@@ -1,0 +1,9 @@
+.jumbotron
+  .container
+    .row
+      .one-whole
+        h1 Frontpage Title
+    .row
+      .one-quarter
+        link-to "listings" class="btn btn-lg btn-success"
+          | Listings
