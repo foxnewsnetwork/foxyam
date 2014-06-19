@@ -116,6 +116,10 @@ class Negotiations::ShowPresenter
     _quantity_tags.last.try(:units)
   end
 
+  def time_interval
+    _quantity_tags.last.try(:time_intervals)
+  end
+
   def packing
     _packing_presentation _packing_tags.last
   end

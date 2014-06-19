@@ -1,0 +1,6 @@
+@import 'templates/listings/summary';
+@mixin foxfire-templates-listings-index {
+  .summaries {
+    @include foxfire-templates-listings-summary;
+  }
+}

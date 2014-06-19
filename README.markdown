@@ -1,3 +1,50 @@
+Work Redesign
+=
+Because I did the order of design wrong, I will now rework the whole front end first. There are going to be 12 pages which, all together, comprise the core application. They are as listed here.
+
+1. (Global) Account show page (sees how much $, where money is going, where money is coming from)
+2. (Global) Admin account show page (sees add $, subtract $)
+3. Listings index
+4. Listing show
+5. Listing.offers
+6. Offer.counter
+7. Offer.accept
+8. Offer.redact
+9. Offer.checkout (aka contract)
+10. Escrow.show
+11. Listing new
+12. Merchant / account login
+
+Writing
+=
+While I build this thing, I might as well concurrently write up my experience as a 2nd time founder. 
+
+# Section 0: Foreword, etc.
+
+# Section 1: Product Development
+## Ch1. Find a problem worth money
+## Ch2. Environment setup (rvm, ruby, rails, ember, nginx)
+## Ch3. Structure project MVP
+## Ch4. Coding the entire front-end UI/UX while spoofing the backend
+## Ch5. Test-drive-develop the backend models
+## Ch6. Integration testing the product
+## Ch7. Going live
+
+# Section 2: Pricing & Marketing
+## Ch1. Installing analytics engines
+## Ch2. Styling your product
+## Ch3. Tabulate your costs
+## Ch4. Calculate your value added
+## Ch5. Determining your price
+## Ch6. Live-testing your money making possibility
+## Ch7. Going live or going down
+
+# Section 3: Legal & Corp & the world
+## Ch1. Registering with government
+## Ch2. Generating hype
+## Ch3. Setting up customer service
+## Ch4. 
+
 README
 =
 

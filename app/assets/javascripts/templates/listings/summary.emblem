@@ -1,22 +1,3 @@
-link-to "listing" id class="list-group-item"
-  .row
-    .one-quarter
-      each pic in pictures
-        figure.thumbnail
-          img src=pic.source
-        
-    .three-quarters
-      .row
-        .four-quarters
-          .title
-            if isPrivate
-              span.parantheses private
-            == render 'listings/summaries/title' listing
-      .row
-        .four-quarters
-          .price-terms
-            span.colon.bold location 
-            | Not Implemeneted Yet!
-          .seller
-            span.colon.bold created_at 
-            = createdAtWords
+link-to "listing" id class="summary"
+  background-image-tag src=picSource class="thumbnail"
+    == render 'listings/summaries/title' listing

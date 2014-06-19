@@ -1,0 +1,10 @@
+.row
+  .three-quarters
+    each offer in offers
+      == render 'offer.index' offer 
+  .one-quarter
+    .list-group
+      link-to 'listing.index' id class="list-group-item"
+        | Summary
+      link-to 'listing.offers' id class="list-group-item"
+        | Offers

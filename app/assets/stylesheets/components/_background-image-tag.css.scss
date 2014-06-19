@@ -1,0 +1,23 @@
+@mixin components-background-image-tag {
+  figure.background-image-tag {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    img {
+      @include opacity(0.4);
+      border: 0;
+      position: relative;
+      display: block;
+      width: 100%;
+    }
+    figcaption {
+      @include backface-visibility(hidden);
+      padding: 2em;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

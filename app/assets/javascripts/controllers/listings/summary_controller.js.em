@@ -13,3 +13,8 @@ class Foxfire.ListingsSummaryController extends Ember.ObjectController
 
   createdAtWords: ~>
     @model.created_at
+
+  +computed pictures.firstObject.source
+  picSource: ->
+    Foxfire.log @get("pictures.firstObject.source")
+

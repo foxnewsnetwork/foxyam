@@ -8,6 +8,7 @@ Fuxueyan::Application.routes.draw do
     resources :locations, only: [:index]
     resources :listings, only: [:create], controller: 'listings/create'
     resources :listings, only: [:index], controller: 'listings/index'
+    resources :listings, only: [:show], controller: 'listings/show'
     resources :pictures, only: [:create], controller: 'pictures/create'
     resources :pictures, only: [:index], controller: 'listings/pictures/index'
   end

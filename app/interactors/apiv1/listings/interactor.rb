@@ -27,6 +27,7 @@ class Apiv1::Listings::Interactor < FoxYam::InteractorFoundation
     Jbuilder.new do |listing|
       listing.id _negotiation.id
       listing.conversation_id _conversation.id
+      listing.created_at DateTime.now
       listing.(self, *Fields)
     end
   end

@@ -12,15 +12,7 @@
     @include welcome-index;
   }
 
-  #cookie-crumbs {
-    @extend .col-lg-12;
-    @extend .col-md-12;
-    @extend .col-sm-12;
-    @extend .col-xs-12;
-    ol {
-      @extend .breadcrumb;
-    }
-  }
+  
 
   #companies-negotiations-index {
     @include companies-negotiations-index;

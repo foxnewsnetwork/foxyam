@@ -72,21 +72,13 @@
     @extend .col-sm-12;
     @extend .col-xs-12;  
   }
-
-  .actions {
-    .action-icon {
-      @extend .col-lg-2;
-      @extend .col-md-3;
-      @extend .col-sm-4;
-      @extend .col-xs-6;
-      a {
-        @extend .thumbnail;
-      }
-
-      text-align: center;
-    }
-    i {
-      @extend .fa-2x;
+  #cookie-crumbs {
+    @extend .col-lg-12;
+    @extend .col-md-12;
+    @extend .col-sm-12;
+    @extend .col-xs-12;
+    ol {
+      @extend .breadcrumb;
     }
   }
 }

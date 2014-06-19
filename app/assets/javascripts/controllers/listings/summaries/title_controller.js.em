@@ -12,8 +12,8 @@ class Foxfire.ListingsSummariesTitleController extends Ember.ObjectController
   packingUnits: ~>
     @model.packing_units
   hasPacking: ~>
-    @packing
+    true || @packing
   hasPlace: ~>
-    @placeName
+    true || @placeName
   hasQuantity: ~>
-    @quantity
+    true || @quantity

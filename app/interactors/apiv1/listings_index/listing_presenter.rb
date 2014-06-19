@@ -42,7 +42,7 @@ class Apiv1::ListingsIndex::ListingPresenter
     _show_presenter.packing_units
   end
   def time_interval
-
+    _show_presenter.time_interval
   end
   private
   def _show_presenter

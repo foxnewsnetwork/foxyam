@@ -1,4 +1,4 @@
-#fox_yam-merchants-listings-new-emberapp-index.row
+#foxfire-templates-listings-new.row
   .one-half
     h2 New Material Form
     form-for model=listing errors=validationErrors submit="formSubmitted"

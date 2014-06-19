@@ -8,18 +8,20 @@
           link-to "listings" "listings"
   .row
     .three-quarters
-      .well.well-sm
-        span.bold.dash Results
-        = listingCount
-      .list-group
-        link-to 'listings.new' class="list-group-item"
-          h4
-            i.fa-plus
-            |  New Listing
-
-      .list-group
+      .row
+        .one-whole
+          .well.well-sm
+            span.bold.dash Results
+            = listingCount
+          .list-group
+            link-to 'listings.new' class="list-group-item"
+              h4
+                i.fa-plus
+                |  New Listing
+      .row.summaries
         each listing in listings
-          == render "listings/summary" listing
+          .square
+            == render "listings/summary" listing
 
     .one-quarter
       .list-group

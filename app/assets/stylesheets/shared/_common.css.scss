@@ -22,6 +22,9 @@
   .dash:after {
     content: " - ";
   }
+  .predash:before {
+    content: " - ";
+  }
   .pound:after {
     content: '#';
   }

@@ -1,0 +1,37 @@
+@import 'shared/variables';
+@import 'shared/important';
+@import 'shared/header';
+@import 'shared/footer';
+@import 'shared/flashes';
+@import 'shared/errors';
+@import 'shared/common';
+@import 'shared/bootstrap_extension';
+@import 'shared/ember-main';
+
+body {
+  background: #e7e7e7;
+  i {
+    @extend .fa;
+  }
+  @include shared-errors;
+}
+
+header {
+  @include shared-header;
+}
+
+main {
+  &#ember-main {
+    @include shared-ember-main;
+  }
+  @include shared-common;
+  @include shared-bootstrap_extension;
+}
+
+footer {
+  @include shared-footer;
+}
+
+#flashes {
+  @include shared-flashes;
+}

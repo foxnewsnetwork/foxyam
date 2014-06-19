@@ -1,21 +1,21 @@
-span.colon.bold material
-= material
-|  
-if hasPlace
-  span.colon.bold at 
-  = placeName
+h4.material
+  span.bold.capitalize= material
   |  
-if hasQuantity
-  span.colon.bold quantity
-  |  
-  = quantity
-  |  
-  = units
-  |  
+  if hasPlace
+    span.colon.bold.predash= placeName
 
-if hasPacking
-  span.colon.bold packing
-  |  
-  = packing
-  |  
-  = packingUnits
+p.quantity  
+  if hasQuantity
+    span.colon.bold.capitalize quantity
+    |  
+    = quantity
+    |  
+    = units
+    |  
+
+  if hasPacking
+    span.colon.bold.capitalize packing
+    |  
+    = packing
+    |  
+    = packingUnits
