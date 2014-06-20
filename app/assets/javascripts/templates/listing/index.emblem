@@ -1,9 +1,14 @@
-.row
-  .three-quarters
-    
-  .one-quarter
-    .list-group
-      link-to 'listing.index' id class="list-group-item"
-        | Summary
-      link-to 'listing.offers' id class="list-group-item"
-        | Offers
+#foxfire-templates-listing-index
+  .row
+    .three-quarters
+      == partial "listing/hero-unit"
+      == partial "listing/offer-data"
+      == partial "listing/pictures"
+
+
+    .one-quarter.hidden-on-mobile
+      .list-group
+        link-to 'listing.index' id class="list-group-item"
+          | Summary
+        link-to 'listing.offers' id class="list-group-item"
+          | Offers

@@ -4,8 +4,8 @@ Because I did the order of design wrong, I will now rework the whole front end f
 
 1. (Global) Account show page (sees how much $, where money is going, where money is coming from)
 2. (Global) Admin account show page (sees add $, subtract $)
-3. Listings index
-4. Listing show
+3. Listings index - done
+4. Listing show - working on it
 5. Listing.offers
 6. Offer.counter
 7. Offer.accept
@@ -43,7 +43,7 @@ While I build this thing, I might as well concurrently write up my experience as
 ## Ch1. Registering with government
 ## Ch2. Generating hype
 ## Ch3. Setting up customer service
-## Ch4. 
+## Ch4. Budgeting
 
 README
 =

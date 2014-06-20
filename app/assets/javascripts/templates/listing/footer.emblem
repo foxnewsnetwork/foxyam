@@ -1,0 +1,12 @@
+#templates-listing-footer
+  .fixed-bottom.hidden-on-desktop
+    ul.nav.nav-tabs.nav-justified
+      li
+        link-to 'listing.index' id
+          i.fa-photo
+      li
+        link-to 'listing.docs' id
+          i.fa-file-pdf-o
+      li
+        link-to 'listing.offers' id
+          i.fa-money

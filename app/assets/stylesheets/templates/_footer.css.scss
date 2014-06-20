@@ -1,0 +1,40 @@
+@mixin foxfire-templates-footer {
+  .fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    min-width: 100%;
+    z-index: 5;
+    background: #fff;
+    border: 1px solid #eee;
+    overflow: hidden;
+    
+    .search-box {
+      width: 235px;
+      padding-left: 15px;
+    }
+    i {
+      @extend .fa-2x;
+    }
+
+    table.bottom-nav {
+      table-layout: fixed;
+      padding: 0px;
+      margin-bottom: 0px;
+      td {
+        &:not(:first-child) {
+          padding: 10px 15px 5px 15px;
+        }
+        &:hover {
+          background: #eee;
+        }
+      }
+    }
+    ul.nav-tabs {
+      a.active {
+        color: #fff;
+        background-color: $brand-primary;
+      }
+    }
+  }
+}

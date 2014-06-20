@@ -3,4 +3,4 @@ header#ember-header
 main#ember-main
   == outlet
 footer#ember-footer
-  == render 'footer'
+  == outlet footer

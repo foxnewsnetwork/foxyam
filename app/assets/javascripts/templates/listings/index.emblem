@@ -8,7 +8,7 @@
           link-to "listings" "listings"
   .row
     .three-quarters
-      .row
+      .row.hidden-on-mobile
         .one-whole
           .well.well-sm
             span.bold.dash Results
@@ -23,7 +23,7 @@
           .square
             == render "listings/summary" listing
 
-    .one-quarter
+    .one-quarter.hidden-on-mobile
       .list-group
         .list-group-item.inactive 
           i.fa-chevron-down
@@ -33,3 +33,4 @@
             i.fa-tag
             |  
             = material.material_name
+

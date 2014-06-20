@@ -16,5 +16,5 @@ class Foxfire.ListingsSummaryController extends Ember.ObjectController
 
   +computed pictures.firstObject.source
   picSource: ->
-    Foxfire.log @get("pictures.firstObject.source")
+    @get("pictures.firstObject.source")
 

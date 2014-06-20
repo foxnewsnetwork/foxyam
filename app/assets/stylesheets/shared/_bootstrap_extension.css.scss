@@ -1,5 +1,4 @@
 @mixin shared-bootstrap_extension {
-  @extend .container;
   .list-group-item {
     &.inactive {
       background-color: #eee;
@@ -19,7 +18,7 @@
     @extend .col-lg-2;
     @extend .col-md-3;
     @extend .col-sm-4;
-    @extend .col-xs-6;
+    @extend .col-xs-4;
   }
   .four-quarters,
   .one-whole,
@@ -72,6 +71,20 @@
     @extend .col-sm-12;
     @extend .col-xs-12;  
   }
+
+  .visible-on-desktop,
+  .hidden-on-mobile {
+    @extend .hidden-xs;
+    @extend .hidden-sm;
+  }
+
+  .visible-on-mobile,
+  .hidden-on-desktop {
+    @extend .hidden-lg;
+    @extend .hidden-md;
+  }
+
+
   #cookie-crumbs {
     @extend .col-lg-12;
     @extend .col-md-12;

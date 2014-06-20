@@ -1,0 +1,26 @@
+.pictures
+  .row
+    .one-whole.align-center
+      ul.pagination
+        li
+          a 1
+        li
+          a 2
+        li
+          a 3
+  .row
+    each pic in pictures
+      .one-sixth
+        .figure
+          a href="emoji/2.png" target="blank"
+            img src="emoji/2.png"
+
+  .row
+    .one-whole.align-center
+      ul.pagination
+        li
+          a 1
+        li
+          a 2
+        li
+          a 3

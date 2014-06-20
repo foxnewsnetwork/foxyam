@@ -7,6 +7,7 @@
 @import 'shared/common';
 @import 'shared/bootstrap_extension';
 @import 'shared/ember-main';
+@import 'shared/ember-footer';
 
 body {
   background: #e7e7e7;
@@ -14,6 +15,8 @@ body {
     @extend .fa;
   }
   @include shared-errors;
+  @include shared-bootstrap_extension;
+  @include shared-common;
 }
 
 header {
@@ -21,15 +24,16 @@ header {
 }
 
 main {
+  @extend .container;
   &#ember-main {
     @include shared-ember-main;
   }
-  @include shared-common;
-  @include shared-bootstrap_extension;
 }
 
 footer {
-  @include shared-footer;
+  &#ember-footer {
+    @include shared-ember-footer;
+  }
 }
 
 #flashes {

@@ -1,0 +1,20 @@
+.hero-unit
+  .row
+    .col-xs-3
+      figure.cover-image
+        img src="emoji/1.png"
+    .col-xs-9
+      .pull-right
+        a href="?"
+          | Metadata
+      dl.dl-horizontal
+        dt Merchant
+        dd Someone
+        dt Asking Price
+        dd $0.45/lb FAS Long Beach Port
+        dt Material
+        dd HDPE Milk Jugs
+        dt Quantity
+        dd 4 containers
+        dt Packing Weight
+        dd 32,000 lbs/40ST

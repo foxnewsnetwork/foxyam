@@ -13,3 +13,7 @@ class Foxfire.Material extends DS.Model
       Math.floor(@get('count') / 1000) + "K"
     else
       @get 'count'
+
+  +computed material_name
+  materialIcon: ->
+    "fa-linux"

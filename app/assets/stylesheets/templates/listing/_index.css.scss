@@ -1,0 +1,23 @@
+@mixin foxfire-templates-listing-index {
+  figure.cover-image {
+    img {
+      width: 100%;
+    }
+  }
+  .hero-unit {
+    background: #eee;
+    padding: 15px;
+    margin-bottom: 5px;
+  }
+  .offer-data {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .pictures {
+    margin-top: 5px;
+    img {
+      width: 100%;
+      height: 220px;
+    }
+  }
+}

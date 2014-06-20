@@ -1,0 +1,11 @@
+.offer-data
+  .row
+    .four-quarters
+      .well.well-sm
+        span.colon.bold.capitalize offers 
+        span.dash 12
+        span.colon.bold.capitalize top three offers
+        span.dash  $0.12/lb FAS Long Beach Port 
+        span.dash $0.11/lb EXW 
+        | $0.22/lb CIP Hong Kong
+

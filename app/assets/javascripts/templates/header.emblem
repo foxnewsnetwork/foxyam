@@ -5,7 +5,7 @@ nav.navbar
         i.fa-anchor
         | Company Full Name
       
-    ul.nav.navbar-nav
+    ul.nav.navbar-nav.hidden
       li
         link-to 'listings'
           | Buy

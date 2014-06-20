@@ -1,0 +1,8 @@
+@import 'shared/footer';
+@import 'templates/footer';
+@mixin shared-ember-footer {
+  #templates-footer {
+    @include shared-footer;
+  }
+  @include foxfire-templates-footer;
+}

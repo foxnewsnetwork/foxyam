@@ -4,6 +4,8 @@
 @import 'components/background-image-tag';
 @import 'templates/listings/new';
 @import 'templates/listings/index';
+@import 'templates/listing/index';
+
 @mixin shared-ember-main {
   @include components-type_ahead;
   @include components-incoterm_responsibility;
@@ -14,5 +16,8 @@
   }
   #foxfire-templates-listings-index {
     @include foxfire-templates-listings-index;
+  }
+  #foxfire-templates-listing-index {
+    @include foxfire-templates-listing-index;
   }
 }
