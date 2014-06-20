@@ -1,0 +1,12 @@
+.list-group.offers
+  each offer in offers
+    .list-group-item.flexbox
+      figure.avatar
+        i.fa-envelope
+      .content
+        .counterparty-gist
+          span.counterparty.dash John Smith
+          span.gist $0.45/lb FAS Los Angeles Port
+        .subject-summary
+          span.subject.dash Email subject here
+          span.summary This is the content...

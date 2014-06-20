@@ -5,8 +5,8 @@ Because I did the order of design wrong, I will now rework the whole front end f
 1. (Global) Account show page (sees how much $, where money is going, where money is coming from)
 2. (Global) Admin account show page (sees add $, subtract $)
 3. Listings index - done
-4. Listing show - working on it
-5. Listing.offers
+4. Listing show - done
+5. Listing.offers - done
 6. Offer.counter
 7. Offer.accept
 8. Offer.redact

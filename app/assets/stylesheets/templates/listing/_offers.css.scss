@@ -1,0 +1,36 @@
+@mixin foxfire-templates-listing-offers {
+  .flexbox {
+    @include display-box;
+    @include box-orient(horizontal);
+    @include box-align(stretch);
+    display: flex;
+    width: 100%;
+  }
+  .avatar {
+    i {
+      @extend .fa-3x;
+    }
+    @include box-flex(1);
+    margin-right: 20px;
+  }
+  .content {
+    @include box-flex(5);
+  }
+  .counterparty {
+    font-size: 1.35em;
+    font-weight: bold;
+  }
+  .gist {
+    font-size: 0.85em;
+    color: #444;
+  }
+  .subject {
+    font-size: 0.85em;
+    color: #444; 
+    font-weight: bold;
+  }
+  .summary {
+    font-size: 0.75em;
+    color: #444;
+  }
+}

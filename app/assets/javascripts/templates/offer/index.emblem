@@ -1,10 +1,1 @@
-.row
-  .list-group
-    .list-group-item.inactive
-      span.colon.bold Counterparty
-      |  Someone else
-    .list-group-item
-      i.fa-envelope
-      span.dash  Subject of the email
-      | Date
 

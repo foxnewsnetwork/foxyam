@@ -1,0 +1,1 @@
+class Foxfire.ListingOffersRoute extends Foxfire.ListingIndexRoute
