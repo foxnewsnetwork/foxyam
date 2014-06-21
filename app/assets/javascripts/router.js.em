@@ -11,7 +11,8 @@ Foxfire.Router.map ->
     @route "accept"
     @route "cancel"
 
-  @resource "conversation", path: '/conversation/:conversation_id'
+  @resource "conversation", path: '/conversation/:conversation_id', ->
+    @route "reply"
 
   @resource "materials", ->
     @route "index"

@@ -1,4 +1,4 @@
-#foxfire-templates-listing-index
+#foxfire-templates-listing-index.padded-for-mobile-footer
   .row
     .three-quarters
       == partial "listing/hero-unit"

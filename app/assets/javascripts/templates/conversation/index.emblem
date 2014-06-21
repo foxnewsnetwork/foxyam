@@ -1,0 +1,35 @@
+#foxfire-templates-conversation-index.padded-for-mobile-footer
+  .row
+    .three-quarters
+      .hero-unit
+        .avatar-dialogue
+          figure.avatar
+            i.fa-money
+          .dialogue
+            .email-header
+              .speaker.bold John Smith <jsmith@google.com>
+              .listener You
+            .email-body
+              | Dear Fool, 
+              | This is some email content
+      
+      .list-group
+        a href="emoji/666.png" class="list-group-item avatar-dialogue" target="blank"
+          figure.avatar
+            img src="emoji/666.png"
+          .dialogue Stuff.png
+        a href="emoji/444.png" class="list-group-item avatar-dialogue" target="blank"
+          figure.avatar
+            img src="emoji/444.png"
+          .dialogue morestuff.png
+
+
+
+
+    .one-quarter.hidden-on-mobile
+      .list-group
+        link-to 'offer.index' model.offer class="list-group-item"
+          h4 Back
+      .list-group
+        link-to 'conversation.reply' id class="list-group-item"
+          h4 Reply
