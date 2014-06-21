@@ -1,4 +1,4 @@
-#foxfire-templates-listings-index
+#foxfire-templates-listings-index.padded-for-mobile-footer
   .row
     #cookie-crumbs
       ol
@@ -18,10 +18,11 @@
               h4
                 i.fa-plus
                 |  New Listing
-      .row.summaries
-        each listing in listings
-          .square
-            == render "listings/summary" listing
+      .row
+        .summaries
+          each listing in listings
+            .square
+              == render "listings/summary" listing
 
     .one-quarter.hidden-on-mobile
       .list-group

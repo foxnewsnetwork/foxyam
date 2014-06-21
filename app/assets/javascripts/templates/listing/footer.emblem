@@ -1,12 +1,17 @@
 #templates-listing-footer
   .fixed-bottom.hidden-on-desktop
-    ul.nav.nav-tabs.nav-justified
-      li
-        link-to 'listing.index' id
-          i.fa-photo
-      li
-        link-to 'listing.docs' id
-          i.fa-file-pdf-o
-      li
-        link-to 'listing.offers' id
-          i.fa-money
+    .container-fluid
+      .row
+        .col-xs-4
+          link-to 'listing.index' id class="list-group-item list-group-item-success"
+            i.fa-photo
+            span.capitalize.bold  pics
+        .col-xs-4
+          link-to 'listing.docs' id class="list-group-item"
+            i.fa-file-pdf-o
+            span.capitalize.bold  docs
+        .col-xs-4
+          link-to 'listing.offers' id class="list-group-item list-group-item-warning"
+            i.fa-money
+            span.capitalize.bold  bids
+    

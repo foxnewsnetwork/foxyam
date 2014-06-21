@@ -1,12 +1,12 @@
 .list-group.offers
   each offer in offers
-    .list-group-item.flexbox
+    link-to "offer" 1 class="list-group-item avatar-dialogue"
       figure.avatar
-        i.fa-envelope
-      .content
+        i.fa-linux
+      .dialogue
         .counterparty-gist
           span.counterparty.dash John Smith
-          span.gist $0.45/lb FAS Los Angeles Port
+          span.gist $0.45/lb FAS LA Port
         .subject-summary
           span.subject.dash Email subject here
           span.summary This is the content...

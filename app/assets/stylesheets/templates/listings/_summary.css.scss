@@ -4,20 +4,23 @@
     @extend .col-md-4;
     @extend .col-sm-6;
     @extend .col-xs-6;
-  }
-  a.summary {
-
+    
   }
   .background-image-tag {
-    @media (min-width: $screen-md) {
+    @media (max-width: $screen-xs) {
+      img {
+        height: 130px;
+      }
+    }
+    @media (min-width: $screen-xs) and (max-width: $screen-sm) {
       img {
         height: 250px;
       }
     }
 
-    @media (max-width: $screen-md) {
+    @media (min-width: $screen-sm) {
       img {
-        height: 335px;
+        height: 255px;
       }
     }
     color: #335;
@@ -25,10 +28,13 @@
       @include text-shadow(rgba(#fee, 0.5) 2px 2px 1px);
     }
     .material {
-      font-size: 2em;
+      font-size: 16px;
     }
     .quantity { 
-      font-size: 1.25em;
+      font-size: 13px;
+    }
+    .location {
+      font-size: 13px;
     }
   }
 }

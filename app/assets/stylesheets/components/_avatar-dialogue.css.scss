@@ -1,0 +1,20 @@
+@mixin components-avatar-dialogue {
+  .avatar-dialogue {
+    @include display-box;
+    @include box-orient(horizontal);
+    @include box-align(stretch);
+    display: flex;
+    width: 100%;
+    .avatar {
+      @include box-flex(1);
+      i {
+        @extend .fa-3x;
+      }
+      width: 42px;
+      margin-right: 20px;
+    }
+    .dialogue {
+      @include box-flex(5);
+    }
+  }
+}

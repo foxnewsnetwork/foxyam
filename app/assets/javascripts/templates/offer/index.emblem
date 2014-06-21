@@ -1,1 +1,24 @@
+#foxfire-templates-offer-index.padded-for-mobile-footer
+  .row
+    .three-quarters
+      == partial "offer/hero-unit"  
+      == partial "offer/conversations"
 
+    .one-quarter.hidden-on-mobile
+      .list-group
+        link-to "offer.index" model class="list-group-item"
+          h4
+            span.capitalize.bold Offer Summary
+        link-to "offer.accept" model class="list-group-item list-group-item-success"
+          h4
+            i.fa-check
+            span.capitalize.bold  Accept Offer
+        link-to "offer.counter" model class="list-group-item"
+          h4
+            i.fa-comments-o
+            span.capitalize.bold  Counter Offer
+        link-to "offer.cancel" model class="list-group-item list-group-item-warning"
+          h4
+            i.fa-warning
+            span.capitalize.bold  Terminate Offer
+    

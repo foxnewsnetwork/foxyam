@@ -3,6 +3,6 @@
     each pic in pictures
       .one-sixth
         .figure
-          a href="emoji/2.png" target="blank"
-            img src="emoji/2.png"
+          a href="emoji/#{pic}.png" target="blank"
+            img src="emoji/#{pic}.png"
 

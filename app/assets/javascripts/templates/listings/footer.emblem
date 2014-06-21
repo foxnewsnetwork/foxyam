@@ -1,11 +1,13 @@
 #templates-listings-footer
   .fixed-bottom.hidden-on-desktop
-    table.bottom-nav
-      tbody
-        tr
-          td.search-box
-            input type="text" class="form-control input-lg" placeholder="Search"
-          each material in materials
-            td
-              link-to "material" material.id
-                i.fa-linux
+    .container-fluid
+      .row
+        .col-xs-4
+          button click="openSearch" class="btn btn-block btn-default"
+            i.fa-search
+        .col-xs-4
+          button class="btn btn-block btn-info"
+            i.fa-tag
+        .col-xs-4
+          button class="btn btn-block btn-success"
+            i.fa-tag

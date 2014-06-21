@@ -9,26 +9,12 @@
     border: 1px solid #eee;
     overflow: hidden;
     
-    .search-box {
-      width: 235px;
-      padding-left: 15px;
+    .col-xs-4 {
+      padding-left: 1px;
+      padding-right: 1px;
     }
     i {
       @extend .fa-2x;
-    }
-
-    table.bottom-nav {
-      table-layout: fixed;
-      padding: 0px;
-      margin-bottom: 0px;
-      td {
-        &:not(:first-child) {
-          padding: 10px 15px 5px 15px;
-        }
-        &:hover {
-          background: #eee;
-        }
-      }
     }
     ul.nav-tabs {
       a.active {

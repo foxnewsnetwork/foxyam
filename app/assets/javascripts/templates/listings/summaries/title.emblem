@@ -2,7 +2,7 @@ h4.material
   span.bold.capitalize= material
   |  
   if hasPlace
-    span.colon.bold.predash= placeName
+    span.colon.bold.predash.location LA Port
 
 p.quantity  
   if hasQuantity
@@ -12,10 +12,3 @@ p.quantity
     |  
     = units
     |  
-
-  if hasPacking
-    span.colon.bold.capitalize packing
-    |  
-    = packing
-    |  
-    = packingUnits

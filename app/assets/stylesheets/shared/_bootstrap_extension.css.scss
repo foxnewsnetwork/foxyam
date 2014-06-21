@@ -84,6 +84,10 @@
     @extend .hidden-md;
   }
 
+  .padded-for-mobile-footer {
+    margin-bottom: 45px; 
+  }
+
 
   #cookie-crumbs {
     @extend .col-lg-12;

@@ -1,4 +1,4 @@
-#foxfire-templates-listing-index
+#foxfire-templates-listing-index.padded-for-mobile-footer
   .row
     .three-quarters
       == partial "listing/hero-unit"
@@ -9,6 +9,6 @@
     .one-quarter.hidden-on-mobile
       .list-group
         link-to 'listing.index' id class="list-group-item"
-          | Summary
+          h4 Summary
         link-to 'listing.offers' id class="list-group-item"
-          | Offers
+          h4 Offers

@@ -1,0 +1,12 @@
+@mixin components-hero-unit {
+  .hero-unit {
+    background: #eee;
+    padding: 15px;
+    margin-bottom: 5px;
+    figure.cover-image {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

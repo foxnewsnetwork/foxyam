@@ -1,21 +1,4 @@
 @mixin foxfire-templates-listing-offers {
-  .flexbox {
-    @include display-box;
-    @include box-orient(horizontal);
-    @include box-align(stretch);
-    display: flex;
-    width: 100%;
-  }
-  .avatar {
-    i {
-      @extend .fa-3x;
-    }
-    @include box-flex(1);
-    margin-right: 20px;
-  }
-  .content {
-    @include box-flex(5);
-  }
   .counterparty {
     font-size: 1.35em;
     font-weight: bold;
