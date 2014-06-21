@@ -28,8 +28,17 @@
 
     .one-quarter.hidden-on-mobile
       .list-group
-        link-to 'offer.index' model.offer class="list-group-item"
-          h4 Back
-      .list-group
+        link-to 'conversation.reply' id class="list-group-item list-group-item-success"
+          h4
+            i.fa-comment-o
+            span.capitalize.bold  reply
+      
         link-to 'conversation.reply' id class="list-group-item"
-          h4 Reply
+          h4
+            i.fa-mail-forward
+            span.capitalize.bold  forward
+      
+        link-to 'conversation.reply' id class="list-group-item list-group-item-warning"
+          h4
+            i.fa-cloud-download
+            span.capitalize.bold  download attachments
