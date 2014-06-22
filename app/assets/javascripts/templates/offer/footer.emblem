@@ -9,7 +9,7 @@
         .col-xs-4
           link-to "offer.counter" model class="list-group-item"
             i.fa-comments-o
-            span.capitalize.bold  try
+            span.capitalize.bold  ctr
         .col-xs-4
           link-to "offer.cancel" model class="list-group-item list-group-item-warning"
             i.fa-warning

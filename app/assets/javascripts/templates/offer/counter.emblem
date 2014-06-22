@@ -1,0 +1,15 @@
+#foxfire-templates-listing-counter.padded-for-mobile-footer
+  .row
+    .three-quarters
+      == partial "offer/hero-unit"
+      == partial "offer/counter-form"
+
+    .one-quarter.hidden-on-mobile
+      .list-group
+        link-to "offer.counter" model class="list-group-item"
+          h4 Simple Counter
+        link-to "offer.counter" model class="list-group-item"
+          h4 Advanced Counter
+        link-to "offer.counter" model class="list-group-item"
+          h4 Common Counters
+

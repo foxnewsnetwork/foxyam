@@ -5,11 +5,11 @@
         .col-xs-4
           link-to 'conversation.reply' id class="list-group-item list-group-item-success align-center"
             i.fa-comment-o
-            span.capitalize.bold  reply
+            span.capitalize.bold  re
         .col-xs-4
           link-to 'conversation.reply' id class="list-group-item align-center"
             i.fa-mail-forward
-            span.capitalize.bold  forward
+            span.capitalize.bold  fd
         .col-xs-4
           link-to 'conversation.reply' id class="list-group-item align-center list-group-item-warning"
             i.fa-cloud-download

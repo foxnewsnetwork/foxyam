@@ -1,0 +1,26 @@
+form
+  legend Counter offer
+  .form-group
+    label for="price" Price
+    .input-group
+      .input-group-addon
+        i.fa-dollar
+      input type="number" name="price" class="form-control"
+      .input-group-addon
+        span.bold per lb
+
+  .form-group
+    label for="terms" Terms
+    .dropdown
+      a href='#dropdown' class="btn btn-default"
+        | FAS 
+        i.fa-chevron-down
+
+  .form-group
+    label Location
+    input type="text" class="form-control"
+
+  .form-group
+    button type="submit" class="btn btn-primary btn-lg"
+      i.fa-check
+      span.capitalize  submit
