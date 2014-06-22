@@ -4,15 +4,15 @@ Because I did the order of design wrong, I will now rework the whole front end f
 
 1. (Global) Account show page (sees how much $, where money is going, where money is coming from)
 2. (Global) Admin account show page (sees add $, subtract $)
-3. Listings index - done
-4. Listing show - done
-5. Listing.offers - done
-5. offer.show -done
+3. Listings index - done (mocked)
+4. Listing show - done (mocked)
+5. Listing.offers - done (mocked)
+5. offer.show -done (mocked)
 6. Offer.counter
 7. Offer.accept
 8. Offer.redact
 9. Offer.checkout (aka contract)
-9. conversation.show
+9. conversation.show - done (mocked)
 10. Escrow.show
 11. Listing new
 12. Merchant / account login

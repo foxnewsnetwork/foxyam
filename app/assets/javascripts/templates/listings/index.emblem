@@ -23,6 +23,9 @@
           each listing in listings
             .square
               == render "listings/summary" listing
+          else
+            .align-center
+              i.fa-4x.fa-spinner.fa-spin
 
     .one-quarter.hidden-on-mobile
       .list-group
