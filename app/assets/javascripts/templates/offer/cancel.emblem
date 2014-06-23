@@ -1,0 +1,22 @@
+#foxfire-templates-offer-accept.padded-for-mobile-footer
+  .row
+    .four-quarters
+      == partial "offer/hero-unit"
+
+  .row
+    .four-quarters
+      .hero-unit
+        h3.capitalize.bold Are you sure?
+        p 
+          | You are about to cancel 
+          span.capitalize.bold Joe Smoe's 
+          | offer for your listing.
+        p
+          | If you change your mind later, 
+          | you can always ask 
+          span.capitalize.bold Joe Smoe 
+          | to make you this offer again.
+
+        link-to "offer.index" model class="btn btn-danger btn-lg"
+          i.fa-warning
+          span.capitalize.bold  refuse offer

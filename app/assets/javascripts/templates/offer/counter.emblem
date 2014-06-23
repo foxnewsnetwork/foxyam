@@ -1,4 +1,4 @@
-#foxfire-templates-listing-counter.padded-for-mobile-footer
+#foxfire-templates-offer-counter.padded-for-mobile-footer
   .row
     .three-quarters
       == partial "offer/hero-unit"

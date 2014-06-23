@@ -8,7 +8,7 @@ Because I did the order of design wrong, I will now rework the whole front end f
 4. Listing show - done (mocked)
 5. Listing.offers - done (mocked)
 5. offer.show -done (mocked)
-6. Offer.counter
+6. Offer.counter - done (mocked)
 7. Offer.accept
 8. Offer.redact
 9. Offer.checkout (aka contract)
