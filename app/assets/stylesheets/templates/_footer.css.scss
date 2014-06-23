@@ -12,6 +12,12 @@
     .col-xs-4 {
       padding-left: 1px;
       padding-right: 1px;
+      text-align: center;
+    }
+    .col-xs-6 {
+      padding-left: 5px;
+      padding-right: 5px;
+      text-align: center;
     }
     i {
       @extend .fa-2x;

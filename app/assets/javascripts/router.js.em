@@ -6,6 +6,10 @@ Foxfire.Router.map ->
     @route "offers"
     @route "docs"
 
+  @resource "fulfilment", path: "/fulfilment/:fulfilment_id", ->
+    @route "map"
+    @route "discussion"
+
   @resource "offer", path: "/offer/:offer_id", ->
     @route "counter"
     @route "accept"

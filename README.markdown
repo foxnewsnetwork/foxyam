@@ -11,7 +11,7 @@ Because I did the order of design wrong, I will now rework the whole front end f
 6. Offer.counter - done (mocked)
 7. Offer.accept - done (mocked)
 8. Offer.redact - done (mocked)
-9. Offer.checkout (aka contract) 
+9. Offer.checkout (aka contract) - done (mocked)
 9. conversation.show - done (mocked)
 10. Escrow.show
 11. Listing new

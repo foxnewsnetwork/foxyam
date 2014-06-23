@@ -8,6 +8,6 @@
       .hero-unit
         h3.capitalize.bold user agreement
         p By clicking confirming, you are agreeing to adhere to the terms of price and shipping, etc.
-        link-to "offer.checkout" model class="btn btn-primary btn-lg"
+        link-to "fulfilment.index" 1 class="btn btn-primary btn-lg"
           i.fa-check
           span.capitalize.bold confirm

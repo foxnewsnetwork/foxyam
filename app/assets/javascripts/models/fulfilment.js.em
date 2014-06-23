@@ -1,0 +1,1 @@
+class Foxfire.Fulfilment extends DS.Model
