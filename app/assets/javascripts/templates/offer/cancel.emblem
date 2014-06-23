@@ -1,4 +1,4 @@
-#foxfire-templates-offer-accept.padded-for-mobile-footer
+#foxfire-templates-offer-cancel.padded-for-mobile-footer
   .row
     .four-quarters
       == partial "offer/hero-unit"

@@ -1,0 +1,22 @@
+.row
+  .four-quarters    
+    form
+      .list-group
+        .list-group-item.list-group-item-success.avatar-dialogue
+          figure.avatar
+            i.fa-check
+          .dialogue
+            .title.capitalize.bold escrow service
+            .summary  trade escrow service...
+
+        .list-group-item.inactive.avatar-dialogue
+          figure.avatar
+            i.fa-times
+          .dialogue
+            .title.capitalize.bold photography service
+            .summary  loading picture service...
+
+      link-to "offer.checkout" model class="btn btn-primary btn-lg"
+        i.fa-check
+        span.capitalize.bold next
+

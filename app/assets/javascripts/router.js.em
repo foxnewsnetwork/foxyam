@@ -10,6 +10,7 @@ Foxfire.Router.map ->
     @route "counter"
     @route "accept"
     @route "cancel"
+    @route "checkout"
 
   @resource "conversation", path: '/conversation/:conversation_id', ->
     @route "reply"

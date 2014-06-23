@@ -4,10 +4,17 @@
       == partial "offer/hero-unit"
 
   .row
-    .four-quarters
+    .one-whole
       .hero-unit
-        h3.capitalize.bold user agreement
-        p By clicking confirming, you are agreeing to adhere to the terms of price and shipping, etc.
-        link-to "offer.index" model class="btn btn-primary btn-lg"
-          i.fa-check
-          span.capitalize.bold confirm
+        h4.bold
+          i.fa-warning
+          span.capitalize  please confirm
+        p
+          | You are about to accept 
+          span.capitalize.bold John Doe's 
+          | offer for your listing.
+
+  .row
+    .one-whole
+      == partial "offer/service-requests-form"
+  
