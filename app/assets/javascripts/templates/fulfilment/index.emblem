@@ -46,7 +46,7 @@
           h4
             i.fa-share-alt.fa-rotate-90
             span.capitalize.bold  fulfilment map
-        link-to "fulfilment.discussion" model class="list-group-item list-group-item-warning"
+        link-to "fulfilment.log" model class="list-group-item list-group-item-warning"
           h4
             i.fa-comments-o
             span.capitalize.bold  records

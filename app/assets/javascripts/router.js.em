@@ -8,7 +8,7 @@ Foxfire.Router.map ->
 
   @resource "fulfilment", path: "/fulfilment/:fulfilment_id", ->
     @route "map"
-    @route "discussion"
+    @route "log"
 
   @resource "offer", path: "/offer/:offer_id", ->
     @route "counter"

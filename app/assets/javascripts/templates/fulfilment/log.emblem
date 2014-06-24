@@ -1,10 +1,8 @@
-#foxfire-templates-fulfilment-map.padded-for-mobile-footer
+#foxfire-templates-fulfilment-index.padded-for-mobile-footer
   .row
     .three-quarters
-      == partial "fulfilment/escrow-tree"
-      
-
-
+      == partial "fulfilment/hero-unit"
+      == partial "offer/conversations"
     .one-quarter.hidden-on-mobile
       .list-group
         link-to "fulfilment.index" model class="list-group-item list-group-item-success"

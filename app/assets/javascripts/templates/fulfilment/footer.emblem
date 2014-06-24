@@ -11,6 +11,6 @@
             i.fa-share-alt.fa-rotate-90
             span.capitalize.bold  map
         .col-xs-4
-          link-to "fulfilment.discussion" model class="list-group-item list-group-item-warning"
+          link-to "fulfilment.log" model class="list-group-item list-group-item-warning"
             i.fa-comments-o
             span.capitalize.bold  log
