@@ -1,0 +1,21 @@
+@mixin components-list-tree {
+  .list-tree {
+    @extend .list-group;
+    .round-button {
+      button {
+        @include border-radius(25px);
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    }
+  }
+  .list-tree-node {
+    @extend .list-group-item;
+    &.success {
+      @extend .list-group-item-success;
+    }
+    &.warning {
+      @extend .list-group-item-warning;
+    }
+  }
+}

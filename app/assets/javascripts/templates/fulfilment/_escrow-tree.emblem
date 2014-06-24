@@ -1,0 +1,49 @@
+.list-tree
+  .list-tree-node.success.avatar-dialogue
+    figure.avatar
+      i.fa-check
+    .dialogue
+      .title
+        span.capitalize.bold joe smoe 
+        | funds the escrow account
+
+  .list-tree-node.success.avatar-dialogue
+    figure.avatar
+      i.fa-check
+    .dialogue
+      .title
+        span.capitalize.bold you 
+        | provide loading pictures
+
+  .list-tree-node.warning.avatar-dialogue
+    figure.avatar
+      i.fa-spinner.fa-spin
+    .dialogue
+      .title
+        span.capitalize.bold you 
+        | provide loading weight tickets
+
+  .round-button.align-center
+    figure
+      i.fa-arrow-down
+    button class="btn btn-success"
+      i.fa-smile-o.fa-2x
+    figure
+      i.fa-arrow-down
+
+
+  .list-tree-node.inactive.avatar-dialogue
+    figure.avatar
+      i.fa-circle-o-notch
+    .dialogue
+      .title
+        span.capitalize.bold joe smoe 
+        | provide loading weight tickets
+
+  .list-tree-node.inactive.avatar-dialogue
+    figure.avatar
+      i.fa-circle-o-notch
+    .dialogue
+      .title
+        span.capitalize.bold you 
+        | receive product in china
