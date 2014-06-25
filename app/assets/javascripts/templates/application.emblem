@@ -1,5 +1,5 @@
 header#ember-header
-  == render 'header'
+  == outlet header
 main#ember-main
   == outlet
 footer#ember-footer

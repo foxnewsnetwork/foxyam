@@ -1,9 +1,37 @@
 @mixin shared-header {
   background: #fff;
+  margin-bottom: 15px;
 
-  .nav {
-    li {
-      font-size: 16px;
+  .header-navbar {
+    @include display-flex;
+    @include align-items(baseline);
+    @include justify-content(space-between);
+    width: 100%;
+    a {
+      color: #666;
+    }
+    a.back-button {
+      @include ellipsis;
+      i {
+        padding-right: 5px;
+      }
+      i.fa-bomb {
+        @extend .fa-2x;
+      }
+
+      .page-name {
+        text-transform: capitalize;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+    a.action {
+      i {
+        @extend .fa-2x;
+      }
+      display: block;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
   }
 }

@@ -1,11 +1,4 @@
 @mixin foxfire-templates-listings-summary {
-  .square {
-    @extend .col-lg-4;
-    @extend .col-md-4;
-    @extend .col-sm-6;
-    @extend .col-xs-6;
-    
-  }
   .background-image-tag {
     @media (max-width: $screen-xs) {
       img {
@@ -24,17 +17,16 @@
       }
     }
     color: #335;
-    .material, .quantity {
-      @include text-shadow(rgba(#fee, 0.5) 2px 2px 1px);
-    }
-    .material {
-      font-size: 16px;
-    }
-    .quantity { 
-      font-size: 13px;
-    }
-    .location {
-      font-size: 13px;
-    }
+  }
+  .material {
+    font-size: 14px;
+  }
+  .quantity { 
+    font-size: 12px;
+  }
+  
+  .material,
+  .quantity {
+    @include ellipsis;
   }
 }

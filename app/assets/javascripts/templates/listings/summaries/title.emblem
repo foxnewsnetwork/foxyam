@@ -1,14 +1,12 @@
-h4.material
-  span.bold.capitalize= material
-  |  
-  if hasPlace
-    span.colon.bold.predash.location LA Port
+.material-quantity
+  .material
+    span.bold.capitalize= material
 
-p.quantity  
-  if hasQuantity
-    span.colon.bold.capitalize quantity
-    |  
-    = quantity
-    |  
-    = units
-    |  
+  .quantity  
+    if hasPlace
+      span.capitalize LA Port
+    if hasQuantity
+      span.predash
+        = quantity
+        |  
+        = units

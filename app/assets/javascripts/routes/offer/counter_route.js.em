@@ -1,4 +1,5 @@
 class Foxfire.OfferCounterRoute extends Ember.Route
   renderTemplate: ->
     @_super()
-    @render 'offer/counter_footer', outlet: 'footer'
+    @render 'offer/footers/counter', outlet: 'footer'
+    @render 'offer/headers/counter', outlet: 'header'

@@ -1,0 +1,20 @@
+#foxfire-templates-account-index
+  .row
+    .three-quarters
+      == partial 'account/balance-tree'
+
+    .one-quarter.hidden-on-mobile
+      .list-group
+        link-to 'account.index' class="list-group-item"
+          h4 
+            i.fa-chain
+            span.capitalize.bold  my fulfilments
+        link-to 'account.offers' model class="list-group-item"
+          h4
+            i.fa-money
+            span.capitalize.bold  my offers 
+            span.badge.pull-right 24
+        link-to 'account.listings' model class="list-group-item"
+          h4
+            i.fa-list-ol
+            span.capitalize.bold  my listings

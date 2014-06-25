@@ -1,2 +1,2 @@
-class Foxfire.IndexRoute extends Ember.Route
+class Foxfire.IndexRoute extends Foxfire.ApplicationRoute
   

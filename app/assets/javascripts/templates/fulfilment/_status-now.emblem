@@ -1,0 +1,34 @@
+.alert.alert-warning
+  h4.bold.capitalize 
+    i.fa-spinner.fa-spin
+    |  standby
+  p.message.colon
+    | Waiting for 
+    span.bold Joe Smoe 
+    | to
+  p.action.bold.capitalize fund the escrow account
+  p.message.colon.capitalize expires in
+  p.bold.datetime 12:12:01
+
+.list-group
+  .list-group-item.inactive
+    span.capitalize.bold Contact Joe Smoe
+  .list-group-item.avatar-dialogue
+    figure.avatar
+      i.fa-phone
+    .dialogue
+      span.parantheses 626
+      span.dash  445
+      |  6666
+  .list-group-item.avatar-dialogue
+    figure.avatar
+      i.fa-envelope
+    .dialogue
+      span.bold Joe Smoe 
+      span.parantheses joe@smoe.com
+  .list-group-item.avatar-dialogue
+    figure.avatar
+      i.fa-skype
+    .dialogue
+      span.bold Joe Smoe 
+      span.predash joesmoe1441

@@ -39,6 +39,7 @@ gem 'ember-source', '~> 1.5.1.1'
 gem 'emblem-rails', '~>0.2.1'
 gem 'ember_script-rails', :github => 'ghempton/ember-script-rails'
 gem 'compass-rails', '~> 1.1.7'
+gem 'compass-flexbox', '~>1.1.3'
 gem 'jquery-ui-sass-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

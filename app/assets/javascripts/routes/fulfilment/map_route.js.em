@@ -1,1 +1,0 @@
-class Foxfire.FulfilmentMapRoute extends Foxfire.FulfilmentIndexRoute

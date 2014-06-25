@@ -1,0 +1,70 @@
+.list-tree
+  link-to 'fulfilment' 1 class="list-tree-node inactive avatar-dialogue"
+    figure.avatar
+      i.fa-plus
+    .dialogue
+      .listing-payment
+        span.bold $5,000.00
+        span.predash.capitalize deposit
+      .listing-detail
+        span.capitalize.bold Fannie Mae 
+        | via 
+        span.capitalize.bold check#2341
+
+  link-to 'fulfilment' 1 class="list-tree-node inactive avatar-dialogue"
+    figure.avatar
+      i.fa-plus
+    .dialogue
+      .listing-payment
+        span.bold $2,213.81
+        span.predash.capitalize sale
+      .listing-detail
+        span.capitalize.bold pet mixed 
+        | to 
+        span.capitalize.bold john doe
+
+  link-to 'fulfilment' 1 class="list-tree-node warning avatar-dialogue"
+    figure.avatar
+      i.fa-cog.fa-spin
+    .dialogue
+      .listing-payment
+        span.bold $4,831.31
+        span.predash.capitalize sale
+      .listing-detail
+        span.capitalize.bold hdpe natural 
+        | to 
+        span.capitalize.bold joe smoe
+
+
+  .align-center
+    figure
+      i.fa-arrow-down
+    button class="btn btn-success btn-lg bold"
+      .capitalize.colon balance
+      | $3,212.02
+    figure
+      i.fa-arrow-down
+
+  link-to 'fulfilment' 1 class="list-tree-node warning avatar-dialogue"
+    figure.avatar
+      i.fa-cog.fa-spin
+    .dialogue
+      .listing-payment
+        span.bold.parantheses $1,123.33
+        span.predash.capitalize purchase
+      .listing-detail
+        span.capitalize.bold #1-7 
+        | from 
+        span.capitalize.bold jane smith
+
+  link-to 'fulfilment' 1 class="list-tree-node inactive avatar-dialogue"
+    figure.avatar
+      i.fa-minus
+    .dialogue
+      .listing-payment
+        span.bold.parantheses $946.12
+        span.predash.capitalize purchase
+      .listing-detail
+        span.capitalize.bold #1-7 
+        | from 
+        span.capitalize.bold freddy mac

@@ -1,0 +1,9 @@
+.container
+  .header-navbar
+    link-to 'listing.offers' 1 class="back-button"
+      i.fa-angle-left
+      i.fa-bomb
+      span.page-name Joe Smoe - $0.45 FAS LA Port
+
+    link-to 'account' 1 class="action"
+      i.fa-user

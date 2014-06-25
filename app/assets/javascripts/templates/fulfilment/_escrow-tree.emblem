@@ -15,7 +15,7 @@
         span.capitalize.bold you 
         | provide loading pictures
 
-  .list-tree-node.warning.avatar-dialogue
+  link-to "fulfilment.now" model class="list-tree-node warning avatar-dialogue"
     figure.avatar
       i.fa-spinner.fa-spin
     .dialogue

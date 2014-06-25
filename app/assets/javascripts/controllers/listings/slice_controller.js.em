@@ -1,4 +1,4 @@
-class Foxfire.ListingsSummaryController extends Ember.ObjectController
+class Foxfire.ListingsSliceController extends Ember.ObjectController
   listing: ~>
     @model
 

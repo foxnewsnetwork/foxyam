@@ -7,12 +7,8 @@
       .list-group
         link-to "fulfilment.index" model class="list-group-item list-group-item-success"
           h4
-            i.fa-info-circle
-            span.capitalize.bold  status now
-        link-to "fulfilment.map" model class="list-group-item"
-          h4
             i.fa-share-alt.fa-rotate-90
-            span.capitalize.bold  fulfilment map
+            span.capitalize.bold  fulfilment process
         link-to "fulfilment.log" model class="list-group-item list-group-item-warning"
           h4
             i.fa-comments-o

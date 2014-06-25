@@ -1,0 +1,5 @@
+link-to 'listing.index' model class="list-group-item avatar-dialogue"
+  figure.avatar
+    img src=picSource
+  .dialogue
+    == render 'listings/summaries/title' model

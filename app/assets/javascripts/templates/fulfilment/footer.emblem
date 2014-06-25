@@ -2,15 +2,11 @@
   .fixed-bottom.hidden-on-desktop
     .container-fluid
       .row
-        .col-xs-4
+        .col-xs-6
           link-to "fulfilment.index" model class="list-group-item list-group-item-success"
-            i.fa-info-circle
-            span.capitalize.bold  now
-        .col-xs-4
-          link-to "fulfilment.map" model class="list-group-item"
             i.fa-share-alt.fa-rotate-90
-            span.capitalize.bold  map
-        .col-xs-4
+            span.capitalize.bold  steps
+        .col-xs-6
           link-to "fulfilment.log" model class="list-group-item list-group-item-warning"
             i.fa-comments-o
             span.capitalize.bold  log
