@@ -1,3 +1,0 @@
-link-to "listing" id class="summary"
-  background-image-tag src=picSource class="thumbnail"
-    == render 'listings/summaries/title' listing
