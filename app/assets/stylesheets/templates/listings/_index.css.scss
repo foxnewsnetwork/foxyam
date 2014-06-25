@@ -1,6 +1,13 @@
-@import 'templates/listings/summary';
 @mixin foxfire-templates-listings-index {
-  .summaries {
-    @include foxfire-templates-listings-summary;
+  .material {
+    font-size: 14px;
+  }
+  .quantity { 
+    font-size: 12px;
+  }
+  
+  .material,
+  .quantity {
+    @include ellipsis;
   }
 }
