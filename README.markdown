@@ -3,8 +3,8 @@ Work Redesign
 Because I did the order of design wrong, I will now rework the whole front end first. There are going to be 12 pages which, all together, comprise the core application. They are as listed here.
 
 1. (Global) Account show page (sees how much $, where money is going, where money is coming from) - done (mocked)
-1. account offer page
-1. account listing page
+1. account offer page - done (mocked)
+1. account listing page - done (mocked)
 2. (Global) Admin account show page (sees add $, subtract $)
 3. Listings index - done (mocked)
 4. Listing show - done (mocked)

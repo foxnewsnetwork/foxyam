@@ -24,9 +24,9 @@ header {
 }
 
 main {
-  @extend .container;
+  @include shared-ember-main;
   &#ember-main {
-    @include shared-ember-main;
+    @extend .container;
   }
 }
 

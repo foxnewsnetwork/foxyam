@@ -2,7 +2,10 @@
   .one-whole
     .form-group
       label Name
-      type-ahead name="material_name" data=materials class='form-control' value=selectedMaterial
+      if materials
+        type-ahead name="material_name" data=materials class='form-control' value=model.selectedMaterial
+      else
+        i.fa-spinner.fa-spin
       
 .row
   .one-whole

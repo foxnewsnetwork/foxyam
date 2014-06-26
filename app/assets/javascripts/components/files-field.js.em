@@ -15,7 +15,7 @@ class Foxfire.FilesFieldComponent extends Ember.TextField with Foxfire.FileDragD
     @$().removeClass("drag-entered").addClass("drag-left")
 
   dragDropped: (files)->
-    @handle_files files 
+    @files = files 
     @dragLeft()
 
   change: (evt) ->

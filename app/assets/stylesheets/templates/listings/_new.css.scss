@@ -1,15 +1,51 @@
 @mixin foxfire-templates-listings-new {
   @media (min-width: $screen-md) {
-    .affix {
-      position: fixed;
-      top: 0px;
+    .display-frame {
+      @extend .row;
+    }
+    .main-canvas,
+    .side-canvas {
+      display: inline;
     }
   }
 
   @media (max-width: $screen-md) {
-    .affix {
+    .site-wrapper {
+      overflow-x: hidden;
+      width: 100%;
+      height: 1120px;
       position: relative;
     }
+    .display-frame {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      @include translateX(0);
+      @include transition-property(all);
+      @include transition-duration(0.2s);
+      @include transition-timing-function(ease-in);
+    }
+    .display-frame-side {
+      @include translateX(-100%);
+    }
+    .main-canvas {
+      left: 0;
+    }
+    .side-canvas {
+      left: 100%;
+    }
+    .main-canvas,
+    .side-canvas {
+      width: 100%;
+      position: absolute;
+      padding-bottom: 45px;
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+  }
+  .affix {
+    position: fixed;
+    top: 0px;
   }
 
   .sorta-fixed {
@@ -22,7 +58,7 @@
   }
   .email-body {
     width: 100%;
-    min-width: 575px;
+    min-width: 100%;
     min-height: 225px;
     border: 0px;
     background: none;

@@ -37,7 +37,7 @@ mixin Foxfire.FileDragDrop
     @$().off "dragleave"
     @$().off "drop"
 
-  unbundDragAndDrop: ->
+  unbindDragAndDrop: ->
     @unbindOnlyElement()
     @rebindDocument()
 

@@ -1,6 +1,7 @@
 Foxfire.Router.map ->
   @resource "listings", ->
     @route "new"
+    @route "preview"
 
   @resource "listing", path: "/listing/:listing_id", ->
     @route "offers"

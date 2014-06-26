@@ -3,7 +3,7 @@
     link-to 'index' class="back-button"
       i.fa-angle-left
       i.fa-bomb
-      span.page-name listings
+      span.page-name public listings
 
     link-to 'account' 1 class="action"
       i.fa-user

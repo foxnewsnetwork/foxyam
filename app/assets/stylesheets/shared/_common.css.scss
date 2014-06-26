@@ -1,4 +1,11 @@
 @mixin shared-common {
+  .pointer {
+    cursor: pointer;
+  }
+  .unmargined-header {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
   .color-flare {
     color: $brand-danger;
   }

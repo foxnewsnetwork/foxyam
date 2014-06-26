@@ -1,0 +1,14 @@
+.row
+  .one-whole
+    .form-group
+      .input-group
+        label.capitalize quantity
+      .input-group
+        number-field name="quantity" class="form-control" value=model.selectedQuantity
+        span.input-group-addon
+        Ember.Select content=quantityUnits selection=model.selectedQuantunit class="form-control" name="quantity_unit"
+    .form-group
+      .input-group
+        label.capitalize time interval
+      .input-group
+        Ember.Select content=intervals selection=model.selectedInterval class="form-control" name="time_interval"

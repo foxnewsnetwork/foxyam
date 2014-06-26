@@ -1,30 +1,20 @@
-#foxfire-templates-listings-new.row
-  .one-half
-    h2 New Material Form
-    form-for model=listing errors=validationErrors submit="formSubmitted"
-      with materialCtrl
-        == partial "material_input"
-      
-      with priceCtrl
-        == partial "price_input"
+#foxfire-templates-listings-new
+  .site-wrapper
+    .display-frame
+      .main-canvas
+        .one-half
+          form-for model=listing errors=listingErrors
+            == render "listings/inputs/material" listing
+            == render "listings/inputs/price" listing
+            == render "listings/inputs/quantity" listing
+            == render "listings/inputs/pictures" listing
+            == render "listings/inputs/packing" listing
+            .form-group
+              button class="btn btn-lg btn-success"
+                i.fa-check
+                span.capitalize.bold submit
+      .side-canvas
+        .one-half
+          == render "listings/inputs/preview_output" listing
 
-      with quantityCtrl
-        == partial "quantity_input"
-
-      with packingCtrl
-        == partial "packing_input"
-
-      with picturesCtrl
-        == partial "pictures_input"
-
-      .row
-        .one-quarter
-          button click="submit target='view'" class="btn btn-lg btn-primary"
-            i.fa-check
-        .one-quarter.offset-two-quarters.align-right
-          button click="reset target='view'" type="reset" class="btn btn-lg btn-danger"
-            i.fa-times
-
-  .one-half
-    with previewCtrl
-      == partial "preview_output"
+          

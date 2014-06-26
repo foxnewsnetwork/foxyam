@@ -1,0 +1,5 @@
+.row
+  .one-whole
+    .form-group
+      label Pictures
+      files-field name="pictures" files=model.selectedFiles class="form-control upload-control"

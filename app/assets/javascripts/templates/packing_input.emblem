@@ -1,8 +1,0 @@
-.row
-  .one-whole
-    legend Packing Weight
-    .form-group
-      .input-group
-        number-field name="packing_weight" class="form-control" value=selectedPacking
-        span.input-group-addon lbs in 
-        Ember.Select content=transportors selection=selectedTransportor name="transportor" class="form-control"

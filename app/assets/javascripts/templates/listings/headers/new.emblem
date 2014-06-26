@@ -1,0 +1,9 @@
+.container
+  .header-navbar
+    link-to 'account.sells' 1 class="back-button"
+      i.fa-angle-left
+      i.fa-bomb
+      span.page-name new listings
+
+    link-to 'account' 1 class="action"
+      i.fa-user

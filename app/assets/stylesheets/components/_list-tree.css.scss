@@ -2,7 +2,7 @@
   .list-tree {
     @extend .list-group;
     .round-button {
-      button {
+      button, a {
         @include border-radius(25px);
         padding-top: 10px;
         padding-bottom: 10px;
