@@ -9,12 +9,12 @@
           h4 
             i.fa-chain
             span.capitalize.bold  my fulfilments
-        link-to 'account.offers' model class="list-group-item"
+        link-to 'account.purchases' model class="list-group-item"
           h4
             i.fa-money
-            span.capitalize.bold  my offers 
+            span.capitalize.bold  my purchase offers 
             span.badge.pull-right 24
-        link-to 'account.listings' model class="list-group-item"
+        link-to 'account.sells' model class="list-group-item"
           h4
             i.fa-list-ol
             span.capitalize.bold  my listings

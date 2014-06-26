@@ -1,4 +1,19 @@
 @mixin shared-common {
+  .color-flare {
+    color: $brand-danger;
+  }
+  .color-lagoon {
+    color: $brand-info;
+  }
+  .color-sunflower {
+    color: $brand-warning;
+  }
+  .color-death {
+    color: $gray-dark;
+  }
+  .color-life {
+    color: $brand-success;
+  }
   .align-right {
     text-align: right;
   }

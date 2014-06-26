@@ -1,0 +1,57 @@
+#foxfire-templates-account-purchases
+  .row
+    .three-quarters
+      .list-group
+        link-to "offer.index" 1 class="list-group-item avatar-dialogue"
+          figure.avatar
+            img src="emoji/217.png"
+          .dialogue
+            i.fa-mail-forward
+            span.capitalize.bold.dash John Smith's kettle corn
+            span  $0.34/lb FAS LA Port
+            span.pull-right.color-flare
+              i.fa-circle
+
+        link-to "offer.index" 1 class="list-group-item avatar-dialogue"
+          figure.avatar
+            img src="emoji/227.png"
+          .dialogue
+            i.fa-mail-forward
+            span.capitalize.bold.dash acme inc's wine grapes
+            span  $0.22/lb FAS Oak Port
+            span.pull-right.color-flare
+              i.fa-circle
+
+        link-to "offer.index" 1 class="list-group-item inactive avatar-dialogue"
+          figure.avatar
+            img src="emoji/233.png"
+          .dialogue
+            span.capitalize.bold.dash Dog Inc's pineapple
+            span  $0.12/lb FAS Chicago ramp
+            span.pull-right.color-sunflower
+              i.fa-cog.fa-spin
+
+        link-to "offer.index" 1 class="list-group-item inactive avatar-dialogue"
+          figure.avatar
+            img src="emoji/252.png"
+          .dialogue
+            span.capitalize.bold.dash sally mae's sweet potatoes
+            span  $10.92/lb FAS NYC 
+            span.pull-right.color-death
+              i.fa-archive            
+
+    .one-quarter.hidden-on-mobile
+      .list-group
+        link-to 'account.index' class="list-group-item"
+          h4 
+            i.fa-chain
+            span.capitalize.bold  my fulfilments
+        link-to 'account.purchases' model class="list-group-item"
+          h4
+            i.fa-money
+            span.capitalize.bold  my purchase offers 
+            span.badge.pull-right 2
+        link-to 'account.sells' model class="list-group-item"
+          h4
+            i.fa-list-ol
+            span.capitalize.bold  my listings

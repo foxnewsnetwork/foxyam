@@ -7,11 +7,11 @@
             i.fa-user
             span.capitalize.bold  acct
         .col-xs-4
-          link-to 'account.offers' model class="list-group-item"
-            i.fa-money
-            span.capitalize.bold  bids
+          link-to 'account.purchases' model class="list-group-item"
+            i.fa-shopping-cart
+            span.capitalize.bold  buys
         .col-xs-4
-          link-to 'account.listings' model class="list-group-item list-group-item-warning"
-            i.fa-list-ol
-            span.capitalize.bold  lists
+          link-to 'account.sells' model class="list-group-item list-group-item-warning"
+            i.fa-ticket
+            span.capitalize.bold  sells
     
