@@ -66,10 +66,10 @@
             span.capitalize.bold  my fulfilments
         link-to 'account.purchases' model class="list-group-item"
           h4
-            i.fa-money
+            i.fa-shopping-cart
             span.capitalize.bold  my purchase offers 
-            span.badge.pull-right 2
+            span.badge.pull-right 24
         link-to 'account.sells' model class="list-group-item"
           h4
-            i.fa-list-ol
+            i.fa-ticket
             span.capitalize.bold  my listings
