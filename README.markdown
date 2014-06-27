@@ -18,7 +18,7 @@ Because I did the order of design wrong, I will now rework the whole front end f
 10. Escrow.show - done (mocked) calling it fulfilment though
 10. fulfilment.map - done (mocked)
 10. fulfilment.log - done (mocked)
-11. Listing new
+11. Listing new - done (mocked)
 12. Merchant / account login
 
 Writing

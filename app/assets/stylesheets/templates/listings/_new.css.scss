@@ -9,7 +9,13 @@
     }
     .affix {
       position: fixed;
+      width: 555px;
       top: 0px;
+    }
+    .sorta-fixed {
+      &.affix {
+        top: 0px;
+      }
     }
   }
 
@@ -46,19 +52,19 @@
       margin-left: -15px;
       margin-right: -15px;
     }
+    .affix {
+      position: relative;
+    }
   }
 
-  .sorta-fixed {
-    dl {
-      font-size: 16px;
-    }
-    &.affix {
-      top: 0px;
-    }
+  .subject,
+  .label {
+    font-size: 16px;
   }
+
   .email-body {
+    font-size: 16px;
     width: 100%;
-    min-width: 100%;
     min-height: 225px;
     border: 0px;
     background: none;
@@ -84,12 +90,6 @@
         background-color: #fff;
       }
     }
-  }
-  .small-thumbnail {
-    max-width: 50px;
-    max-height: 50px;
-    overflow: hidden;
-    display: inline-block;
   }
   .upload-control {
     @include transition-property(height, border);
