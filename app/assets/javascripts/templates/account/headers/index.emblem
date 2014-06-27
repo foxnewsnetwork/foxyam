@@ -1,9 +1,5 @@
-.container
-  .header-navbar
-    link-to 'index' class="back-button"
-      i.fa-angle-left
-      i.fa-bomb
-      span.page-name my account
+link-to 'index' class="back-button"
+  i.fa-angle-left
+  i.fa-bomb
+  span.page-name my account
 
-    link-to 'account' 1 class="action"
-      i.fa-user

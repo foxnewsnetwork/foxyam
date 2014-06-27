@@ -1,9 +1,4 @@
-.container
-  .header-navbar
-    link-to 'account' 1 class="back-button"
-      i.fa-angle-left
-      i.fa-bomb
-      span.page-name Transaciton fulfilment
-
-    link-to 'account' 1 class="action"
-      i.fa-user
+link-to 'account' 1 class="back-button"
+  i.fa-angle-left
+  i.fa-bomb
+  span.page-name Transaciton fulfilment

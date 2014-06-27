@@ -1,9 +1,4 @@
-.container
-  .header-navbar
-    link-to 'offer' 1 class="back-button"
-      i.fa-angle-left
-      i.fa-bomb
-      span.page-name Review user agreement
-
-    link-to 'account' 1 class="action"
-      i.fa-user
+link-to 'offer' 1 class="back-button"
+  i.fa-angle-left
+  i.fa-bomb
+  span.page-name Review user agreement

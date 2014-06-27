@@ -1,9 +1,3 @@
-.container
-  .header-navbar
-    link-to 'index' class="back-button"
-      i.fa-bomb
-      span.page-name Company
-
-    link-to 'account' 1 class="action"
-      i.fa-user
-        
+link-to 'index' class="back-button"
+  i.fa-bomb
+  span.page-name Company

@@ -1,0 +1,7 @@
+.container
+  .header-navbar
+    == outlet header
+
+    link-to 'account' 1 class="action"
+      i.fa-user
+        

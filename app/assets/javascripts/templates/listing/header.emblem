@@ -1,9 +1,4 @@
-.container
-  .header-navbar
-    link-to 'listings' class="back-button"
-      i.fa-angle-left
-      i.fa-bomb
-      span.page-name dog food - LA port
-
-    link-to 'account' 1 class="action"
-      i.fa-user
+link-to 'listings' class="back-button"
+  i.fa-angle-left
+  i.fa-bomb
+  span.page-name dog food - LA port
