@@ -7,6 +7,10 @@
     .side-canvas {
       display: inline;
     }
+    .affix {
+      position: fixed;
+      top: 0px;
+    }
   }
 
   @media (max-width: $screen-md) {
@@ -43,10 +47,6 @@
       margin-right: -15px;
     }
   }
-  .affix {
-    position: fixed;
-    top: 0px;
-  }
 
   .sorta-fixed {
     dl {
@@ -76,8 +76,8 @@
         background-color: #ed9c28;
       }
       &.halfway {
-        width: 90%;
-        background-color: #47a447;
+        width: 100%;
+        background-color: rgba(#47a447, 0.3);
       }
       &.completed {
         width: 100%;

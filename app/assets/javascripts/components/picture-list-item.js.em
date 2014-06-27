@@ -1,5 +1,5 @@
 class Foxfire.PictureListItemComponent extends Ember.Component
-  classNames: ["list-group-item", "completion-bar", "starting"]
+  classNames: ["list-group-item", "completion-bar", "starting", "avatar-dialogue"]
   didInsertElement: ->
     setTimeout _.bind(@loadingAnimation, @), @approximateLoadTime()
   approximateLoadTime: ->
@@ -9,5 +9,9 @@ class Foxfire.PictureListItemComponent extends Ember.Component
     @$().addClass "halfway"
   finishAnimation: ->
     @$().removeClass("starting").removeClass("halfway").addClass("completed")
-  src: ~>
-    @model.src
+  +computed model.src
+  src: ->
+    @get("model.src")
+  +computed model.fileName
+  fileName: ->
+    @get("model.fileName")

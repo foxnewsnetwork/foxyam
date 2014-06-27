@@ -1,2 +1,5 @@
-.small-thumbnail
+figure.avatar
   img.img-thumbnail src=src
+
+.dialogue
+  span.bold= fileName
