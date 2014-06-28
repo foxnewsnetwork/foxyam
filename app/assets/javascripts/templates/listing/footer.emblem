@@ -7,9 +7,9 @@
             i.fa-photo
             span.capitalize.bold  pics
         .col-xs-4
-          link-to 'listing.docs' id class="list-group-item"
-            i.fa-file-pdf-o
-            span.capitalize.bold  docs
+          link-to 'listing.edit' id class="list-group-item"
+            i.fa-edit
+            span.capitalize.bold  edit
         .col-xs-4
           link-to 'listing.offers' id class="list-group-item list-group-item-warning"
             i.fa-money

@@ -1,0 +1,28 @@
+#foxfire-templates-listing-edit.padded-for-mobile-footer
+  .row
+    .three-quarters
+      form-for model=listing errors=listingErrors
+        == render "listings/inputs/material" listing
+        == render "listings/inputs/price" listing
+        == render "listings/inputs/quantity" listing
+        == render "listings/inputs/pictures" listing
+        == render "listings/inputs/packing" listing
+        .form-group
+          button class="btn btn-lg btn-success"
+            i.fa-check
+            span.capitalize.bold submit
+
+    .one-quarter.hidden-on-mobile
+      .list-group
+        link-to 'listing.index' id class="list-group-item"
+          h4
+            i.fa-photo
+            span.capitalize Summary
+        link-to 'listing.offers' id class="list-group-item"
+          h4
+            i.fa-money
+            span.capitalize Offers
+        link-to 'listing.edit' id class="list-group-item"
+          h4
+            i.fa-edit
+            span.capitalize edit

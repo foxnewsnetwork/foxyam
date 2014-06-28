@@ -5,10 +5,13 @@ Because I did the order of design wrong, I will now rework the whole front end f
 1. (Global) Account show page (sees how much $, where money is going, where money is coming from) - done (mocked)
 1. account offer page - done (mocked)
 1. account listing page - done (mocked)
+1. account edit
 2. (Global) Admin account show page (sees add $, subtract $)
 3. Listings index - done (mocked)
 4. Listing show - done (mocked)
 5. Listing.offers - done (mocked)
+5. Listing.edit
+5. Offer.edit
 5. offer.show -done (mocked)
 6. Offer.counter - done (mocked)
 7. Offer.accept - done (mocked)
@@ -19,7 +22,7 @@ Because I did the order of design wrong, I will now rework the whole front end f
 10. fulfilment.map - done (mocked)
 10. fulfilment.log - done (mocked)
 11. Listing new - done (mocked)
-12. Merchant / account login
+12. Merchant / account login - done (mocked)
 
 Writing
 =
