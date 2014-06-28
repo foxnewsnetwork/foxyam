@@ -1,0 +1,6 @@
+@import 'templates/modals/login';
+@mixin shared-ember-modal {
+  #foxfire-templates-modals-login {
+    @include foxfire-templates-modals-login;
+  }
+}

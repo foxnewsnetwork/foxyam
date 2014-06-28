@@ -2,6 +2,11 @@
   .header-navbar
     == outlet header
 
-    link-to 'account' 1 class="action"
-      i.fa-user
+    if userLoggedIn
+      link-to 'account' currentAccount class="action"
+        i.fa-user
+    else
+      a click="openLoginModal" class="action pointer"
+        i.fa-sign-in
+
         

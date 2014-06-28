@@ -1,0 +1,19 @@
+@import 'components/type-ahead';
+@import 'components/incoterm-responsibility';
+@import 'components/file-field';
+@import 'components/background-image-tag';
+@import 'components/hero-unit';
+@import 'components/avatar-dialogue';
+@import 'components/list-tree';
+@import 'components/half-modal';
+
+@mixin shared-ember-components {
+  @include components-type_ahead;
+  @include components-incoterm_responsibility;
+  @include components-file-field;
+  @include components-background-image-tag;
+  @include components-hero-unit;
+  @include components-avatar-dialogue;
+  @include components-list-tree;
+  @include components-half-modal;
+}

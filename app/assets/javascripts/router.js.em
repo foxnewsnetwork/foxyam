@@ -31,3 +31,7 @@ Foxfire.Router.map ->
   @resource "account", path: "/account/:account_id", ->
     @route "purchases"
     @route "sells"
+
+  @resource "login"
+  @resource "register"
+  @resource "help"

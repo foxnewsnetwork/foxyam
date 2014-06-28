@@ -39,6 +39,9 @@
   .ellipsis:after {
     content: "...";
   }
+  .hidden {
+    display: none;
+  }
   .comma:not(:last-child) {
     &:after {
       content: ",";

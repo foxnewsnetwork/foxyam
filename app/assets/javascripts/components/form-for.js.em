@@ -5,10 +5,10 @@ class Foxfire.FormForComponent extends Ember.Component
 
   processNewData: ->
     _.partial _.foldl, @formData(), (memo, next) ->
-      memo[next.name] = next.value
+      memo.set next.name, next.value
       memo
   updatedModel: ->
-    @processNewData()(@model || {})
+    @processNewData()(@model || new Ember.Object())
   
   +observer errors
   displayErrors: ->
@@ -36,4 +36,4 @@ class Foxfire.FormForComponent extends Ember.Component
 
   actions:
     submit: ->
-      @get('controller').sendAction "submit", @updatedModel()
+      @sendAction "action", @updatedModel()

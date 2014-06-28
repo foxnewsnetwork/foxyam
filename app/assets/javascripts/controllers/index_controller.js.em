@@ -1,3 +1,3 @@
-class Foxfire.IndexController extends Ember.ObjectController
+class Foxfire.IndexController extends Foxfire.ApplicationController
   
 

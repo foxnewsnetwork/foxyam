@@ -1,4 +1,3 @@
-class Foxfire.Session
-  @current-user = null
-  @user-logged-in = ->
-    @current-user?
+Foxfire.Session = new Ember.Object()
+Foxfire.Session.userLoggedIn = ->
+  Foxfire.Session.get("currentUser")?

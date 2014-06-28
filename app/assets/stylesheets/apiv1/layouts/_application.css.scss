@@ -1,14 +1,14 @@
 @import 'shared/variables';
 @import 'shared/important';
 @import 'shared/header';
-@import 'shared/footer';
 @import 'shared/flashes';
 @import 'shared/errors';
 @import 'shared/common';
 @import 'shared/bootstrap_extension';
 @import 'shared/ember-main';
 @import 'shared/ember-footer';
-
+@import 'shared/ember-modal';
+@import 'shared/ember-components';
 body {
   background: #e7e7e7;
   i {
@@ -17,6 +17,7 @@ body {
   @include shared-errors;
   @include shared-bootstrap_extension;
   @include shared-common;
+  @include shared-ember-components;
 }
 
 header {
@@ -28,6 +29,10 @@ main {
   &#ember-main {
     @extend .container;
   }
+}
+
+section#ember-modal {
+  @include shared-ember-modal;
 }
 
 footer {

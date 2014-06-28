@@ -1,0 +1,51 @@
+#foxfire-templates-modals-login
+  half-modal action="closeModal"
+    .login-form
+      form-for action="formSubmitted"
+        legend.capitalize.bold login to your account
+        .form-group
+          label.capitalize email
+          input name="email" type="email" class="form-control" placeholder="foxnewsnetwork@gmail.com"
+        .form-group
+          label.capitalize password
+          input name="password" type="password" class="form-control"
+        .form-group
+          button click="submit target='view'" class="btn btn-success btn-lg btn-block"
+            i.fa-check
+            span.capitalize.bold log in
+
+    .signup-form
+      form-for action="formSubmitted"
+        legend.capitalize.bold sign up for an account
+        .form-group
+          label.capitalize email
+          input name="email" type="email" class="form-control" placeholder="foxnewsnetwork@gmail.com"
+        .form-group
+          label.capitalize company
+          input name="company" type="text" class="form-control" placeholder="Acme Inc."
+        .form-group
+          label.capitalize password
+          input name="password" type="password" class="form-control"
+        .form-group
+          label.capitalize password confirmation
+          input name="passwordConfirmation" type="password" class="form-control"
+        .form-group
+          button click="submit target='view'" class="btn btn-success btn-lg btn-block"
+            i.fa-check
+            span.capitalize.bold sign up
+
+    .row
+      .col-xs-6.align-center
+        .login-form
+          a click="swap2Signup" class="list-group-item list-group-item-success pointer"
+            i.fa-pencil
+            span.capitalize.bold  no acct?
+        .signup-form
+          a click="swap2Login" class="list-group-item list-group-item-info pointer"
+            i.fa-sign-in
+            span.capitalize.bold  back
+
+      .col-xs-6.align-center
+        link-to "help" class="list-group-item"
+          i.fa-info-circle
+          span.capitalize.bold  help

@@ -1,1 +1,1 @@
-class Foxfire.HeaderController extends Ember.ObjectController
+class Foxfire.HeaderController extends Foxfire.ApplicationController
