@@ -13,11 +13,12 @@ Foxfire.Router.map ->
     @route 'now'
     @route 'log'
 
-  @resource 'offer', path: '/offer/:offer_id', ->
-    @route 'counter'
-    @route 'accept'
-    @route 'cancel'
-    @route 'checkout'
+  @resource 'offer', path: '/offer', ->
+    @route 'show', path: '/:offer_id'
+    @route 'counter', path: '/:offer_id/counter'
+    @route 'accept', path: '/:offer_id/accept'
+    @route 'cancel', path: '/:offer_id/cancel'
+    @route 'checkout', path: '/:offer_id/checkout'
 
   @resource 'conversation', path: '/conversation/:conversation_id', ->
     @route 'reply'

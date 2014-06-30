@@ -17,6 +17,6 @@
           span.capitalize.bold Joe Smoe 
           | to make you this offer again.
 
-        link-to "offer.index" model class="btn btn-danger btn-lg"
+        link-to "offer.show" model class="btn btn-danger btn-lg"
           i.fa-warning
           span.capitalize.bold  refuse offer

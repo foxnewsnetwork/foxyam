@@ -1,6 +1,7 @@
 .list-group.offers
+  
   each offer in offers
-    link-to "offer" 1 class="list-group-item avatar-dialogue"
+    link-to "offer.show" 1 class="list-group-item avatar-dialogue"
       figure.avatar
         i.fa-linux
       .dialogue

@@ -1,0 +1,16 @@
+form
+  .form-group
+    label.capitalize offer from
+    .input-group
+      .already-filled Acme Inc.
+  == render "listings/inputs/price" model
+
+  .form-group
+    label.capitalize notes
+    .input-group
+      textarea type="text" class="form-control"
+
+  .form-group
+    button type="submit" class="btn btn-lg btn-success"
+      i.fa-check
+      span.capitalize.bold  make offer!

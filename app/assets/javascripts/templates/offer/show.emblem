@@ -1,4 +1,4 @@
-#foxfire-templates-offer-index.padded-for-mobile-footer
+#foxfire-templates-offer-show.padded-for-mobile-footer
   .row
     .three-quarters
       == partial "offer/hero-unit"  
@@ -6,7 +6,7 @@
 
     .one-quarter.hidden-on-mobile
       .list-group
-        link-to "offer.index" model class="list-group-item"
+        link-to "offer.show" model class="list-group-item"
           h4
             span.capitalize.bold Offer Summary
         link-to "offer.accept" model class="list-group-item list-group-item-success"

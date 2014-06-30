@@ -8,7 +8,7 @@
             span.bold.capitalize  new listing
 
       .list-group
-        link-to "offer.index" 2 class="list-group-item avatar-dialogue"
+        link-to "offer.show" 2 class="list-group-item avatar-dialogue"
           figure.avatar
             img src="emoji/238.png"
           .dialogue
@@ -19,7 +19,7 @@
             span.pull-right.color-flare
               i.fa-circle
 
-        link-to "offer.index" 2 class="list-group-item avatar-dialogue inactive" 
+        link-to "offer.show" 2 class="list-group-item avatar-dialogue inactive" 
           figure.avatar
             img src="emoji/239.png"
           .dialogue

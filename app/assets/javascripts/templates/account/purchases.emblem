@@ -2,7 +2,7 @@
   .row
     .three-quarters
       .list-group
-        link-to "offer.index" 1 class="list-group-item avatar-dialogue"
+        link-to "offer.show" 1 class="list-group-item avatar-dialogue"
           figure.avatar
             img src="emoji/217.png"
           .dialogue
@@ -12,7 +12,7 @@
             span.pull-right.color-flare
               i.fa-circle
 
-        link-to "offer.index" 1 class="list-group-item avatar-dialogue"
+        link-to "offer.show" 1 class="list-group-item avatar-dialogue"
           figure.avatar
             img src="emoji/227.png"
           .dialogue
@@ -22,7 +22,7 @@
             span.pull-right.color-flare
               i.fa-circle
 
-        link-to "offer.index" 1 class="list-group-item inactive avatar-dialogue"
+        link-to "offer.show" 1 class="list-group-item inactive avatar-dialogue"
           figure.avatar
             img src="emoji/233.png"
           .dialogue
@@ -31,7 +31,7 @@
             span.pull-right.color-sunflower
               i.fa-cog.fa-spin
 
-        link-to "offer.index" 1 class="list-group-item inactive avatar-dialogue"
+        link-to "offer.show" 1 class="list-group-item inactive avatar-dialogue"
           figure.avatar
             img src="emoji/252.png"
           .dialogue

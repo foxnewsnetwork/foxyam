@@ -1,5 +1,5 @@
 .seller
-  .owner seller responsibilities (you!)
+  .owner seller responsibilities
   ul.responsibilities
     each r in seller_responsibilities
       li.responsibility

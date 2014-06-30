@@ -1,0 +1,4 @@
+link-to 'listing.offers.index' model class="back-button"
+  i.fa-angle-left
+  i.fa-bomb
+  span.page-name new offers for dog food - LA port

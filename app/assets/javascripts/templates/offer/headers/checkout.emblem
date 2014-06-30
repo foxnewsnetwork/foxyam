@@ -1,4 +1,4 @@
-link-to 'offer' 1 class="back-button"
+link-to 'offer.show' 1 class="back-button"
   i.fa-angle-left
   i.fa-bomb
   span.page-name Review user agreement
