@@ -1,4 +1,4 @@
-class Foxfire.ListingOffersRoute extends Foxfire.ListingIndexRoute
+class Foxfire.ListingOffersIndexRoute extends Ember.Route
   renderTemplate: ->
     @_super()
     @render 'listing/footer', outlet: 'footer'

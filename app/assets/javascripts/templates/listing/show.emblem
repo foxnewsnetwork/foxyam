@@ -1,0 +1,10 @@
+#foxfire-templates-listing-show.padded-for-mobile-footer
+  .row
+    .three-quarters
+      == partial "listing/hero-unit"
+      == partial "listing/offer-data"
+      == partial "listing/pictures"
+
+
+    .one-quarter.hidden-on-mobile
+      == partial "listing/sidebar"

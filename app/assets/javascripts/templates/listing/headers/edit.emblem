@@ -1,4 +1,4 @@
-link-to 'listing.index' model class="back-button"
+link-to 'listing.show' model class="back-button"
   i.fa-angle-left
   i.fa-bomb
   span.page-name edit dog food - LA port

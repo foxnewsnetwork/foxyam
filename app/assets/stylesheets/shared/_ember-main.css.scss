@@ -1,6 +1,6 @@
 @import 'templates/listings/new';
 @import 'templates/listings/index';
-@import 'templates/listing/index';
+@import 'templates/listing/show';
 
 
 @mixin shared-ember-main {
@@ -12,6 +12,6 @@
     @include foxfire-templates-listings-index;
   }
   #foxfire-templates-listing-index {
-    @include foxfire-templates-listing-index;
+    @include foxfire-templates-listing-show;
   }
 }

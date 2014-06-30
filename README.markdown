@@ -10,7 +10,8 @@ Because I did the order of design wrong, I will now rework the whole front end f
 3. Listings index - done (mocked)
 4. Listing show - done (mocked)
 5. Listing.offers - done (mocked)
-5. Listing.edit
+5. Listing.edit - done (mocked)
+5. Offer.new
 5. Offer.edit
 5. offer.show -done (mocked)
 6. Offer.counter - done (mocked)

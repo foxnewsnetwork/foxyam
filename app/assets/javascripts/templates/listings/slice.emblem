@@ -1,4 +1,4 @@
-link-to 'listing.index' model class="list-group-item avatar-dialogue"
+link-to 'listing.show' model class="list-group-item avatar-dialogue"
   figure.avatar
     img src=picSource
   .dialogue

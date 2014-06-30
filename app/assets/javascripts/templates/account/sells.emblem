@@ -32,7 +32,7 @@
             span.pull-right.color-sunflower
               i.fa-cog.fa-spin
 
-        link-to "listing.index" 2 class="list-group-item avatar-dialogue inactive" 
+        link-to "listing.show" 2 class="list-group-item avatar-dialogue inactive" 
           figure.avatar
             img src="emoji/240.png"
           .dialogue
@@ -43,7 +43,7 @@
             span in 
             span.capitalize.bold turloc
 
-        link-to "listing.index" 1 class="list-group-item avatar-dialogue inactive" 
+        link-to "listing.show" 1 class="list-group-item avatar-dialogue inactive" 
           figure.avatar
             img src="emoji/231.png"
           .dialogue

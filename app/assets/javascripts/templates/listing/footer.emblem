@@ -3,15 +3,20 @@
     .container-fluid
       .row
         .col-xs-4
-          link-to 'listing.index' id class="list-group-item list-group-item-success"
+          link-to 'listing.show' model class="list-group-item list-group-item-success"
             i.fa-photo
             span.capitalize.bold  pics
         .col-xs-4
-          link-to 'listing.edit' id class="list-group-item"
-            i.fa-edit
-            span.capitalize.bold  edit
+          if hasOwner
+            link-to 'listing.edit' model class="list-group-item"
+              i.fa-edit
+              span.capitalize.bold  edit
+          else
+            link-to 'listing.offers.new' model class="list-group-item"
+              i.fa-asterisk
+              span.capitalize.bold  new
         .col-xs-4
-          link-to 'listing.offers' id class="list-group-item list-group-item-warning"
+          link-to 'listing.offers.index' model class="list-group-item list-group-item-warning"
             i.fa-money
             span.capitalize.bold  bids
     

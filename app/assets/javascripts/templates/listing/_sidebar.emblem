@@ -1,0 +1,20 @@
+.list-group
+  link-to 'listing.show' model class="list-group-item"
+    h4
+      i.fa-photo
+      span.capitalize  Summary
+  link-to 'listing.offers.index' model class="list-group-item"
+    h4
+      i.fa-money
+      span.capitalize  Offers
+
+  if isOwner
+    link-to 'listing.edit' model class="list-group-item"
+      h4
+        i.fa-edit
+        span.capitalize  edit listing
+  else
+    link-to 'listing.offers.new' model class="list-group-item"
+      h4
+        i.fa-asterisk
+        span.capitalize  new offer
