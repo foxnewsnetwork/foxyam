@@ -1,6 +1,11 @@
 #foxfire-templates-listing-edit.padded-for-mobile-footer
   .row
     .three-quarters
+      .row
+        .one-whole.margin-puffed.align-center
+          button class="btn btn-danger"
+            i.fa-times
+            span.capitalize.bold  destroy
       form-for model=model errors=listingErrors
         == render "listings/inputs/material" model
         == render "listings/inputs/price" model
