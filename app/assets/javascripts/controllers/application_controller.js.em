@@ -1,7 +1,7 @@
 class Foxfire.ApplicationController extends Ember.ObjectController
-  +computed Foxfire.Session.currentUser
+  +computed Foxfire.SessionStore.currentUser
   currentAccount: ->
-    Foxfire.Session.currentUser
-  +computed Foxfire.Session.currentUser
+    Foxfire.SessionStore.currentUser
+  +computed Foxfire.SessionStore.currentUser
   userLoggedIn: ->
-    Foxfire.Session.userLoggedIn()
+    Foxfire.SessionStore.userLoggedIn()

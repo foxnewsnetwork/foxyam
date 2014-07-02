@@ -1,0 +1,13 @@
+#templates-listing-footer
+  .fixed-bottom.hidden-on-desktop
+    .container-fluid
+      .row
+        .col-xs-6
+          link-to 'registrations.new' class="list-group-item list-group-item-success"
+            i.fa-edit
+            span.capitalize.bold  no acct?
+        .col-xs-6
+          link-to 'help' class="list-group-item"
+            i.fa-info-circle
+            span.capitalize.bold  help
+    

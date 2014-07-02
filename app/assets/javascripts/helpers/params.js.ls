@@ -1,4 +1,5 @@
 class Foxfire.Params
+  @current-path = -> window.location.hash
   @get = (key) ->
     @window-location-hash![key]
   @window-location-hash = ->

@@ -1,0 +1,19 @@
+#foxfire-templates-sessions-new.padded-for-mobile-footer
+  .row
+    .two-quarters.offset-one-quarter
+      == partial "sessions/sidebar"
+    .two-quarters.offset-one-quarter
+      .login-form
+        form-for model=session submit="formSubmitted"
+          legend.capitalize.bold login to your account
+          .form-group
+            label.capitalize email
+            input name="email" type="email" class="form-control" placeholder="foxnewsnetwork@gmail.com"
+          .form-group
+            label.capitalize password
+            input name="password" type="password" class="form-control"
+          .form-group
+            promise-button model=session class="btn btn-success btn-lg btn-block" type="submit"
+              i.fa-check
+              span.capitalize.bold log in
+

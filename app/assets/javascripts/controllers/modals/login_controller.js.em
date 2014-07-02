@@ -1,4 +1,8 @@
 class Foxfire.ModalsLoginController extends Foxfire.ApplicationController
+  requestSession: (data)->
+    @store.createRecord "session_request", email: data.email, password: data.password
+  requestAccount: (session)->
+    @store.find "account", session.id
   actions:
     swap2Signup: ->
       $(".login-form").hide()
@@ -7,5 +11,6 @@ class Foxfire.ModalsLoginController extends Foxfire.ApplicationController
       $(".login-form").show()
       $(".signup-form").hide()
     formSubmitted: (data) ->
-      Foxfire.Session.set "currentUser", @store.createRecord("account", company: 1, email: 2)
-      true
+      
+
+

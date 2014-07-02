@@ -1,6 +1,8 @@
 class Foxfire.ApplicationRoute extends Ember.Route
   userLoggedIn: ->
-    Foxfire.Session.userLoggedIn()
+    Foxfire.SessionStore.userLoggedIn()
+  currentUser: ->
+    Foxfire.SessionStore.get("currentUser")
   renderTemplate: ->
     @_super()
     @render 'footer', 
@@ -14,7 +16,7 @@ class Foxfire.ApplicationRoute extends Ember.Route
       parentView: "application"
       outlet: "modal"
     $("footer").show()
-    
+  
   actions:
     openLoginModal: ->
       @render 'modals/login',
@@ -26,6 +28,7 @@ class Foxfire.ApplicationRoute extends Ember.Route
       @closeModal()
       
     willTransition: ->
+      Foxfire.SessionStore.set "previousUrl", Foxfire.Params.currentPath()
       @closeModal()
     
     formSubmitted: ->

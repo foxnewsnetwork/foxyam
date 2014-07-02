@@ -1,0 +1,13 @@
+@mixin components-promise-button {
+  .promise-button {
+    &.ready {
+
+    }
+    .promise-button-spinner {
+      display: none;
+    }
+    &.loading {
+      @extend .disabled;
+    }
+  }
+}

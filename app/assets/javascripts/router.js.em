@@ -35,6 +35,10 @@ Foxfire.Router.map ->
     @route 'purchases'
     @route 'sells'
 
-  @resource 'login'
-  @resource 'register'
+  @resource 'sessions', path: '/sessions', ->
+    @route 'new'
+
+  @resource 'registrations', path: '/registrations', ->
+    @route 'new'
+    
   @resource 'help'

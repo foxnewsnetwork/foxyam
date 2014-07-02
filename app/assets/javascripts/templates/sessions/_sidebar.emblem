@@ -1,0 +1,7 @@
+.list-group
+  link-to 'registrations.new' class="list-group-item list-group-item-success"
+    i.fa-edit
+    span.capitalize.bold  no account? sign up here
+  link-to 'help' class="list-group-item"
+    i.fa-info-circle
+    span.capitalize.bold  help

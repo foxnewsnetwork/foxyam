@@ -6,7 +6,7 @@
       link-to 'account' currentAccount class="action"
         i.fa-user
     else
-      a click="openLoginModal" class="action pointer"
+      link-to 'sessions.new' class="action"
         i.fa-sign-in
 
         

@@ -1,5 +1,4 @@
 class Foxfire.FormForComponent extends Ember.Component
-  tagName: 'form'  
   formData: ->
     @$().serializeArray()
 
@@ -36,4 +35,4 @@ class Foxfire.FormForComponent extends Ember.Component
 
   actions:
     submit: ->
-      @sendAction "action", @updatedModel()
+      @sendAction "submit", @updatedModel()
