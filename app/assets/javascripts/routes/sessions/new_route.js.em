@@ -2,10 +2,13 @@ class Foxfire.SessionsNewRoute extends Foxfire.ApplicationRoute
   model: (params) ->
     session: @session()
     previousUrl: @previousUrl()
+    
   previousUrl: ->
-    Foxfire.SessionStore.get("previousUrl")
+    Foxfire.HistoryHelper.previousNonSessionUrl()
+
   session: ->
     @store.createRecord 'session'
+
   renderTemplate: ->
     @_super()
     @render 'sessions/header', outlet: 'header'
@@ -13,9 +16,6 @@ class Foxfire.SessionsNewRoute extends Foxfire.ApplicationRoute
   
   successfulLogin: (session) ->
     Foxfire.SessionStore.set "currentUser", session
-    @redirectUserBack()
-
-  redirectUserBack: ->
     @transitionTo @previousOrAccount()
 
   failedLogin: (session) ->

@@ -1,0 +1,7 @@
+.list-group
+  link-to 'sessions.new' class="list-group-item list-group-item-success"
+    i.fa-edit
+    span.capitalize.bold  have account? log in up here
+  link-to 'help' class="list-group-item"
+    i.fa-info-circle
+    span.capitalize.bold  help

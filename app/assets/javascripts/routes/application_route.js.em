@@ -28,7 +28,7 @@ class Foxfire.ApplicationRoute extends Ember.Route
       @closeModal()
       
     willTransition: ->
-      Foxfire.SessionStore.set "previousUrl", Foxfire.Params.currentPath()
+      Foxfire.SessionStore.logHistory Foxfire.Params.currentPath()
       @closeModal()
     
     formSubmitted: ->

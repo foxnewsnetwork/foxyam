@@ -1,0 +1,5 @@
+#templates-footer
+  .fixed-bottom.hidden-on-desktop
+    .container-fluid
+      .row
+        == outlet footer

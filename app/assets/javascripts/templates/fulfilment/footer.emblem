@@ -1,12 +1,8 @@
-#templates-fulfilment-footer
-  .fixed-bottom.hidden-on-desktop
-    .container-fluid
-      .row
-        .col-xs-6
-          link-to "fulfilment.index" model class="list-group-item list-group-item-success"
-            i.fa-share-alt.fa-rotate-90
-            span.capitalize.bold  steps
-        .col-xs-6
-          link-to "fulfilment.log" model class="list-group-item list-group-item-warning"
-            i.fa-comments-o
-            span.capitalize.bold  log
+.col-xs-6
+  link-to "fulfilment.index" model class="list-group-item list-group-item-success"
+    i.fa-share-alt.fa-rotate-90
+    span.capitalize.bold  steps
+.col-xs-6
+  link-to "fulfilment.log" model class="list-group-item list-group-item-warning"
+    i.fa-comments-o
+    span.capitalize.bold  log

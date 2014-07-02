@@ -1,0 +1,4 @@
+a href=backPath class="back-button"
+  i.fa-angle-left
+  i.fa-bomb
+  span.page-name registering for new account

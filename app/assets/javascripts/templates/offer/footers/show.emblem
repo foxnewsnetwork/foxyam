@@ -1,16 +1,12 @@
-#templates-offer-footer
-  .fixed-bottom.hidden-on-desktop
-    .container-fluid
-      .row
-        .col-xs-4
-          link-to "offer.accept" model class="list-group-item list-group-item-success"
-            i.fa-check
-            span.capitalize.bold  yes
-        .col-xs-4
-          link-to "offer.counter" model class="list-group-item"
-            i.fa-comments-o
-            span.capitalize.bold  ctr
-        .col-xs-4
-          link-to "offer.cancel" model class="list-group-item list-group-item-warning"
-            i.fa-warning
-            span.capitalize.bold  no
+.col-xs-4
+  link-to "offer.accept" model class="list-group-item list-group-item-success"
+    i.fa-check
+    span.capitalize.bold  yes
+.col-xs-4
+  link-to "offer.counter" model class="list-group-item"
+    i.fa-comments-o
+    span.capitalize.bold  ctr
+.col-xs-4
+  link-to "offer.cancel" model class="list-group-item list-group-item-warning"
+    i.fa-warning
+    span.capitalize.bold  no

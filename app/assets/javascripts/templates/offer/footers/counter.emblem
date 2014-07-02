@@ -1,13 +1,9 @@
-#templates-offer-counter-footer
-  .fixed-bottom.hidden-on-desktop
-    .container-fluid
-      .row
-        .col-xs-6
-          link-to "offer.counter" 123 class="list-group-item list-group-item-success"
-            i.fa-comment-o
-            span.capitalize.bold  ez
-        .col-xs-6
-          link-to "offer.counter" 100 class="list-group-item"
-            i.fa-comments-o
-            span.capitalize.bold  adv
-          
+.col-xs-6
+  link-to "offer.counter" 123 class="list-group-item list-group-item-success"
+    i.fa-comment-o
+    span.capitalize.bold  ez
+.col-xs-6
+  link-to "offer.counter" 100 class="list-group-item"
+    i.fa-comments-o
+    span.capitalize.bold  adv
+  

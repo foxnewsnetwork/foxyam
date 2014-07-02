@@ -1,17 +1,12 @@
-#templates-account-footer
-  .fixed-bottom.hidden-on-desktop
-    .container-fluid
-      .row
-        .col-xs-4
-          link-to 'account.index' model class="list-group-item list-group-item-success"
-            i.fa-user
-            span.capitalize.bold  acct
-        .col-xs-4
-          link-to 'account.purchases' model class="list-group-item"
-            i.fa-shopping-cart
-            span.capitalize.bold  buys
-        .col-xs-4
-          link-to 'account.sells' model class="list-group-item list-group-item-warning"
-            i.fa-ticket
-            span.capitalize.bold  sells
-    
+.col-xs-4
+  link-to 'account.index' model class="list-group-item list-group-item-success"
+    i.fa-user
+    span.capitalize.bold  acct
+.col-xs-4
+  link-to 'account.purchases' model class="list-group-item"
+    i.fa-shopping-cart
+    span.capitalize.bold  buys
+.col-xs-4
+  link-to 'account.sells' model class="list-group-item list-group-item-warning"
+    i.fa-ticket
+    span.capitalize.bold  sells

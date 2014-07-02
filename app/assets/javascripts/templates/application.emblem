@@ -1,9 +1,11 @@
 header#ember-header
-  == partial "header"
+  == partial "header-layout"
   
 main#ember-main
   == outlet
+
 footer#ember-footer
-  == outlet footer
+  == partial "footer-layout"
+
 section#ember-modal
   == outlet modal

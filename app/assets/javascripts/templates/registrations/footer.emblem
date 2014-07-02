@@ -1,7 +1,7 @@
 .col-xs-6
-  link-to 'registrations.new' class="list-group-item list-group-item-success"
+  link-to 'sessions.new' class="list-group-item list-group-item-success"
     i.fa-edit
-    span.capitalize.bold  no acct?
+    span.capitalize.bold  sign in
 .col-xs-6
   link-to 'help' class="list-group-item"
     i.fa-info-circle

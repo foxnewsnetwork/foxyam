@@ -1,0 +1,24 @@
+#foxfire-templates-registrations-new.padded-for-mobile-footer
+  .row
+    .two-quarters.offset-one-quarter
+      == partial "registrations/sidebar"
+    .two-quarters.offset-one-quarter
+      .signup-form
+        form-for model=account submit="formSubmitted"
+          legend.capitalize.bold sign up for an account
+          .form-group
+            label.capitalize email
+            input name="email" type="email" class="form-control" placeholder="foxnewsnetwork@gmail.com"
+          .form-group
+            label.capitalize company
+            input name="company" type="text" class="form-control" placeholder="Acme Inc."
+          .form-group
+            label.capitalize password
+            input name="password" type="password" class="form-control"
+          .form-group
+            label.capitalize password confirmation
+            input name="passwordConfirmation" type="password" class="form-control"
+          .form-group
+            promise-button model=account class="btn btn-success btn-lg btn-block" type="submit"
+              i.fa-check
+              span.capitalize.bold sign up

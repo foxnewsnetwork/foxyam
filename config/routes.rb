@@ -15,6 +15,7 @@ Fuxueyan::Application.routes.draw do
     resources :conversations, only: [:show], controller: 'conversations/show'
     resources :fulfilments, only: [:show], controller: 'fulfilments/show'
     resources :accounts, only: [:show], controller: 'accounts/show'
+    resources :accounts, only: [:create], controller: 'accounts/create'
     resources :sessions, only: [:create], controller: 'sessions/create'
   end
   devise_for :users,

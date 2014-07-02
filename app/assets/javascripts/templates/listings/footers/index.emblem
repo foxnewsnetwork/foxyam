@@ -1,13 +1,9 @@
-#templates-listings-footers-index
-  .fixed-bottom.hidden-on-desktop
-    .container-fluid
-      .row
-        .col-xs-4
-          button click="openSearch" class="btn btn-block btn-default"
-            i.fa-search
-        .col-xs-4
-          button class="btn btn-block btn-info"
-            i.fa-tag
-        .col-xs-4
-          button class="btn btn-block btn-success"
-            i.fa-tag
+.col-xs-4
+  button click="openSearch" class="btn btn-block btn-default"
+    i.fa-search
+.col-xs-4
+  button class="btn btn-block btn-info"
+    i.fa-tag
+.col-xs-4
+  button class="btn btn-block btn-success"
+    i.fa-tag

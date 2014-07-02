@@ -24,6 +24,7 @@ Because I did the order of design wrong, I will now rework the whole front end f
 11. Listing new - done (mocked)
 12. Merchant / account login - done (mocked)
 
+
 Writing
 =
 While I build this thing, I might as well concurrently write up my experience as a 2nd time founder. 
