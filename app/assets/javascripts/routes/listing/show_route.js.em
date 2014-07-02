@@ -1,7 +1,4 @@
-class Foxfire.ListingShowRoute extends Ember.Route
-  model: (params) ->
-    @store.find "listing", params.listing_id
+class Foxfire.ListingShowRoute extends Foxfire.ListingBaseRoute
   renderTemplate: ->
     @_super()
-    @render 'listing/footer', outlet: 'footer'
     @render 'listing/headers/index', outlet: 'header'

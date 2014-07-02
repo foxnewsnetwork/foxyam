@@ -5,7 +5,7 @@ class Apiv1::Sessions::CreateController < Apiv1::BaseController
   private
   def _mocked
     {
-      id: rand(999),
+      id: 1,
       email: _raw_params[:email],
       result: :success
     }

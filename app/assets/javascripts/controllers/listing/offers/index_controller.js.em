@@ -1,3 +1,3 @@
-class Foxfire.ListingOffersIndexController extends Ember.ObjectController
+class Foxfire.ListingOffersIndexController extends Foxfire.ListingEditController
   offers: ~>
     ["dog", "cat"]

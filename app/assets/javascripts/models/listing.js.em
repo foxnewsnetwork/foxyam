@@ -1,5 +1,10 @@
 a = DS.attr
 class Foxfire.Listing extends DS.Model
+  account_id: a 'number'
+  +computed account_id
+  account: ->
+    @store.find "account", @get("account_id")
+
   material_name: a 'string'
   conversation_id: a 'string'
   is_private: a 'boolean'

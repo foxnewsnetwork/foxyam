@@ -3,7 +3,7 @@
     i.fa-photo
     span.capitalize.bold  pics
 .col-xs-4
-  if hasOwner
+  if currentMerchantIsOwner
     link-to 'listing.edit' model class="list-group-item"
       i.fa-edit
       span.capitalize.bold  edit

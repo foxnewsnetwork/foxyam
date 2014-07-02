@@ -5,7 +5,7 @@ class Apiv1::Accounts::CreateController < Apiv1::BaseController
   private
   def _fake_data
     {
-      id: rand(999),
+      id: 2,
       email: _account_params[:email],
       company: _account_params[:company]
     }

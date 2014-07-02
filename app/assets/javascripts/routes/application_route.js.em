@@ -1,8 +1,4 @@
-class Foxfire.ApplicationRoute extends Ember.Route
-  userLoggedIn: ->
-    Foxfire.SessionStore.userLoggedIn()
-  currentUser: ->
-    Foxfire.SessionStore.get("currentUser")
+class Foxfire.ApplicationRoute extends Ember.Route 
   renderTemplate: ->
     @_super()
     @render 'footer', 

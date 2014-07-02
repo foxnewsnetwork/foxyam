@@ -3,10 +3,11 @@
     .three-quarters
       == partial "listing/hero-unit"
       == partial "listing/offer-data"
-      .list-group
-        link-to "listing.offers.new" model class="list-group-item list-group-item-success"
-          i.fa-plus
-          span.capitalize.bold  make new offer
+      if currentMerchantIsOwner
+        .list-group
+          link-to "listing.offers.new" model class="list-group-item list-group-item-success"
+            i.fa-plus
+            span.capitalize.bold  make new offer
       == partial "listing/offers"
 
     .one-quarter.hidden-on-mobile

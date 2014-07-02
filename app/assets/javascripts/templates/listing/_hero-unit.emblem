@@ -9,7 +9,10 @@
           i.fa-eye
       dl.dl-horizontal
         dt Merchant
-        dd Someone
+        dd 
+          span.capitalize= account.company 
+          if currentMerchantIsOwner
+            span.parantheses.capitalize.bold you!
         dt Asking Price
         dd $0.45/lb FAS Long Beach Port
         dt Material
