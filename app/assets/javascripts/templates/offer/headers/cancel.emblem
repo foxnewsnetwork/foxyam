@@ -2,6 +2,4 @@ link-to 'offer.show' model class="back-button"
   i.fa-angle-left
   i.fa-bomb
   span.page-name
-    span.capitalize.spacebar reject
-    span.capitalize.possessive= model.account.company 
-    span.capitalize.prespace offer
+    span.capitalize.spacebar reject offer

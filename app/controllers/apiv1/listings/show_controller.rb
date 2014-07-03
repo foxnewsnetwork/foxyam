@@ -3,9 +3,7 @@ class Apiv1::Listings::ShowController < Apiv1::BaseController
     render json: { listing: _fake_listing }
   end
   private
-  def _fake_listings
-    1.upto(10).map { _fake_listing }.sort { |b,a| a.created_at <=> b.created_at }
-  end
+  
   def _fake_listing
     {
       id: params[:id] || rand(99),

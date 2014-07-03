@@ -1,6 +1,6 @@
 link-to 'offer.show' model class="back-button"
   i.fa-angle-left
   i.fa-bomb
-  span.page-name Counter offer - Joe Smoe
+  span.page-name
     span.capitalize.dash counter offer
     span.capitalize.possessive= model.account.company 
