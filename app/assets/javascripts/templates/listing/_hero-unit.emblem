@@ -2,7 +2,7 @@
   .row
     .col-xs-3
       figure.cover-image
-        img src="emoji/1.png"
+        img src=model.pictures.firstObject.source
     .col-xs-9
       .pull-right
         a href="?"
@@ -10,14 +10,25 @@
       dl.dl-horizontal
         dt Merchant
         dd 
-          span.capitalize= account.company 
-          if currentMerchantIsOwner
-            span.parantheses.capitalize.bold you!
+          link-to "account.show" account.id
+            span.capitalize= account.company 
+            if currentMerchantIsOwner
+              span.parantheses.capitalize.bold you!
         dt Asking Price
-        dd $0.45/lb FAS Long Beach Port
+        dd 
+          span.spacebar
+            | $
+            = model.asking_price
+          span.upcase.bold.spacebar= model.incoterm
+          span.capitalize= model.location
+
         dt Material
-        dd HDPE Milk Jugs
+        dd= model.material_name
         dt Quantity
-        dd 4 containers
+        dd
+          span.spacebar= model.quantity
+          span= model.quantity_unit
         dt Packing Weight
-        dd 32,000 lbs/40ST
+        dd
+          span.spacebar= model.packing_weight
+          span= model.transportor

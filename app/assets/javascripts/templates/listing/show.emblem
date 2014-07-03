@@ -2,7 +2,6 @@
   .row
     .three-quarters
       == partial "listing/hero-unit"
-      == partial "listing/offer-data"
 
       == partial "listing/pictures"
 

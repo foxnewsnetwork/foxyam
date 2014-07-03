@@ -18,6 +18,7 @@
     }
     .dialogue {
       @include box-flex(5);
+      padding-left: 5px;
     }
   }
 }

@@ -49,7 +49,7 @@ describe "Foxfire.Listing", ->
         expect(listing.pictures).to.have.length 1
         done!
 
-    specify "saving the listing should result in the pictures and listing being saved", (done) ->
+    specify.skip "saving the listing should result in the pictures and listing being saved", (done) ->
       @par2.then (listing) ->
         listing.validate_and_save()
       .then (either) ->

@@ -1,13 +1,21 @@
 .list-group.offers
-  
   each offer in offers
-    link-to "offer.show" 1 class="list-group-item avatar-dialogue"
+    link-to "offer.show" offer class="list-group-item avatar-dialogue"
       figure.avatar
-        i.fa-linux
+        img src=offer.account.image
       .dialogue
         .counterparty-gist
-          span.counterparty.dash John Smith
-          span.gist $0.45/lb FAS LA Port
-        .subject-summary
-          span.subject.dash Email subject here
-          span.summary This is the content...
+          span.counterparty.dash.bold= offer.account.company
+          span.gist
+            | $
+            span.spacebar= offer.rounded_price
+            span.bold.upcase.spacebar= offer.incoterm
+            span.capitalize= offer.location
+
+        .subject-summary.hidden-on-mobile
+          span.subject.dash.capitalize.bold= offer.email_subject
+          span.summary= offer.email_content
+  else
+    h4.capitalize.ellipsis
+      i.fa-spin.fa-spinner
+      span no offers yet

@@ -1,3 +1,4 @@
 class Foxfire.ListingOffersIndexController extends Foxfire.ListingEditController
-  offers: ~>
-    ["dog", "cat"]
+  +computed model.offers
+  offers: ->
+    @get("model.offers")

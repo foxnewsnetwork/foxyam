@@ -4,7 +4,6 @@ class Foxfire.Listing extends DS.Model
   +computed account_id
   account: ->
     @store.find "account", @get("account_id")
-
   material_name: a 'string'
   conversation_id: a 'string'
   is_private: a 'boolean'
@@ -18,23 +17,32 @@ class Foxfire.Listing extends DS.Model
   transportor: a 'string'
   time_interval: a 'string'
   created_at: a 'date'
-  validate_and_save: ->
-    v = @validator() 
-    if v.isValid()
-      Foxfire.Either.right @saveEverything()
-    else
-      Foxfire.Either.left v.errors
+
+  +computed id
+  offers: ->
+    @store.find "offer", listing_id: @get("id")
+
+  +computed id
+  pictures: ->
+    @store.find "picture", listing_id: @get("id")
+
+  # validate_and_save: ->
+  #   v = @validator() 
+  #   if v.isValid()
+  #     Foxfire.Either.right @saveEverything()
+  #   else
+  #     Foxfire.Either.left v.errors
   
-  saveEverything: ->
-    @save().then (listing) =>
-      @picturePromises listing
+  # saveEverything: ->
+  #   @save().then (listing) =>
+  #     @picturePromises listing
 
-  picturePromises: (listing) ->
-    promises = _.map @get("pictures"), (picture) ->
-      picture.conversation_id = listing.conversation_id
-      picture.save()
-    Foxfire.PromiseArray.create promises: promises
+  # picturePromises: (listing) ->
+  #   promises = _.map @get("pictures"), (picture) ->
+  #     picture.conversation_id = listing.conversation_id
+  #     picture.save()
+  #   Foxfire.PromiseArray.create promises: promises
 
-  validator: ->
-    Foxfire.ListingValidator.create(listing: @)
-      
+  # validator: ->
+  #   Foxfire.ListingValidator.create(listing: @)
+  #     

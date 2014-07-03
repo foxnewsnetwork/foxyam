@@ -57,6 +57,9 @@
   .dash:after {
     content: " - ";
   }
+  .spacebar:after {
+    content: " ";
+  }
   .predash:before {
     content: " - ";
   }

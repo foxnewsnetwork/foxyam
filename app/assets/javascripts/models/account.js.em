@@ -4,5 +4,6 @@ class Foxfire.Account extends DS.Model
   email: a "string"
   password: a "string"
   passwordConfirmation: a "string"
+  image: a "string"
 
   

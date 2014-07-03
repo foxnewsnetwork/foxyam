@@ -3,6 +3,12 @@
     each pic in pictures
       .one-sixth
         .figure
-          a href="emoji/#{pic}.png" target="blank"
-            img src="emoji/#{pic}.png"
+          a href=pic.source target="blank"
+            img src=pic.source
+    else
+      .one-whole.align-center
+        h4
+          i.fa-spinner.fa-spin
+          span.capitalize.bold  no pictures yet...
+
 

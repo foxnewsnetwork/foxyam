@@ -1,6 +1,6 @@
 a = DS.attr
 class Foxfire.Picture extends DS.Model
-  conversation_id: a 'number'
+  listing_id: a 'number'
   source: a 'string'
   file: a()
   +observer file

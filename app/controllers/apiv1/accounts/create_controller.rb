@@ -7,10 +7,14 @@ class Apiv1::Accounts::CreateController < Apiv1::BaseController
     {
       id: 2,
       email: _account_params[:email],
-      company: _account_params[:company]
+      company: _account_params[:company],
+      image: _image_src
     }
   end
   def _account_params
     params.require(:account).permit(:company, :password, :password_confirmation, :email)
+  end
+  def _image_src
+    "emoji/" + (460..489).to_a.sample.to_s + ".png"
   end
 end

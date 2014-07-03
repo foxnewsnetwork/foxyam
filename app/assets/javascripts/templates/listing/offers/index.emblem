@@ -2,12 +2,17 @@
   .row
     .three-quarters
       == partial "listing/hero-unit"
-      == partial "listing/offer-data"
-      if currentMerchantIsOwner
-        .list-group
+
+      .list-group
+        if currentMerchantIsOwner
+          link-to "listing.edit" model class="list-group-item list-group-item-success"
+            i.fa-plus
+            span.capitalize.bold  edit asking price
+        else
           link-to "listing.offers.new" model class="list-group-item list-group-item-success"
             i.fa-plus
             span.capitalize.bold  make new offer
+
       == partial "listing/offers"
 
     .one-quarter.hidden-on-mobile
