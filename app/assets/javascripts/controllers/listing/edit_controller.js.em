@@ -6,6 +6,6 @@ class Foxfire.ListingEditController extends Foxfire.ApplicationController
   account: ->
     @get("model.account")
 
-  +computed account, currentAccount
+  +computed account.id, currentAccountId
   currentMerchantIsOwner: ->
-    @get("currentAccount")? and @get("currentAccount.id") is @get("account.id")
+    @currentAccountIdIs @get("account.id")

@@ -1,6 +1,7 @@
 .material-quantity
   .material
-    span.bold.capitalize= material
+    span.bold.capitalize.spacebar= material
+    span.parantheses= model.account.company
 
   .quantity  
     if hasPlace
