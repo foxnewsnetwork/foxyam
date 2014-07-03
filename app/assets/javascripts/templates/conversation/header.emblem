@@ -1,4 +1,6 @@
-link-to 'offer.show' 1 class="back-button"
+link-to 'offer.show' model.offer_id class="back-button"
   i.fa-angle-left
   i.fa-bomb
-  span.page-name conversations with john doe
+  span.page-name 
+    span.capitalize.dash conversation
+    span.capitalize= model.created_at_ago

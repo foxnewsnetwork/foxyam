@@ -16,3 +16,7 @@ class Foxfire.Conversation extends DS.Model
     $.timeago @get "created_at"
   icon_type: a "string"
   summary: a "string"
+
+  +computed id
+  attachments: ->
+    @store.find "attachment", conversation_id: @get("id")

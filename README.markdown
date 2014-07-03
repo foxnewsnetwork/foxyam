@@ -7,23 +7,23 @@ Because I did the order of design wrong, I will now rework the whole front end f
 1. account listing page - done (mocked)
 1. account edit
 2. (Global) Admin account show page (sees add $, subtract $)
-3. Listings index - done (mocked)
-4. Listing show - done (mocked)
-5. Listing.offers - done (mocked)
-5. Listing.edit - done (mocked)
-5. Offer.new - done (mocked)
-5. offer.show -done (mocked)
-6. Offer.counter - done (mocked)
-7. Offer.accept - done (mocked)
-8. Offer.redact - done (mocked)
-9. Offer.checkout (aka contract) - done (mocked)
-9. conversation.show - done (mocked)
+3. Listings index - done (mocked) - backended
+4. Listing show - done (mocked) - backended
+5. Listing.offers - done (mocked) - backened
+5. Listing.edit - done (mocked) - backened
+5. Offer.new - done (mocked) - backended
+5. offer.show -done (mocked) - backended
+6. Offer.counter - done (mocked) - backended
+7. Offer.accept - done (mocked) - backended
+8. Offer.redact - done (mocked) - backended
+9. Offer.checkout (aka contract) - done (mocked) - backended
+9. conversation.show - done (mocked) - backended
 10. Escrow.show - done (mocked) calling it fulfilment though
 10. fulfilment.map - done (mocked)
 10. fulfilment.log - done (mocked)
 11. Listing new - done (mocked)
 12. Merchant / account login - done (mocked)
-
+12. conversation reply
 
 Writing
 =

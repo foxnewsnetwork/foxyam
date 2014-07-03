@@ -1,0 +1,4 @@
+a href=model.source class="list-group-item avatar-dialogue" target="blank"
+  figure.avatar
+    img src=model.source
+  .dialogue= model.source_name

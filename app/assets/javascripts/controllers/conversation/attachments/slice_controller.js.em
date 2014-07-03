@@ -1,0 +1,1 @@
+class Foxfire.ConversationAttachmentsSliceController extends Ember.ObjectController
