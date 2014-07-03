@@ -2,11 +2,6 @@
   .row
     .three-quarters
       == partial "offer/hero-unit"
-      .row
-        .one-whole.align-center.margin-puffed
-          button class="btn btn-danger"
-            i.fa-warning
-            span.capitalize.bold  destroy
       == partial "offer/conversations"
 
     .one-quarter.hidden-on-mobile

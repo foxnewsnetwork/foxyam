@@ -2,13 +2,19 @@
   .row
     .col-xs-3
       figure.cover-image
-        img src="emoji/555.png"
+        img src=model.account.image
     .col-xs-9
       .pull-right
         a href="?"
           i.fa-eye
       dl.dl-horizontal
         dt Merchant
-        dd Someone
+        dd
+          link-to "account.show" model.account
+            span.capitalize= model.account.company
         dt Latest Offer
-        dd $0.45/lb FAS Long Beach Port
+        dd 
+          | $
+          span.spacebar= model.rounded_price
+          span.spacebar.upcase.bold= model.incoterm
+          span= model.location

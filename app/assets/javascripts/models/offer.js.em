@@ -20,3 +20,8 @@ class Foxfire.Offer extends DS.Model
   email_content: a "string"
   email_subject: a "string"
   
+  +computed id, account_id
+  conversations: ->
+    @store.find "conversation", 
+      offer_id: @get("id")
+      account_id: @get("account_id")

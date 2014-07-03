@@ -1,27 +1,14 @@
 .conversations
-  link-to "conversation" 1 class="list-group-item avatar-dialogue"
-    figure.avatar
-      i.fa-envelope
-    .dialogue
-      .speaker
-        span.bold John Smith
-        span.predash Just now
-      .summary This is the content...
-
-  link-to "conversation" 1 class="list-group-item avatar-dialogue"
-    figure.avatar
-      i.fa-phone
-    .dialogue
-      .speaker
-        span.bold 626 376 4444
-        span.predash 1 hour ago
-      .summary This is the content...
-  
-  link-to "conversation" 1 class="list-group-item avatar-dialogue"
-    figure.avatar
-      i.fa-envelope
-    .dialogue
-      .speaker
-        span.bold You
-        span.predash 1 day ago
-      .summary This is the content...
+  each conversation in conversations
+    link-to "conversation" conversation class="list-group-item avatar-dialogue"
+      figure.avatar
+        i class=conversation.icon_type
+      .dialogue
+        .speaker
+          span.bold= conversation.account.company
+          span.predash= conversation.created_at_ago
+        .summary= conversation.summary
+  else
+    h4
+      i.fa-spin.fa-spinner
+      span.capitalize.bold  nothing here yet

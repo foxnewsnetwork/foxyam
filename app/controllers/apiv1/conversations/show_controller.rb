@@ -1,12 +1,5 @@
-class Apiv1::Conversations::ShowController < Apiv1::BaseController
+class Apiv1::Conversations::ShowController < Apiv1::Conversations::ShowController
   def show
-    render json: { conversation: _mocked_hash }
-  end
-  private
-  def _mocked_hash
-    {
-      id: 1,
-      offer: 1
-    }
+    render json: { conversation: _fake_convo }
   end
 end

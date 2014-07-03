@@ -1,3 +1,4 @@
+#= require timeago/jquery.timeago
 #= require jquery_typeahead
 #= require handlebars
 #= require ember

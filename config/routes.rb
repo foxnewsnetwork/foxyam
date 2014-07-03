@@ -14,6 +14,7 @@ Fuxueyan::Application.routes.draw do
     resources :offers, only: [:show], controller: 'offers/show'
     resources :offers, only: [:index], controller: 'offers/index'
     resources :conversations, only: [:show], controller: 'conversations/show'
+    resources :conversations, only: [:index], controller: 'conversations/index'
     resources :fulfilments, only: [:show], controller: 'fulfilments/show'
     resources :accounts, only: [:show], controller: 'accounts/show'
     resources :accounts, only: [:create], controller: 'accounts/create'
