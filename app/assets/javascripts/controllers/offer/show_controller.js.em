@@ -3,10 +3,8 @@ class Foxfire.OfferShowController extends Ember.ObjectController with Foxfire.Cu
   conversations: ->
     @get("model.conversations")
   
-  +computed model.account
+  +computed model.account_id, model.listing.account_id, currentAccountId
   currentPartyIsRelevant: ->
-    @currentAccountIs @get("model.account") or @currentAccountIs @get("listing.account")
-
-  +computed model.listing
-  listing: ->
-    @model.listing
+    isbuyer = @currentAccountIdIs @get("model.account_id") 
+    isseller = @currentAccountIdIs @get("model.listing.account_id")
+    isbuyer or isseller 

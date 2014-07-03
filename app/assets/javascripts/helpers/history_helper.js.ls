@@ -10,3 +10,9 @@ class Foxfire.HistoryHelper
 
   @notSessionOrRegistration = (url) ->
     /sessions/ isnt url and /registrations/ isnt url
+
+  @attemptLastTransition = ->
+    return unless Foxfire.SessionStore.lastTransition?
+    Foxfire.SessionStore.lastTransition.retry()
+    Foxfire.SessionStore.lastTransition = undefined
+    true

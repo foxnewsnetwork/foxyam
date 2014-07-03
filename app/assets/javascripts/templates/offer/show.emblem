@@ -6,6 +6,10 @@
 
     .one-quarter.hidden-on-mobile
       .list-group
+        link-to "listing.offers" model.listing_id class="list-group-item"
+          h4
+            i.fa-chevron-left
+            span.capitalize.bold  back
         if currentPartyIsRelevant
           link-to "offer.accept" model class="list-group-item list-group-item-success"
             h4

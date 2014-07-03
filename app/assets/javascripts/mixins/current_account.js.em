@@ -7,9 +7,17 @@ mixin Foxfire.CurrentAccountMixin
   currentAccount: ->
     Foxfire.SessionStore.get("currentUser")
 
+  +computed currentAccount.id
+  currentAccountId: ->
+    @get("currentAccount.id")
+
   currentUser: ->
     @get("currentAccount")
-    
+  
+  currentAccountIdIs: (acc_id) ->
+    u = @userLoggedIn
+    m = "#{@currentAccountId}" is "#{acc_id}"
+    u and m
+  
   currentAccountIs: (account) ->
-    return false unless @get("currentAccount") and account
-    @get("currentAccount.id") is account.get("id")
+    @currentAccountIdIs account.get "id"

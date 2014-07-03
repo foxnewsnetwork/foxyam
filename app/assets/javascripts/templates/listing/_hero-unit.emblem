@@ -11,16 +11,16 @@
         dt Merchant
         dd 
           link-to "account.show" account.id
-            span.capitalize= account.company 
+            span.capitalize.spacebar= account.company 
             if currentMerchantIsOwner
               span.parantheses.capitalize.bold you!
         dt Asking Price
         dd 
           span.spacebar
             | $
-            = model.asking_price
+            = model.rounded_price
           span.upcase.bold.spacebar= model.incoterm
-          span.capitalize= model.location
+          span.capitalize= model.location_name
 
         dt Material
         dd= model.material_name

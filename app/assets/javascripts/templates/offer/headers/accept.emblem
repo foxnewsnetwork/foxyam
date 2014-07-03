@@ -1,4 +1,7 @@
-link-to 'offer.show' 1 class="back-button"
+link-to 'offer.show' model class="back-button"
   i.fa-angle-left
   i.fa-bomb
-  span.page-name Accept Joe Smoe's Offer
+  span.page-name
+    span.capitalize.spacebar accept
+    span.capitalize.possessive= model.account.company 
+    span.capitalize.prespace offer

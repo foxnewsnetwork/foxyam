@@ -1,4 +1,6 @@
 link-to 'listings' class="back-button"
   i.fa-angle-left
   i.fa-bomb
-  span.page-name dog food - LA port
+  span.page-name
+    span.capitalize.dash= model.material_name
+    span.capitalize= model.location_name

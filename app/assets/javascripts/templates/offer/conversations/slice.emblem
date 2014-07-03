@@ -1,0 +1,11 @@
+link-to "conversation" conversation class="list-group-item avatar-dialogue"
+  figure.avatar
+    i class=conversation.icon_type
+  .dialogue
+    .speaker
+      span.bold.capitalize
+        span.spacebar= conversation.account.company
+        if currentAccountIsSpeaker
+          span.parantheses you
+      span.predash= conversation.created_at_ago
+    .summary= conversation.summary

@@ -1,14 +1,8 @@
 .conversations
-  each conversation in conversations
-    link-to "conversation" conversation class="list-group-item avatar-dialogue"
-      figure.avatar
-        i class=conversation.icon_type
-      .dialogue
-        .speaker
-          span.bold= conversation.account.company
-          span.predash= conversation.created_at_ago
-        .summary= conversation.summary
-  else
-    h4
-      i.fa-spin.fa-spinner
-      span.capitalize.bold  nothing here yet
+  if currentPartyIsRelevant
+    each conversation in conversations
+      == render "offer/conversations/slice" conversation
+    else
+      h4
+        i.fa-spin.fa-spinner
+        span.capitalize.bold  nothing here yet

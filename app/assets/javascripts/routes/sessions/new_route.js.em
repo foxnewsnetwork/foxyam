@@ -16,7 +16,8 @@ class Foxfire.SessionsNewRoute extends Foxfire.ApplicationRoute
   
   successfulLogin: (session) ->
     Foxfire.SessionStore.set "currentUser", session
-    @transitionTo @previousOrAccount()
+    unless Foxfire.HistoryHelper.attemptLastTransition()
+      @transitionTo @previousOrAccount()
 
   failedLogin: (session) ->
     throw "Not Implemented"

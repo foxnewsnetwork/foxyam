@@ -1,4 +1,9 @@
-link-to 'listing.offers' 1 class="back-button"
+link-to 'listing.offers' model.listing_id class="back-button"
   i.fa-angle-left
   i.fa-bomb
-  span.page-name Joe Smoe - $0.45 FAS LA Port
+  span.page-name
+    span.capitalize.dash= model.account.company
+    span $
+    span.spacebar= model.rounded_price
+    span.upcase.spacebar= model.incoterm
+    span.capitalize= model.location

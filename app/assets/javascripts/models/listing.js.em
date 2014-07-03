@@ -5,7 +5,6 @@ class Foxfire.Listing extends DS.Model
   account: ->
     @store.find "account", @get("account_id")
   material_name: a 'string'
-  conversation_id: a 'string'
   is_private: a 'boolean'
   asking_price: a 'number'
   price_unit: a 'string'
@@ -18,6 +17,11 @@ class Foxfire.Listing extends DS.Model
   time_interval: a 'string'
   created_at: a 'date'
 
+  +computed asking_price
+  rounded_price: ->
+    return unless @asking_price
+    @asking_price.toPrecision(3)
+    
   +computed id
   offers: ->
     @store.find "offer", listing_id: @get("id")

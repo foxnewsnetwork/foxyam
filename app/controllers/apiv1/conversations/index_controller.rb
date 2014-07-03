@@ -4,7 +4,7 @@ class Apiv1::Conversations::IndexController < Apiv1::BaseController
   end
   private
   def _fake_convos
-    1.upto(rand 10).map { _fake_convo }.sort { |a,b| b[:created_at] <=> a[:created_at] }
+    1.upto(2 + rand(10)).map { _fake_convo }.sort { |a,b| b[:created_at] <=> a[:created_at] }
   end
   def _fake_convo
     {

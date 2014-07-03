@@ -1,4 +1,7 @@
 link-to 'listing.show' model class="back-button"
   i.fa-angle-left
   i.fa-bomb
-  span.page-name offers for dog food - LA port
+  span.page-name
+    span.capitalize.spacebar offers for
+    span.capitalize.dash= model.material_name
+    span.capitalize= model.location_name

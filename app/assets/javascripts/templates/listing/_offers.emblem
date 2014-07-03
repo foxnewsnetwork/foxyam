@@ -1,20 +1,6 @@
 .list-group.offers
   each offer in offers
-    link-to "offer.show" offer class="list-group-item avatar-dialogue"
-      figure.avatar
-        img src=offer.account.image
-      .dialogue
-        .counterparty-gist
-          span.counterparty.dash.bold= offer.account.company
-          span.gist
-            | $
-            span.spacebar= offer.rounded_price
-            span.bold.upcase.spacebar= offer.incoterm
-            span.capitalize= offer.location
-
-        .subject-summary.hidden-on-mobile
-          span.subject.dash.capitalize.bold= offer.email_subject
-          span.summary= offer.email_content
+    == render "listing/offers/slice" offer
   else
     h4.capitalize.ellipsis
       i.fa-spin.fa-spinner
