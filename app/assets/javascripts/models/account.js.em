@@ -6,4 +6,5 @@ class Foxfire.Account extends DS.Model
   passwordConfirmation: a "string"
   image: a "string"
 
-  
+  +computed id
+  fulfilments: -> @store.find "fulfilment", account_id: @get("id")

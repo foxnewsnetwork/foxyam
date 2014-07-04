@@ -1,0 +1,21 @@
+link-to 'fulfilment' fulfilment class=sliceClass
+  figure.avatar
+    i class=statusIconClass
+  .dialogue
+    .listing-payment
+      span.bold 
+        span $
+        span.money= fulfilment.money_amount
+      span.predash.capitalize.spacebar= fulfilment.transfer_type
+      span.parantheses.prespace= fulfilment.created_at_ago
+    .listing-detail
+      span.capitalize.bold= fulfilment.transacted_goods
+      if isDeposit
+        span.spacebar.prespace via
+      if isSale
+        span.spacebar.prespace to
+      if isPurchase
+        span.spacebar.prespace from
+      if isWithdrawal
+        span.spacebar.prespace to
+      span.capitalize.bold= fulfilment.transaction_party
