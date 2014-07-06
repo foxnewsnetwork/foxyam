@@ -2,43 +2,8 @@
   .row
     .three-quarters
       .list-group
-        link-to "offer.show" 1 class="list-group-item avatar-dialogue"
-          figure.avatar
-            img src="emoji/217.png"
-          .dialogue
-            i.fa-mail-forward
-            span.capitalize.bold.dash John Smith's kettle corn
-            span  $0.34/lb FAS LA Port
-            span.pull-right.color-flare
-              i.fa-circle
-
-        link-to "offer.show" 1 class="list-group-item avatar-dialogue"
-          figure.avatar
-            img src="emoji/227.png"
-          .dialogue
-            i.fa-mail-forward
-            span.capitalize.bold.dash acme inc's wine grapes
-            span  $0.22/lb FAS Oak Port
-            span.pull-right.color-flare
-              i.fa-circle
-
-        link-to "offer.show" 1 class="list-group-item inactive avatar-dialogue"
-          figure.avatar
-            img src="emoji/233.png"
-          .dialogue
-            span.capitalize.bold.dash Dog Inc's pineapple
-            span  $0.12/lb FAS Chicago ramp
-            span.pull-right.color-sunflower
-              i.fa-cog.fa-spin
-
-        link-to "offer.show" 1 class="list-group-item inactive avatar-dialogue"
-          figure.avatar
-            img src="emoji/252.png"
-          .dialogue
-            span.capitalize.bold.dash sally mae's sweet potatoes
-            span  $10.92/lb FAS NYC 
-            span.pull-right.color-death
-              i.fa-archive            
-
+        each offer in offers
+          == render "account/offers/slice" offer
+        
     .one-quarter.hidden-on-mobile
       == partial "account/sidebar"

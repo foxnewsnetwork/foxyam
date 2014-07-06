@@ -1,0 +1,26 @@
+link-to "offer.show" offer class=sliceClass
+  figure.avatar
+    img src=pictures.firstObject.source
+  .dialogue
+    if waitingReply2YourCounterOffer
+      i.fa-mail-forward
+    span.possessive.bold= listing.account.company
+    span.capitalize.dash.bold= listing.material_name
+    span $
+    span.spacebar= offer.rounded_price
+    span /lb
+    span.bold.upcase.spacebar= offer.incoterm
+    span.capitalize= offer.location
+    span.pull-right
+      if hasNewReply
+        span.color-flare
+          i.fa-circle
+      if offerInEscrow
+        span.color-sunflower
+          i.fa-cog.fa-spin
+      if offerArchived
+        span.color-death
+          i.fa-archive
+      if offerHasTerribleErrors
+        span.color-flare
+          i.fa-warning
