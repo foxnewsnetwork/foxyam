@@ -1,0 +1,19 @@
+@mixin foxfire-templates-account-listings-slice {
+  .notifier {
+    right: 25px;
+    z-index: 1;
+    position: absolute;
+  }
+  .white-background {
+    background: #fff;
+  }
+  img.avatar {
+    width: 36px;
+  }
+  img.big-avatar {
+    width: 42px;
+  }
+  a.media {
+    color: #555;
+  }
+}

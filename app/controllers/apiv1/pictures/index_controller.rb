@@ -10,7 +10,10 @@ class Apiv1::Pictures::IndexController < Apiv1::BaseController
     {
       id: rand(99),
       listing_id: params[:listing_id],
-      source: "emoji/" + rand(846).to_s + ".png"
+      source: "emoji/" + _emoji_string + ".png"
     }
+  end
+  def _emoji_string
+    (1 + rand(846)).to_s
   end
 end

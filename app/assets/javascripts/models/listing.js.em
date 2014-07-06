@@ -1,9 +1,6 @@
 a = DS.attr
 class Foxfire.Listing extends DS.Model
   account_id: a 'number'
-  +computed account_id
-  account: ->
-    @store.find "account", @get("account_id")
   material_name: a 'string'
   is_private: a 'boolean'
   asking_price: a 'number'
@@ -16,6 +13,10 @@ class Foxfire.Listing extends DS.Model
   transportor: a 'string'
   time_interval: a 'string'
   created_at: a 'date'
+  
+  +computed account_id
+  account: ->
+    @store.find "account", @get("account_id")
 
   +computed asking_price
   rounded_price: ->

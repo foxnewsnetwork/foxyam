@@ -1,0 +1,24 @@
+li.media
+  .notifier class=notifyColor
+    i class=notifyIcon
+  .media-body
+    .listing.list-group-item class=listingClass
+      figure.pull-left
+        img.big-avatar src=listing.pictures.firstObject.source
+      link-to "listing.show" listing class="color-death"
+        h4.media-heading
+          span.bold.capitalize.spacebar= listing.material_name
+            
+        .media-content
+          span.capitalize= listing.location_name
+          span.predash.spacebar= listing.quantity
+          span= listing.quantity_unit
+
+    .offers.list-group-item class=listingClass
+      each offer in latestOfferPair
+        == render "account/listings/offer" offer
+      
+    if moreThanTwoOffers
+      .list-group-item class=listingClass
+        == partial "account/listings/show-more" 
+        

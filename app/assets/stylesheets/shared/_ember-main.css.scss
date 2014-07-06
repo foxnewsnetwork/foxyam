@@ -1,7 +1,7 @@
 @import 'templates/listings/new';
 @import 'templates/listings/index';
 @import 'templates/listing/show';
-
+@import 'templates/account/sells';
 
 @mixin shared-ember-main {
   
@@ -13,5 +13,8 @@
   }
   #foxfire-templates-listing-show {
     @include foxfire-templates-listing-show;
+  }
+  #foxfire-templates-account-sells {
+    @include foxfire-templates-account-sells;
   }
 }

@@ -1,4 +1,4 @@
-class Foxfire.RegistrationsNewRoute extends Foxfire.ApplicationRoute
+class Foxfire.RegistrationsNewRoute extends Ember.Route with Foxfire.CurrentAccountMixin
   renderTemplate: ->
     @_super()
     @render 'registrations/header', outlet: 'header'
@@ -22,7 +22,7 @@ class Foxfire.RegistrationsNewRoute extends Foxfire.ApplicationRoute
     @previousPath() || @currentAccountPath()
 
   currentAccountPath: ->
-    "/account/" + @currentUser().get("id")
+    "/account/" + @currentAccountId
 
   failedLogin: (account) ->
     throw "Not Implemented"

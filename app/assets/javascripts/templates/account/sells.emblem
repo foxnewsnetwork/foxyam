@@ -1,4 +1,4 @@
-#foxfire-templates-account-purchases
+#foxfire-templates-account-sells
   .row
     .three-quarters
       .list-group
@@ -7,69 +7,9 @@
             i.fa-plus
             span.bold.capitalize  new listing
 
-      .list-group
-        link-to "offer.show" 2 class="list-group-item avatar-dialogue"
-          figure.avatar
-            img src="emoji/238.png"
-          .dialogue
-            span.bold $0.34/lb FAS LA Port 
-            span for your 
-            span.capitalize.bold LA cherries
-            span.predash.capitalize trevor co.
-            span.pull-right.color-flare
-              i.fa-circle
-
-        link-to "offer.show" 2 class="list-group-item avatar-dialogue inactive" 
-          figure.avatar
-            img src="emoji/239.png"
-          .dialogue
-            i.fa-mail-forward
-            span.bold  $2.15/lb FAS Oak Port 
-            span to 
-            span.capitalize.bold edward inc. 
-            span.colon RE
-            span.capitalize.bold  turloc strawberries
-            span.pull-right.color-sunflower
-              i.fa-cog.fa-spin
-
-        link-to "listing.show" 2 class="list-group-item avatar-dialogue inactive" 
-          figure.avatar
-            img src="emoji/240.png"
-          .dialogue
-            span.colon.capitalize listing
-            span.bold  $2.45/lb FAS Oak Port 
-            span for 
-            span.capitalize.bold hamburgers 
-            span in 
-            span.capitalize.bold turloc
-
-        link-to "listing.show" 1 class="list-group-item avatar-dialogue inactive" 
-          figure.avatar
-            img src="emoji/231.png"
-          .dialogue
-            span.colon.capitalize listing
-            span.bold  $1.45/lb FAS Oak Port 
-            span for 
-            span.capitalize.bold lemons 
-            span in 
-            span.capitalize.bold san jose
-            span.pull-right.color-death
-              i.fa-archive
-
-        
+      .media-list.listing-slices
+        each listing in listings
+          == render "account/listings/slice" listing
 
     .one-quarter.hidden-on-mobile
-      .list-group
-        link-to 'account.index' class="list-group-item"
-          h4 
-            i.fa-chain
-            span.capitalize.bold  my fulfilments
-        link-to 'account.purchases' model class="list-group-item"
-          h4
-            i.fa-shopping-cart
-            span.capitalize.bold  my purchase offers 
-            span.badge.pull-right 24
-        link-to 'account.sells' model class="list-group-item"
-          h4
-            i.fa-ticket
-            span.capitalize.bold  my listings
+      == partial "account/sidebar"

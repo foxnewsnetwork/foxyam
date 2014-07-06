@@ -1,0 +1,6 @@
+@import "templates/account/listings/slice";
+@mixin foxfire-templates-account-sells {
+  .listing-slices {
+    @include foxfire-templates-account-listings-slice; 
+  }
+}

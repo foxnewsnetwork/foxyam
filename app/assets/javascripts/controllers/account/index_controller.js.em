@@ -1,12 +1,14 @@
 class Foxfire.AccountIndexController extends Ember.ObjectController
   +computed model.fulfilments.@each
   inboundFulfilments: ->
+    return [] unless @model.fulfilments
     fs = @model.fulfilments.filter (fulfilment) ->
       fulfilment.get("directionality") is "inbound"
     fs.sort (a,b) -> a.get("created_at") > b.get("created_at")
 
   +computed model.fulfilments.@each
   outboundFulfilments: ->
+    return [] unless @model.fulfilments
     fs = @model.fulfilments.filter (fulfilment) ->
       fulfilment.get("directionality") is "outbound"
     fs.sort (b,a) -> a.get("created_at") > b.get("created_at")

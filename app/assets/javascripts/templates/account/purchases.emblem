@@ -41,17 +41,4 @@
               i.fa-archive            
 
     .one-quarter.hidden-on-mobile
-      .list-group
-        link-to 'account.index' class="list-group-item"
-          h4 
-            i.fa-chain
-            span.capitalize.bold  my fulfilments
-        link-to 'account.purchases' model class="list-group-item"
-          h4
-            i.fa-shopping-cart
-            span.capitalize.bold  my purchase offers 
-            span.badge.pull-right 24
-        link-to 'account.sells' model class="list-group-item"
-          h4
-            i.fa-ticket
-            span.capitalize.bold  my listings
+      == partial "account/sidebar"

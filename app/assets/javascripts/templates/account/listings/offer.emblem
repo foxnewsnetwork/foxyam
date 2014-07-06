@@ -1,0 +1,10 @@
+link-to "offer.show" offer class="media"
+  figure.pull-left
+    img.avatar src=offer.account.image
+  .media-body
+    .bold
+      span $
+      span.spacebar= offer.rounded_price
+      span.upcase.spacebar= offer.incoterm
+      span.capitalize= offer.location
+    span.capitalize.spacebar= offer.account.company

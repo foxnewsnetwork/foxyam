@@ -1,0 +1,5 @@
+link-to "listing.offers" listing class="media"
+  figure.pull-left
+    span.badge= offerCount
+  h4.media-heading
+    span.spacebar.prespace.capitalize other unread offers...

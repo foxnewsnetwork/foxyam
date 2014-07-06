@@ -1,4 +1,4 @@
-class Foxfire.SessionsNewRoute extends Foxfire.ApplicationRoute
+class Foxfire.SessionsNewRoute extends Ember.Route with Foxfire.CurrentAccountMixin
   model: (params) ->
     session: @session()
     previousUrl: @previousUrl()
@@ -29,7 +29,7 @@ class Foxfire.SessionsNewRoute extends Foxfire.ApplicationRoute
     @previousPath() || @currentAccountPath()
 
   currentAccountPath: ->
-    "/account/" + @currentUser().get("id")
+    "/account/" + @currentAccountId
 
   actions:
     formSubmitted: (session)->

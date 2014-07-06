@@ -5,7 +5,7 @@
 
   .quantity  
     if hasPlace
-      span.capitalize LA Port
+      span.capitalize= model.location_name
     if hasQuantity
       span.predash
         = quantity
