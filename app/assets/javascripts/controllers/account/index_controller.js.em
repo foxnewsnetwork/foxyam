@@ -13,7 +13,7 @@ class Foxfire.AccountIndexController extends Ember.ObjectController
       fulfilment.get("directionality") is "outbound"
     fs.sort (b,a) -> a.get("created_at") > b.get("created_at")
 
-  +computed inboundFulfilments.@each, outboundFulfilments.@each
+  +computed inboundFulfilments, outboundFulfilments
   balance: ->
     @sumOver(@inboundFulfilments) - @sumOver(@outboundFulfilments)
 

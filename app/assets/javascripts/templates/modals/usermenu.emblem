@@ -1,0 +1,16 @@
+#foxfire-templates-modals-user-menu
+  half-modal action="closeModal"
+    .list-group.black
+      link-to "account.index" currentAccount.id class="list-group-item"
+        h4
+          i.fa-user
+          span.capitalize.prespace.bold my account
+      link-to "account.preferences" currentAccount.id class="list-group-item"
+        h4
+          i.fa-edit
+          span.capitalize.prespace.bold preferences
+      link-to "help" class="list-group-item"
+        h4
+          i.fa-question-circle
+          span.capitalize.prespace.bold help
+    

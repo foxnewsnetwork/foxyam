@@ -2,6 +2,7 @@
   .row
     .three-quarters
       == partial "offer/hero-unit"
+      == partial "offer/communication-options"
       == partial "offer/conversations"
 
     .one-quarter.hidden-on-mobile

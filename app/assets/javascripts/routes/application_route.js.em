@@ -14,8 +14,8 @@ class Foxfire.ApplicationRoute extends Ember.Route
     $("footer").show()
   
   actions:
-    openLoginModal: ->
-      @render 'modals/login',
+    openUsermenuModal: ->
+      @render 'modals/usermenu',
         into: 'application'
         outlet: 'modal'
       $("footer").hide()

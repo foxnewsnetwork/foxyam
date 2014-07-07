@@ -7,7 +7,8 @@ class Foxfire.Account extends DS.Model
   image: a "string"
 
   +computed id
-  fulfilments: -> @store.find "fulfilment", account_id: @get("id")
+  fulfilments: -> 
+    @store.find "fulfilment", account_id: @get("id")
 
   +computed id
   listings: -> @store.find "listing", account_id: @get("id")

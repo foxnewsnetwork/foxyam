@@ -1,0 +1,10 @@
+.row.margin-puffed
+  .col-xs-4.align-center
+    button class="btn-lg btn btn-default"
+      i.fa-phone
+  .col-xs-4.align-center
+    button class="btn-lg btn btn-default"
+      i.fa-envelope
+  .col-xs-4.align-center
+    button class="btn-lg btn btn-default"
+      i.fa-skype

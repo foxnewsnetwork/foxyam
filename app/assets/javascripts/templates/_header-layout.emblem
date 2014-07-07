@@ -3,8 +3,8 @@
     == outlet header
 
     if userLoggedIn
-      link-to 'account' currentAccount class="action"
-        i.fa-user
+      a.action.pointer click="openUsermenuModal" 
+        i.fa-ellipsis-h
     else
       link-to 'sessions.new' class="action"
         i.fa-sign-in
