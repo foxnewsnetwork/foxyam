@@ -34,7 +34,4 @@ class Foxfire.Offer extends DS.Model
 
   +computed id, account_id
   unread_conversations: ->
-    @store.find "conversation", 
-      offer_id: @get("id")
-      account_id: @get("account_id")
-      unread: true    
+    []

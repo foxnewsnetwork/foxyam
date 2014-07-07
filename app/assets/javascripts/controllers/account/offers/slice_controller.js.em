@@ -15,7 +15,8 @@ class Foxfire.AccountOffersSliceController extends Ember.ObjectController with F
 
   +computed hasNewReply, waitingReply2YourCounterOffer
   activationClass: ->
-    @hasNewReply or @waitingReply2YourCounterOffer
+    return if @hasNewReply or @waitingReply2YourCounterOffer
+    "inactive"
 
   +computed offer.unread_conversations.@each
   hasNewReply: ->
