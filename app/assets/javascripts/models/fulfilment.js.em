@@ -8,6 +8,14 @@ class Foxfire.Fulfilment extends DS.Model
   transaction_party: a "string"
   created_at: a "date"
 
+  +computed status_icon
+  isMidTransaction: ->
+    @get("status_icon") is "inprogress"
+
+  +computed status_icon
+  isComplete: ->
+    @get("status_icon") is "done"
+
   +computed created_at
   created_at_ago: -> $.timeago @created_at
   

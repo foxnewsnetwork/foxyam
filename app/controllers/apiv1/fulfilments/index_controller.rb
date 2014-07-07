@@ -4,6 +4,11 @@ class Apiv1::Fulfilments::IndexController < Apiv1::Fulfilments::ShowController
   end
   private
   def _fake_fulfilments
-    1.upto(13).map { _fake_fulfilment }
+    if params[:unread]
+      k = rand(2) 
+    else
+      k = rand(13)
+    end
+    1.upto(k).map { _fake_fulfilment }
   end
 end
