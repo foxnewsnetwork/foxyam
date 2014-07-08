@@ -12,6 +12,7 @@ Phone App TODO
 10. Proper redirects and routings for access violations
 11. Company logo
 12. Clean out the trash files
+13. Header and footer vanishes and reappear based upon scrolling directions
 
 Work Redesign
 =

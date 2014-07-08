@@ -4,7 +4,7 @@
 
     if userLoggedIn
       a.action.pointer click="openUsermenuModal" 
-        i.fa-ellipsis-h
+        i.fa-navicon
     else
       link-to 'sessions.new' class="action"
         i.fa-sign-in
