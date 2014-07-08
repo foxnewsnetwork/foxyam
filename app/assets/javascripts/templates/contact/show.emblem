@@ -1,0 +1,10 @@
+#foxfire-templates-contact-show.padded-for-mobile-footer
+  .row
+    .four-quarters
+      if isPhone
+        == partial "contact/phone"
+      if isEmail
+        == partial "contact/email"
+      if notSupported
+        == partial "contact/other"
+      

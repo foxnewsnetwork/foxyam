@@ -1,0 +1,43 @@
+form
+  .form-group
+    label.capitalize.bold to
+    input.form-control type="text" value=contact.contact_detail
+  .row
+    .col-xs-6
+      .form-group
+        label.capitalize.bold cc
+        input.form-control type="text"
+    .col-xs-6
+      .form-group
+        label.capitalize.bold bcc
+        input.form-control type="text"
+  .form-group
+    label.capitalize.bold body
+    textarea.form-control.body-textarea
+  .form-group
+    label.capitalize.bold attachments
+    files-field class="form-control"
+  .form-group
+    .list-group
+      .list-group-item.avatar-dialogue
+        figure.avatar
+          img src="emoji/3.png"
+        .dialogue
+          span.bold 23232345.png
+      .list-group-item.avatar-dialogue
+        figure.avatar
+          img src="emoji/3.png"
+        .dialogue
+          span.bold 23232345.png
+
+  .form-group.row
+    .col-xs-6
+      figure.thumbnail.align-center.pointer
+        h4
+          i.fa-send.fa-lg
+          .capitalize.bold send
+    .col-xs-6
+      figure.thumbnail.align-center.pointer
+        h4
+          i.fa-times.fa-lg
+          .capitalize.bold cancel

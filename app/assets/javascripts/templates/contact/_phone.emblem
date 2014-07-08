@@ -1,0 +1,18 @@
+.well
+  h4.bold= contact.contact_detail
+
+.alert.alert-warning
+  i.fa-warning
+  span.spacebar.prespace.capitalize phone calls are not archived
+
+.row
+  .col-xs-6
+    figure.thumbnail.align-center.pointer
+      h4
+        i.fa-phone.fa-lg
+        .capitalize.bold call
+  .col-xs-6
+    figure.thumbnail.align-center.pointer
+      h4
+        i.fa-qrcode.fa-lg
+        .capitalize.bold dial

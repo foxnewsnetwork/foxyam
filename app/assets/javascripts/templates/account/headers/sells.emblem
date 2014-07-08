@@ -1,4 +1,4 @@
-link-to 'account' 1 class="back-button"
+link-to 'account' model class="back-button"
   i.fa-angle-left
   i.fa-bomb
   span.page-name my sales listings

@@ -1,6 +1,6 @@
 Foxfire.Router.map ->
-  @resource 'contact', path: '/contact/:contact_id', ->
-    @route 'show'
+  @resource 'contact', path: '/contact', ->
+    @route 'show', path: '/:contact_id'
 
   @resource 'listings', ->
     @route 'new'

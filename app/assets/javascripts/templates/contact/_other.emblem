@@ -1,0 +1,16 @@
+.well
+  h4.bold
+    i class=contactIcon
+    span.prespace= contact.contact_detail
+
+.alert.alert-info
+  i.fa-info-circle
+  span.prespace.capitalize= contact.contact_type
+  span.prespace information is provided here
+
+.row
+  .col-xs-6
+    figure.thumbnail.align-center.pointer
+      h4
+        i.fa-chevron-left.fa-lg
+        .capitalize.bold back

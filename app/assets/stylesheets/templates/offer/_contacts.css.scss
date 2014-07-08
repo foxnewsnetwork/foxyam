@@ -3,7 +3,7 @@
     width: 55px;
   }
   .somesort-of-background {
-    background-image: url('/gotes.jpg');
+    @include background-image(url('/gotes.jpg'), linear-gradient(left, white, #dddddd));
     background-size: cover;
     margin-bottom: 20px;
     height: 85px;

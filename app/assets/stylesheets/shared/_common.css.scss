@@ -1,4 +1,7 @@
 @mixin shared-common {
+  .body-textarea {
+    height: 240px;
+  }
   .possessive:after {
     content: "'s ";
   }
