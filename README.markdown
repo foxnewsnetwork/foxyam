@@ -1,3 +1,18 @@
+Phone App TODO
+=
+1. Animate page transitions
+2. Page title headers too long occasionally
+3. Add spinning loading icon when pages are loading
+4. Animate the context menu
+5. User sessions should persist across refreshes
+6. Login and Logout functionality
+7. Mock the post / put backends
+8. Personalized home page
+9. Generic Home page
+10. Proper redirects and routings for access violations
+11. Company logo
+12. Clean out the trash files
+
 Work Redesign
 =
 Because I did the order of design wrong, I will now rework the whole front end first. There are going to be 12 pages which, all together, comprise the core application. They are as listed here.

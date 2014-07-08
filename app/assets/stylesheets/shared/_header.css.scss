@@ -18,7 +18,8 @@
       i.fa-bomb {
         @extend .fa-2x;
       }
-
+      max-width: 75%;
+      text-align: left;
       .page-name {
         text-transform: capitalize;
         font-size: 20px;
@@ -29,6 +30,9 @@
       i {
         @extend .fa-2x;
       }
+      
+      width: 50px;
+      text-align: right;
       display: block;
       padding-top: 10px;
       padding-bottom: 10px;
