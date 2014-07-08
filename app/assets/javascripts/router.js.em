@@ -1,4 +1,7 @@
 Foxfire.Router.map ->
+  @resource 'contact', path: '/contact/:contact_id', ->
+    @route 'show'
+
   @resource 'listings', ->
     @route 'new'
     @route 'preview'
@@ -19,6 +22,7 @@ Foxfire.Router.map ->
     @route 'accept', path: '/:offer_id/accept'
     @route 'cancel', path: '/:offer_id/cancel'
     @route 'checkout', path: '/:offer_id/checkout'
+    @route 'contacts', path: '/:offer_id/contacts'
 
   @resource 'conversation', path: '/conversation/:conversation_id', ->
     @route 'reply'

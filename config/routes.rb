@@ -21,6 +21,8 @@ Fuxueyan::Application.routes.draw do
     resources :accounts, only: [:create], controller: 'accounts/create'
     resources :sessions, only: [:create], controller: 'sessions/create'
     resources :attachments, only: [:index], controller: 'attachments/index'
+    resources :contacts, only: [:index], controller: 'contacts/index'
+    resources :contacts, only: [:show], controller: 'contacts/show'
   end
   devise_for :users,
     class_name: 'FoxYam::User',

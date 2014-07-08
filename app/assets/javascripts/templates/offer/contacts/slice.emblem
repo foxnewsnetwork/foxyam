@@ -1,0 +1,8 @@
+link-to "contact.show" contact class="list-group-item"
+  .media
+    figure.pull-left
+      i.fa-2x class=contactTypeIcon
+    .media-body
+      h4.media-heading
+        = contactDetails
+      .contact-type= contact.contact_type

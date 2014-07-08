@@ -1,0 +1,20 @@
+@mixin foxfire-templates-offer-contacts {
+  .avatar {
+    width: 55px;
+  }
+  .somesort-of-background {
+    background-image: url('/gotes.jpg');
+    background-size: cover;
+    margin-bottom: 20px;
+    height: 85px;
+    width: 100%;
+  }
+  .pushedup-weirdly {
+    margin-top: -60px;
+    margin-right: 10px;
+  }
+  .white-color {
+    color: #F8F3F3;
+    @include text-shadow(darken(blue, 10%) 2px 2px 0);
+  }
+}

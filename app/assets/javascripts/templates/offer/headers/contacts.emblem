@@ -1,4 +1,5 @@
 link-to 'offer.show' model class="back-button"
   i.fa-angle-left
   i.fa-bomb
-  span.page-name Review user agreement
+  span.page-name
+    span.capitalize contact details

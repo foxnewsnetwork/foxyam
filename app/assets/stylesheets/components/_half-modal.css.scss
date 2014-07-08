@@ -6,10 +6,10 @@
       }
       display: block;
       border: 4px dashed rgba(102, 102, 255, 0.5);
-      margin-top: -45px;
+      margin-top: -25px;
       float: right;
       padding: 5px 10px 5px 10px;
-      margin-right: -40px;
+      margin-right: -25px;
       @include border-radius(20px);
       cursor: pointer;
       background: #fff;
@@ -25,6 +25,8 @@
     .modal-frame {
       border: 4px dashed rgba(lighten(blue, 20%), 0.5);
       background: #fff;
+    }
+    .padded-frame {
       padding: 25px 15px 25px 15px;
     }
     .fixed-dead-center {

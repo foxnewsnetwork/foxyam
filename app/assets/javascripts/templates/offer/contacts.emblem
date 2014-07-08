@@ -1,0 +1,7 @@
+#foxfire-templates-offer-contacts.padded-for-mobile-footer
+  .row
+    .four-quarters
+      == partial 'offer/contacts/profile'
+      .list-group
+        each contact in contacts
+          == render 'offer/contacts/slice' contact

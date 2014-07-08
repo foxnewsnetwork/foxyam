@@ -1,0 +1,8 @@
+.somesort-of-background
+.media.pushedup-weirdly
+  figure.pull-right
+    link-to "account.show" account class="thumbnail avatar"
+      img src=account.image
+  .media-body.align-right
+    h4.media-heading.white-color.bold
+      span.capitalize.bold= account.company

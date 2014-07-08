@@ -1,9 +1,6 @@
-.modal-dimbackground
+.modal-dimbackground click="closeModal"
   .fixed-dead-center
     .container
       .row
         .offset-one-quarter.one-half
-          .modal-frame
-            a.close-modal click="closeModal"
-              i.fa-times
-            == yield
+          == yield

@@ -1,10 +1,15 @@
 .row.margin-puffed
-  .col-xs-4.align-center
-    button class="btn-lg btn btn-default"
-      i.fa-phone
-  .col-xs-4.align-center
-    button class="btn-lg btn btn-default"
-      i.fa-envelope
-  .col-xs-4.align-center
-    button class="btn-lg btn btn-default"
-      i.fa-skype
+  each contact in primaryContacts
+    .col-xs-4.align-center
+      link-to "contact.show" contact class="btn-lg btn btn-default"
+        if contact.isPhone
+          i.fa-phone
+        if contact.isEmail
+          i.fa-envelope-o
+        if contact.isMegaphone
+          i.fa-bullhorn
+    
+  if otherContactsAvailable
+    .col-xs-4.align-center
+      link-to "offer.contacts" model class="btn-lg btn btn-default"
+        i.fa-ellipsis-h

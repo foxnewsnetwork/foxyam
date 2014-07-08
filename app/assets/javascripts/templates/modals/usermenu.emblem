@@ -1,6 +1,6 @@
 #foxfire-templates-modals-user-menu
   half-modal action="closeModal"
-    .list-group.black
+    .list-group.black.modal-frame
       link-to "account.index" currentAccount.id class="list-group-item"
         h4
           i.fa-user
@@ -13,4 +13,7 @@
         h4
           i.fa-question-circle
           span.capitalize.prespace.bold help
-    
+      .pointer.list-group-item click="closeModal"
+        h4
+          i.fa-times
+          span.capitalize.prespace.bold close

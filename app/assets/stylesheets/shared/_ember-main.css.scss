@@ -2,9 +2,11 @@
 @import 'templates/listings/index';
 @import 'templates/listing/show';
 @import 'templates/account/sells';
-
+@import 'templates/offer/contacts';
 @mixin shared-ember-main {
-  
+  #foxfire-templates-offer-contacts {
+    @include foxfire-templates-offer-contacts;
+  }
   #foxfire-templates-listings-new {
     @include foxfire-templates-listings-new;
   }

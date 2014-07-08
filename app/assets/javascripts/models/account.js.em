@@ -15,3 +15,6 @@ class Foxfire.Account extends DS.Model
 
   +computed id
   offers: -> @store.find "offer", account_id: @get("id")
+
+  +computed id
+  contacts: -> @store.find "contact", account_id: @get("id")

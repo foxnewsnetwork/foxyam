@@ -1,0 +1,9 @@
+.col-xs-6
+  link-to "offer.show" model class="list-group-item list-group-item-success"
+    i.fa-chevron-left
+    span.capitalize.bold  offer
+.col-xs-6
+  link-to "offer.contacts" model class="list-group-item"
+    i.fa-book
+    span.capitalize.bold  contacts
+  
