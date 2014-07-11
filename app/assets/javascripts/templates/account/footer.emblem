@@ -1,5 +1,5 @@
 .col-xs-4
-  link-to 'account.index' model class="list-group-item list-group-item-success"
+  link-to 'account.index' model class="list-group-item"
     i.fa-user
     span.capitalize.bold  acct
 .col-xs-4
@@ -7,6 +7,6 @@
     i.fa-shopping-cart
     span.capitalize.bold  buys
 .col-xs-4
-  link-to 'account.sells' model class="list-group-item list-group-item-warning"
+  link-to 'account.sells' model class="list-group-item"
     i.fa-ticket
     span.capitalize.bold  sells

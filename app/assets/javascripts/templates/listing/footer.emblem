@@ -1,17 +1,22 @@
-.col-xs-4
-  link-to 'listing.show' model class="list-group-item list-group-item-success"
-    i.fa-photo
-    span.capitalize.bold  pics
-.col-xs-4
-  if currentMerchantIsOwner
+if currentMerchantIsOwner
+  .col-xs-4
+    link-to 'listing.show' model class="list-group-item list-group-item-success"
+      i.fa-photo
+      span.capitalize.bold  pics
+  .col-xs-4
     link-to 'listing.edit' model class="list-group-item"
       i.fa-edit
       span.capitalize.bold  edit
-  else
-    link-to 'listing.offers.new' model class="list-group-item"
-      i.fa-asterisk
-      span.capitalize.bold  new
-.col-xs-4
-  link-to 'listing.offers.index' model class="list-group-item list-group-item-warning"
-    i.fa-money
-    span.capitalize.bold  bids
+  .col-xs-4
+    link-to 'listing.offers.index' model class="list-group-item list-group-item-warning"
+      i.fa-money
+      span.capitalize.bold  bids
+else
+  .col-xs-6
+    link-to 'listing.show' model class="list-group-item list-group-item-success"
+      i.fa-photo
+      span.capitalize.bold  pics
+  .col-xs-6
+    link-to 'listing.offers.index' model class="list-group-item list-group-item-warning"
+      i.fa-money
+      span.capitalize.bold  bids

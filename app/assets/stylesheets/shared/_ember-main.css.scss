@@ -6,10 +6,10 @@
 @mixin shared-ember-main {
   #curtain {
     position: absolute;
-    height: 95%;
+    height: 100%;
     width: 100%;
     background: #e7e7e7;
-    z-index: 99999;
+    z-index: 15;
     display: none;
     .fixed-dead-center {
       width: 100%;
@@ -26,6 +26,20 @@
     @include animation(animations-slide-from-left 0.5s);
     #curtain {
       left: -100%;
+      display: block;
+    }
+  }
+  &.slide-from-north-animation {
+    @include animation(animations-slide-from-top 0.5s);
+    #curtain {
+      top: -100%;
+      display: block;
+    }
+  }
+  &.slide-from-south-animation {
+    @include animation(animations-slide-from-bottom 0.5s);
+    #curtain {
+      bottom: -100%;
       display: block;
     }
   }

@@ -3,7 +3,7 @@ header#ember-header
   
 main#ember-main
   #curtain
-    .fixed-dead-center.align-center
+    .align-center
       i.fa-4x.fa-spin.fa-spinner
   == outlet
 
