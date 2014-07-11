@@ -1,4 +1,4 @@
-class Foxfire.RegistrationsNewController extends Foxfire.ApplicationController
+class Foxfire.RegistrationsNewController extends Ember.ObjectController
   +computed model.previousUrl
   previousUrl: ->
     @get 'model.previousUrl'

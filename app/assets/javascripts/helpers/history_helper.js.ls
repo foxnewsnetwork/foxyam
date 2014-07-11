@@ -9,32 +9,25 @@ class Foxfire.HistoryHelper
     _.first _.select @histories!, predicate
 
   @previousUrl = ->
-    return "" unless @previousTransition!
-    Foxfire.Router.router.generateFromIntent @previousTransition!.intent
-
-  @previousNonSessionUrl = ->
-    @previousUrlGiven @notSessionOrRegistration
-
-  @previousUrlGiven = (predicate) ->
-    _.first _.select @histories-as-urls!, predicate
-
-  @notSessionOrRegistration = (url) ->
-    /sessions/ isnt url and /registrations/ isnt url
+    @transition-to-url @previousTransition!
 
   @attemptLastTransition = ->
-    return unless Foxfire.SessionStore.lastTransition?
-    Foxfire.SessionStore.lastTransition.retry()
-    Foxfire.SessionStore.lastTransition = undefined
+    trans = @previousTransition!
+    return unless trans?
+    trans.retry!
     true
 
   @logTransition = (transition) ->
-    if 32 < @histories!.unshift(transition)
+    Ember.assert "transition should be ok", transition? and transition.intent? and transition.intent.name?
+    if 8 < @histories!.unshift(transition)
       @histories!.pop!
 
   _history-array = []
   @histories = -> _history-array
 
-  @histories-as-urls = ->
-    _.map @histories!, (transition) ->
-      Foxfire.Router.router.generateFromIntent transition.intent
-
+  @transition-to-url = (transition) ->
+    return unless transition? and transition.intent? and transition.intent.name?
+    Foxfire.Router.router.generateFromIntent transition.intent  
+  
+  @notSessionOrRegistration = (url) ->
+    /session/ isnt url and /registration/ isnt url

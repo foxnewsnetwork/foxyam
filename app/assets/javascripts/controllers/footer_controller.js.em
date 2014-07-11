@@ -1,1 +1,0 @@
-class Foxfire.FooterController extends Foxfire.ApplicationController

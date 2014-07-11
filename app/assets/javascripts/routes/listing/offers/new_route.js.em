@@ -1,7 +1,6 @@
 class Foxfire.ListingOffersNewRoute extends Ember.Route with Foxfire.CurrentAccountMixin
   beforeModel: (transition) ->
     unless @userLoggedIn
-      Foxfire.SessionStore.lastTransition = transition
       @transitionTo "sessions.new"
   afterModel: (model, transition) ->
     if @currentAccountIs model.account

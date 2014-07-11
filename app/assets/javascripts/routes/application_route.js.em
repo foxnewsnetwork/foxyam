@@ -29,7 +29,7 @@ class Foxfire.ApplicationRoute extends Ember.Route
   manageSlideTransition: (transition) ->
     return if @notAnimating transition
     direction = Foxfire.Sitemap.directionFromOurCurrentRouteTo(transition.intent.name)
-    return if direction is "teleport"
+    return if !direction? or direction is "teleport"
     transition.abort()
     @slideCurtains direction, -> Ember.run -> transition.retry()
 

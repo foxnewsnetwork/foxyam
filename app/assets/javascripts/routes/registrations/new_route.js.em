@@ -1,28 +1,17 @@
-class Foxfire.RegistrationsNewRoute extends Ember.Route with Foxfire.CurrentAccountMixin
+class Foxfire.RegistrationsNewRoute extends Ember.Route with Foxfire.CurrentAccountMixin, Foxfire.SessionGoBackMixin
+  model: -> @store.createRecord "account"
   renderTemplate: ->
     @_super()
     @render 'registrations/header', outlet: 'header'
     @render 'registrations/footer', outlet: 'footer'
   
-  model: ->
-    account: @store.createRecord "account"
-    previousUrl: @previousUrl()
 
   previousUrl: ->
     Foxfire.HistoryHelper.previousNonSessionUrl()
 
   successfulLogin: (account) ->
     Foxfire.SessionStore.set "currentUser", account
-    @transitionTo @previousOrAccount()
-
-  previousPath: ->
-    Foxfire.StringTools.eat @previousUrl(), "#"
-
-  previousOrAccount: ->
-    @previousPath() || @currentAccountPath()
-
-  currentAccountPath: ->
-    "/account/" + @currentAccountId
+    @goBack()
 
   failedLogin: (account) ->
     throw "Not Implemented"
@@ -30,3 +19,4 @@ class Foxfire.RegistrationsNewRoute extends Ember.Route with Foxfire.CurrentAcco
   actions:
     formSubmitted: (account)->
       account.save().then _.bind(@successfulLogin, @), _.bind(@failedLogin, @)
+    goBack: -> @goBack()

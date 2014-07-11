@@ -1,1 +1,0 @@
-class Foxfire.HeaderController extends Foxfire.ApplicationController
