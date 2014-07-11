@@ -29,10 +29,5 @@
     .padded-frame {
       padding: 25px 15px 25px 15px;
     }
-    .fixed-dead-center {
-      @include translateY(-50%);
-      position: relative;
-      top: 50%;
-    }
   }
 }

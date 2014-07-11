@@ -48,3 +48,17 @@ Foxfire.Router.map ->
     @route 'new'
     
   @resource 'help'
+
+Foxfire.Router.router.generateFromIntent = (intent) ->
+  state = intent.applyToState(@state, @recognizer, @getHandler)
+  params = {}
+
+  for handlerInfo in state.handlerInfos
+    handlerParams = handlerInfo.serialize()
+    $.extend params, handlerParams
+  params.queryParams = intent.queryParams
+
+  @recognizer.generate intent.name, params
+
+Foxfire.Router.router.currentRouteName = ->
+  @state.handlerInfos.get("lastObject.name")

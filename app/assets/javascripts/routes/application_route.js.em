@@ -12,7 +12,27 @@ class Foxfire.ApplicationRoute extends Ember.Route
       parentView: "application"
       outlet: "modal"
     $("footer").show()
-  
+
+  slideCurtains: (direction, callback) ->
+    container$ = $("main#ember-main")
+    container$.addClass("slide-from-#{direction}-animation")
+    container$.one "webkitAnimationEnd oanimationend msAnimationEnd animationend", ->
+      callback()
+      container$.removeClass("slide-from-#{direction}-animation")
+
+  notAnimating: (transition) ->
+    return true unless transition? and transition.intent? and transition.intent.name?
+    previousUrl = Foxfire.HistoryHelper.previousUrl()
+    targetUrl = Foxfire.Router.router.generateFromIntent(transition.intent)
+    previousUrl is targetUrl
+    
+  manageSlideTransition: (transition) ->
+    return if @notAnimating transition
+    direction = Foxfire.Sitemap.directionFromOurCurrentRouteTo(transition.intent.name)
+    return if direction is "teleport"
+    transition.abort()
+    @slideCurtains direction, -> Ember.run -> transition.retry()
+
   actions:
     openUsermenuModal: ->
       @render 'modals/usermenu',
@@ -23,8 +43,9 @@ class Foxfire.ApplicationRoute extends Ember.Route
     closeModal: ->
       @closeModal()
       
-    willTransition: ->
-      Foxfire.SessionStore.logHistory Foxfire.Params.currentPath()
+    willTransition: (transition) ->
+      @manageSlideTransition transition
+      Foxfire.HistoryHelper.logTransition transition
       @closeModal()
     
     formSubmitted: ->

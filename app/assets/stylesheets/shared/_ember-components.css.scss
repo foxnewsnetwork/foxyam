@@ -7,7 +7,6 @@
 @import 'components/list-tree';
 @import 'components/half-modal';
 @import 'components/promise-button';
-
 @mixin shared-ember-components {
   @include components-promise-button;
   @include components-type_ahead;

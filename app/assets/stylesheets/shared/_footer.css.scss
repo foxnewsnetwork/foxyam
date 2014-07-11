@@ -1,6 +1,5 @@
 @mixin shared-footer {
   padding-top: 25px;
-  border-top: 1px solid $footer-background;
   margin-top: 50px;
   color: darken($footer-background, 15);
   text-align: center;

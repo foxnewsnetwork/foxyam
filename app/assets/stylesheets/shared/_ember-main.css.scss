@@ -4,6 +4,32 @@
 @import 'templates/account/sells';
 @import 'templates/offer/contacts';
 @mixin shared-ember-main {
+  #curtain {
+    position: absolute;
+    height: 95%;
+    width: 100%;
+    background: #e7e7e7;
+    z-index: 99999;
+    display: none;
+    .fixed-dead-center {
+      width: 100%;
+    }
+  }
+  &.slide-from-east-animation {
+    @include animation(animations-slide-from-right 0.5s);
+    #curtain {
+      left: 100%;
+      display: block;
+    }
+  }
+  &.slide-from-west-animation {
+    @include animation(animations-slide-from-left 0.5s);
+    #curtain {
+      left: -100%;
+      display: block;
+    }
+  }
+
   #foxfire-templates-offer-contacts {
     @include foxfire-templates-offer-contacts;
   }

@@ -1,5 +1,6 @@
 @import 'shared/variables';
 @import 'shared/important';
+@import 'shared/animations';
 @import 'shared/header';
 @import 'shared/flashes';
 @import 'shared/errors';
@@ -11,6 +12,7 @@
 @import 'shared/ember-components';
 body {
   background: #e7e7e7;
+  overflow-x: hidden;
   i {
     @extend .fa;
   }

@@ -2,6 +2,9 @@ header#ember-header
   == partial "header-layout"
   
 main#ember-main
+  #curtain
+    .fixed-dead-center.align-center
+      i.fa-4x.fa-spin.fa-spinner
   == outlet
 
 footer#ember-footer

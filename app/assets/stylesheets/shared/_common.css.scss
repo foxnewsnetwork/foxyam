@@ -1,4 +1,9 @@
 @mixin shared-common {
+  .fixed-dead-center {
+    @include translateY(-50%);
+    position: relative;
+    top: 50%;
+  }
   .body-textarea {
     height: 240px;
   }
