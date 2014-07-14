@@ -10,8 +10,9 @@
     a {
       color: #666;
     }
-    a.back-button {
+    .back-button {
       @include ellipsis;
+      @include align-self(center);
       i {
         padding-right: 5px;
       }

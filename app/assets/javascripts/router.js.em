@@ -29,6 +29,8 @@ Foxfire.Router.map ->
 
   @resource 'materials', ->
     @route 'index'
+    @route 'search'
+    @route 'tags'
 
   @resource 'material', path: '/material/:material_id'
   

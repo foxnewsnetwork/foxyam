@@ -6,6 +6,8 @@ Foxfire.Sitemap.draw ->
 
   @route("listings").you-find("listing.show").to-the-east!
   @route("listings.index").you-find("listing.show").to-the-east!
+  @route("listings").you-find("materials.search").to-the-east!
+  @route("listings.index").you-find("materials.search").to-the-east!
   @route("listing.show").you-find("listing.offers.index").to-the-east!
   @route("listing.show").you-find("listing.edit").to-the-south!
   @route("listing.offers.index").you-find("listing.edit").to-the-south!

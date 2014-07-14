@@ -1,0 +1,17 @@
+#foxfire-templates-materials-search.padded-for-mobile-footer
+  .row
+    .one-whole
+      h2= selectedMaterial
+  .row
+    .one-whole
+      .list-group
+        each listing in listings
+          == render "listings/slice" listing
+        else
+          .list-group-item.inactive
+            if selectedMaterial
+              i.fa-spin.fa-spinner
+              span.prespace.capitalize.ellipsis no results yet
+            else
+              i.fa-pencil
+              span.prespace.capitalize you haven't searched yet

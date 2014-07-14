@@ -1,0 +1,8 @@
+.back-button
+  .input-group
+    .input-group-btn
+      link-to "listings" class="btn btn-default"
+        i.fa-chevron-left
+        span.prespace
+        i.fa-search
+    text-field name="search" class='form-control' value=selectedMaterial placeholder="search..."

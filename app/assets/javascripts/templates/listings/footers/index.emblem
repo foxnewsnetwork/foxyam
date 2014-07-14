@@ -1,9 +1,8 @@
-.col-xs-4
-  button click="openSearch" class="btn btn-block btn-default"
+.col-xs-6
+  link-to "materials.search" class="list-group-item"
     i.fa-search
-.col-xs-4
-  button class="btn btn-block btn-info"
-    i.fa-tag
-.col-xs-4
-  button class="btn btn-block btn-success"
-    i.fa-tag
+    span.prespace.capitalize.bold search
+.col-xs-6
+  link-to "materials.tags" class="list-group-item"
+    i.fa-tags
+    span.prespace.capitalize.bold filter

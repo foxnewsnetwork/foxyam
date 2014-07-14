@@ -1,0 +1,1 @@
+class Foxfire.TextFieldComponent extends Ember.TextField

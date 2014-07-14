@@ -1,0 +1,8 @@
+.col-xs-6
+  link-to 'materials.search' class="list-group-item"
+    i.fa-search
+    span.capitalize.bold  search
+.col-xs-6
+  link-to 'materials.tags' class="list-group-item"
+    i.fa-tags
+    span.capitalize.bold  browse
