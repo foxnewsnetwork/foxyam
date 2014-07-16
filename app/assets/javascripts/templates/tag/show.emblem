@@ -1,0 +1,9 @@
+#foxfire-templates-tag-show.padded-for-mobile-footer
+  .row
+    .three-quarters
+      == render "materials/tags/selected"
+      
+      == partial "tag/tree"
+
+    .one-quarter.hidden-on-mobile
+      == partial "materials/sidebar"

@@ -1,0 +1,9 @@
+.list-group
+  link-to 'materials.search' class="list-group-item"
+    h4
+      i.fa-search
+      span.capitalize.prespace search
+  link-to 'materials.tags' class="list-group-item"
+    h4
+      i.fa-tags
+      span.capitalize.prespace browse by tags

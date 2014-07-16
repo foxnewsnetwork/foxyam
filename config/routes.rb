@@ -23,6 +23,8 @@ Fuxueyan::Application.routes.draw do
     resources :attachments, only: [:index], controller: 'attachments/index'
     resources :contacts, only: [:index], controller: 'contacts/index'
     resources :contacts, only: [:show], controller: 'contacts/show'
+    resources :tags, only: [:index], controller: 'tags/index'
+    resources :tags, only: [:show], controller: 'tags/show'
   end
   devise_for :users,
     class_name: 'FoxYam::User',

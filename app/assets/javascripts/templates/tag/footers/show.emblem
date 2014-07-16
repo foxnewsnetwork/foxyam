@@ -3,6 +3,6 @@
     i.fa-search
     span.prespace.capitalize.bold search
 .col-xs-6
-  link-to "materials.tags" class="list-group-item"
+  link-to "tag.show" model class="list-group-item"
     i.fa-tags
     span.prespace.capitalize.bold browse

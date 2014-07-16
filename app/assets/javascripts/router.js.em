@@ -32,6 +32,9 @@ Foxfire.Router.map ->
     @route 'search'
     @route 'tags'
 
+  @resource "tag", path: "/tag/:tag_id", ->
+    @route "show"
+
   @resource 'material', path: '/material/:material_id'
   
   @resource 'session', ->

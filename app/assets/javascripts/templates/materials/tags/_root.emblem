@@ -1,0 +1,16 @@
+.list-group
+  link-to "tag.show" 1 class="list-group-item"
+    span.spacebar
+      i.fa-caret-right
+    i.fa-globe
+    span.capitalize.prespace.capitalize.bold location
+  link-to "tag.show" 2 class="list-group-item"
+    span.spacebar
+      i.fa-caret-right
+    i.fa-building
+    span.capitalize.prespace.capitalize.bold company
+  link-to "tag.show" 3 class="list-group-item"
+    span.spacebar
+      i.fa-caret-right
+    i.fa-recycle
+    span.capitalize.prespace.capitalize.bold material

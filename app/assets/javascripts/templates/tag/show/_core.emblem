@@ -1,0 +1,10 @@
+if hasChildren
+  i.fa-caret-right
+span.prespace.capitalize.bold= tag.short_name
+
+span.pull-right.unmargin-but-padded.pointer click="toggleCheckState bubbles=false"
+  .seperated-left-bordered
+    if isChecked
+      i.fa-check-square-o
+    else
+      i.fa-square-o

@@ -1,0 +1,24 @@
+.list-group
+  .list-group-item
+    span.capitalize.bold.spacebar
+      if tags
+        span ~
+      span.spacebar= resultsCount
+      span results
+    link-to "materials.search" (query-params q=tagsQuerystring) class="bold pull-right unmargin-but-padded"
+      .seperated-left-bordered
+        span.spacebar.capitalize go
+        i.fa-chevron-right
+  .list-group-item
+    .list-group-item-text
+      if tags
+        button click="clearAllTags" class="btn btn-danger btn-xs"
+          i.fa-warning
+          span.prespace.capitalize clear
+
+      each tag in tags
+        span.badge
+          span= tag.prefix
+          span= tag.short_name
+      else
+        span.capitalize no tags selected!

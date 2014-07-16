@@ -3,6 +3,7 @@
 @import 'templates/listing/show';
 @import 'templates/account/sells';
 @import 'templates/offer/contacts';
+@import 'templates/tag/show';
 @mixin shared-ember-main {
   #curtain {
     position: absolute;
@@ -58,5 +59,8 @@
   }
   #foxfire-templates-account-sells {
     @include foxfire-templates-account-sells;
+  }
+  #foxfire-templates-tag-show {
+    @include foxfire-templates-tag-show;
   }
 }
