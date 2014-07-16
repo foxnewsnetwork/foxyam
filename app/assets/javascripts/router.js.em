@@ -34,6 +34,7 @@ Foxfire.Router.map ->
 
   @resource "tag", path: "/tag/:tag_id", ->
     @route "show"
+    @route "peers"
 
   @resource 'material', path: '/material/:material_id'
   

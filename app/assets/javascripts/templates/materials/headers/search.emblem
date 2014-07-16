@@ -5,4 +5,4 @@
         i.fa-chevron-left
         span.prespace
         i.fa-search
-    text-field name="search" class='form-control' value=selectedMaterial placeholder="search..."
+    text-field name="search" class='form-control' value=q placeholder="search..."
