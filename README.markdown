@@ -1,19 +1,21 @@
 Phone App TODO
 =
-1. Animate page transitions
-2. Page title headers too long occasionally
-3. Add spinning loading icon when pages are loading
-4. Animate the context menu
+1. payment gateways and preferences
 5. User sessions should persist across refreshes
-6. Login and Logout functionality
-7. Mock the post / put backends
 8. Personalized home page
 9. Generic Home page
 10. Proper redirects and routings for access violations
 11. Company logo
 12. Clean out the trash files
-13. Header and footer vanishes and reappear based upon scrolling directions
 14. Switch to QUnit for tests (and get it back up)
+
+1. Animate page transitions - done
+2. Page title headers too long occasionally - done
+3. Add spinning loading icon when pages are loading - done
+4. Animate the context menu - done
+6. Login and Logout functionality - done
+7. Mock the post / put backends - done
+13. Header and footer vanishes and reappear based upon scrolling directions - done
 
 Work Redesign
 =

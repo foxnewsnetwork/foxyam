@@ -1,7 +1,7 @@
 #foxfire-templates-materials-tags.padded-for-mobile-footer
   .row
     .three-quarters
-      == partial "materials/tags/selected"
+      == render "materials/tags/selected"
 
       == partial "materials/tags/root"
 

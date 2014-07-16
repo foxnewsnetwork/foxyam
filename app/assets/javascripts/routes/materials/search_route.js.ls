@@ -9,7 +9,7 @@ Foxfire.MaterialsSearchRoute = Ember.Route.extend do
   listingsForBloodhound: ->
     @listings!.map @listing2Bloodhound
   listing2Bloodhound: (listing) ->
-    value: listing.get("material_name")
+    value: [listing.get("material_name"), listing.get("account.company"), listing.get("location_name")].join(" ")
     listing: listing
   remoteOptions: ->
     url: "/apiv1/listings.json?q=%QUERY"

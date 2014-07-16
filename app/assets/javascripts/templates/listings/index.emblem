@@ -29,12 +29,16 @@
 
     .one-quarter.hidden-on-mobile
       .list-group
-        .list-group-item.inactive 
-          i.fa-chevron-down
-          span.bold  Material Listings
-        each material in materials
-          link-to "material" material.id class="list-group-item"
-            i.fa-tag
-            |  
-            = material.material_name
+        link-to "listings" class="list-group-item"
+          h4
+            i.fa-asterisk
+            span.prespace.capitalize.bold latest listings
+        link-to "materials.search" class="list-group-item"
+          h4
+            i.fa-search
+            span.prespace.capitalize.bold search
+        link-to "materials.tags" class="list-group-item"
+          h4
+            i.fa-tags
+            span.prespace.capitalize.bold browse by tags
 

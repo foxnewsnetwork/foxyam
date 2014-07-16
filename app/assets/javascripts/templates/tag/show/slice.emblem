@@ -1,2 +1,6 @@
-link-to "tag.show" tag class="list-group-item"
-  == partial "tag/show/core"
+if tag.hasChildren
+  link-to "tag.show" tag class="list-group-item"
+    == partial "tag/show/core"
+else
+  .list-group-item
+    == partial "tag/show/core"

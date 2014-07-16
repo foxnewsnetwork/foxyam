@@ -1,15 +1,26 @@
-link-to "tag.show" tag.parent class="list-group-item list-group-item-success"
-  i.fa-caret-down
-  span.prespace.capitalize.bold= tag.short_name
-  span.pull-right.unmargin-but-padded.pointer click="toggleCheckState bubbles=false"
-    .seperated-left-bordered
-      if isChecked
-        i.fa-check-square-o
-      else
-        i.fa-square-o
+if tag.parent
+  link-to "tag.show" tag.parent class="list-group-item list-group-item-success"
+    i.fa-caret-down
+    span.prespace.capitalize.bold= tag.short_name
+    span.pull-right.unmargin-but-padded.pointer click="toggleCheckState bubbles=false"
+      .seperated-left-bordered
+        if isChecked
+          i.fa-check-square-o
+        else
+          i.fa-square-o
+else
+  link-to "materials.tags" class="list-group-item list-group-item-success"
+    i.fa-caret-down
+    span.prespace.capitalize.bold= tag.short_name
+    span.pull-right.unmargin-but-padded.pointer click="toggleCheckState bubbles=false"
+      .seperated-left-bordered
+        if isChecked
+          i.fa-check-square-o
+        else
+          i.fa-square-o
     
 .children
-  each child in tag.children
+  each child in childTags
     == render "tag/show/slice" child
   else
     .list-group-item.inactive
