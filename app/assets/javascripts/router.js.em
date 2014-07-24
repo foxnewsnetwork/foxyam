@@ -24,6 +24,11 @@ Foxfire.Router.map ->
     @route 'checkout', path: '/:offer_id/checkout'
     @route 'contacts', path: '/:offer_id/contacts'
 
+  @resource 'checkout', path: '/checkout/:checkout_id', ->
+    @route 'wire'
+    @route 'bank'
+    @route 'card'
+    
   @resource 'conversation', path: '/conversation/:conversation_id', ->
     @route 'reply'
 

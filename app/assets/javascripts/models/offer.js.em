@@ -21,6 +21,10 @@ class Foxfire.Offer extends DS.Model
   listing: ->
     @store.find "listing", @get("listing_id")
 
+  +computed id
+  services: ->
+    @store.find "service", offer_id: @get("id")
+
   +computed price
   rounded_price: ->
     return unless @get 'price'
@@ -35,3 +39,4 @@ class Foxfire.Offer extends DS.Model
   +computed id, account_id
   unread_conversations: ->
     []
+

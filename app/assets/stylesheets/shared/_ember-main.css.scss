@@ -4,6 +4,7 @@
 @import 'templates/account/sells';
 @import 'templates/offer/contacts';
 @import 'templates/tag/show';
+@import 'templates/offer/accept';
 @mixin shared-ember-main {
   #curtain {
     position: absolute;
@@ -45,6 +46,9 @@
     }
   }
 
+  #foxfire-templates-offer-accept {
+    @include foxfire-templates-offer-accept;
+  }
   #foxfire-templates-offer-contacts {
     @include foxfire-templates-offer-contacts;
   }

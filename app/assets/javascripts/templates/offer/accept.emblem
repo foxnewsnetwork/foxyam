@@ -8,13 +8,34 @@
       .hero-unit
         h4.bold
           i.fa-warning
-          span.capitalize  please confirm
+          span.capitalize.spacebar please confirm you understand the transaction process
         p
-          | You are about to accept 
-          span.capitalize.bold John Doe's 
+          | You are about to accept
+          span.capitalize.bold.prespace= model.account.company
+          span.spacebar 's
           | offer for your listing.
 
   .row
     .one-whole
-      == partial "offer/service-requests-form"
-  
+      .list-group
+        .list-group-item.pointer click="togglePlanExplanation bubbles=false"
+          h4
+            span.pull-right.unmargin-but-padded
+              .seperated-left-bordered
+                i.fa-question-circle.toggle-plan
+                i.fa-chevron-down.toggle-plan.hidden
+            i.fa-check
+            span.dialogue.prespace
+              span.title.capitalize.bold.dash standard fulfilment
+              span.summary we stand in the middle of a transaction to minimize counterparty risk
+        
+        .toggle-plan.hidden
+          == partial "offer/accept/standard-escrow"
+
+  .row
+    .one-whole
+      link-to "offer.checkout" model class="btn btn-lg btn-success"
+        span.capitalize.bold.spacebar i understand
+        i.fa-chevron-right
+
+    

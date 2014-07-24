@@ -1,0 +1,47 @@
+.list-group-item
+  .title
+    span.capitalize.bold.dash fund escrow account
+    span.spacebar escrow will be funded by
+    span.italic.capitalize= model.account.company
+  .accept-payment-methods.align-center
+    .one-third-block
+      i.fa-credit-card
+      span.capitalize.prespace credit card
+    .one-third-block
+      i.fa-check
+      span.capitalize.prespace ach / cheq
+    .one-third-block
+      i.fa-bank
+      span.capitalize.prespace wire
+
+.list-group-item
+  .title
+    span.capitalize.bold.dash provide booking
+    span.spacebar booking on a carrier will be provided by
+    span.italic.capitalize= model.account.company
+
+.list-group-item
+  .title
+    span.capitalize.bold.dash package and ship the goods
+    span.spacebar you are required to provide the following evidence of shipment
+  ol.required-evidence
+    li.capitalize loading pictures
+    li.capitalize weight ticket
+    li.capitalize packing list
+
+.list-group-item
+  .title
+    span.capitalize.bold.dash receive funds
+    span.spacebar your account will receive the escrow funds
+
+.list-group-item
+  .title
+    span.capitalize.bold.dash receive goods
+    span.spacebar.italic.capitalize= model.account.company
+    span receives the goods and maybe files a quality discrepency discount
+
+.list-group-item
+  .title
+    span.capitalize.bold.dash reimburse buyer
+    span.parantheses optional
+    span.prespace if a quality discrepency discount was requested

@@ -15,7 +15,7 @@ mixin Foxfire.SessionGoBackMixin
 
   back2LoggedInAccount: ->
     if @currentAccountId
-      @transitionTo "account.show", @currentAccountId
+      @transitionTo "account.index", @currentAccountId
       true
 
   back2Index: ->
