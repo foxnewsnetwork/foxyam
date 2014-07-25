@@ -16,6 +16,9 @@ Foxfire.Router.map ->
     @route 'now'
     @route 'log'
 
+  @resource 'step', path: '/step/:step_id', ->
+    @route 'show'
+
   @resource 'offer', path: '/offer', ->
     @route 'show', path: '/:offer_id'
     @route 'counter', path: '/:offer_id/counter'

@@ -7,6 +7,7 @@ class Apiv1::Fulfilments::ShowController < Apiv1::BaseController
     { 
       id: params[:id] || rand(99),
       account_id: params[:account_id] || rand(99),
+      offer_id: params[:offer_id] || rand(999),
       status_icon: ["done", "inprogress"].sample,
       money_amount: rand(99999),
       transfer_type: ["deposit", "withdrawal", "sale", "purchase"].sample,

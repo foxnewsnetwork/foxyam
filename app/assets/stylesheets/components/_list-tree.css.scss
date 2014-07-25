@@ -9,13 +9,15 @@
       }
     }
   }
-  .list-tree-node {
-    @extend .list-group-item;
+  .list-group-item {
     &.success {
       @extend .list-group-item-success;
     }
     &.warning {
       @extend .list-group-item-warning;
+    }
+    &.danger {
+      @extend .list-group-item-danger;
     }
   }
 }

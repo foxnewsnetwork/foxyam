@@ -1,6 +1,7 @@
 a = DS.attr
 class Foxfire.Fulfilment extends DS.Model
   account_id: a "number"
+  offer_id: a "string"
   status_icon: a "string"
   money_amount: a "number"
   transfer_type: a "string"
@@ -8,6 +9,14 @@ class Foxfire.Fulfilment extends DS.Model
   transaction_party: a "string"
   created_at: a "date"
 
+  +computed offer_id
+  offer: ->
+    @store.find "offer", @offer_id
+    
+  +computed id
+  steps: ->
+    @store.find "step", fulfilment_id: @get("id")
+    
   +computed status_icon
   isMidTransaction: ->
     @get("status_icon") is "inprogress"

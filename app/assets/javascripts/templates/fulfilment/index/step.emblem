@@ -1,0 +1,8 @@
+link-to "step.show" step class=listGroupClass
+  .media
+    figure.pull-left
+      i.fa-2x class=statusClass
+    .dialogue.media-body
+      .title.media-heading
+        span.capitalize.bold= companyName
+        span.prespace= step.step_name
