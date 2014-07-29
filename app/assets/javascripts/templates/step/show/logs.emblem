@@ -1,0 +1,15 @@
+if hasConversations
+  .list-group
+    each conversation in conversations
+      .list-group-item.inactive
+        .media 
+          .pull-left
+            img.media-object.px42 src=conversation.account.image
+          .media-body
+            h4.media-heading= conversation.account.company
+            p= conversation.summary
+            span.pull-right.small-gray= conversation.created_at_ago
+    else
+      .list-group-item.inactive
+        i.fa-spinner.fa-spin
+        span.bold.prespace loading...

@@ -1,0 +1,15 @@
+.panel.panel-default
+  .panel-heading
+    span.capitalize.bold= step.step_name
+  .panel-body
+    span.capitalize.bold.spacebar= uploadingCompany
+    span.spacebar must upload
+    span.bold= stuffToBeUploaded
+  ul.list-group
+    li.list-group-item
+      form
+        .form-group
+          input type="file"
+        .form-group
+          button type="reset" class="btn btn-lg btn-success"
+            span.capitalize submit

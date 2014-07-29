@@ -1,0 +1,37 @@
+.panel.panel-default
+  .panel-heading
+    span.capitalize.bold= step.step_name
+  .panel-body
+    .row
+      .one-third.align-left
+        link-to "account.show" payingAccount
+          span.capitalize.bold.spacebar= payingCompany
+          if currentAccountIsPaying
+            span.parantheses you
+      .one-third.align-center
+        span.hidden-on-mobile
+          i.fa-arrow-right
+        .hidden-on-desktop
+          i.fa-arrow-down
+        span.prespace.spacebar
+          span $
+          span= paymentAmount
+        span.hidden-on-mobile
+          i.fa-arrow-right
+        .hidden-on-desktop
+          i.fa-arrow-down
+      .one-third.align-right
+        link-to "account.show" receivingAccount
+          span.capitalize.bold= receivingCompany
+          if currentAccountIsReceiving
+            span.parantheses you  
+
+  ul.list-group
+    li.list-group-item
+      h5.capitalize choose a payment method
+
+    == partial 'step/show/card-payment'
+
+    == partial 'step/show/check-payment'
+
+    == partial 'step/show/wire-payment'

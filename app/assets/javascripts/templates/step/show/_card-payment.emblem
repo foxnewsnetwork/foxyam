@@ -1,0 +1,27 @@
+li.list-group-item.pointer click="openCredit bubbles=false"
+  span.spacebar
+    i.fa-chevron-right.toggle-credit
+    i.fa-chevron-down.toggle-credit.hidden
+  span.prespace.capitalize.bold.spacebar credit card
+  i.fa-credit-card.pull-right
+li.list-group-item.toggle-credit.hidden
+  .row
+    form.one-half
+      .form-group
+        label.capitalize name on card
+        input type="text" class="form-control"
+      .form-group
+        label.capitalize card number
+        input type="text" class="form-control"
+      .form-group
+        label.upcase ccv
+        input type="text" class="form-control"
+      .form-group
+        label.capitalize expiration date
+        .input-group
+          Ember.Select class="form-control" content=months
+          span.input-group-addon /
+          Ember.Select class="form-control" content=years
+      .form-group
+        button type="reset" class="btn btn-lg btn-success"
+          span.capitalize.bold submit

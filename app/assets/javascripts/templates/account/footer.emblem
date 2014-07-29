@@ -1,12 +1,12 @@
 .col-xs-4
   link-to 'account.index' model class="list-group-item"
     i.fa-user
-    span.capitalize.bold  acct
+    span.capitalize.bold  me
 .col-xs-4
   link-to 'account.purchases' model class="list-group-item"
     i.fa-shopping-cart
-    span.capitalize.bold  buys
+    span.capitalize.bold  buy
 .col-xs-4
   link-to 'account.sells' model class="list-group-item"
     i.fa-ticket
-    span.capitalize.bold  sells
+    span.capitalize.bold  sell

@@ -1,0 +1,21 @@
+.list-group
+  if previousStep
+    link-to "step.show" previousStep class="list-group-item"
+      h4
+        i.fa-arrow-up
+        span.prespace.capitalize.bold prev
+  else
+    link-to "fulfilment.index" model.fulfilment_id class="list-group-item"
+      h4
+        i.fa-list-alt
+        span.prespace.capitalize.bold index
+  if nextStep
+    link-to "step.show" nextStep class="list-group-item"
+      h4
+        i.fa-arrow-down
+        span.prespace.capitalize.bold next
+  else
+    link-to "fulfilment.index" model.fulfilment_id class="list-group-item"
+      h4
+        i.fa-list-alt
+        span.prespace.capitalize.bold index

@@ -5,6 +5,7 @@
 @import 'templates/offer/contacts';
 @import 'templates/tag/show';
 @import 'templates/offer/accept';
+@import 'templates/step/show';
 @mixin shared-ember-main {
   #curtain {
     position: absolute;
@@ -66,5 +67,8 @@
   }
   #foxfire-templates-tag-show {
     @include foxfire-templates-tag-show;
+  }
+  #foxfire-templates-step-show {
+    @include foxfire-templates-step-show;
   }
 }

@@ -1,0 +1,4 @@
+.alert class=alertClass
+  i.fa-lg class=iconClass
+  span.capitalize.bold.prespace= statusKey
+  span.prespace= alertInfo

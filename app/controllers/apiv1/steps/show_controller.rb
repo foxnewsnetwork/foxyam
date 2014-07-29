@@ -14,14 +14,15 @@ class Apiv1::Steps::ShowController < Apiv1::BaseController
     {
       id: params[:id] || rand(999),
       fulfilment_id: params[:fulfilment_id] || rand(999),
+      account_id: params[:account_id] || (1 + rand(2)),
       step_name: _step_names.sample,
-      status: [:completed, :inprogress, :not_yet].sample,
+      status_key: [:completed, :inprogress, :not_yet].sample,
       order_number: self.class.order_number
     }
   end
   def _step_names
     [
-      "funds escrow account", 
+      "funds escrow account",
       "provides booking",
       "provides loading pictures",
       "provides weight ticket",

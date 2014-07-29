@@ -1,0 +1,27 @@
+#foxfire-templates-step-show.padded-for-mobile-footer
+  .row
+    .three-quarters
+      == render 'step/show/status' model
+
+      
+      if isPaymentStep
+        == render 'step/show/payment' model
+
+      if isUploadStep
+        == render 'step/show/upload' model
+
+      if isReceiveMoney
+        == render 'step/show/money' model
+
+      if isReceiveGoods
+        == render 'step/show/goods' model
+
+      if isQualityDiscount
+        == render "step/show/quality" model
+
+      == partial 'step/show/contacts'
+
+      == render 'step/show/logs' model
+
+    .one-quarter.hidden-on-mobile
+      == partial "step/sidebar"

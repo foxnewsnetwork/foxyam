@@ -1,0 +1,29 @@
+li.list-group-item.pointer click="openCheck"
+  span.spacebar
+    i.fa-chevron-right.toggle-check
+    i.fa-chevron-down.toggle-check.hidden
+  span.prespace.capitalize.bold.spacebar check
+  i.fa-check.pull-right
+li.list-group-item.toggle-check.hidden
+  form
+    .row
+      .one-whole
+        .form-group
+          label.capitalize company name
+          input type="text" class="form-control"
+          
+    .row
+      .one-half
+        .form-group
+          label.capitalize routing number
+          input type="text" class="form-control"
+      .one-half
+        .form-group
+          label.capitalize account number
+          input type="text" class="form-control"
+
+    .row
+      .one-whole
+        .form-group
+          button type="reset" class="btn btn-lg btn-success"
+            span.capitalize.bold submit

@@ -1,0 +1,48 @@
+.row.margin-puffed
+  .one-whole
+    .panel.panel-default
+      ul.nav.nav-tabs.nav-justified role="tablist"
+        li class=categoryEmail::active
+          link-to "step.show" step (query-params category=categoryEmail)
+            i.fa-envelope-o.fa-2x
+        li class=categoryVoice::active
+          link-to "step.show" step (query-params category=categoryVoice)
+            i.fa-volume-up.fa-2x
+        li class=categoryComm::active
+          link-to "step.show" step (query-params category=categoryComm)
+            i.fa-ellipsis-h.fa-2x
+
+      .panel-body class=categoryEmail:hidden:active
+        form
+          .form-group
+            label.capitalize to
+            input type="text" value="someone@gmail.com" class="form-control"
+          .form-group
+            label.capitalize message
+            textarea class="form-control"
+          .form-group
+            button type="reset" class="btn btn-default"
+              span.bold.capitalize send
+
+      .panel-body class=categoryVoice:hidden:active
+        form
+          .form-group
+            .wave-form
+          .form-group
+            button type="reset" class="btn btn-default"
+              span.capitalize.bold hold to record
+
+      .panel-body class=categoryComm:hidden:active
+        h5
+          span.spacebar.capitalize.bold heads up!
+          span external contacts are "off the record"
+        ul
+          li
+            i.fa-phone
+            span.prespace
+              span.parantheses 626
+              span.dash.prespace 445
+              span 6666
+          li
+            i.fa-skype
+            span.prespace kasjdf.asdf

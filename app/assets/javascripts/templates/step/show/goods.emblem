@@ -1,0 +1,25 @@
+.panel.panel-default
+  .panel-heading
+    span.capitalize.bold= step.step_name
+  .panel-body
+    span.capitalize.bold.spacebar= receivingCompany
+    span.spacebar receives the
+    span.spacebar.bold= goods
+  
+  ul.list-group
+    li.list-group-item
+      form
+        legend 
+          span.spacebar have you received the
+          span= goods
+          span ?
+        .form-group
+          button type="reset" class="btn btn-lg btn-success"
+            span.capitalize yes
+        legend
+          span.spacebar is there a material quality dispute?
+        .form-group
+          button type="reset" class="btn btn-lg btn-default"
+            span.capitalize yes
+          button type="reset" class="btn btn-lg btn-default"
+            span.capitalize no

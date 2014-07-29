@@ -21,7 +21,7 @@ class Foxfire.AccountFulfilmentsSliceController extends Ember.ObjectController
 
   +computed statusClass
   sliceClass: ->
-    "list-tree-node #{@statusClass} avatar-dialogue"
+    "list-group-item #{@statusClass}"
 
   +computed fulfilment.directionality
   directionality: ->

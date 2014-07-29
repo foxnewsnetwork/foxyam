@@ -1,0 +1,17 @@
+.panel.panel-default
+  .panel-heading
+    span.capitalize.bold= step.step_name
+  .panel-body
+    span.capitalize.bold.spacebar= receivingCompany
+    span.spacebar receives the
+    span $
+    span.spacebar= moneyAmount
+    span from the escrow fund
+  
+  ul.list-group
+    li.list-group-item
+      form
+        legend have you received the money?
+        .form-group
+          button type="reset" class="btn btn-lg btn-success"
+            span.capitalize yes

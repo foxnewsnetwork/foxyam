@@ -1,0 +1,7 @@
+link-to 'fulfilment.index' model.fulfilment_id class="back-button"
+  i.fa-angle-left
+  i.fa-bomb
+  span.page-name
+    span.capitalize.spacebar step
+    span.dash= model.order_number
+    span= model.step_name

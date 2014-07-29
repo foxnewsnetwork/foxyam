@@ -1,0 +1,22 @@
+@mixin foxfire-templates-step-show {
+  .left-block,
+  .right-block,
+  .middle-block {
+    display: inline-block;
+    width: 33%;
+  }
+  
+  .px42 {
+    width: 42px;
+    max-height: 42px;
+  }
+
+  .small-gray {
+    font-size: 10px;
+    color: #444;
+  }
+  
+  .tab-pane {
+    padding: 15px;
+  }
+}

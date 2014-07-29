@@ -1,4 +1,4 @@
-.list-tree
+.list-group
   each fulfilment in inboundFulfilments
     == render "account/fulfilments/slice" fulfilment
   else

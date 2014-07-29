@@ -2,9 +2,9 @@ class Foxfire.FulfilmentIndexStepController extends Ember.ObjectController
   +computed model
   step: -> @model
 
-  +computed step.status
+  +computed step.status_key
   statusClass: ->
-    switch @get "step.status"
+    switch @get "step.status_key"
       when "completed"
         "fa-check"
       when "inprogress"
@@ -18,11 +18,11 @@ class Foxfire.FulfilmentIndexStepController extends Ember.ObjectController
 
   +computed listCoreClass
   listGroupClass: ->
-    Foxfire.debugLog "list-group-item #{@listCoreClass}"
+    "list-group-item #{@listCoreClass}"
 
-  +computed step.status
+  +computed step.status_key
   listCoreClass: ->
-    switch @get "step.status"
+    switch @get "step.status_key"
       when "completed"
         "success"
       when "inprogress"

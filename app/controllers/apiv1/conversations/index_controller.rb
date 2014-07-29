@@ -11,6 +11,7 @@ class Apiv1::Conversations::IndexController < Apiv1::BaseController
       id: params[:id] || rand(99),
       account_id: _acct_id,
       offer_id: params[:offer_id] || rand(88),
+      step_id: params[:step_id] || rand(933),
       created_at: rand(72).hours.ago,
       icon_type: ["fa-envelope", "fa-phone", "fa-skype"].sample,
       summary: Faker::Lorem.sentence

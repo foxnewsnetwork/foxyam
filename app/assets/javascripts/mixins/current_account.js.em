@@ -20,4 +20,5 @@ mixin Foxfire.CurrentAccountMixin
     u and m
   
   currentAccountIs: (account) ->
+    return unless account and account.get("id")
     @currentAccountIdIs account.get "id"

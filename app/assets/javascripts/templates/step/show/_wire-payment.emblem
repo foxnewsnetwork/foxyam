@@ -1,0 +1,23 @@
+li.list-group-item.pointer click="openWire"
+  span.spacebar
+    i.fa-chevron-right.toggle-wire
+    i.fa-chevron-down.toggle-wire.hidden
+  span.prespace.spacebar.capitalize.bold wire transfer
+  i.fa-bank.pull-right
+li.list-group-item.toggle-wire.hidden
+  form
+    .row
+      .one-whole
+        .form-group
+          label.capitalize whatever moneygram wants
+          input type="text" class="form-control"
+
+        .form-group
+          label.capitalize other stuff
+          input type="text" class="form-control"
+
+    .row
+      .one-whole
+        .form-group
+          button type="reset" class="btn btn-lg btn-success"
+            span.capitalize.bold submit
