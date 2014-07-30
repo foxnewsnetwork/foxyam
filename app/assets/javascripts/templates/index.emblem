@@ -1,9 +1,18 @@
-.jumbotron
-  .container
-    .row
-      .one-whole
-        h1 Frontpage Title
-    .row
-      .one-quarter
-        link-to "listings" class="btn btn-lg btn-success"
-          | Listings
+#foxfire-templates-index
+  if userLoggedIn
+    == partial "index/personalized"
+  else
+    == partial "index/vanilla"
+
+  .hidden-on-mobile.align-center.shamefully-hacked-footer
+    .container-fluid
+      .row
+        .four-quarters
+          p 
+            span.dash Fox Yam eMerchant 1.0.0.alpha
+            | Created by Thomas Chen
+          p
+            | Fox Yam eMerchant, a web service software, is licensed under the terms here
+          p
+            | Special thanks to certain individuals and corporations go here
+        

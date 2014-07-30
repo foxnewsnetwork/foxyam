@@ -5,7 +5,8 @@ main#ember-main
   #curtain
     .align-center
       i.fa-4x.fa-spin.fa-spinner
-  == outlet
+  == outlet "breakout"
+  .container== outlet
 
 footer#ember-footer
   == partial "footer-layout"

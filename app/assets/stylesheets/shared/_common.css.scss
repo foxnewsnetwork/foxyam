@@ -1,4 +1,7 @@
 @mixin shared-common {
+  .opaque {
+    @include opacity(1);
+  }
   .fixed-dead-center {
     @include translateY(-50%);
     position: relative;

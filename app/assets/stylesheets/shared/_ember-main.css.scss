@@ -1,3 +1,4 @@
+@import 'templates/index';
 @import 'templates/listings/new';
 @import 'templates/listings/index';
 @import 'templates/listing/show';
@@ -70,5 +71,8 @@
   }
   #foxfire-templates-step-show {
     @include foxfire-templates-step-show;
+  }
+  #foxfire-templates-index {
+    @include foxfire-templates-index;
   }
 }

@@ -28,9 +28,6 @@ header {
 
 main {
   @include shared-ember-main;
-  &#ember-main {
-    @extend .container;
-  }
 }
 
 section#ember-modal {

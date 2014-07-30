@@ -1,0 +1,33 @@
+@mixin foxfire-templates-index {
+  .vanilla-background {
+    @include background(url(/images/just-flags.png));
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -15px;
+    @include box-shadow(rgba(blue, 0.2) 0 10px 15px, rgba(green, 0.2) 0 0 3px 1px inset);
+  }
+  .jumbotron {
+    @include opacity(0.85);
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .call-to-action {
+    margin-top: -35px;
+  }
+  .shadow-box {
+    display: inline-block;
+    padding: 15px;
+    background: #eee;
+    @include border-radius(25px);
+    @include box-shadow(rgba(blue, 0.2) 0 0px 15px, rgba(green, 0.2) 0 0 3px 1px inset);
+  }
+  .bumped-down {
+    margin-top: 35px;
+  }
+  .shamefully-hacked-footer {
+    border-top: 1px solid #ddd;
+    margin-top: 55px;
+    padding-top: 55px;
+    color: $gray-light;
+  }
+}

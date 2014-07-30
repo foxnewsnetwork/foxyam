@@ -1,0 +1,71 @@
+.vanilla-background
+  .container
+    .row
+      .one-half
+        .jumbotron
+          h2.opaque.logo-font Company Name
+          h4.opaque.followup-font= cyclicCatchPhrase
+
+.hidden-on-mobile
+  .call-to-action.align-center
+    span.shadow-box
+      link-to "index" (query-params modal="login") class="btn btn-lg btn-success"
+        span.capitalize.bold log in
+      span.upcase.bold.prespace.spacebar or
+      link-to "index" (query-params modal="register") class="btn btn-lg btn-info"
+        span.capitalize.bold register
+
+  .container.bumped-down
+    .row
+      .one-whole
+        .input-group.input-group-lg
+          .input-group-btn
+            button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+              span.spacebar.capitalize.bold search
+              i.fa-caret-down
+            ul.dropdown-menu role="menu"
+              li.pointer materials
+              li.pointer companies
+              li.pointer locations
+          input type="text" class="form-control"
+          .input-group-btn
+            button type="button" class="btn btn-default"
+              span.capitalize.bold go!
+
+    .row.bumped-down
+      .one-half.offset-one-quarter
+        h3.capitalize.align-center showcase listings
+        .list-group
+          each listing in listings
+            == render "listings/slice" listing
+          link-to "listings.index" class="list-group-item"
+            h4
+              i.fa-list
+              span.prespace.capitalize.bold.ellpisis more listings
+
+
+
+.hidden-on-desktop
+  .container
+    .row
+      .one-whole
+        h2.capitalize welcome, anonymous
+    .row
+      .one-whole
+        .list-group
+          link-to "sessions.new" class="list-group-item"
+            h4
+              i.fa-sign-in
+              span.capitalize.prespace log in
+          link-to "registrations.new" class="list-group-item"
+            h4
+              i.fa-pencil
+              span.capitalize.prespace register
+          link-to "listings.index" class="list-group-item"
+            h4
+              i.fa-list
+              span.capitalize.prespace listings
+          link-to "materials.search" class="list-group-item"
+            h4
+              i.fa-search
+              span.capitalize.prespace search
