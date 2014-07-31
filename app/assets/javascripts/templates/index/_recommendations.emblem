@@ -1,0 +1,6 @@
+.list-group
+  each listing in listings
+    == render "listings/slice" listing
+  else
+    .align-center
+      i.fa-4x.fa-spinner.fa-spin

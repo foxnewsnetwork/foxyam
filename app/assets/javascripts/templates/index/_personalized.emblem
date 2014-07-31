@@ -1,0 +1,61 @@
+.container
+  .row
+    .one-whole
+      h2.capitalize welcome, user
+
+  .row.margin-puffed
+    .one-whole
+      .hidden-on-mobile
+        == partial "index/search"
+      .hidden-on-desktop
+        link-to "materials.search" class="btn btn-block btn-lg btn-default"
+          i.fa-search
+          span.prespace.capitalize search
+
+  .row
+    .three-quarters
+      .market-summary-graph
+        price-graph prices=prices
+    .one-quarter
+      ul.list-group
+        .list-group-item
+          span.capitalize.bold material
+          span.spacebar.badge price / lb
+          span.badge MT / day
+        .list-group-item.list-group-item-info
+          span.capitalize HDPE-N
+          span.spacebar.badge $0.12
+          span.badge 44
+        .list-group-item
+          span.capitalize LDPE
+          span.spacebar.badge $0.08
+          span.badge 34
+        .list-group-item
+          span.capitalize PP
+          span.spacebar.badge $0.11
+          span.badge n/a
+        .list-group-item
+          span.capitalize.bold.parantheses see more
+
+  .row.margin-puffed
+    .one-whole
+      ul.nav.nav-justified.nav-tabs.hidden-on-mobile role="tablist"
+        li class=showActivity:active
+          link-to "index" (query-params tab="activity")
+            span.capitalize.spacebar activity
+            i.fa-bomb.color-flare
+        li class=showRecommendations:active
+          link-to "index" (query-params tab="rec")
+            span.capitalize recommendations
+        li
+          link-to "listings.index"
+            span.capitalize all listings
+
+      .tab-content
+        .tab-pane.active
+          if showActivity
+            == partial "index/activity"
+          if showRecommendations
+            == partial "index/recommendations"
+
+            

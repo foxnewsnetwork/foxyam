@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require md5
+//= require d3
+//= require nvd3-rails
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.effect.all

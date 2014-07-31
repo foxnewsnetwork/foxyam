@@ -1,0 +1,50 @@
+.list-group
+  .list-group-item
+    .media
+      .pull-left
+        img.media-object.px42 src="emoji/42.png"
+      .media-body
+        h4.media-heading George Fredrickson
+        .summary
+          span.dash.upcase.bold listing
+          span.spacebar HDPE-N
+          span.spacebar ask $0.14 / lb
+          span.capitalize LA Port
+
+  .list-group-item
+    .media
+      .pull-left
+        img.media-object.px42 src="emoji/43.png"
+      .media-body
+        h4.media-heading Jackson Davis Company
+        .summary
+          span.dash.upcase.bold offer
+          span.spacebar $0.14 / lb
+          span.upcase.bold.spacebar fas
+          span.capitalize.spacebar LA Port
+          span.parantheses HDPE-N @ LA
+
+  .list-group-item
+    .media
+      .pull-left
+        img.media-object.px42 src="emoji/44.png"
+      .media-body
+        h4.media-heading Phillip Howard Company
+        .summary
+          i.fa-reply
+          span.dash.upcase.bold offer
+          span.spacebar $0.14 / lb
+          span.upcase.bold.spacebar fas
+          span.capitalize.spacebar Oakland Port
+          span.parantheses LDPE Film @ Oakland
+
+  .list-group-item.inactive
+    .media
+      .pull-left
+        img.media-object.px42 src="emoji/45.png"
+      .media-body
+        h4.media-heading Roger Penmoore Company
+        .summary
+          span.dash.upcase.bold fulfilment
+          span.spacebar escrow funded
+          span.parantheses $43,000 for PP trays

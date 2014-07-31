@@ -1,0 +1,13 @@
+.input-group.input-group-lg
+  .input-group-btn
+    button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+      span.spacebar.capitalize.bold search
+      i.fa-caret-down
+    ul.dropdown-menu role="menu"
+      li.pointer materials
+      li.pointer companies
+      li.pointer locations
+  input type="text" class="form-control"
+  .input-group-btn
+    button type="button" class="btn btn-default"
+      span.capitalize.bold go!

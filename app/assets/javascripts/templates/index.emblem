@@ -3,6 +3,8 @@
     == partial "index/personalized"
   else
     == partial "index/vanilla"
+  
+  
 
   .hidden-on-mobile.align-center.shamefully-hacked-footer
     .container-fluid

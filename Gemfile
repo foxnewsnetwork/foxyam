@@ -30,6 +30,8 @@ group :development do
   gem "spring"
 end
 
+gem 'nvd3-rails', '~> 0.0.1.1'
+gem 'd3-rails', '~> 3.4.4'
 gem 'animation', '~> 0.1.alpha.3'
 gem "bootstrap-sass", "~> 3.1.0.2"
 gem "font-awesome-sass", "~> 4.1.0.0"
@@ -37,7 +39,7 @@ gem 'font-awesome-rails', '~> 4.1.0.0'
 gem 'ember-rails'
 gem 'ember-source', '~> 1.7.0.beta.1'
 gem 'emblem-rails', '~>0.2.1'
-gem 'ember_script-rails', :github => 'ghempton/ember-script-rails'
+gem 'ember_script-rails' #, :github => 'ghempton/ember-script-rails'
 gem 'compass-rails', '~> 1.1.7'
 gem 'compass-flexbox', '~>1.1.3'
 gem 'jquery-ui-sass-rails'
