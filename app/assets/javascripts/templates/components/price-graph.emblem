@@ -1,1 +1,5 @@
 .graph-container id=givenOrRandomId
+  unless visualGraph
+    .now-loading.align-center style="height: 300px; padding-top: 100px;"
+      i.fa-spin.fa-2x.fa-spinner
+      span.prespace.capitalize.bold.ellipsis loading

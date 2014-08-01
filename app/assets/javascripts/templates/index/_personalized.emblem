@@ -17,7 +17,7 @@
   .row
     .three-quarters
       .market-summary-graph
-        price-graph prices=prices
+        price-graph prices=prices quantities=quantities
     .one-quarter
       ul.list-group
         .list-group-item
