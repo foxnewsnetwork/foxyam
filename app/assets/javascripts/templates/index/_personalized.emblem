@@ -1,7 +1,9 @@
 .container
   .row
     .one-whole
-      h2.capitalize welcome, user
+      h2.capitalize 
+        span.capitalize.spacebar welcome, 
+        span= currentCompany
 
   .row.margin-puffed
     .one-whole

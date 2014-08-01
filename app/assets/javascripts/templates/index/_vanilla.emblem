@@ -57,3 +57,30 @@
             h4
               i.fa-search
               span.capitalize.prespace search
+
+.hidden-on-mobile.darker-background
+  .container
+    .row
+      .one-third
+        .panel.panel-default
+          .panel-body.padding-25px
+            h3.capitalize.bold.align-left charts and graphs
+            h2.text-info.align-center
+              i.fa-3x.fa-bar-chart-o
+            p.align-left allow for better visual analysis of price and quantities of resources and enable you to make the informed merchantile decisions.
+
+      .one-third
+        .panel.panel-default
+          .panel-body.padding-25px
+            h3.capitalize.bold.align-left escrow service
+            h2.text-info.align-center
+              i.fa-3x.fa-bank
+            p.align-left minimize the counterparty risk involved in mercantile trade through third party escrow fulfilment and daily mark-to-market.
+
+      .one-third
+        .panel.panel-default
+          .panel-body.padding-25px
+            h3.capitalize.bold.align-left full service
+            h2.text-info.align-center
+              i.fa-3x.fa-sort-alpha-asc
+            p.align-left post your materials, make offers, track earnings, fund escrow, arrange logsitics, etc. all in one place on your phone or computer.

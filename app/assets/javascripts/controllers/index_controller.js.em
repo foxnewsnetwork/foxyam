@@ -26,6 +26,10 @@ class Foxfire.IndexController extends Ember.ObjectController with Foxfire.Curren
   cyclicCatchPhrase: ->
     _.sample @catchPhrases
 
+  +computed currentAccount.company
+  currentCompany: ->
+    @get("currentAccount.company") or "company"
+
   +computed model
   listings: ->
     return unless @model

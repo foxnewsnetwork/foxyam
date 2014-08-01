@@ -1,0 +1,11 @@
+if userLoggedIn
+  .col-xs-4
+    link-to "index" (query-params tab="activity") class="list-group-item"
+      span.capitalize.bold.spacebar new
+      span.label.label-danger ! 
+  .col-xs-4
+    link-to "index" (query-params tab="rec") class="list-group-item"
+      span.capitalize.bold recs
+  .col-xs-4
+    link-to "listings.index" class="list-group-item"
+      span.capitalize.bold all
