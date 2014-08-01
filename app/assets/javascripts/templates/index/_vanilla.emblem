@@ -4,7 +4,8 @@
       .one-half
         .jumbotron
           h2.opaque.logo-font Company Name
-          h4.opaque.followup-font= cyclicCatchPhrase
+          h4.opaque.followup-font
+            flipping-phrase phrases=catchPhrases
 
 .hidden-on-mobile
   .call-to-action.align-center

@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require nvd3-rails
+ *= require anime/animate
  *= require framework
  */
