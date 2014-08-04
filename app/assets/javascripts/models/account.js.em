@@ -18,3 +18,6 @@ class Foxfire.Account extends DS.Model
 
   +computed id
   contacts: -> @store.find "contact", account_id: @get("id")
+
+  +computed id
+  activities: -> @store.find "activity", account_id: @get('id')

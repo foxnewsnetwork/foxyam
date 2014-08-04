@@ -7,7 +7,7 @@ class Foxfire.SessionsNewRoute extends Ember.Route with Foxfire.CurrentAccountMi
     @render 'sessions/footer', outlet: 'footer'
   
   successfulLogin: (session) ->
-    Foxfire.SessionStore.set "currentUser", session
+    Foxfire.SessionStore.set "currentUser", @store.find("account", session.get("id"))
     @goBack()
 
   failedLogin: (session) ->

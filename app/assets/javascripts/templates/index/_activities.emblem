@@ -1,0 +1,9 @@
+.list-group
+  each activity in activities  
+    == render "index/activity" activity
+  else
+    .list-group-item.inactive
+      i.fa-spin.fa-spinner
+      span.bold.capitalize.prespace nothing here yet
+
+    

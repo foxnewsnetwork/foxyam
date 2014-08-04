@@ -1,0 +1,6 @@
+span.dash.upcase.bold listing
+span.spacebar= materialName
+span.bold ask $
+span.spacebar= priceNumber
+span.spacebar / lb
+span.capitalize= locationName

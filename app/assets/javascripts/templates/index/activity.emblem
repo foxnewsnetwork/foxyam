@@ -1,0 +1,15 @@
+link-to actionName actionId class=activityClass
+  .media
+    .pull-left
+      img.media-object.px42 src=activityPic
+    .media-body
+      h4.media-heading.capitalize= actionCompany
+      .summary
+        if isListingType
+          == partial "index/activities/listing"
+        if isOfferType
+          == partial "index/activities/offer"
+        if isCounterType
+          == partial "index/activities/counter"
+        if isFulfilmentType
+          == partial "index/activities/fulfilment"

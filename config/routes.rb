@@ -30,6 +30,7 @@ Fuxueyan::Application.routes.draw do
     resources :steps, only: [:show], controller: 'steps/show'
     resources :price_statistics, only: [:show], controller: 'price_statistics/show'
     resources :quantity_statistics, only: [:show], controller: 'quantity_statistics/show'
+    resources :activities, only: [:index], controller: 'activities/index'
   end
   devise_for :users,
     class_name: 'FoxYam::User',

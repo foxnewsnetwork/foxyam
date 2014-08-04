@@ -2,6 +2,10 @@ class Foxfire.IndexController extends Ember.ObjectController with Foxfire.Curren
   queryParams: ['tab']
   tab: null
 
+  +computed currentAccount.activities
+  activities: ->
+    @get("currentAccount.activities")
+
   +computed
   prices: ->
     @store.find "price_statistic", 1

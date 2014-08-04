@@ -1,0 +1,7 @@
+span.dash.upcase.bold offer
+span $
+span.spacebar= priceNumber
+span.spacebar / lb
+span.upcase.bold.spacebar= incotermName
+span.capitalize.spacebar= locationName
+span.parantheses= materialName

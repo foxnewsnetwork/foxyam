@@ -56,7 +56,7 @@
       .tab-content
         .tab-pane.active
           if showActivity
-            == partial "index/activity"
+            == partial "index/activities"
           if showRecommendations
             == partial "index/recommendations"
 
