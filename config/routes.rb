@@ -4,7 +4,9 @@ Fuxueyan::Application.routes.draw do
     resources :tests, only: [:index]
   end
   namespace :apiv1 do
+    resources :locations, only: [:index], controller: 'locations/index'
     resources :materials, only: [:show], controller: 'materials/show'
+    resources :materials, only: [:index], controller: 'materials/index'
     resources :listings, only: [:create], controller: 'listings/create'
     resources :listings, only: [:index], controller: 'listings/index'
     resources :listings, only: [:show], controller: 'listings/show'
