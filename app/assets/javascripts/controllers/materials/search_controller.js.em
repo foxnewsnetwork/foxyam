@@ -17,4 +17,17 @@ class Foxfire.MaterialsSearchController extends Ember.ObjectController
   
   +computed q
   decodedQuerystring: ->
-    decodeURIComponent @q 
+    decodeURIComponent(@q) or ""
+
+  +computed listings.@each.material.hasGraph
+  materials: ->
+    @get("listings").filter (listing) ->
+      listing.get("material.hasGraph")
+
+  +computed decodedQuerystring
+  material: ->
+    @store.find("material", @decodedQuerystring)
+
+  +computed material.hasGraph
+  hasDataPlot: ->
+    @get("material.hasGraph")

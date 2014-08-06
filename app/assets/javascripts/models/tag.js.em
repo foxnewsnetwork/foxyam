@@ -3,6 +3,7 @@ class Foxfire.Tag extends DS.Model
   full_name: a "string"
   listing_count: a "number"
   tags: DS.hasMany("tag", async: true)
+  
 
   +computed id
   parent: ->

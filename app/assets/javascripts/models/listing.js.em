@@ -14,6 +14,10 @@ class Foxfire.Listing extends DS.Model
   time_interval: a 'string'
   created_at: a 'date'
   
+  +computed material_name
+  material: ->
+    @store.find "material", @get("material_name")
+      
   +computed account_id
   account: ->
     @store.find "account", @get("account_id")

@@ -66,18 +66,21 @@ class Apiv1::Tags::ShowController < Apiv1::Tags::IndexController
           id: 7,
           full_name: "material+HDPE",
           listing_count: rand(9999),
+          graph_created_at: 10.days.ago,
           parent_id: 2
         },
         {
           id: 8,
           full_name: 'material+LDPE',
           listing_count: rand(9999),
+          graph_created_at: 10.days.ago,
           parent_id: 2
         },
         {
           id: 9,
           full_name: "material+PVC",
           listing_count: rand(9999),
+          graph_created_at: 10.days.ago,
           parent_id: 2
         }
       ]

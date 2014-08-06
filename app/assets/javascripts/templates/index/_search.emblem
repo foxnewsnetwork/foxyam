@@ -1,13 +1,7 @@
 .input-group.input-group-lg
+  .input-group-addon
+    i.fa-search
+  text-field name="search" class='form-control' value=q placeholder="search..."
   .input-group-btn
-    button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-      span.spacebar.capitalize.bold search
-      i.fa-caret-down
-    ul.dropdown-menu role="menu"
-      li.pointer materials
-      li.pointer companies
-      li.pointer locations
-  input type="text" class="form-control"
-  .input-group-btn
-    button type="button" class="btn btn-default"
+    link-to "materials.search" (query-params q=q) class="btn btn-default"
       span.capitalize.bold go!

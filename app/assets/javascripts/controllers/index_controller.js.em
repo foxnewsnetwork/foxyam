@@ -1,6 +1,7 @@
 class Foxfire.IndexController extends Ember.ObjectController with Foxfire.CurrentAccountMixin
-  queryParams: ['tab']
+  queryParams: ['tab', 'q']
   tab: null
+  q: null
 
   +computed currentAccount.activities
   activities: ->

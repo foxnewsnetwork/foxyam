@@ -4,6 +4,16 @@
       .row
         .one-whole
           h2= decodedQuerystring
+
+      .row
+        .one-whole
+          .graph-holder style="background: #fff;"
+            if hasDataPlot
+              price-graph prices=material.prices quantities=material.quantities
+            else
+              .alert.alert-info
+                span.bold.capitalize.spacebar no graph!
+                span.text-muted no graph available
       .row
         .one-whole
           .list-group
@@ -20,3 +30,4 @@
 
     .one-quarter.hidden-on-mobile
       == partial "materials/sidebar"
+

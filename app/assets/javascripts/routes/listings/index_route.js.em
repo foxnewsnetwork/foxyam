@@ -7,7 +7,6 @@ class Foxfire.ListingsIndexRoute extends Ember.Route
     controller.set "model", @compositeModel()
   compositeModel: ->
     listings: @fetchListings()
-    materials: @store.find("material")
   fetchListings: ->
     @store.find "listing"
     @store.filter "listing", (listing) -> listing.get("id")?
