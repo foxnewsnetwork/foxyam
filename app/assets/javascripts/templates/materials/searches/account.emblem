@@ -1,0 +1,8 @@
+link-to 'account.sells' model class="list-group-item avatar-dialogue"
+  figure.avatar
+    img.media-object.px42 src=model.image
+  .dialogue
+    .capitalize.bold= model.company
+    .company-summary
+      span.capitalize.bold.colon listings
+      span= model.listings.length

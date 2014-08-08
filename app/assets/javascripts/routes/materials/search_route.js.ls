@@ -1,33 +1,54 @@
 Foxfire.MaterialsSearchRoute = Ember.Route.extend do
-  model: -> @bloodHound()
-  renderTemplate: ->
+  model: -> @blood-hound()
+
+  render-template: ->
     @_super()
     @render 'materials/headers/search', outlet: 'header'
     @render 'materials/footers/search', outlet: 'footer'
-  listings: ->
-    @store.find("listing")
-  listingsForBloodhound: ->
-    @listings!.map @listing2Bloodhound
-  listing2Bloodhound: (listing) ->
-    value: [listing.get("material_name"), listing.get("account.company"), listing.get("location_name")].join(" ")
-    listing: listing
-  remoteOptions: ->
-    url: "/apiv1/listings.json?q=%QUERY"
-    filter: _.bind(@parsedResponse2BloodhoundListing, @)
-  parsedResponse2BloodhoundListing: (parsedResponse) ->
-    @parsedResponse2Listings(parsedResponse).map @listing2Bloodhound
-  parsedResponse2Listings: (parsed-response) ->
-    parsed-response.listings.map (listing-data) ~>
-      @store.push "listing", listing-data
-  bloodHound: ->
-    dog = @start-puppy!
-    dog.initialize!
-    dog
-  start-puppy: ->
-    new Bloodhound @blood-options!
+
+  blood-hound: ->
+    @start-puppy!
+      ..initialize!
+
+  start-puppy: -> new Bloodhound @blood-options!
+
   blood-options: ->
-    name: "listings"
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value')
+    name: 'searches'
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('indicies')
     queryTokenizer: Bloodhound.tokenizers.whitespace
-    remote: @remoteOptions()
-    local: @listingsForBloodhound()
+    remote: @remote-options!
+    local: @local-cached-searches!
+
+  local-cached-searches: ->
+    @store.all("search") |> @search-to-blood-datums |> _.flatten
+
+  remote-options: ->
+    url: "/apiv1/searches.json?q=%QUERY"
+    filter: _.bind(@parsed-response-to-blood-search, @)
+  
+  parsed-response-to-blood-search: (parsed-response)->
+    parsed-response |> @parsed-response-to-search |> @search-to-blood-datums
+
+  parsed-response-to-search: (parsed-response) ->
+    parsed-response.listings.map (listing) ~> @store.push "listing", listing
+    parsed-response.accounts.map (account) ~> @store.push "account", account
+    @store.push "search", parsed-response.search
+
+  search-to-blood-datums: (search) ->
+    datums = 
+      * @listings-to-blood-datums search.get "listings"
+        @accounts-to-blood-datums search.get "accounts"
+    _.flatten datums
+
+  listings-to-blood-datums: (listings) ->
+    return [] unless listings
+    listings.map (listing) ->
+      type: "listing"
+      indicies: [listing.get("material_name"), listing.get("account.company"), listing.get("location_name")].join(" ")
+      result: listing
+  accounts-to-blood-datums: (accounts) ->
+    return [] unless accounts
+    accounts.map (account) ->
+      type: "account"
+      indicies: account.get("company")
+      result: account

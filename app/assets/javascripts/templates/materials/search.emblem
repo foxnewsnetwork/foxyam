@@ -3,7 +3,8 @@
     .three-quarters
       .row
         .one-whole
-          h2= decodedQuerystring
+          if hasAlreadySearched
+            h2= decodedQuerystring
 
       .row
         .one-whole
@@ -17,16 +18,29 @@
       .row
         .one-whole
           .list-group
-            each listing in listings
-              == render "listings/slice" listing
-            else
+            if hasListings
+              .label-thingie.capitalize.bold.pull-right
+                i.fa-list
+                span.prespace listings
+              each listing in listings
+                == render "listings/slice" listing
+            
+            if hasAccounts
+              .label-thingie.capitalize.bold.pull-right
+                i.fa-building
+                span.prespace companies
+              each account in accounts
+                == render "materials/searches/account" account
+
+            if searchedButNoResults
               .list-group-item.inactive
-                if decodedQuerystring
-                  i.fa-spin.fa-spinner
-                  span.prespace.capitalize.ellipsis no results yet
-                else
-                  i.fa-pencil
-                  span.prespace.capitalize you haven't searched yet
+                i.fa-spin.fa-spinner
+                span.prespace.capitalize.ellipsis no results yet
+            
+            if haveNotSearchedYet
+              .list-group-item.inactive
+                i.fa-pencil
+                span.prespace.capitalize you haven't searched yet
 
     .one-quarter.hidden-on-mobile
       == partial "materials/sidebar"
