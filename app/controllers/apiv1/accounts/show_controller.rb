@@ -1,6 +1,6 @@
 class Apiv1::Accounts::ShowController < Apiv1::BaseController
   def show
-    render json: { account: _mocked, locations: _locations }
+    render json: { account: _mocked, locations: _locations, discrepancies: _discrepancies }
   end
   private
   def _mocked
@@ -10,7 +10,8 @@ class Apiv1::Accounts::ShowController < Apiv1::BaseController
       company: _some_company,
       executive_summary: Faker::Lorem.paragraph,
       image: _image_src,
-      locations: _locations.map { |h| h[:id] }
+      locations: _locations.map { |h| h[:id] },
+      discrepancies: _discrepancies.map { |h| h[:id] }
     }
   end
   def _some_company
@@ -40,5 +41,21 @@ class Apiv1::Accounts::ShowController < Apiv1::BaseController
       country: Faker::Address.country,
       confirmed_at: 10.days.ago
     }
+  end
+  def _discrepancies
+    @discrepancies ||= 1.upto(rand 10).map { _discrepancy }
+  end
+  def _discrepancy
+    {
+      id: rand(999),
+      complaint_party_id: params[:complaint_party_id] || rand(999),
+      accused_party_id: params[:accused_party_id] || rand(999),
+      resolved_at: _resolution_date,
+      created_at: 10.days.ago,
+      complaint_summary: Faker::Lorem.sentence
+    }
+  end
+  def _resolution_date
+    [nil, (rand 15).days.ago].sample
   end
 end

@@ -1,0 +1,11 @@
+link-to "discrepancy.show" model class="list-group-item"
+  .media
+    .pull-left.color-flare
+      i.fa-info-circle.fa-2x
+    .media-body
+      .media-heading.capitalize
+        span.bold.colon discrepancy filed by
+        span.prespace= model.complaintParty.company
+      .media-summary 
+        span= model.complaint_summary
+        span.pull-right.text-muted= model.timeSinceFiling

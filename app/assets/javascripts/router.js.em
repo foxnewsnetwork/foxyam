@@ -1,4 +1,7 @@
 Foxfire.Router.map ->
+  @resource "discrepancy", path: "/discrepancy/:discrepancy_id", ->
+    @route "show"
+    
   @resource 'contact', path: '/contact', ->
     @route 'show', path: '/:contact_id'
 

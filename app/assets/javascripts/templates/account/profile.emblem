@@ -17,20 +17,14 @@
         .list-group
           .list-group-item
             span.bold.dash.capitalize post-transaction discrepencies
-            span.spacebar 94 resolved
+            span.spacebar= resolvedDiscrepancies.length
+            span.spacebar resolved
             span.bold out of
-            span.prespace 100 total
-          .list-group-item
-            .media
-              .pull-left.color-flare
-                i.fa-info-circle.fa-2x
-              .media-body
-                .media-heading.capitalize
-                  span.bold.colon discrepancy filed by
-                  span.prespace some company
-                .media-summary 
-                  span 42 loads of HDPE Natural
-                  span.pull-right.text-muted 244 days ago
+            span.prespace= discrepancies.length
+            span.prespace total
+          each discrepancy in unresolvedDiscrepancies
+            == render "account/profiles/discrepancy" discrepancy
+          
 
   .row
     .one-whole

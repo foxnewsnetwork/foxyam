@@ -7,6 +7,7 @@ class Foxfire.Account extends DS.Model
   image: a "string"
   executive_summary: a "string"
   locations: DS.hasMany "location"
+  discrepancies: DS.hasMany "discrepancy"
 
   +computed id
   fulfilments: -> 

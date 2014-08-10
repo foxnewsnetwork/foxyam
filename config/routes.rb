@@ -4,6 +4,7 @@ Fuxueyan::Application.routes.draw do
     resources :tests, only: [:index]
   end
   namespace :apiv1 do
+    resources :discrepancies, only: [:show], controller: 'discrepancies/show'
     resources :searches, only: [:index], controller: 'searches/index'
     resources :locations, only: [:index], controller: 'locations/index'
     resources :materials, only: [:show], controller: 'materials/show'
