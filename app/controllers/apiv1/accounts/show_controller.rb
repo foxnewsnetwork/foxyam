@@ -1,6 +1,6 @@
 class Apiv1::Accounts::ShowController < Apiv1::BaseController
   def show
-    render json: { account: _mocked }
+    render json: { account: _mocked, locations: _locations }
   end
   private
   def _mocked
@@ -8,7 +8,9 @@ class Apiv1::Accounts::ShowController < Apiv1::BaseController
       id: params[:id],
       email: Faker::Internet.email,
       company: _some_company,
-      image: _image_src
+      executive_summary: Faker::Lorem.paragraph,
+      image: _image_src,
+      locations: _locations.map { |h| h[:id] }
     }
   end
   def _some_company
@@ -23,5 +25,20 @@ class Apiv1::Accounts::ShowController < Apiv1::BaseController
   end
   def _image_src
     "emoji/" + _image_id.to_s + ".png"
+  end
+  def _locations
+    @locations ||= 1.upto(rand 5).map { _location }
+  end
+  def _location
+    {
+      id: rand(9999),
+      location_name: Faker::Address.city,
+      permalink: Faker::Address.city,
+      address1: Faker::Address.street_address,
+      city: Faker::Address.city,
+      state: Faker::AddressUS.state,
+      country: Faker::Address.country,
+      confirmed_at: 10.days.ago
+    }
   end
 end

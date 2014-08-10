@@ -1,0 +1,4 @@
+@import 'templates/offer/contacts';
+@mixin foxfire-templates-account-profile {
+  @include foxfire-templates-offer-contacts;
+}

@@ -10,7 +10,7 @@
       dl.dl-horizontal
         dt Merchant
         dd 
-          link-to "account.show" account.id
+          link-to "account.profile" account.id
             span.capitalize.spacebar= account.company 
             if currentMerchantIsOwner
               span.parantheses.capitalize.bold you!

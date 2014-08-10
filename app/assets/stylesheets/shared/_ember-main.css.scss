@@ -7,6 +7,7 @@
 @import 'templates/tag/show';
 @import 'templates/offer/accept';
 @import 'templates/step/show';
+@import 'templates/account/profile';
 @mixin shared-ember-main {
   #curtain {
     position: absolute;
@@ -74,5 +75,8 @@
   }
   #foxfire-templates-index {
     @include foxfire-templates-index;
+  }
+  #foxfire-templates-account-profile {
+    @include foxfire-templates-account-profile;
   }
 }

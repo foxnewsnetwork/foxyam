@@ -11,7 +11,12 @@ class Apiv1::Locations::IndexController < Apiv1::BaseController
     {
       id: rand(9999),
       location_name: Faker::Address.city,
-      permalink: Faker::Address.city
+      permalink: Faker::Address.city,
+      address1: Faker::Address.street_address,
+      city: Faker::Address.city,
+      state: Faker::AddressUS.state,
+      country: Faker::Address.country,
+      confirmed_at: 10.days.ago
     }
   end
 end

@@ -1,4 +1,4 @@
-link-to 'account.sells' model class="list-group-item avatar-dialogue"
+link-to 'account.profile' model class="list-group-item avatar-dialogue"
   figure.avatar
     img.media-object.px42 src=model.image
   .dialogue

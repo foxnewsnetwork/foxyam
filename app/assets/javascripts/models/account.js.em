@@ -5,6 +5,8 @@ class Foxfire.Account extends DS.Model
   password: a "string"
   passwordConfirmation: a "string"
   image: a "string"
+  executive_summary: a "string"
+  locations: DS.hasMany "location"
 
   +computed id
   fulfilments: -> 

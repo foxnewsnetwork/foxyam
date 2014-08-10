@@ -10,7 +10,7 @@
       dl.dl-horizontal
         dt Merchant
         dd
-          link-to "account.show" model.account
+          link-to "account.profile" model.account
             span.capitalize= model.account.company
         dt Latest Offer
         dd 

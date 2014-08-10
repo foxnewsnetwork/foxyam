@@ -4,7 +4,7 @@
   .panel-body
     .row
       .one-third.align-left
-        link-to "account.show" payingAccount
+        link-to "account.profile" payingAccount
           span.capitalize.bold.spacebar= payingCompany
           if currentAccountIsPaying
             span.parantheses you
@@ -21,7 +21,7 @@
         .hidden-on-desktop
           i.fa-arrow-down
       .one-third.align-right
-        link-to "account.show" receivingAccount
+        link-to "account.profile" receivingAccount
           span.capitalize.bold= receivingCompany
           if currentAccountIsReceiving
             span.parantheses you  

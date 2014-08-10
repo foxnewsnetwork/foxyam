@@ -1,11 +1,11 @@
-#foxfire-templates-account-sells
+#foxfire-templates-account-sells.padded-for-mobile-footer
   .row
     .three-quarters
       .list-group
         link-to "listings.new" class="list-group-item"
           h4
             i.fa-plus
-            span.bold.capitalize  new listing
+            span.bold.capitalize.prespace new listing
 
       .media-list.listing-slices
         each listing in listings

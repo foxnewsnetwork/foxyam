@@ -1,0 +1,44 @@
+#foxfire-templates-account-profile.padded-for-mobile-footer
+  .row
+    .one-whole
+      == partial "account/profiles/header"
+
+      .panel.panel-info
+        .panel-body.words
+          span.capitalize.bold.dash executive summary
+          span= account.executive_summary
+
+        .panel-body.addresses
+          .row
+            each location in locations
+              == render "account/profiles/location" location
+          
+
+        .list-group
+          .list-group-item
+            span.bold.dash.capitalize post-transaction discrepencies
+            span.spacebar 94 resolved
+            span.bold out of
+            span.prespace 100 total
+          .list-group-item
+            .media
+              .pull-left.color-flare
+                i.fa-info-circle.fa-2x
+              .media-body
+                .media-heading.capitalize
+                  span.bold.colon discrepancy filed by
+                  span.prespace some company
+                .media-summary 
+                  span 42 loads of HDPE Natural
+                  span.pull-right.text-muted 244 days ago
+
+  .row
+    .one-whole
+      .panel.panel-success
+        .panel-body.words
+          span.spacebar= listings.length
+          span.capitalize.bold listings
+        .list-group
+          each listing in listings
+            == render "listings/slice" listing
+      

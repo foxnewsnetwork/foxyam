@@ -44,9 +44,13 @@ class Foxfire.ApplicationRoute extends Ember.Route
       @closeModal()
       
     willTransition: (transition) ->
+      @lastTransition = Foxfire.HistoryHelper.previousTransition()
       @manageSlideTransition transition
       Foxfire.HistoryHelper.logTransition transition
       @closeModal()
     
     formSubmitted: ->
       @closeModal()
+
+    goBack: ->
+      @lastTransition.retry() or @transitionTo "index"

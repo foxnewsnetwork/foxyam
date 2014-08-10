@@ -1,0 +1,13 @@
+.one-third
+  if model.hasBeenConfirmed
+    .color-life
+      i.fa-lg.fa-check-circle
+      span.prespace.bold.capitalize confirmed
+
+  .capitalize
+    span.spacebar= model.address1
+    span= model.address2
+  .capitalize 
+    span.spacebar= model.city
+    span.spacebar= model.state
+    span= model.country

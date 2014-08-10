@@ -12,8 +12,8 @@ class Foxfire.HistoryHelper
     @transition-to-url @previousTransition!
 
   @attemptLastTransition = ->
-    trans = @previousTransition!
-    return unless trans?
+    Foxfire.debug-log trans = @previousTransition!
+    return unless trans
     trans.retry!
     true
 

@@ -50,7 +50,7 @@ Foxfire.Router.map ->
     @route 'new'
 
   @resource 'account', path: '/account/:account_id', ->
-    @route 'show'
+    @route 'profile'
     @route 'purchases'
     @route 'sells'
     @route 'preferences'
