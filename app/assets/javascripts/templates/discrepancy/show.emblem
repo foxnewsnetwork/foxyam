@@ -1,0 +1,37 @@
+#foxfire-templates-discrepancy-show.padded-for-mobile-footer
+  .row
+    .one-whole
+      .panel.panel-info
+        .list-group
+          link-to "fulfilment.log" fulfilment.id class="list-group-item"
+            h3.fulfilment
+              span.capitalize.colon regarding
+              span.bold.spacebar= fulfilment.transacted_goods
+              span.text-small.pull-right.text-muted= discrepancy.timeSinceFiling
+          link-to "account.profile" accusingAccount.id class="list-group-item"
+            .bold.capitalize.colon plaintiff
+            h4.company= accusingCompany
+
+          link-to "account.profile" accusedAccount.id class="list-group-item"
+            .bold.capitalize.colon defendant
+            h4.company= accusedCompany
+
+  .row
+    .one-whole
+      .panel.panel-warning
+        .panel-body
+          .bold.colon.capitalize claims
+          .claims= discrepancy.full_claims
+        .list-group
+          .list-group-item
+            .capitalize.bold.colon claim amount
+            .amount
+              span $
+              span= discrepancy.claim_amount
+
+  .row
+    .one-whole
+      a.pointer.list-group-item.align-center
+        h4
+          i.fa-warning
+          span.prespace.capitalize close claim

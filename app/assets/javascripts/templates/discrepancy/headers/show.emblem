@@ -1,0 +1,6 @@
+a.pointer click="goBack" class="back-button"
+  i.fa-angle-left
+  i.fa-bomb
+  span.page-name
+    span dispute#
+    span= discrepancy.permalink

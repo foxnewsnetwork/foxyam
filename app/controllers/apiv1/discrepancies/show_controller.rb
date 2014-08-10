@@ -11,7 +11,9 @@ class Apiv1::Discrepancies::ShowController < Apiv1::BaseController
       accused_party_id: params[:accused_party_id] || rand(999),
       resolved_at: _resolution_date,
       created_at: 10.days.ago,
-      complaint_summary: Faker::Lorem.sentence
+      full_claims: Faker::Lorem.paragraph,
+      fulfilment_id: rand(999),
+      claim_amount: rand(987654)
     }
   end
   def _resolution_date
