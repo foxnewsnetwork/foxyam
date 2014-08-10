@@ -8,10 +8,15 @@ class Foxfire.Fulfilment extends DS.Model
   transacted_goods: a "string"
   transaction_party: a "string"
   created_at: a "date"
+  log_entries: DS.hasMany "log_entry"
 
   +computed offer_id
   offer: ->
     @store.find "offer", @offer_id
+
+  +computed offer.account
+  buyerAccount: ->
+    @get "offer.account"
     
   +computed id
   steps: ->

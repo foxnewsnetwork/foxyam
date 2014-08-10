@@ -1,0 +1,14 @@
+.list-group-item
+  .media
+    .pull-left
+      img.media-object.px42 src=entry.account.image
+
+    .media-body
+      h4.media-heading.capitalize
+        span.bold.colon= entry.log_type
+        span.prespace= entry.log_subject
+      if entry.statement
+        .statement= entry.statement
+        .pull-right.text-small.text-muted
+          span.dash= entry.provider_name
+          span= entry.created_at

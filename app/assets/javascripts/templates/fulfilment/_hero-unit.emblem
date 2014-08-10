@@ -1,19 +1,21 @@
-.hero-unit
-  .row
-    .col-xs-3
-      a href='#swap_to_summary'
-        figure.cover-image
-          img src="emoji/456.png"
-    .col-xs-9
-      .pull-right
-        a href="?"
-          i.fa-eye
-      dl.dl-horizontal
-        dt Merchant
-        dd Someone
-        dt Final Price
-        dd $0.45/lb FAS Long Beach Port
-        dt Material
-        dd 4 containers of HDPE Milk Jugs
-        dt Packing Weight
-        dd 32,000 lbs/40ST
+.panel.panel-info
+  .panel-body
+    dl
+      dt.capitalize merchant
+      dd= merchantAccount.company
+      dt.capitalize buyer
+      dd= buyerAccount.company
+      
+      dt.capitalize transfered goods
+      dd= fulfilment.transacted_goods
+      
+      if currentAccountRelevant
+        dt.capitalize agreed amount
+        dd
+          span $
+          span= fulfilment.money_amount
+
+.panel.panel-success
+  .list-group
+    each entry in entries
+      == render "fulfilment/logs/entry" entry
