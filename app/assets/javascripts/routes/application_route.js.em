@@ -53,4 +53,6 @@ class Foxfire.ApplicationRoute extends Ember.Route
       @closeModal()
 
     goBack: ->
-      @lastTransition.retry() or @transitionTo "index"
+      return @lastTransition.retry() if @lastTransition
+      @transitionTo "index"
+      
